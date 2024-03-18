@@ -1,0 +1,77 @@
+/* This should be added on top of a reveal.js theme (developpped with black theme) */
+
+/* Text changes */
+.reveal {
+    font-size: 1.8em;
+}
+
+.reveal h2 {
+    font-size: 1.6em;
+}
+
+.reveal .pre_ul {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.reveal ul {
+    line-height: 1.5em;
+}
+
+.reveal strong {
+    color: green;
+}
+
+/* Code changes */
+.reveal code {
+    line-height: 1.5em;
+}
+
+/* Create flex objects witch will be displayed in row (i.e. columns will be created) */
+.reveal .cols {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: stretch;
+}
+
+.reveal .cols > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0px 20px;
+}
+
+.reveal .cols > div {
+    align-items: center;
+}
+
+/* Create style to have fragments which turn to have a low opactiy */
+.reveal .slides section .fragment.highlight-hide {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.reveal .slides section .fragment.highlight-hide.visible {
+  opacity: 0.4;
+}
+
+/* SVG elements */
+svg .arrow {
+    stroke: gainsboro;
+    fill: gainsboro;
+    stroke-width: 5;
+}
+
+svg text {
+    fill: gainsboro;
+}
+
+/* Remove lines of tables mostly used for option list */
+.reveal table.simple th,
+.reveal table.simple td {
+    border: 0
+}
+.reveal table.simple th {
+    white-space: nowrap
+}

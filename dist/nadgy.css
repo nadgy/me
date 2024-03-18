@@ -1,0 +1,72 @@
+/* nadgyflex.css*/
+.mycontainer {
+    display: flex;
+  }
+  .mycontainer > div {
+    width:33%;
+  }
+  .author {
+    font-size:medium;
+  }
+  .moyen {
+    font-size: large ;
+  }
+  .fragment.blur {
+    filter: blur(5px);
+  }
+  .fragment.blur.visible {
+    filter: none;
+  }
+  .timelineimg {
+    background-color:white;
+  }
+/***************************************************************/
+/*  columns */
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+/********************mytheme.css*********************/
+.cols {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cols div {
+  flex: 1; /* Chaque colonne prend autant d'espace que possible */
+  max-width: 33%; /* Chaque colonne prend au maximum 33% de la largeur du conteneur */
+}
+
+.cols img {
+  width: 100%; /* Les images prennent 100% de la largeur de leur conteneur */
+  height: auto;
+}
+.qgis p ,ol{
+  line-height: 30px;
+  font-size: 23px;
+  margin: 0 0 24px;
+  text-align: left;
+}
