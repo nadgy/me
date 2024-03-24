@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Présentations TP-SE & TP-GIS</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+        <link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme">
+        <link rel="stylesheet" href="dist/mytheme.css">
+        
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+                <section id="title-slide" style="top: 268px; display: block;" class="present" data-index-h="0">
+                    <h1 class="title">Bash (<u>B</u>ourne-<u>a</u>gain <u>Sh</u>ell)</h1>
+                    <p class="author">Nadia GUEALIA</p>
+                    <p class="author">Source: <a href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/0.objectifs/index.html#/"> Systèmes d'exploitation</a> université de genève, Guillaume Chanel &copy;</p>
+                    <!-- <p class="date">Automne <script>document.write(new Date().getFullYear())</script></p> -->
+      
+                    <aside class="notes">
+                        <p>Bash est le successur de Bourne Shell, noter la blague Bourne Again = Born again</p>
+                    </aside>
+                </section>
+      
+                 <!-- ************* SHELLS ************* -->
+                <section style="top: 0px; display: block;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true" data-index-h="1">
+                    <section id="shell" class="title-slide slide level1 past" style="top: 304px; display: block;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="0">
+                        <h1>Qu'est-ce qu'un Shell ?</h1>
+                    </section>
+      
+                    <section id="interface-texte" class="slide level2 past" style="top: 293.5px; display: block;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="1">
+                        <h2>Interface texte</h2>
+                        Pourquoi utiliser une interface texte en <script>document.write(new Date().getFullYear())</script> ?
+      
+                        <aside class="notes">
+                            <ul>
+                                <li>Connexion à distance facile y compris sur des machines sans UI</li>
+                                <li>Certaines tâches complexes sur UI sont très simples par ligne de commande, par exemple:</li>
+                                <ul>
+                                    <li>ajouter la date à la fin des noms de tous les fichiers d'un répertoire)</li>
+                                    <li>ne lire que les 10 premières lignes d'un enorme fichier</li>
+                                </ul>
+                            </ul>
+                            <p>Examples: lenteur de connexion sur des satellites, automatiser une série d'actions (i.e. MACRO vs. scripting), en cas d'erreur il est facile de copier le texte sur Google, une marche a suivre sur internet est facile à reproduire sans screen-shots</p>
+                        </aside>
+                    </section>
+      
+                    <section id="le-shell" class="slide level2 past" style="top: 0px; display: none;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="2">
+                        <h2>Le Shell</h2>
+                        <ul class="text-block">
+                            <li>Interface textuelle, ligne de commande</li>
+                            <li>presque toutes les fonctionnalités d'Unix sont accessibles</li>
+                            <li>Petits outils simple que l'on peut composer</li>
+                            <li>Possibilité d'écrire des <strong>scripts</strong></li>
+      
+                            <aside class="notes">
+                                <p>Shell veux dire coquille -&gt; c'est la première chose que l'on voit du système, cela emballe de système</p>
+                                <p>Parler de la phylosophie UNIX: minimaliste et modulaire:
+                                    </p><ul>
+                                        <li>chaque outil fait une seule chose mais elle le fait bien</li>
+                                        <li>se préparer à ce que la sortie d'un programe soit l'entrée d'un autre (méchanisme de pipe, pas d'entrée interactive, interace texte car universelles)</li>
+                                    </ul>
+                                <p></p>
+                                <p>Seul quelques fonctionnalité UI ne sont pas disponibles mais c'est même difficille a trouver</p>
+                            </aside>
+                        </ul>
+                    </section>
+      
+                    <section id="terminal-pseudo-terminal" class="slide level2 past" style="top: 0px; display: none;" data-fragment="1" hidden="" aria-hidden="true" data-index-h="1" data-index-v="3">
+                        <h2>Terminal &amp; Pseudo-Terminal</h2>
+                        <div class="cols" style="align-items:flex-end">
+                            <div>
+                                <img alt="image" src="images/tty33.jpg" data-lazy-loaded="">
+                                <figcaption>terminal</figcaption>
+                            </div>
+                            <div class="fragment" data-fragment-index="0">
+                                <img alt="image" src="images/vt220.jpg" data-lazy-loaded="">
+                                <figcaption>VT220</figcaption>
+                            </div>
+                            <div class="fragment" data-fragment-index="1">
+                                <img alt="image" src="images/xterm.jpg" data-lazy-loaded="">
+                                <figcaption>Pseudo-terminal</figcaption>
+                            </div>
+                        </div>
+      
+                        <aside class="notes">
+                            <p>TTY = TeleTYpe, PTS = Pseudo-Terminal</p>
+                            <p>Les tty ont evolué des teletype aux machine plus avancés tel que les VT220, VT pour video terminal</p>
+                            <p>Pour faire simple le PT est un programme graphique qui emule le comportement d'un terminal</p>
+                        </aside>
+                    </section>
+      
+                    <section id="les-shells" class="slide level2 past" style="top: 95px; display: none;" hidden="" aria-hidden="true" data-index-h="1" data-index-v="4">
+                        <h2>Autre interfaces en ligne de commande</h2>
+                        <div class="cols">
+                            <div style="border-right-style: solid; border-right-width: 1px; border-right-color: white">
+                                <h3>Windows</h3>
+                                <div>
+                                    <img alt="image" width="40%" style="margin-bottom: 0" src="images/cmd.jpg" data-lazy-loaded="">
+                                    <figcaption>CMD</figcaption>
+                                </div>
+                                <div>
+                                    <img alt="image" width="50%" style="margin-bottom: 0; margin-top: 30px" src="images/powershell.png" data-lazy-loaded="">
+                                    <figcaption>PowerShell</figcaption>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Linux / Mac / UNIX</h3>
+                                <img alt="image" width="50%" src="images/xterm.jpg" data-lazy-loaded="">
+                                <figcaption>sh, <strong>bash</strong>, csh, zsh, fish, etc.</figcaption>
+                            </div>
+                        </div>
+      
+                        <aside class="notes">
+                            <p>Mentionner que bash est disponible directement sur Mac</p>
+                            <p>Dire que cmd est a quelque similarités avec bash (cd, forme des commandes avec options, etc.)</p>
+                            <p>PowerShell devient très différent avec un fonctionnement orienté objets</p>
+                            <div>
+                                <p>Ces shells diffèrent par:</p>
+                                <ul class="text-block">
+                                    <li>Manière d'écrire les scripts</li>
+                                    <li>Configuration et personnalisation</li>
+                                    <li>Commandes prédéfinies</li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </section>
+      
+                    <section class="" style="top: 170px; display: none;" data-fragment="0" aria-hidden="true" data-index-h="1" data-index-v="5">
+                        <h2>Préparation de l'environement de travail</h2>
+                        <div>
+                            <ul>
+                                <li>Ouvrez un pseudo-terminal (si il n'est pas déjà ouvert) <img src="gnome-term-icon.svg" alt="Gnome terminal icon" width="40px" style="vertical-align: middle; border: none; box-shadow: none"></li>
+                                <li>Qu'observez-vous ?</li>
+                            </ul>
+                        </div>
+                        <div class="fragment" data-fragment-index="0">
+                            <hr>
+                            <p>Tapez la commande suivante:</p>
+                            <pre><code class="shell " style="font-size: 18pt">$  git clone https://gitlab.unige.ch/outils-info/bash.git</code></pre>
+                        </div>
+                    </section>
+      
+                </section>
+      
+                <!-- ************* MANUEL ************* -->
+                <section style="top: 0px; display: block;" class="stack future" data-previous-indexv="0" data-index-h="2" hidden="" aria-hidden="true">
+                    <section id="manuel" class="title-slide slide level1 past" style="top: 304px; display: block;" hidden="" aria-hidden="true" data-index-h="2" data-index-v="0">
+                        <h1>Manuel</h1>
+                    </section>
+      
+                    <section id="accèder-au-manuel-man" class="slide level2" style="top: 97.5px; display: none;" data-fragment="-1" data-index-h="2" data-index-v="1" aria-hidden="true">
+                        <h2>Accèder au manuel (<code>man</code>)</h2>
+                        <ul>
+                            <li>Un manuel très complet est présent sur les systèmes Unix</li>
+                            <li>Commande: <code>man [section] &lt;sujet&gt;</code></li>
+                            <li>Pour sortir du manuel, appuyer sur la touche <code>q</code></li>
+                            <li>Pour chercher le texte "montexte", taper <code>/montexte</code> (valider par entrer)</li>
+                        </ul>
+      
+                        <fieldset style="text-align:center">
+                            <legend>Exemples</legend>
+                            <div>
+                                <pre><code class="shell hljs">$ man pwd </code></pre>
+                                <pre><code class="shell hljs">$ man 3 getcwd</code></pre>
+                                <pre><code class="shell hljs">$ man man</code></pre>
+                                <pre class="fragment" data-fragment-index="0"><code class="shell hljs">$ apropos sujet  # permet de lister les pages d'un sujet</code></pre>
+                            </div>
+                        </fieldset>
+                    </section>
+      
+                    <section id="sections-du-manuel-sur-gnulinux" class="slide level2 future" aria-hidden="true" style="top: 111px; display: none;" hidden="" data-index-h="2" data-index-v="2">
+                        <h2>Sections du manuel sur GNU/Linux</h2>
+                        <table>
+                            <tbody><tr>
+                                <td><strong>1</strong></td>
+                                <td class="fragment highlight-blue" data-fragment-index="0">Commandes générales</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td class="fragment highlight-blue" data-fragment-index="1">Appels systèmes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td class="fragment highlight-blue" data-fragment-index="1">Librairie C</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>Fichiers spéciaux</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>Formats de fichiers et conventions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td>Jeux</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7</strong></td>
+                                <td>Divers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>8</strong></td>
+                                <td>Commandes d'administration et démons</td>
+                            </tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section id="rtfm" class="slide level2 future" data-background-image="rtfm.jpg" data-background-size="contain" aria-hidden="true" style="top: 320.5px; display: none;" hidden="" data-index-h="2" data-index-v="3">
+                        <h2>RTFM !</h2>
+                    </section>
+                </section>
+      
+                <!-- Se localiser et se déplacer -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="3" data-previous-indexv="0">
+                    <section style="top: 304px; display: none;" data-index-h="3" data-index-v="0">
+                        <h1>Se localiser et se déplacer</h1>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 154px; display: none;" data-index-h="3" data-index-v="1">
+                        <h2>pwd, ls et cd</h2>
+                        <ul class="fragment" data-fragment-index="0">
+                            <li>Regarder dans quel dossier vous êtes</li>
+                            <li>Aller dans le dossier <code>/tmp</code></li>
+                            <li>Vérifiez que vous êtes bien dans le dossier <code>/tmp</code></li>
+                            <li>Lister le contenu du dossier</li>
+                            <li>Revenez dans votre dossier initial (i.e. dossier home)</li>
+                            <li>Allez dans le dossier bash (celui créer par la commande git)</li>
+                            <li>Lister le contenu du dossier /tmp depuis le dossier bash</li>
+                        </ul>
+      
+                        <aside class="notes">
+                            <p>A chaque étape utiliser pwd (print working directory)</p>
+                            <p>Montrer ls simple</p>
+                            <p>Insiter sur le dossier bash qui est celui crée par la commande git pécédente</p>
+                            <p>Aller dans un dossier avec cd puis refaire ls simple</p>
+                            <p>Montrer comment revenir en arrière -&gt; cd ..</p>
+                        </aside>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="2">
+                        <h2>Chemin d'accès</h2>
+                        <div class="text-block">
+                            <p>Les conventions suivantes (POSIX) s'appliquent:</p>
+                            <ul>
+                                <li>La racine est représentée par <code>/</code></li>
+                                <li>Les répertoires sont séparés par <code>/</code></li>
+                                <li>Tout chemin qui ne commence par <code>/</code> est relatif au répertoire courant.</li>
+                                <li>Le répertoire courant est symbolisé par <code>.</code></li>
+                                <li>Le réperoire parent est symbolisé par <code>..</code></li>
+                                <li>Le répertoire <em>home</em> est symbolisé par <code>~</code></li>
+                            </ul>
+                        </div>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="3">
+                        <h2>Chemin d'accès - exercices</h2>
+                        <ul>
+                            <li>Quel est le résultat des commandes ci-dessous ?</li>
+                            <pre><code class="shell hljs">$cd ~/././././bash</code></pre>
+                            <pre><code class="shell hljs">$ls ~/./bash/../bash/../.</code></pre>
+                            <li>Comment lister le contenu de votre dossier home depuis n'importe quel dossier (a tester)?</li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="4">
+                        <h2>Nommer un ensemble de fichiers</h2>
+                        <p style="text-align: left">Les noms de fichiers suivent les règles suivantes:</p>
+                        <ul class="text-block">
+                            <li>Maximum 255 caractères</li>
+                            <li>Tous les caractères sont autorisés, mais sont déconseillés:
+                                <ul>
+                                    <li>espaces</li>
+                                    <li><code>.</code> <code>*</code> <code>?</code> <code>/</code> <code>!</code></li>
+                                </ul>
+                            </li>
+                            <li>Si le nom du fichier commence par un point, il est <strong>caché</strong>.</li>
+                        </ul>
+                        <hr>
+                        <p style="text-align: left">On peu référencer plusieurs fichiers en utilisant les symboles suivants:</p>
+                        <table class="simple">
+                            <tbody><tr><th>*</th><td>remplace zéro, un ou plusieurs caractères</td></tr>
+                            <tr><th>?</th><td> un seul caractère</td></tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="3" data-index-v="5">
+                        <h2>Fichiers cachés et selection - Exercices</h2>
+                        <ul>
+                            <li>Avec le manuel trouvez l'option de <code>ls</code> qui permet de lister les fichiers cachés</li>
+                            <li>Utiliser la pour lister les fichiers cachés de votre dossier home</li>
+                            <hr>
+                            <li>Rendez vous dans le dossier bash/ressources</li>
+                            <li>Listez dans le dossier images toutes les images au format JPEG</li>
+                            <li>Lister toutes les images d'oiseaux</li>
+                            <li>Lister toutes les images d'oiseaux au format PNG</li>
+                            <li>Lister les images de chat portant un numéro entre 90 et 99 (inclus)</li>
+                        </ul>
+                    </section>
+                </section>
+      
+                <!-- Les utilisateurs, les groupes et les droits -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="4" data-previous-indexv="0">
+                    <section style="top: 261px; display: none;" data-index-h="4" data-index-v="0">
+                        <h1>Les utilisateurs, les groupes et les droits</h1>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="1">
+                        <h2>Informations sur les fichiers/dossiers</h2>
+                        <ul>
+                            <li>Trouvez dans le manuel ce que fait la command <code>ls -lh</code></li>
+                            <li>Observons ensemble le résultat...</li>
+                        </ul>
+      
+                        <aside class="notes">
+                            <p>En profiter pour insister sur . et ..</p>
+                        </aside>
+                    </section>
+      
+                    <section id="utilisateurs-1" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="2">
+                        <h2>Utilisateurs</h2>
+                        <div>
+                            <ul>
+                                <li>Chaque utilisateur se loge sur une machine Unix avec une identité (<em>user</em>)</li>
+                                <li>Un utilisateur est décrit par:
+                                    <ul>
+                                        <li>Nom d'utilisateur</li>
+                                        <li>Mot de passe</li>
+                                        <li>Identifiant numérique (<em>userid</em>)</li>
+                                        <li>Groupe par défaut</li>
+                                        <li>Répertoire <code>home</code></li>
+                                        <li>Description</li>
+                                        <li>Shell par défaut</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+      
+                    <section id="super-utilisateur-root" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="3">
+                        <h2>Super-utilisateur (root)</h2>
+                        <ul>
+                            <li>Il existe un super-utilisateur: <strong>root</strong></li>
+                            <li>Son userid est le 0</li>
+                            <li>Il a le droit de tout faire.</li>
+                        </ul>
+                        <p style=" color:aquamarine">Accès au mot de passe root: faille de sécurité majeure.</p>
+                    </section>
+      
+                    <section id="groupes" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="4">
+                        <h2>Groupes</h2>
+                        <div style="text-align: left">
+                            <p>Les utilisateurs peuvent faire partie d'un ou plusieurs <strong>groupes</strong>:</p>
+                            <ul>
+                                <li>Groupe par défaut</li>
+                                <li>Autres groupes</li>
+                            </ul>
+                            <p>Ceci permet par exemple de:</p>
+                            <ul>
+                                <li>restreindre l'accès à un répertoire à un seul groupe</li>
+                                <li>donner accès à un périphérique à un seul groupe</li>
+                            </ul>
+                        </div>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="5">
+                        <h2>Utilisateurs et groupes - exercices</h2>
+                        <ul>
+                            <li>A l'aide de la commande <code>whoami</code> obtenez votre login</li>
+                            <li>A l'aide de la commande <code>groups</code> obtenez vos groupes</li>
+                            <li>Retrouvez ces information avec la commande <code>id</code></li>
+                        </ul>
+                        <hr>
+                        <p>La commande <strong><code>cat</code></strong> permet d'afficher un ou plusieurs fichiers à l'écran (concatenation, voir manuel):</p>
+                        <ul>
+                            <li>utilisez cat sur le fichier /etc/passwd et retourvez vos informations utilisateur</li>
+                            <li>utilisez cat sur le fichier /etc/group et retrouvez les informations de vos groupes</li>
+                        </ul>
+                    </section>
+      
+                    <section id="permissions-1" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="6">
+                        <h2>Permissions</h2>
+                        <p><img alt="file permissions" width="80%" style="padding:20px" src="perms.svg" data-lazy-loaded=""></p>
+                    </section>
+      
+                    <section id="permissions-2" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="4" data-index-v="7">
+                        <h2>Permissions - effets</h2>
+                        <div>
+                            <p style="text-align: left"><strong>Fichier:</strong></p>
+                            <table>
+                                <tbody><tr><th>Read</th><td>Lire le contenu du fichier</td></tr>
+                                <tr><th>Write</th><td>Modifer le contenu d'un fichier<br>Warning en cas de suppression</td></tr>
+                                <tr><th>eXecute</th><td>Exécuter le fichier (exécutable binaire ou script)</td></tr>
+                            </tbody></table>
+                            <hr>
+                            <p style="text-align: left"><strong>Répertoire:</strong></p>
+                            <table>
+                                <tbody><tr><th>Read</th><td>Lister les <strong>noms</strong> des fichiers inclus (mais pas les métadonnées)</td></tr>
+                                <tr><th>Write</th><td>Créer, renommer ou détruire les fichiers inclus</td></tr>
+                                <tr><th>eXecute</th><td>"Ouvrir" le répertoire, voir les métadonnées, accèder au contenu des fichiers (mais pas aux noms), exécuter les fichiers exécutables.</td></tr>
+                            </tbody></table>
+                        </div>
+                    </section>
+      
+      
+                    <section id="permissions-3" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="4" data-index-v="8">
+                        <h2>Permissions - octal et chmod</h2>
+                        <p><img src="images/perms_octal.svg" style="padding:20px" width="70%"></p>
+                        <p>La commande <strong><code>chmod</code></strong> permet de changer les droits des fichiers:</p>
+                        <pre><code class="shell hljs">$ chmod 754 monficher.c</code></pre>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="4" data-index-v="9">
+                        <h2>Permissions - exercices</h2>
+                        <ul>
+                            <li>regarder le contenu du fichier bird00.jpg</li>
+                            <li>retirer les droits de lecture utilisateur du ficher images/bird00.jpg</li>
+                            <li>essayer de regarder le contenu du fichier bird00.jpg</li>
+                            <li>retirer les droits d'écriture utilisateur du ficher images/bird00.jpg</li>
+                            <li>Vérifier les changements de droit effectués</li>
+                            <li>Retirer <strong>les</strong> droits d'execution du dossier images</li>
+                            <li>Lister le contenu du dossier images avec <code>ls -l</code></li>
+                            <li>Redonner les droits d'exécution au dossier</li>
+                        </ul>
+                        <aside class="notes">
+                            <p>Pour ceux qui ont terminer demander de lire le man de chmod et de trouver des moyens plus simples de changer les permissions (u+x etc.)</p>
+                        </aside>
+                    </section>
+                </section>
+      
+                <!-- Créer, modifier, supprimer les fichiers/dossiers -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="5" data-previous-indexv="0">
+                    <section style="top: 0px; display: none;" data-index-h="5" data-index-v="0">
+                        <h1>Créer et supprimer les fichiers/dossiers</h1>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="1">
+                        <h2>Création et déplacement</h2>
+                        <table class="simple">
+                            <tbody><tr><th>touch <em>file</em></th><td>Crée un fichier vide si le fichier n'existe pas, sinon met à jour sa date de modification</td></tr>
+                            <tr><th>mkdir <em>folder</em></th><td>Crée le dossier spécifié</td></tr>
+                            <tr><th>mv <em>source [sources] dest</em></th><td>Déplace les sources vers la destination si la destination est un dossier, sinon renomme le fichier source en dest (possible changement de dossier)</td></tr>
+                            <tr><th>cp <em>source [sources] dest</em></th><td>Copie les sources vers la destination (la destination peut être un fichier ou un dossier)</td></tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="2">
+                        <h2>Création et déplacements - exercices</h2>
+                        <div class="cols">
+                            <div>
+                                <p>touch</p>
+                                <p>mkdir</p>
+                                <p>mv</p>
+                                <p>cp</p>
+                             </div>
+                             <div>
+                                 <ul>
+                                     <li>créez un dossier backup</li>
+                                     <li>copiez l'image images/bird01.jpg vers backup/mybird.jpg</li>
+                                     <li>essayez de copier l'image images/bird00.jpg</li>
+                                     <li>copiez toutes les images de chien vers backup</li>
+                                     <li>créez un fichier image vide dans backup/myimage.png</li>
+                                     <li>renommer ce fichier backup/myimage.jpg</li>
+                                     <li>déplacez en une commande les images de chats portant les numéro [00-09] et [90-99] vers le dossier backup</li>
+                                 </ul>
+                             </div>
+                        </div>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="3">
+                        <h2>Suppression</h2>
+                        <table class="simple">
+                            <tbody><tr><th>rm <em>fichier</em></th><td>Supprime le fichier indiqué</td></tr>
+                            <tr><th>rmdir <em>dossier</em></th><td>Supprime le dossier indiqué</td></tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="4">
+                        <h2>Suppression - exercices</h2>
+                        <ul>
+                            <li>tentez de supprimer le dossier backup, pourquoi n'est-ce pas possible?</li>
+                            <li>supprimez le fichier backup/mybird.jpg</li>
+                            <li>supprimez tout le contenu du dossier backup en une commande</li>
+                            <li>supprimez le dossier backup</li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>essayez de supprimer le fichier images/bird00.jpg. Refusez de supprimer le fichier. Que c'est-il passé, pourquoi ?</li>
+                            <li>ce fichier est donc supprimable, comment faire pour qu'il ne le soit plus ? Testez la solution, puis remmettez les droits à ceux d'origine</li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>copiez le dossier images vers images-backup, que ce passe-t-il ? Que veux dire l'option proposée ?</li>
+                            <li>effectuez la copie en utilisant l'option adéquate</li>
+                            <li>en regardant le manuel de la commande <code>rm</code>, supprimez le dossier images-backup et son contenu en une commande</li>
+                        </ul>
+                    </section>
+      
+      
+                    <section id="le-cauchemar" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="5">
+                        <h2>Le Cauchemar</h2>
+                        <div class="cols">
+                            <div style="background: lightcoral; width:300px">
+                                <pre><code class="hljs powershell">$ rm -rf ~/*.txt 
+$ rm -rf ~/* .txt</code></pre>
+                            </div>
+                            <img alt="image" src="images/sinkhole.jpg" data-lazy-loaded="">
+                        </div>
+      
+                        <aside class="notes">
+                            <p>Indiquer que l'option -f permet d'éviter les warnings vus lors de la suppression d'un fichier sans droits d'écriture</p>
+                            <p>Montrer que si on crée un fichier ./-rf et que l'on applique "rm *" on obtient un résultat bien ennuyeux. En profiter pour introduire --</p>
+                        </aside>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="5" data-index-v="6">
+                        <h2>Editer un fichier sur une interface texte</h2>
+                        <p style="text-align: left">Plusieurs éditeur shell sont disponibles, on peut mentionner:</p>
+                        <table class="simple">
+                            <tbody><tr><th>nano</th><td>Editeur léger, le plus facile a appréhender, les raccoucis clavier sont indiqués en bas</td></tr>
+                            <tr><th>vi</th><td>Editeur historique, forte courbe d'apprentissage</td></tr>
+                            <tr><th>vim</th><td>Nouvelle version de vi avec de nombreux plugins disponibles</td></tr>
+                            <tr><th>emacs</th><td>Editeur historique, forte courbe d'apprentissage, plus qu'un éditeur, il <a href="https://www.emacswiki.org/emacs/CoffeeMode">fait même le café</a></td></tr>
+                        </tbody></table>
+                        <aside class="notes">
+                            <p>Mentionner que vi sera présents sur la pluspart des systèmes UNIX par defaut, nano probablement aussi, emacs probablement pas</p>
+                        </aside>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="5" data-index-v="7">
+                        <h2>Editer un fichier</h2>
+                        <ul>
+                            <li>Créer un nouveaux fichier contenant la liste de vos courses en utilisant un éditeur</li>
+                            <li>Vérifier le contenu du fichier en utilisant une commande déjà vue (autre que l'éditeur)</li>
+                    </ul></section>
+      
+                </section>
+      
+                <!-- Redirection de flux et pipes -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="6" data-previous-indexv="0">
+                    <section style="top: 0px; display: none;" data-index-h="6" data-index-v="0">
+                        <h1>Redirection de flux et pipes</h1>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="6" data-index-v="1">
+                        <h2>Flux de sortie</h2>
+                        <p>Le flux de sortie d'un programme est dirigée par défaut sur le terminal</p>
+                        <p>La commande <strong><code>echo</code></strong> affiche les paramètres sur la sortie standard</p>
+                        <pre><code class="shell hljs" data-trim="" data-noescape="">$<span class="bash"> <span class="hljs-built_in">echo</span> ce cours est vraiment génial</span>
+ce cours est vraiment génial
+      
+$ <span class="hljs-built_in">echo</span> "ce cours est vraiment génial"</span>
+ce cours est vraiment génial</code></pre>
+                        <div class="fragment" data-fragment-index="0">
+                            <hr>
+                            <p><strong>Ce flux peut être redirigé vers un fichier avec <code>'&gt;'</code> :</strong></p>
+                            <pre><code class="shell hljs">$ echo ce cours est vraiment génial &gt; /tmp/qualite_du_cours.txt</code></pre>
+                        </div>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="6" data-index-v="2">
+                        <h2>Flux de sortie - exercices</h2>
+                        <ul>
+                            <li>stockez la liste des fichiers du dossier images, ainsi que leurs attributs, dans un fichier nommé result</li>
+                            <li>copiez un fichier vers le fichier result sans utiliser la commande <code>cp</code></li>
+                            <li>regarder le contenu de result</li>
+                            <hr>
+                            <li>stockez la liste des fichiers du dossier images, ainsi que leurs attributs, dans un fichier nommé result</li>
+                            <li><strong>En utilisant '&gt;&gt;' au lieu de '&gt;'</strong> copiez un fichier vers le fichier result sans utiliser la commande <code>cp</code></li>
+                            <li>regarder le contenu de result, que concluez vous ?</li>
+      
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="6" data-index-v="3">
+                        <h2>Flux d'entrée</h2>
+                        <p>Le flux d'entrée d'un programme est par défaut associé au clavier du terminal</p>
+                        <p>La plus part des commandes nécéssitant une entrée en paramètre (par exemple un nom de fichier) utilisent l'entrée standard si le parmètre n'est pas donné</p>
+                        <pre><code class="shell hljs" data-trim="" data-noescape="">$<span class="bash"> cat               </span><span class="fragment" data-fragment-index="0"><span class="bash"><span class="hljs-comment"># va attendre et répeter les entrées utilisateur</span></span></span>
+$<span class="bash"> cat &gt; livre.txt   </span><span class="fragment" data-fragment-index="1"><span class="bash"><span class="hljs-comment"># va concatener tous ce qui est tapé dans livre.txt -&gt; UN NOUVEL EDITEUR :-) !</span></span></span></code></pre>
+                        <div class="fragment" data-fragment-index="2">
+                            <hr>
+                            <p><strong>Un fichier peut-être redirigé vers ce flux d'entrée en utilisant <code>'&lt;'</code> :</strong></p>
+                            <pre><code class="shell hljs" data-trim="" data-noescape="">$<span class="bash"> cat &lt; livre.txt   <span class="hljs-comment"># l'entrée standard est le fichier livre</span></span>
+$<span class="bash"> cat livre.txt     <span class="hljs-comment"># le programme lit depuis le fichier livre, pas depuis l'entrée standard</span></span>
+$<span class="bash"> <span class="hljs-comment"># LE RESULTAT EST LE MEME</span></span></code></pre>
+                            <p><code>Ctrl+D</code> permet d'intérrompre le flux d'entrée</p>
+                        </div>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="6" data-index-v="4">
+                        <h3>Flux d'erreur</h3>
+                        <p>Les message d'erreur des programme ne sont pas redirigées vers le flux de sortie mais vers un flux d'erreur</p>
+                        <p>Par défaut le flux d'erreur est redirigé vers le terminal</p>
+                        <p><strong>Ce flux peut être redirigé vers un fichier avec <code>'2&gt;'</code> :</strong></p>
+                        <pre><code class="shell hljs" data-trim="" data-noescape="">$<span class="bash"> ls non_existant_folder &gt; /tmp/error.txt   </span><span class="fragment" data-fragment-index="0"><span class="bash"><span class="hljs-comment"># produit une erreur sur le terminal et un fichier vide</span></span></span>
+$<span class="bash"> ls non_existant_folder 2&gt; /tmp/error.txt  </span><span class="fragment" data-fragment-index="1"><span class="bash"><span class="hljs-comment"># produit un fichier contenant l'erreure</span></span></span></code></pre>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="6" data-index-v="5">
+                        <h2>Flux d'erreur - exercices</h2>
+                        <ul>
+                            <li>Utilisez la commande <code>ls -R /tmp</code> pour lister récursivement le contenu de /tmp</li>
+                            <li>Utilisez la même commande mais redirigez la sortie standard et l'erreur standard vers deux fichiers différents</li>
+                            <li>Observez ces fichiers</li>
+                        </ul>
+                    </section>
+      
+                    <section id="flux-standard-dans-les-langages-de-programmation" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="6" data-index-v="6">
+                        <h2>Flux Standard dans les langages de programmation</h2>
+                        <table>
+                            <thead>
+                                <tr><th></th><th><em>C</em></th><th><em>C++</em></th><th><em>Java</em></th><th><em>Python</em></th><th><em>Ruby</em></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Entrée</strong></td><td>stdin</td><td>std::cin</td><td>System.in</td><td>sys.stdin</td><td>$stdin</td></tr>
+                                <tr><td><strong>Sortie</strong></td><td>stdput</td><td>std::cout</td><td>System.out</td><td>sys.stdout</td><td>$stdout</td></tr>
+                                <tr><td><strong>Erreur</strong></td><td>stderr</td><td>std::cerr</td><td>System.err</td><td>sys.stderr</td><td>$stderr</td></tr>
+                            </tbody>
+                        </table>
+                        <p style="text-align: left">Exemple:</p>
+                        <pre><code class="java hljs">System.out.println( "Hello world!"); </code></pre>
+                        <pre><code class="shell hljs">$ java HelloWorld &gt; hello.txt</code></pre>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="6" data-index-v="7">
+                        <h2><strong><u>Pipes ou tubes</u></strong></h2>
+                        <p>Les pipes permettent de rediriger la sortie standard d'un programme vers l'entrée standard d'un autre</p>
+                        <p><strong>On utilise le symbole '|' entre deux commandes pour les utiliser:</strong></p>
+                        <pre><code class="shell hljs" data-trim="" data-noescape="">$<span class="bash"> less file            <span class="hljs-comment"># affiche le contenu du fichier file avec scrolling</span></span>
+$<span class="bash"> ls -R /tmp | less    <span class="hljs-comment"># affiche la sortie de ls AVEC scrolling</span></span></code></pre>
+                        <p>Combinés à la phylosophie UNIX, les pipes sont au coeur de la puissante des interfaces en ligne de commande</p>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="6" data-index-v="8">
+                        <h2>grep</h2>
+                        <table class="simple">
+                            <tbody><tr><th>grep <em>fichier pattern</em></th><td>cherche et affiche les lignes du fichier qui contienne un pattern (e.g. un mot)</td></tr>
+                            <tr><th>grep <em>pattern</em></th><td>cherche le pattern dans l'entrée standard et affiche les lignes le contenant</td></tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="6" data-index-v="9">
+                        <h2>Pipes et tubes - exercices</h2>
+                        <p>Quelques commandes utiles pour ces exercices (voir le manuel):</p>
+                        <p>sort, uniq, grep, head, du</p>
+                        <hr>
+                        <p>Utilisez la commande <code>ls -l</code> pour lister les fichiers de chats du dossier <code>images</code> mais sans ajouter d'arguments à <code>ls</code></p>
+                        <hr>
+                        <p>Le dossier <code>mails</code> contients des listes d'adresses. A partir de ces fichiers obtenez une seule liste des membres de HEPIA, triée par ordre alphabétique, sans doublons</p>
+                        <hr>
+                        <p>Lister les 2 plus gros fichiers contenus dans le dossier <code>mails</code></p>
+                    </section>
+                </section>
+      
+                <!-- Système de fichiers -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="7" data-previous-indexv="0">
+                    <section id="fichiers" class="title-slide slide level1" style="top: 0px; display: none;" data-index-h="7" data-index-v="0">
+                        <h1>Système de fichiers</h1>
+                    </section>
+                    <section id="système-de-fichier-1" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="7" data-index-v="1">
+                        <h2>Système de fichiers (1)</h2>
+                        <ul class="text-block">
+                            <li>Manière d'organiser les données sur le disque:
+                                <ul>
+                                    <li>Noms</li>
+                                    <li>Répertoires</li>
+                                    <li>Permissions</li>
+                                    <li>Metadonnées</li>
+                                    <li>Maintien de l'intégrité</li>
+                                    <li>…</li>
+                                </ul>
+                            </li>
+                        </ul>
+      
+                        <aside class="notes">
+                            <p>Metadonnées: pour les fichiers -&gt; les trois dates de cération, modifaction accès. Mais aussi la possibilité de choisir ces propres métadonnées</p>
+                            <p>Maintien de l'intégrité: par exemple le journaling qui sauve une opération avant de l'effectuer pour la terminée en cas d'intéruption</p>
+                        </aside>
+                    </section>
+      
+                    <section id="systèmes-de-fichier-2" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="7" data-index-v="2">
+                        <h2>Systèmes de fichiers (2)</h2>
+                            <p>Il existe plusieurs types de systèmes de fichiers. Par exemple:</p>
+                            <table>
+                                <tbody><tr>
+                                    <th>VFAT</th>
+                                    <td>Ancien système de fichiers de Windows, très utilisé sur les clé-usb, lecteurs MP3, etc.</td>
+                                </tr>
+                                <tr>
+                                    <th>NTFS</th>
+                                    <td>Système de fichiers récent sur Windows.</td>
+                                </tr>
+                                <tr>
+                                    <th><strong>ext4<strong></strong></strong></th>
+                                    <td>Système de fichiers par défaut sous beaucoup de distributions GNU/Linux</td>
+                                </tr>
+                                <tr>
+                                    <th>ISO9660</th>
+                                    <td>Système de fichiers des CD-ROMs</td>
+                                </tr>
+                                <tr>
+                                    <th>UDF</th>
+                                    <td>Système de fichiers des DVDs</td>
+                                </tr>
+                                <tr>
+                                    <th>HFS+</th>
+                                    <td>Système de fichiers sur MacOSX</td>
+                                </tr>
+                                <tr>
+                                    <th>NFS</th>
+                                    <td>Système de fichiers <strong>réseau</strong> sous Unix</td>
+                                </tr>
+                                <tr>
+                                    <th>IPFS</th>
+                                    <td>Interplanetary file system - système de fichiers distribué et décentralisé.</td>
+                                </tr>
+                            </tbody></table>
+                    </section>
+      
+                    <section id="arborescence-1" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="7" data-index-v="3">
+                        <h2>Arborescence (1)</h2>
+                        <ul class="text-block">
+                            <li>Tous les systèmes de fichiers sont "montés" sur une seule et même arborescence.</li>
+                            <li>Seul <code>root</code> peut monter/démonter des systèmes de fichiers (par défaut)</li>
+                            <li>La plupart des installations GNU/Linux actuelles, montent automatiquement les disques externes (CD, DVD, usb)</li>
+                        </ul>
+                    </section>
+      
+                    <section id="arborescence-2" class="slide level2 future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="7" data-index-v="4">
+                        <h2>Arborescence (2)</h2>
+                        <figure>
+                            <img src="images/fstree_disks.svg" alt="Schema des partitions" style="padding:20px">
+                            <figcaption>Partitionnement des espaces</figcaption>
+                        </figure>
+      
+                    </section>
+                    <section id="arborescence-3" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="7" data-index-v="5">
+                        <h2>Arborescence (3)</h2>
+                        <figure>
+                            <img src="images/fstree.svg" alt="Montage des systèmes de fichiers" style="padding:20px" width="60%/">
+                            <figcaption>Montage des systèmes de fichiers dans l'arborescence</figcaption>
+                        </figure>
+                    </section>
+      
+                    <section id="arborescence-unix-standard" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="7" data-index-v="6">
+                        <h2>Arborescence unix standard</h2>
+                        <table style="font-size:70%">
+                            <tbody><tr><td><code>/bin/</code></td><td>Principaux exécutables</td></tr>
+                            <tr><td><code>/boot/</code></td><td>Fichiers de démarrage</td></tr>
+                            <tr><td><code>/dev/</code></td><td><em>Périphériques</em></td></tr>
+                            <tr><td><code>/etc</code></td><td>Configuration système</td></tr>
+                            <tr><td><code>/home/</code></td><td>Données utilisateurs</td></tr>
+                            <tr><td><code>/lib/</code></td><td>Librairies système</td></tr>
+                            <tr><td><code>/media/</code></td><td>Montage des périphériques de stockage</td></tr>
+                            <tr><td><code>/mnt/</code></td><td>Point de montage manuel</td></tr>
+                            <tr><td><code>/proc/</code></td><td><em>Processus</em></td></tr>
+                            <tr><td><code>/root/</code></td><td>Répertoire perso du superutilisateur</td></tr>
+                            <tr><td><code>/sbin/</code></td><td>Exécutables pour la maintenance</td></tr>
+                            <tr><td><code>/sys/</code></td><td><em>Informations système</em></td></tr>
+                            <tr><td><code>/usr/</code></td><td>Applications et librairies utilisateurs</td></tr>
+                            <tr><td><code>/var/</code></td><td>Données variables (logs, spool, mail…)</td></tr>
+                        </tbody></table>
+                    </section>
+      
+                    <section id="everything-is-a-file" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="7" data-index-v="7">
+                        <h2>Everything is a file</h2>
+                        <ul class="text-block">
+                            <li>Plusieurs concepts sont représentés par des <strong>fichiers synthétiques</strong>.</li>
+                            <li>Par exemple:
+                                <ul>
+                                    <li>Les périphériques sont visibles dans <code>/dev/</code></li>
+                                    <li>Les processus (et certaines info système) sont visibles dans <code>/proc/</code></li>
+                                    <li>Informations sur les périphériques dans <code>/sys/</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+      
+                    <section id="exemples-dutilisation-de-dev" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="7" data-index-v="8">
+                        <h2>Exemples d'utilisation de <code>/dev/</code></h2>
+                            <div class="text-block" style="width:100%;align-items:stretch">
+                                <fieldset>
+                                    <legend>Faire une image ISO à partir d'un CD</legend>
+                                    <pre><code class="shell hljs">$ dd if=/dev/cdrom of=~/image.iso</code></pre>
+                                </fieldset>
+                                <fieldset class="warning" style="margin-top:20px">
+                                    <legend>Remplir une partition de données pseudo-aléatoires</legend>
+                                    <pre><code class="shell hljs">$ dd if=/dev/urandom of=/dev/sdb1 bs=1M</code></pre>
+                                </fieldset>
+                            </div>
+                    </section>
+      
+                    <section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="7" data-index-v="9"><h2 id="exercices---système-de-fichiers">Exercices - Système de fichiers</h2>
+      <ul>
+      <li>Grâce à la commande <code>mount</code>, trouvez où sont montés les systèmes de fichier de type ext4, fat et tmpfs ?</li>
+      <li>sachant qu'il existe deux types de périphériques, bloc (resp. caractère) indiqué dans le mode du fichier par le symbole b (resp. c); listez les périphériques de type bloc.</li>
+      <li>grâce au device <code>zero</code>, remplissez un fichier de 1MB de zeros (<span style="color:green">attention</span> la commande peu donner lieu à de GROS fichier si mal utilisée).</li>
+      <li>grâce au device <code>null</code>, lister recursivement le contenu de /tmp sans que le terminal n'affiche de sortie d'erreur.</li>
+      </ul>
+      </section>
+                </section>
+      
+                <!-- Processus -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="8" data-previous-indexv="0">
+                    <section style="top: 0px; display: none;" data-index-h="8" data-index-v="0">
+                        <h1>Processus</h1>
+                    </section>
+      
+                    <section id="processus-1" class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="8" data-index-v="1">
+                        <h2>Qu'est-ce qu'un processus ?</h2>
+                        <ul class="text-block" style="min-height:50vh">
+                            <li>Instance d'un programme en cours d'execution</li>
+                            <li>Possède:
+                                <ul>
+                                    <li>Son code en langage machine</li>
+                                    <li>Des Segments de mémoire (e.g. code, données, pile, etc.)</li>
+                                    <li>Des descripteurs de fichiers (e.g. les sortie et entrées standard)</li>
+                                    <li>Un propriétaire et un ensemble de permissions</li>
+                                    <li>Un état à un moment donné (e.g. le pointeur d'instruction)</li>
+                                </ul>
+                            </li>
+                            <li>Un coeur de processeur ne peut exécuter qu'un processus à la fois</li>
+                            <li>Le système d'exploitation peut alterner l'execution de plusieurs processus (<em>multi-tasking</em>)</li>
+                        </ul>
+                    </section>
+      
+                    <section id="processus-unix" class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="8" data-index-v="2">
+                        <h2>Processus UNIX</h2>
+                        <p>La commande <code>ps</code> permet de lister les processus</p>
+                        <br>
+                        <p>Sous unix, tous les processus ont:</p>
+                        <ul>
+                            <li>un identifiant numérique (<em>PID</em>)</li>
+                            <li>un processus parent (sauf le processus 0)</li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="8" data-index-v="3">
+                        <h2>PS - exercices</h2>
+                        <ul>
+                            <li>Tapez la commande <code>ps</code>. Qu'est ce que les processus affichés ont en commun ?</li>
+                            <li>Taper la commande <code>ps -ef</code> (voir man). Trouvez un processus qui est l'enfant d'un autre.</li>
+                            <li>Vérifiez avec la commande <code>pstree</code> que c'est bien le cas. Quel est le PID du processus initial (le plus ancien parent de tous les processus)?</li>
+                            <li>Trouvez un moyen de lister tous les processus vous appartenant.</li>
+                        </ul>
+                    </section>
+      
+                    <section id="utilisation-du-cpu-top" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="4">
+                        <h2>Utilisation du CPU (<code>top</code>)</h2>
+                        <p>La commande <code>top</code> permet de voir quels processus occupent le(s) CPU(s).</p>
+                    </section>
+      
+                    <section id="signaux" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="5">
+                        <h2>Signaux</h2>
+                        <ul>
+                            <li>Les signaux permettent une communication limitée entre les processus.</li>
+                            <li>La commande <code>kill -l</code> permet d'afficher les différent signaux</li>
+                            <li>Quelques signaux utiles:</li>
+                        </ul>
+                        <table>
+                            <thead>
+                                <tr><td>Nom</td><td>Action</td><td>Numero</td></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>SIGINT</strong></td><td>Interrompt le processus</td><td>2</td></tr>
+                                <tr><td><strong>SIGKILL</strong></td><td>Tue le processus immédiatement</td><td>9</td></tr>
+                                <tr><td><strong>SIGTERM</strong></td><td>Demande la terminaison (propre)</td><td>15</td></tr>
+                                <tr><td><strong>SIGTSTP</strong></td><td>Suspension</td><td>20</td></tr>
+                                <tr><td><strong>SIGCONT</strong></td><td>Active un processus suspendu</td><td>18</td></tr>
+                                <tr><td><strong>SIGUSR1</strong></td><td>Signal utilisateur 1</td><td>10</td></tr>
+                                <tr><td><strong>SIGUSR2</strong></td><td>Signal utilisateur 2</td><td>12</td></tr>
+                            </tbody>
+                        </table>
+                    </section>
+      
+                    <section id="envoyer-un-signal-kill" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="6">
+                        <h2>Envoyer un signal (<code>kill</code>)</h2>
+                        <div class="text-block">
+                            <pre><code class="shell hljs">kill -signal [pids]...</code></pre>
+                            <p><code class="shell">kill</code> permet d'envoyer un signal à un processus</p>
+                        </div>
+      <pre><code class="shell hljs">$ kill -SIGKILL 2111 2120
+$ kill -15 2111</code></pre>
+                    </section>
+      
+                    <section id="gestion-des-signaux-par-les-processus" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="7">
+                        <h2>Gestion des signaux par les processus</h2>
+                        <ul class="text-block">
+                            <li>Tous les processus peuvent gérer (intercepter) un signal.</li>
+                            <li>Par exemple:
+                                <ul>
+                                    <li>Sauver l'état avant de quitter lorsque <code>SIGTERM</code> est reçu</li>
+                                    <li>Redémarer le processus lorsque <code>SIGINT</code> est reçu</li>
+                                </ul>
+                            </li>
+                            <li>Le signal <code>SIGKILL</code> ne peut être intercepté</li>
+                        </ul>
+                    </section>
+      
+                    <section id="signaux-depuis-le-shell" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="8">
+                        <h2>Signaux depuis le shell</h2>
+                        <div class="text-block">
+                            <p>Les raccourcis claviers suivant permettent de lancer un signal à un processus du shell:</p>
+                            <table>
+                                <tbody><tr><th>ctrl+C</th><td>Envoie <code>SIGINT</code></td></tr>
+                                <tr><th>ctrl+Z</th><td>Envoie <code>SIGTSTP</code></td></tr>
+                            </tbody></table>
+                            <p>Attention ctl+D n'est pas un signal mais envoie "End-Of-File" (EOF) sur l'entrée standard</p>
+                        </div>
+                    </section>
+      
+                    <section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="9"><h2 id="exercice-sur-les-signaux">Exercice sur les signaux</h2>
+      <ul>
+      <li>Lancez l'éditeur de texte grahique <code>gedit</code> depuis le terminal</li>
+      <li>Intérrompez l'éditeur en lui envoyant SIGINT de <span style="color: green">deux manières différentes</span></li>
+      </ul>
+      <hr>
+      <ul>
+      <li>Lancer un éditeur de texte dans le shell (i.e. non grahique) et taper du text sans sauvegarder</li>
+      <li>Depuis un autre terminal, terminez le programme avec lui envoyant le signal SIGTERM</li>
+      <li>Recommencez mais cette fois interrompez le programme avec lui envoyant le signal SIGINT</li>
+      <li>Finalement terminez le programme en lui envoyant le signal SIGKILL</li>
+      <li>Quels sont les différences de comportement ?</li>
+      </ul>
+      </section>
+      
+                    <section id="jobs" class="slide level2 future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="10">
+                        <h2>Jobs</h2>
+                        <ul>
+                            <li>Par défaut, tout processus lancé depuis le shell tourne à l'avant-plan (<em>foreground</em>)</li>
+                            <li>Un processus en avant-plan bloque le shell tant qu'il n'est pas fini.</li>
+                            <li>On peu aussi lancer un processus en arrière-plan (<em>background</em>):
+                                <ul>
+                                    <li>Ajouter un <code>&amp;</code> après la commande:
+                                        <pre><code class="shell hljs">$ gedit &amp;</code></pre>
+                                    </li>
+                                    <li>Interrompre un processus:
+                                        <ul>
+                                            <li>Utilisez <code>ctrl-Z</code> pour interrompre le processus</li>
+                                            <li>Utilisez la commande <code>bg</code> pour relancer un processus interrompu en arrière-plan</li>
+                                            <li>On peut aussi utiliser <code>fg</code> pour remettre le dernier processus interrompu en avant-plan</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+      
+                    <section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="8" data-index-v="11"><h2 id="exercice-sur-les-jobs">Exercice sur les jobs</h2>
+      <ul>
+      <li>Lancez l'éditeur de texte grahique <code>gedit</code> depuis le terminal, cette fois en arrière plan</li>
+      <li>Mettre le processus en pause, tester sa réactivité, puis le relancer en appellant <code>kill</code></li>
+      </ul>
+      <hr>
+      <ul>
+      <li>Editez un fichier en utilisant <code>vim</code></li>
+      <li>Interrompre le processus avec ctrl-Z</li>
+      <li>Remettre le processus en avant plan</li>
+      </ul>
+      </section>
+                </section>
+      
+                <!-- Connexions a distance: SSH -->
+                <section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-index-h="9" data-previous-indexv="0">
+                    <section style="top: 0px; display: none;" data-index-h="9" data-index-v="0">
+                        <h1>Connexions a distance: SSH (<u>S</u>ecure <u>SH</u>ell)</h1>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="9" data-index-v="1">
+                        <h2>Utilité</h2>
+                        <ul>
+                            <li>travail à distance comme si l'on étais sur un terminal de la machine</li>
+                            <li>accéder à une machine qui ne possède pas de terminal</li>
+                            <li>transférer des fichiers de manière sécurisée</li>
+                            <li>connexion sécurisée pour des clients X distants (pour sur-simplifier: interface graphique distante)</li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 0px; display: none;" data-index-h="9" data-index-v="2">
+                        <h2>Comment ca marche ?</h2>
+                        <ol>
+                            <li>se connecter avec la commande suivante:</li>
+                            <pre><code class="shell hljs" data-noescape="">$<span class="bash"> ssh </span><em><span class="bash">login</span></em><span class="bash">@mon.server.com</span></code></pre>
+                            <li>vérifier que le fingerprint du serveur correspond bien à celui attendu</li>
+                            <li>entrer son mot de passe</li>
+                            <li>on peut terminer la connexion en mettant fin au shell associé (<code>exit</code> ou Ctrl+D)</li>
+                        </ol>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="3">
+                        <h2>SSH - Exercices</h2>
+                        <ul>
+                            <li>connectez-vous au serveur <code>10.136.26.133</code>, dont le fingerprint est:</li>
+                            <pre><code class="shell hljs" style="color: greenyellow">SHA256:dMjJfl/CweskwJK6g+L4vtCh0CgYsYYR7R8aoHISA2U</code></pre>
+                            <li>une fois connecté, lister le contenu de votre dossier home sur ce serveur</li>
+                            <li>editez un nouveau fichier dans un dossier nommé <code>votre_nom_prenom</code> en utilisant un editeur de texte</li>
+                            <li>terminer la connexion SSH</li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="4">
+                        <h2>SCP</h2>
+                        <p>La commande <code>SCP</code> permet de copier des fichier d'un serveur vers la machine locale et vice-versa</p>
+                        <pre><code class="shell hljs" data-noescape="">$<span class="bash"> scp </span><em><span class="bash">login</span></em><span class="bash">@mon.server.com:/path/to/my/file /path/to/destination</span></code></pre>
+                        <pre><code class="shell hljs" data-noescape="">$<span class="bash"> scp /path/to/my/file </span><em><span class="bash">login</span></em><span class="bash">@mon.server.com:/path/to/destination</span></code></pre>
+                        <p>Les formats de chemin habituels sont disponibles (*, ?, ~, etc.)</p>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="5">
+                        <h2>SCP - Exercices</h2>
+                        <ul>
+                            <li>copier le fichier du dossier <code>votre_nom_prenom</code> localement</li>
+                            <li>modifier ce fichier localement</li>
+                            <li>copier le nouveau fichier dans le dossier distant <code>votre_nom_prenom</code></li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="6">
+                        <h2>Authentification par clef publique</h2>
+                        <h3>Principe</h3>
+                        <p>Vous avez a disposition une clef publique et une clef privée:</p>
+                        <ul>
+                            <li>la clef privée VOUS identifie sur UNE MACHINE (une clef par utilisateur et par machine)</li>
+                            <li>la clef publique est associée à la clef privée, et elle sera disbribuée à toute entité avec laquelle vous voulez communiquer</li>
+                            <li>la clef publique est utilisée pour chiffrer un message qui vous est envoyé, <strong>seul la clef privée permet de le décoder</strong></li>
+                        </ul>
+                        <p>Il n'est donc pas grave de distribuer sa clef publique, en revanche  <strong>la clef privée est personelle et ne doit jamais quitter la machine</strong></p>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="7">
+                        <h2>Authentification par clef publique</h2>
+                        <h3>Protocole</h3>
+                        <ul>
+                            <li>client: <em>bonjour je me présente, voici ma clef publique</em></li>
+                            <li>server: <em>ok elle fait bien partie de la liste des clefs que je connais</em> (il faudra donc fournir sa clef au serveur avant authentification)</li>
+                            <li>server: <em>voici un message chiffré par votre clef publique, serez-vous capable de le déchiffrer ?</em></li>
+                            <li>client: <em>oui je peu, j'ai la clef privée et voici le message déchiffré</em></li>
+                            <li>server: <em>ok je confime que vous avez la bonne clef privée car le message est bien déchiffré, vous êtes authentifié</em></li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="8">
+                        <h2>Authentification par clef publique</h2>
+                        <p>Utilisée de plus en plus fréquement par des services en ligne (e.g. github, gitlab, etc.)</p>
+                        <h3>Avantages</h3>
+                        <ul>
+                            <li>facilité de connexion et automatisation (on peu eventuellement se passer d'un mot de passe)</li>
+                            <li>plus sécurisé qu'un mot de passe car aucune information secrète n'est transférée</li>
+                        </ul>
+                        <h3>Inconvenients</h3>
+                        <ul>
+                            <li>il est parfois difficile de gérer un grands nombre de clefs publiques/privées</li>
+                            <li>demande quelques connaissances techniques</li>
+                        </ul>
+                    </section>
+      
+                    <section class="future" aria-hidden="true" style="top: 350px; display: none;" data-index-h="9" data-index-v="9">
+                        <h2>Authentification par clef publique</h2>
+                        <h3>En pratique</h3>
+                        <div>
+                            <p>Créer une paire de clef publique / privée (de préférence avec passphrase)</p>
+                            <pre><code class="shell hljs">$ ssh-keygen</code></pre>
+                            <p>Plusieurs questions vous sont posées.</p>
+                        </div>
+                        <div class="fragment" data-fragment-index="0">
+                            <p>Copier la clef publique sur le serveur</p>
+                            <pre><code class="shell hljs" data-noescape="">$<span class="bash"> ssh-copy-id </span><em><span class="bash">login</span></em><span class="bash">@mon.server.com</span></code></pre>
+                        </div>
+                        <div class="fragment" data-fragment-index="1">
+                            <p>Se connecter au serveur</p>
+                            <pre><code class="shell hljs" data-noescape="">$<span class="bash"> ssh </span><em><span class="bash">login</span></em><span class="bash">@mon.server.com</span></code></pre>
+                        </div>
+      
+                        <aside class="notes">
+                            <p>Après la génération: indiquer ce qu'est le fingerprint, vérifier les droits des fichiers générés, regarder la clef publique</p>
+                            <p>Après avoir copié la clef: regarder sur le serveur le contenu de .ssh/authorized-keys et trouver votre clef publique</p>
+                        </aside>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

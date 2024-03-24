@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="211.53438mm"
+   height="143.7896mm"
+   viewBox="0 0 211.53438 143.7896"
+   version="1.1"
+   id="svg1960"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="top500.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1962"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.8828353"
+     inkscape:cx="249.76346"
+     inkscape:cy="188.03054"
+     inkscape:window-width="1916"
+     inkscape:window-height="1161"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1957">
+    <clipPath
+       id="AmChartsEl-138">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect585" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-139">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect596" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-140">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect607" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-141">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect618" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-142">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect629" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-143">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect640" />
+    </clipPath>
+    <clipPath
+       id="AmChartsEl-144">
+      <rect
+         x="0"
+         y="0"
+         width="739"
+         height="1036"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         id="rect651" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(3.571129,-24.904572)">
+    <g
+       id="g575"
+       transform="matrix(0.26458333,0,0,0.12048667,-3.7034207,30.592186)"
+       style="stroke-width:1.48188">
+      <g
+         transform="translate(61,76)"
+         id="g505"
+         style="stroke-width:1.48188">
+        <g
+           id="g473"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 41.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path469" />
+          <path
+             cs="100,100"
+             d="m 41.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path471" />
+        </g>
+        <g
+           id="g479"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 169.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path475" />
+          <path
+             cs="100,100"
+             d="m 169.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path477" />
+        </g>
+        <g
+           id="g485"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 297.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path481" />
+          <path
+             cs="100,100"
+             d="m 297.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path483" />
+        </g>
+        <g
+           id="g491"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 425.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path487" />
+          <path
+             cs="100,100"
+             d="m 425.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path489" />
+        </g>
+        <g
+           id="g497"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 553.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path493" />
+          <path
+             cs="100,100"
+             d="m 553.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path495" />
+        </g>
+        <g
+           id="g503"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 681.5,0.5 v 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(0,1035)"
+             id="path499" />
+          <path
+             cs="100,100"
+             d="m 681.5,1035.5 v 0 -1035"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path501" />
+        </g>
+      </g>
+      <g
+         transform="translate(61,76)"
+         visibility="visible"
+         id="g573"
+         style="stroke-width:2.19596">
+        <g
+           id="g511"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,1035.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path507" />
+          <path
+             cs="100,100"
+             d="m 0.5,1035.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path509" />
+        </g>
+        <g
+           id="g517"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,932.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path513" />
+          <path
+             cs="100,100"
+             d="m 0.5,932.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path515" />
+        </g>
+        <g
+           id="g523"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,828.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path519" />
+          <path
+             cs="100,100"
+             d="m 0.5,828.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path521" />
+        </g>
+        <g
+           id="g529"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,725.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path525" />
+          <path
+             cs="100,100"
+             d="m 0.5,725.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path527" />
+        </g>
+        <g
+           id="g535"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,621.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path531" />
+          <path
+             cs="100,100"
+             d="m 0.5,621.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path533" />
+        </g>
+        <g
+           id="g541"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,518.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path537" />
+          <path
+             cs="100,100"
+             d="m 0.5,518.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path539" />
+        </g>
+        <g
+           id="g547"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,414.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path543" />
+          <path
+             cs="100,100"
+             d="m 0.5,414.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path545" />
+        </g>
+        <g
+           id="g553"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,311.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path549" />
+          <path
+             cs="100,100"
+             d="m 0.5,311.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path551" />
+        </g>
+        <g
+           id="g559"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,207.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path555" />
+          <path
+             cs="100,100"
+             d="m 0.5,207.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path557" />
+        </g>
+        <g
+           id="g565"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,104.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path561" />
+          <path
+             cs="100,100"
+             d="m 0.5,104.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path563" />
+        </g>
+        <g
+           id="g571"
+           style="stroke-width:1.48188">
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 5"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="1"
+             stroke="#dadada"
+             transform="translate(-6)"
+             id="path567" />
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 v 0 h 738"
+             fill="none"
+             stroke-width="1.48188"
+             stroke-opacity="0.07"
+             stroke="#000000"
+             id="path569" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g656"
+       transform="matrix(0.26458333,0,0,0.12118727,-3.7034207,30.53894)"
+       style="stroke-width:1.47759">
+      <g
+         transform="translate(61,76)"
+         id="g588"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-138)"
+           id="g583"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,1035.5 h 11 15 10 15 11 15 11 15 10 l 15,-2 h 11 l 15,-33 10,-2 15,-21 11,-54 15,21 11,10 15,-58 10,-8 15,-141 11,-122 15,-192 11,-29 14,-27 11,-112 15,10 11,-18 15,-31 10,-75 h 15 l 11,-25 15,-6 11,-12 15,-17 10,-8 15,6 h 11 l 15,-10 11,-15 14,-14 11,-13 15,-6 11,-2 15,-6 10,-11 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#ff6600"
+             id="path579" />
+          <path
+             cs="100,100"
+             d="m 0.5,1035.5 h 11 15 10 15 11 15 11 15 10 l 15,-2 h 11 l 15,-33 10,-2 15,-21 11,-54 15,21 11,10 15,-58 10,-8 15,-141 11,-122 15,-192 11,-29 14,-27 11,-112 15,10 11,-18 15,-31 10,-75 h 15 l 11,-25 15,-6 11,-12 15,-17 10,-8 15,6 h 11 l 15,-10 11,-15 14,-14 11,-13 15,-6 11,-2 15,-6 10,-11 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 v 1035 h -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 -11 -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 -11 -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 z"
+             fill="#ff6600"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path581" />
+        </g>
+        <clipPath
+           id="clipPath1856">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1854" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g599"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-139)"
+           id="g594"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,1016.5 11,2 15,3 10,14 h 15 11 15 11 15 10 l 15,-2 11,-2 15,-33 10,-4 15,-21 11,-56 15,21 11,6 15,-60 10,-6 15,-135 11,-147 15,-196 11,-3 14,-20 11,-112 15,10 11,-18 15,-31 10,-75 h 15 l 11,-25 15,-6 11,-12 15,-17 10,-8 15,6 h 11 l 15,-10 11,-15 14,-14 11,-13 15,-6 11,-2 15,-6 10,-11 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#fcd202"
+             id="path590" />
+          <path
+             cs="100,100"
+             d="m 0.5,1016.5 11,2 15,3 10,14 h 15 11 15 11 15 10 l 15,-2 11,-2 15,-33 10,-4 15,-21 11,-56 15,21 11,6 15,-60 10,-6 15,-135 11,-147 15,-196 11,-3 14,-20 11,-112 15,10 11,-18 15,-31 10,-75 h 15 l 11,-25 15,-6 11,-12 15,-17 10,-8 15,6 h 11 l 15,-10 11,-15 14,-14 11,-13 15,-6 11,-2 15,-6 10,-11 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 l -11,4 h -15 l -11,2 -15,6 -10,11 -15,6 -11,2 -15,6 -11,13 -14,14 -11,15 -15,10 h -11 l -15,-6 -10,8 -15,17 -11,12 -15,6 -11,25 h -15 l -10,75 -15,31 -11,18 -15,-10 -11,112 -14,27 -11,29 -15,192 -11,122 -15,141 -10,8 -15,58 -11,-10 -15,-21 -11,54 -15,21 -10,2 -15,33 h -11 l -15,2 h -10 -15 -11 -15 -11 -15 -10 -15 -11 z"
+             fill="#fcd202"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path592" />
+        </g>
+        <clipPath
+           id="clipPath1864">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1862" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g610"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-140)"
+           id="g605"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,1016.5 11,2 15,3 10,14 h 15 11 15 11 15 10 l 15,-2 11,-2 15,-33 10,-4 15,-21 11,-56 15,21 11,6 15,-60 10,-6 15,-135 11,-147 15,-196 11,-3 14,-53 11,-118 h 15 l 11,-31 15,-54 10,-66 15,-7 11,-6 15,-2 h 11 l 15,-4 10,-6 15,8 11,8 15,-10 11,-6 14,-9 11,-12 h 15 l 11,-2 15,-6 10,-9 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#b0de09"
+             id="path601" />
+          <path
+             cs="100,100"
+             d="m 0.5,1016.5 11,2 15,3 10,14 h 15 11 15 11 15 10 l 15,-2 11,-2 15,-33 10,-4 15,-21 11,-56 15,21 11,6 15,-60 10,-6 15,-135 11,-147 15,-196 11,-3 14,-53 11,-118 h 15 l 11,-31 15,-54 10,-66 15,-7 11,-6 15,-2 h 11 l 15,-4 10,-6 15,8 11,8 15,-10 11,-6 14,-9 11,-12 h 15 l 11,-2 15,-6 10,-9 15,-6 11,-2 h 15 l 11,-4 h 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 l -11,4 h -15 l -11,2 -15,6 -10,11 -15,6 -11,2 -15,6 -11,13 -14,14 -11,15 -15,10 h -11 l -15,-6 -10,8 -15,17 -11,12 -15,6 -11,25 h -15 l -10,75 -15,31 -11,18 -15,-10 -11,112 -14,20 -11,3 -15,196 -11,147 -15,135 -10,6 -15,60 -11,-6 -15,-21 -11,56 -15,21 -10,4 -15,33 -11,2 -15,2 h -10 -15 -11 -15 -11 -15 l -10,-14 -15,-3 z"
+             fill="#b0de09"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path603" />
+        </g>
+        <clipPath
+           id="clipPath1872">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1870" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g621"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-141)"
+           id="g616"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,48.5 11,2 15,-7 10,5 15,-9 11,-2 15,-10 11,-4 15,-11 10,-4 15,-2 11,-4 15,-2 10,19 15,16 11,-2 15,-6 h 11 15 l 10,-2 15,8 11,-6 15,-4 11,4 14,-2 11,-4 15,2 11,-11 15,5 10,-3 h 15 l 11,-2 15,-2 11,-2 h 15 10 l 15,2 11,-6 15,2 11,2 h 14 l 11,-2 15,-2 11,-2 h 15 l 10,-2 h 15 11 15 11 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#0d8ecf"
+             id="path612" />
+          <path
+             cs="100,100"
+             d="m 0.5,48.5 11,2 15,-7 10,5 15,-9 11,-2 15,-10 11,-4 15,-11 10,-4 15,-2 11,-4 15,-2 10,19 15,16 11,-2 15,-6 h 11 15 l 10,-2 15,8 11,-6 15,-4 11,4 14,-2 11,-4 15,2 11,-11 15,5 10,-3 h 15 l 11,-2 15,-2 11,-2 h 15 10 l 15,2 11,-6 15,2 11,2 h 14 l 11,-2 15,-2 11,-2 h 15 l 10,-2 h 15 11 15 11 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 l -11,4 h -15 l -11,2 -15,6 -10,9 -15,6 -11,2 h -15 l -11,12 -14,9 -11,6 -15,10 -11,-8 -15,-8 -10,6 -15,4 h -11 l -15,2 -11,6 -15,7 -10,66 -15,54 -11,31 h -15 l -11,118 -14,53 -11,3 -15,196 -11,147 -15,135 -10,6 -15,60 -11,-6 -15,-21 -11,56 -15,21 -10,4 -15,33 -11,2 -15,2 h -10 -15 -11 -15 -11 -15 l -10,-14 -15,-3 -11,-2 z"
+             fill="#0d8ecf"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path614" />
+        </g>
+        <clipPath
+           id="clipPath1880">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1878" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g632"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-142)"
+           id="g627"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 l 11,2 15,-2 h 10 l 15,2 11,2 15,-2 11,4 14,4 11,2 15,2 11,-8 15,2 10,2 15,2 11,-2 15,-2 11,-2 h 15 10 l 15,2 11,-6 15,2 11,2 h 14 l 11,-2 h 15 l 11,-2 h 15 l 10,-2 h 15 11 15 11 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#2a0cd0"
+             id="path623" />
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 l 11,2 15,-2 h 10 l 15,2 11,2 15,-2 11,4 14,4 11,2 15,2 11,-8 15,2 10,2 15,2 11,-2 15,-2 11,-2 h 15 10 l 15,2 11,-6 15,2 11,2 h 14 l 11,-2 h 15 l 11,-2 h 15 l 10,-2 h 15 11 15 11 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 l -10,2 h -15 l -11,2 -15,2 -11,2 h -14 l -11,-2 -15,-2 -11,6 -15,-2 h -10 -15 l -11,2 -15,2 -11,2 h -15 l -10,3 -15,-5 -11,11 -15,-2 -11,4 -14,2 -11,-4 -15,4 -11,6 -15,-8 -10,2 h -15 -11 l -15,6 -11,2 -15,-16 -10,-19 -15,2 -11,4 -15,2 -10,4 -15,11 -11,4 -15,10 -11,2 -15,9 -10,-5 -15,7 -11,-2 z"
+             fill="#2a0cd0"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path625" />
+        </g>
+        <clipPath
+           id="clipPath1888">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1886" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g643"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-143)"
+           id="g638"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 11 15 10 15 l 11,2 15,-2 11,4 14,4 11,2 h 15 l 11,-4 h 15 l 10,-2 h 15 l 11,-2 15,-2 h 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#cd0d74"
+             id="path634" />
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 11 15 10 15 l 11,2 15,-2 11,4 14,4 11,2 h 15 l 11,-4 h 15 l 10,-2 h 15 l 11,-2 15,-2 h 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 l -10,2 h -15 l -11,2 h -15 l -11,2 h -14 l -11,-2 -15,-2 -11,6 -15,-2 h -10 -15 l -11,2 -15,2 -11,2 -15,-2 -10,-2 -15,-2 -11,8 -15,-2 -11,-2 -14,-4 -11,-4 -15,2 -11,-2 -15,-2 h -10 l -15,2 -11,-2 h -15 -11 -15 -10 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 z"
+             fill="#cd0d74"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path636" />
+        </g>
+        <clipPath
+           id="clipPath1896">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1894" />
+        </clipPath>
+      </g>
+      <g
+         transform="translate(61,76)"
+         id="g654"
+         style="stroke-width:1.47759">
+        <g
+           clip-path="url(#AmChartsEl-144)"
+           id="g649"
+           style="stroke-width:1.47759">
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 M 0,0 v 0"
+             fill="none"
+             stroke-width="1.47759"
+             stroke-opacity="0"
+             stroke="#cc0000"
+             id="path645" />
+          <path
+             cs="100,100"
+             d="m 0.5,0.5 h 11 15 10 15 11 15 11 15 10 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 11 15 10 15 11 15 11 15 10 15 11 15 11 14 11 15 v 0 h -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 -11 -15 -11 -14 -11 -15 -11 -15 -10 -15 -11 l -15,2 -11,2 h -15 l -10,2 h -15 l -11,4 h -15 l -11,-2 -14,-4 -11,-4 -15,2 -11,-2 h -15 -10 -15 -11 -15 -11 -15 -10 -15 -11 -15 -10 -15 -11 -15 -11 -15 -10 -15 z"
+             fill="#cc0000"
+             stroke="0"
+             fill-opacity="0.6"
+             stroke-width="0"
+             stroke-opacity="0"
+             id="path647" />
+        </g>
+        <clipPath
+           id="clipPath1904">
+          <rect
+             x="0"
+             y="0"
+             width="739"
+             height="1036"
+             rx="0"
+             ry="0"
+             stroke-width="0"
+             id="rect1902" />
+        </clipPath>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,7.8357153,-110.08843)"
+       id="g684">
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(44,1048)"
+         id="text662"><tspan
+           y="5.5"
+           x="0"
+           id="tspan660">1995</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(172,1048)"
+         id="text666"><tspan
+           y="5.5"
+           x="0"
+           id="tspan664">2000</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(300,1048)"
+         id="text670"><tspan
+           y="5.5"
+           x="0"
+           id="tspan668">2005</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(428,1048)"
+         id="text674"><tspan
+           y="5.5"
+           x="0"
+           id="tspan672">2010</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(556,1048)"
+         id="text678"><tspan
+           y="5.5"
+           x="0"
+           id="tspan676">2015</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(684,1048)"
+         id="text682"><tspan
+           y="5.5"
+           x="0"
+           id="tspan680">2020</tspan></text>
+    </g>
+    <text
+       y="165.48071"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text688"
+       style="visibility:visible;stroke-width:0.264583"
+       x="7.4674096"><tspan
+         y="165.48071"
+         x="7.4674096"
+         id="tspan686"
+         style="stroke-width:0.264583">0</tspan></text>
+    <text
+       y="153.00145"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text692"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.2923594"><tspan
+         y="153.00145"
+         x="8.2923594"
+         id="tspan690"
+         style="stroke-width:0.264583">10</tspan></text>
+    <text
+       y="140.52217"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text696"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.375493"><tspan
+         y="140.52217"
+         x="8.375493"
+         id="tspan694"
+         style="stroke-width:0.264583">20</tspan></text>
+    <text
+       y="128.04149"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text700"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.3712301"><tspan
+         y="128.04149"
+         x="8.3712301"
+         id="tspan698"
+         style="stroke-width:0.264583">30</tspan></text>
+    <text
+       y="115.5608"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text704"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.4351797"><tspan
+         y="115.5608"
+         x="8.4351797"
+         id="tspan702"
+         style="stroke-width:0.264583">40</tspan></text>
+    <text
+       y="103.08152"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text708"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.3570185"><tspan
+         y="103.08152"
+         x="8.3570185"
+         id="tspan706"
+         style="stroke-width:0.264583">50</tspan></text>
+    <text
+       y="90.602257"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text712"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.3925467"><tspan
+         y="90.602257"
+         x="8.3925467"
+         id="tspan710"
+         style="stroke-width:0.264583">60</tspan></text>
+    <text
+       y="78.122978"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text716"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.3804674"><tspan
+         y="78.122978"
+         x="8.3804674"
+         id="tspan714"
+         style="stroke-width:0.264583">70</tspan></text>
+    <text
+       y="65.639435"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text720"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.4032049"><tspan
+         y="65.639435"
+         x="8.4032049"
+         id="tspan718"
+         style="stroke-width:0.264583">80</tspan></text>
+    <text
+       y="53.154488"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text724"
+       style="visibility:visible;stroke-width:0.264583"
+       x="8.4096003"><tspan
+         y="53.154488"
+         x="8.4096003"
+         id="tspan722"
+         style="stroke-width:0.264583">90</tspan></text>
+    <text
+       y="40.675217"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text728"
+       style="visibility:visible;stroke-width:0.264583"
+       x="9.2174959"><tspan
+         y="40.675217"
+         x="9.2174959"
+         id="tspan726"
+         style="stroke-width:0.264583">100</tspan></text>
+    <text
+       y="0.38703597"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="3.175px"
+       font-weight="bold"
+       text-anchor="middle"
+       transform="rotate(-90)"
+       id="text732"
+       style="visibility:visible;stroke-width:0.264583"
+       x="-101.53011"><tspan
+         y="0.38703597"
+         x="-101.53011"
+         id="tspan730"
+         style="stroke-width:0.264583">Share</tspan></text>
+    <g
+       id="g746"
+       transform="matrix(0.26458333,0,0,0.12848841,-3.7034207,22.362749)"
+       style="stroke-width:1.43499">
+      <path
+         cs="100,100"
+         d="m 0.5,1035.5 h 738 v 0"
+         fill="none"
+         stroke-width="1.43499"
+         stroke-opacity="0.14"
+         stroke="#000000"
+         transform="translate(61,76)"
+         id="path738" />
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 738"
+         fill="none"
+         stroke-width="1.43499"
+         stroke-opacity="0"
+         stroke="#000000"
+         transform="translate(0,20)"
+         id="path740" />
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 738"
+         fill="none"
+         stroke-width="1.43499"
+         stroke-opacity="1"
+         stroke="#dadada"
+         transform="translate(61,1111)"
+         id="path742" />
+      <path
+         cs="100,100"
+         d="M 61.5,135.31531 V 1111.5"
+         fill="none"
+         stroke-width="1.43499"
+         stroke-opacity="1"
+         stroke="#dadada"
+         visibility="visible"
+         id="path744" />
+    </g>
+    <g
+       id="g752"
+       transform="matrix(0.12126097,0,0,0.12126097,5.1109043,30.605)"
+       style="stroke-width:2.18194">
+      <g
+         transform="translate(61,76)"
+         visibility="hidden"
+         id="g750"
+         style="stroke-width:2.83923">
+        <path
+           cs="100,100"
+           d="m 0.5,0.5 v 0 1034"
+           fill="none"
+           stroke-width="2.18194"
+           stroke-opacity="0"
+           stroke="#cc0000"
+           visibility="hidden"
+           id="path748" />
+      </g>
+    </g>
+    <g
+       id="g807"
+       transform="matrix(0.26458333,0,0,0.26458333,-3.7034207,29.16584)">
+      <g
+         id="g801" />
+      <text
+         y="7.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="15px"
+         text-anchor="middle"
+         transform="translate(431,20)"
+         font-weight="bold"
+         id="text805"><tspan
+           y="7.5"
+           x="0"
+           id="tspan803">Operating system Family - Systems Share</tspan></text>
+    </g>
+    <g
+       cursor="pointer"
+       id="g3219"
+       transform="matrix(0.26458333,0,0,0.26458333,14.227891,26.171365)">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#ff6600"
+         stroke="#ff6600"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3203" />
+      <g
+         visibility="hidden"
+         id="g3209" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3213"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3211">Linux</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3215" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3217" />
+    </g>
+    <g
+       cursor="pointer"
+       transform="matrix(0.26458333,0,0,0.26458333,193.13296,26.289063)"
+       id="g3237">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#fcd202"
+         stroke="#fcd202"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3221" />
+      <g
+         visibility="hidden"
+         id="g3227" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3231"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3229">N/A</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3233" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3235" />
+    </g>
+    <g
+       cursor="pointer"
+       transform="matrix(0.26458333,0,0,0.26458333,169.67498,26.289063)"
+       id="g3255">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#b0de09"
+         stroke="#b0de09"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3239" />
+      <g
+         visibility="hidden"
+         id="g3245" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3249"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3247">Mixed</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3251" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3253" />
+    </g>
+    <g
+       visibility="hidden"
+       id="g3263"
+       transform="matrix(0.26458333,0,0,0.26458333,191.37082,26.289063)" />
+    <text
+       y="29.596354"
+       fill="#000000"
+       font-family="Verdana"
+       font-size="2.91042px"
+       text-anchor="end"
+       id="text3269"
+       x="227.61874"
+       style="stroke-width:0.264583" />
+    <g
+       id="g3940"
+       transform="translate(-150.81298,-0.1176975)">
+      <path
+         cs="100,100"
+         d="m 191.50311,26.421355 h 4.23333 v 4.233333 h -4.23333 z"
+         fill="#0d8ecf"
+         stroke="#0d8ecf"
+         fill-opacity="0.6"
+         stroke-width="0.264583"
+         stroke-opacity="0.6"
+         id="path3257" />
+      <text
+         y="29.596354"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="2.91042px"
+         text-anchor="start"
+         id="text3267"
+         x="196.92706"
+         style="stroke-width:0.264583"><tspan
+           y="29.596354"
+           x="196.92706"
+           id="tspan3265"
+           style="stroke-width:0.264583">Unix</tspan></text>
+      <rect
+         x="196.92706"
+         y="26.289062"
+         width="9.1727514"
+         height="4.7624998"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3271" />
+    </g>
+    <g
+       cursor="pointer"
+       transform="matrix(0.26458333,0,0,0.26458333,14.227891,33.579698)"
+       id="g3291">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#2a0cd0"
+         stroke="#2a0cd0"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3275" />
+      <g
+         visibility="hidden"
+         id="g3281" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3285"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3283">BSD Based</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3287" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3289" />
+    </g>
+    <g
+       cursor="pointer"
+       transform="matrix(0.26458333,0,0,0.26458333,170.33253,33.579698)"
+       id="g3309">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#cd0d74"
+         stroke="#cd0d74"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3293" />
+      <g
+         visibility="hidden"
+         id="g3299" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3303"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3301">Windows</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3305" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3307" />
+    </g>
+    <g
+       cursor="pointer"
+       transform="matrix(0.26458333,0,0,0.26458333,40.557839,33.697396)"
+       id="g3327">
+      <path
+         cs="100,100"
+         d="m 0.5,0.5 h 16 v 16 h -16 z"
+         fill="#cc0000"
+         stroke="#cc0000"
+         fill-opacity="0.6"
+         stroke-width="1"
+         stroke-opacity="0.6"
+         id="path3311" />
+      <g
+         visibility="hidden"
+         id="g3317" />
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="start"
+         transform="translate(21,7)"
+         id="text3321"><tspan
+           y="5.5"
+           x="0"
+           id="tspan3319">Mac OS</tspan></text>
+      <text
+         y="5.5"
+         fill="#000000"
+         font-family="Verdana"
+         font-size="11px"
+         text-anchor="end"
+         transform="translate(137,7)"
+         id="text3323" />
+      <rect
+         x="21"
+         y="0"
+         width="115.66667"
+         height="18"
+         rx="0"
+         ry="0"
+         stroke-width="0"
+         stroke="none"
+         fill="#ffffff"
+         fill-opacity="0.00499998"
+         id="rect3325" />
+    </g>
+  </g>
+</svg>
