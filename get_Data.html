@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Téléchargement de données</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/gaza.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
+    <link rel="stylesheet" href="dist/mytheme.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- Chalkboard plugin begin -->
+    <!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+<!-- Chalkboard plugin end -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Téléchargement de données </h1>
+					<ul>
+						<li>ONS </li>
+						<li>DIVA-GIS</li>
+						<li>QGIS</li>
+						<li>....</li>
+						<li>....</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Office Nationnal des Statisitques</h2>
+						
+						<p style="text-align: left;">Vous pouvez utiliser les données statistiques fournits par l'<a href="https://www.ons.dz/collections/">ONS</a> puis les représenter graphiquement pour faciliter la lecture visuelle </p>
+						<p style="text-align: left;">Par exemple vous pouvez créer une carte de distrubution de population par communes en utilisant les données <a href="https://www.ons.dz/collections/w10_p1.pdf">ONS</a></p>
+					
+
+					</section>
+				</section>
+                <section>
+					<section>
+						<h1 style="font-size: 60pt;">Extraction depuis DIVA-GIS</h1>
+						<p style="text-align: left;"><a href="https://www.diva-gis.org/">DIVA-GIS</a>  est un programme informatique gratuit pour la cartographie et l'analyse de données géographiques (SIG). il fourner également des <u> données spatiales gratuites.</u></p>
+					</section>					
+					<section>
+						<p>Ouvrez le <a href="https://www.diva-gis.org/"> liens</a> et cliquez sur <strong>Free Spatial Data</strong>: </p>
+						<img src="images/diva/DIVA-GIS.png" alt="">
+					</section>
+					<section>
+						<p>Cliquez sur <strong>country level data</strong></p>
+						<img src="images/diva/DIVA-GIS-dwn1.png" alt="">
+					</section>
+					<section>
+						<p> Dans la liste déroulante selectionnz <strong>Algeria</strong>  </p>
+						<img src="images/diva/DIVA-GIS-dwn2.png" alt="">
+					</section>
+					<section>
+						<p>Puis cliquez sur <strong>Download </strong> </p>
+						<img src="images/diva/DIVA-GIS-dwn3.png" alt="">
+					</section>
+					<section>
+						<div class="row">
+							<div class="column" >
+								<p style="text-align: left;">Vous aurez un dossier compressé qui contient trois shapefiles limite administrative de l'Algérie pour les niveaux suivants:</p>
+								<ul>
+									<li>DZA_adm0: frontière nationnal</li>
+									<li>DZA_adm1: frontières wilaya</li>
+									<li>DZA_adm2: frontières communale </li>
+								</ul>
+							</div>
+							<div class="column" >
+								<img src="images/diva/DIVA-GIS-dwn-files.png" alt="">
+							</div>
+						</div>
+					</section>
+					<section>
+						<img src="images/diva/DIVA-GIS-dwn-files.png" alt="">
+					</section>
+					
+					<section>
+						<h2>Choix de la zone d'étude</h2>
+						<p style="text-align: left;">Vous pouvez <strong>extraire</strong> les frontière d'une wilaya ou une commune selon l'étude! il y a plusieurs méthodes pour le faire par exemple en utilisant QGIS: </a></p>
+					</section>
+					<section data-background-video="images/diva/filtrer_bouira.webm">Filtrer </section>
+					<section></section>
+					<section>
+						<h2>Sauvegarder la selection:</h2>
+					</section>
+					<section data-background-video="images/diva/save_bouira_shp.webm">Filtrer </section>
+					<section></section>
+					<section>
+						<h2>selectionner une commune </h2>
+					</section>
+					<section data-background-video="images/diva/filtre-com.webm">Filtrer </section>
+					<section></section>
+                </section>
+				<section>
+					<section>
+						<h1 style="font-size: 60pt;">Extraction des données OSM.</h1>
+						<h2>A partir du QGIS</h2>
+						<hr>
+						<br>
+						<p><a href="/"> QuickOSM </a> est un plugin QGIS,son role est de télécharger des données depuis le serveur<a href="https://wiki.openstreetmap.org/wiki/Overpass_API"> Overpass.</a></p>
+					</section>
+					<section>
+						<section><h2>Nous allons extraire quelques données spatiales liées à la commune d'Ain Lalaoui</h2></section>
+						<section>
+							<section data-background-video="images/Ainlaloui_intersection.webm">Données OSM type Eau </section>
+							<section></section>
+						</section>
+						
+					</section>
+					<section></section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <!-- <script src="node_modules/reveal.js-menu/menu.js"></script>   -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+
+				// Add your config here:
+				transition: 'convex',
+
+// chalkboard plugin begin
+ //       Reveal.initialize({
+         /* customcontrols: {
+                controls: [
+                  { icon: '<i class="fa fa-pen-square"></i>',
+                    title: 'Toggle chalkboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                  },
+                  { icon: '<i class="fa fa-pen"></i>',
+                    title: 'Toggle notes canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                  }
+                ]
+              },
+              chalkboard: {
+                // add configuration here
+              },
+              // ...
+              //plugins: [ RevealChalkboard, RevealCustomControls ],
+              // ...
+// chalkboard plugin end */
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]//, RevealChalkboard, RevealCustomControls, RevealMenu
+			});
+		</script>
+	</body>
+</html>
