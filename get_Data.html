@@ -44,11 +44,12 @@
 				<section>
 					<section>
 						<h2>Office Nationnal des Statisitques</h2>
-						
 						<p style="text-align: left;">Vous pouvez utiliser les données statistiques fournits par l'<a href="https://www.ons.dz/collections/">ONS</a> puis les représenter graphiquement pour faciliter la lecture visuelle </p>
 						<p style="text-align: left;">Par exemple vous pouvez créer une carte de distrubution de population par communes en utilisant les données <a href="https://www.ons.dz/collections/w10_p1.pdf">ONS</a></p>
-					
-
+					</section>
+					<section>
+							<h2> MONOGRAPHIE WILAYA BOUIRA</h2>
+							<p class="pleft"> Le fichier en ligne <a href="https://www.aniref.dz/DocumentsPDF/monographies/MONOGRAPHIE%20WILAYA%20BOUIRA.pdf"> MONOGRAPHIE WILAYA BOUIRA.pdf</a> contient des données statistiques que vous pouvez utiliser afin de s'exercer</p>
 					</section>
 				</section>
                 <section>
@@ -114,18 +115,97 @@
 						<h2>A partir du QGIS</h2>
 						<hr>
 						<br>
-						<p><a href="/"> QuickOSM </a> est un plugin QGIS,son role est de télécharger des données depuis le serveur<a href="https://wiki.openstreetmap.org/wiki/Overpass_API"> Overpass.</a></p>
+						<p style="text-align: left;"><a href="/"> QuickOSM </a> est un plugin QGIS,son role est de télécharger des données depuis le serveur<a href="https://wiki.openstreetmap.org/wiki/Overpass_API"> Overpass.</a></p>
+						<p style="text-align: left;">Nous allons extraire quelques données spatiales liées à une des commune de Bouira </p>
 					</section>
 					<section>
-						<section><h2>Nous allons extraire quelques données spatiales liées à la commune d'Ain Lalaoui</h2></section>
-						<section>
-							<section data-background-video="images/Ainlaloui_intersection.webm">Données OSM type Eau </section>
-							<section></section>
-						</section>
-						
+						<h2>OSM: Limite administrative </h2>
+						<p class="pleft">Au chapitre précédent nous avons télécharger les limite offertes par DIVA-GIS, QuickOSM offre aussi la possibilité de les télécharger</p>
+						<p class="pleft"> Ouvrez le gestionnaire de source de données et selectinnez l'onglet explorateur puis cliquez sur XYZ Tiles, double cliquez ensuite sur openstreetmap</p>
+						<img class="r-stretch" src="images/commune/gest_src_data.png" alt="gestionnaire de source de données">
 					</section>
-					<section></section>
 
+					<section>
+						<p class="pleft">La couche Raster <strong>OpenStreetMap</strong> est insérée </p>
+						<img class="r-stretch" src="images/commune/Insert_osm.png" alt="Insert osm">
+					</section>
+					<section>
+						<p class="pleft">Focaliser Bouira</p>
+						<img class="r-stretch" src="images/commune/Zoomer10.png" alt="Zoomer 10">
+					</section>
+					<section>
+						<h1>QuickOSM</h1>
+						<img class="r-stretch" src="images/commune/QuickOSM_open.png" alt="icon Quickosm">
+					</section>
+					<section>
+						<p class="pleft"> QuickOSM	</p>
+						
+								<ol>
+									<li><p>Exécutez le plugin à partir du menu <span class="menuselection">Vecteur ► QuickOSM ► QuickOSM…</span>.</p></li>
+									<li><p>Dans la zone préreglage, tapez <span class="text" >boundary</span> dans le menu déroulant <span class="menuselection">clé</span>.</p></li>
+									<li><p>Laissez le champ <span class="menuselection" >Valeur</span> vide.</p></li>
+									<li><p>Sélectionnez <span class="menuselection">dans</span> dans le menu déroulant suivant, et ecrire <span>bouira bouira Algeria</span></p></li>
+									<li><p>Développez le groupe <span class="menuselection">avancé</span> ci-dessous et décochez tous les types de géométrie sur la droite sauf <span class="guilabel">Multipolygones</span>.</p></li>
+									<li><p>Pressez <span class="menuselection">executer requête</span></p>
+								</ol>
+					</section>
+					<section>
+						<img class="r-stretch" src="images/commune/QuickOSM_windows.png" alt="QuickOSM window">
+					</section>
+					<section>
+						<p class="pleft">Une nouvelle couche <span class="menuselection">bouira bouira Algeria</span> est ajoutée au panneau <span class="menuselection">couches</span>, montrant les limites administrative de <strong>bouira</strong> dans l’étendue sélectionnée.</p>
+						<img src="images/commune/bouiraX3.png" alt="">
+					</section>
+					<section>
+						<h2>Sauvegarder</h2>
+						<div class="cols" style="align-items:flex-end">
+								<div>
+									<img class="r-stretch" src="images/commune/bouira_tmp.png" alt="">
+									<figcaption>bouira</figcaption>
+								</div>
+								<div>
+									<p class="pleft"> l'icon mentionner sur la figure à gauche signifier que la couche est temporaire <q>une fois le projet fermé elle sera perdue!</q><br> cliquez sur ladite icone pour sauvegarder la couche</p>
+								</div>
+						</div>
+					</section>
+					<section>
+						<img class="r-stretch" src="images/commune/bouira_save.png" alt="">
+						<figcaption>couche sauvegarder</figcaption>
+					</section>
+					<section>
+						<p class="pleft">Pour n'avoir que la commune de <span class="menuselection">bouira</span>clique droit sur le nom de la couche puis sur <span class="menuselection">Filtrer</span></p>
+						<div class="cols"  style="align-items:flex-end">							
+							<div>
+								<img class="r-stretch" src="images/commune/bouira_filtre.png" alt="">
+								<figcaption>Paramétrer le filtre </figcaption>
+							</div>
+							<div>
+								<img class="r-stretch" src="images/commune/bouira_filtre_result.png" alt="">
+								<figcaption>La commune de bouira </figcaption>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h1> Symbologie</h1>
+						<img src="images/commune/bouira_ok.png" alt="">
+					</section>
+					<section>
+						<ol >
+							<li><p>Procédez comme ci-dessus pour extraire d’autres données :</p>
+							<ol class="arabic simple">
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">landuse</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">natural</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">water</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">highway</span> et vérifiez les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">waterway</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">river</span> et vérifier les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">place</span> et type de géométrie <span class="menuselection">Points</span>.</p></li>
+							</li>
+							</ol>
+						</ol>
+					</section>
+					<section>
+						<h2>Intersection</h2>
+						<p class="pleft">Découper les excédents de rivières qui dépassent les frontières de la commune</p>
+					</section>
 				</section>
 			</div>
 		</div>

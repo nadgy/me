@@ -75,3 +75,25 @@ svg text {
 .reveal table.simple th {
     white-space: nowrap
 }
+.pleft {
+    text-align: left;
+}
+.menuselection {
+    background:#f447b7;
+    font-size: 80%;
+    border:1px solid #7fbbe3;
+    font-weight:700;
+    border-radius:4px;
+    padding:2.4px 6px;
+    margin:auto 2px
+}
+.text {
+    color: #ff0000;
+    background:#ffffff;
+    font-size: 80%;
+    border:1px solid #000000;
+    font-weight:300;
+    border-radius:4px;
+    padding:2.4px 6px;
+    margin:auto 2px
+}
