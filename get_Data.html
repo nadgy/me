@@ -164,25 +164,19 @@
 									<figcaption>bouira</figcaption>
 								</div>
 								<div>
-									<p class="pleft"> l'icon mentionner sur la figure à gauche signifier que la couche est temporaire <q>une fois le projet fermé elle sera perdue!</q><br> cliquez sur ladite icone pour sauvegarder la couche</p>
+									<p class="pleft"> l'icon mentionnée sur la figure à gauche signifier que la couche est temporaire <q>une fois le projet fermé elle sera perdue!</q><br> cliquez sur ladite icone pour sauvegarder la couche</p>
 								</div>
 						</div>
 					</section>
 					<section>
 						<img class="r-stretch" src="images/commune/bouira_save.png" alt="">
-						<figcaption>couche sauvegarder</figcaption>
+						<figcaption>couche sauvegardée</figcaption>
 					</section>
 					<section>
-						<p class="pleft">Pour n'avoir que la commune de <span class="menuselection">bouira</span>clique droit sur le nom de la couche puis sur <span class="menuselection">Filtrer</span></p>
-						<div class="cols"  style="align-items:flex-end">							
-							<div>
-								<img class="r-stretch" src="images/commune/bouira_filtre.png" alt="">
-								<figcaption>Paramétrer le filtre </figcaption>
-							</div>
-							<div>
-								<img class="r-stretch" src="images/commune/bouira_filtre_result.png" alt="">
-								<figcaption>La commune de bouira </figcaption>
-							</div>
+						<div class="r-stack">
+							<p class="pleft fragment">Pour n'avoir que la commune de <span class="menuselection">bouira</span>clique droit sur le nom de la couche puis sur <span class="menuselection">Filtrer</span></p>
+							<img class="fragment" src="images/commune/bouira_filtre.png">
+							<img class="fragment" src="images/commune/bouira_filtre_result.png" >
 						</div>
 					</section>
 					<section>
@@ -191,11 +185,13 @@
 					</section>
 					<section>
 						<ol >
+							<p>pour les 6 étapes suivantes sélectionnez <span class="menuselection">Emprise d'une couche</span> dans le menu déroulant suivant, et ecrire le nom de la couche masque <span class="menuselection">bouira</span> pour toutes les autres couches </p>
 							<li><p>Procédez comme ci-dessus pour extraire d’autres données :</p>
 							<ol class="arabic simple">
 							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">landuse</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
 							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">natural</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">water</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
 							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">highway</span> et vérifiez les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">building</span>,  et type de géométrie <span class="menuselection">Multipolygons.</p></li>
 							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">waterway</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">river</span> et vérifier les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
 							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">place</span> et type de géométrie <span class="menuselection">Points</span>.</p></li>
 							</li>
@@ -203,8 +199,44 @@
 						</ol>
 					</section>
 					<section>
-						<h2>Intersection</h2>
-						<p class="pleft">Découper les excédents de rivières qui dépassent les frontières de la commune</p>
+						<div class="r-stack">
+							<img class="fragment" src="images/commune/insert_landuse1.png">
+							<img class="fragment" src="images/commune/insert_landuse2.png" >
+							<img class="fragment" src="images/commune/insert_natural1.png">
+							<img class="fragment" src="images/commune/insert_natural2.png">
+							<img class="fragment" src="images/commune/insert_highway1.png" >
+							<img class="fragment" src="images/commune/insert_highway2.png" >
+							<img class="fragment" src="images/commune/insert_waterway1.png" >
+							<img class="fragment" style="background-color: white;"  src="images/commune/insert_waterway2.png" >
+							<img class="fragment" src="images/commune/insert_place1.png">
+							<img class="fragment" src="images/commune/insert_place2.png">							
+						  </div>
+					</section>
+
+					<section>
+						<h2>Réorganisation des calques</h2>
+						<p class="pleft">Les calques dans votre liste de calques sont dessinés sur la carte dans un certain ordre. Le calque en bas de la liste est dessiné en premier, et le calque en haut est dessiné en dernier. En changeant leur ordre dans la liste, vous pouvez changer l’ordre suivant lesquel ils sont dessinés.</p>
+					</section>
+					<section>
+						<h2>Intersection des couches</h2>
+						<p class="pleft">Découper les excédents de couches qui dépassent les frontières de la commune en utilisant
+							l'algorithme <q>Intersection</q> <br>cet algorithme extrait les parties superposées des entités dans les couches en entrée et en superposition. Les entités de la couche en superposition en sortie se voient attribuer les attributs des entités superposées de la couche en entrée et de celle en superposition.</p>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img class="fragment" src="images/commune/Intersection0.png">
+							<img class="fragment" src="images/commune/intersection2.png">
+							<img class="fragment" src="images/commune/intersection3a.png">
+							<img class="fragment" src="images/commune/intersection3b.png">
+							<img class="fragment" src="images/commune/intersection4.png">
+						  </div>
+					</section>
+					<section>
+						<p class="pleft">Procéder de même façon pour réaliser l'intersection des autres couches avec la couche commune de Bouira</p>
+					</section>
+					<section>
+						<h2>Résultat après intersection</h2>
+						<img src="images/commune/synbology0.png" alt="">
 					</section>
 				</section>
 			</div>
