@@ -102,3 +102,25 @@ div.fixed {
     bottom: 0;
     right: 0;
   }
+.guilabel,
+.menuselection {
+  color :white;
+  font-size:80%;
+  font-weight:700;
+  border-radius:4px;
+  padding:2.4px 6px;
+  margin:auto 2px;
+  border:1px solid #e148cd;
+  background:#d33682
+}
+.precode {
+    color: #e74c3c;
+    white-space: normal;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+    padding: 2px 5px;
+    background: #fff;
+    border: 1px solid #e1e4e5;
+    font-size: 75%;
+    box-sizing: border-box;
+    
+}
