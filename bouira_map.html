@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Carte de Bouira</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
+    <link rel="stylesheet" href="dist/mytheme.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- Chalkboard plugin begin -->
+    <!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+<!-- Chalkboard plugin end -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <section>
+						<h2>Intersection des couches</h2>
+						<p class="pleft">Découper les excédents de couches qui dépassent les frontières de la commune en utilisant
+							l'algorithme <q>Intersection</q> <br>cet algorithme extrait les parties superposées des entités dans les couches en entrée et en superposition. Les entités de la couche en superposition en sortie se voient attribuer les attributs des entités superposées de la couche en entrée et de celle en superposition.</p>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img class="fragment" src="images/commune/Intersection0.png">
+							<img class="fragment" src="images/commune/intersection2.png">
+							<img class="fragment" src="images/commune/intersection3a.png">
+							<img class="fragment" src="images/commune/intersection3b.png">
+							<img class="fragment" src="images/commune/intersection4.png">
+						  </div>
+					</section>
+					<section>
+						<p class="pleft">Procéder de même façon pour réaliser l'intersection des autres couches avec la couche commune de Bouira</p>
+					</section>
+					<section>
+						<h2>Résultat après intersection</h2>
+						<img class="r-stretch" src="images/commune/synbology0.png" alt="">
+					</section>
+					
+                </section>
+                <section>
+                    <section>
+						<h2>symbologie</h2>
+						<p class="pleft"> la carte précédente est propre. Toutes les couches sont à l'intérieur de la limite administrative de la commune. mais l'apparence visuelle ne reflète pas ce que la carte représente! D'où vient l'importance de la symbologie  </p>
+					</section>
+					<section>
+						<p class="pleft">Vérifier que la couche <strong>occupation du sol </strong>est selectionnée puis cliquez sur le paneau  <span class="guilabel">Style de Couche</span></p>
+						<img class="r-stretch" src="images/commune/styling1.png" alt="">
+					</section>
+					<section>
+						<p>Cliquez sur la flèche à droite de la liste déroulante (Symbole Unique)</p>
+						<img class="r-stretch" src="images/commune/styling2.png" alt="">
+					</section>
+					<section>
+						<p> Selectionnez l'option catégorisé</p>
+						<img class="r-stretch" src="images/commune/styling3.jpg"  alt="">
+					</section>
+					<section>
+						<ul>
+							<li>Pour la valeur <strong>Valeur</strong>Selectionnez le champs <strong>landuse</strong> </li>
+							<li>Comme palette de couleur Selectionnez <span class="guilabel">green</span> </li>
+							<li>puis cliquez sur le bouton <strong>Classer</strong></li>
+							<li>Cliquez en suite sur <strong>Appliquer</strong></li>
+						</ul>
+					</section>
+					<section>
+						<img class="r-stretch" src="images/commune/styling4.png" alt="">
+					</section>
+					<section>
+						<h2>Occupaton du sol</h2>
+						<img class="r-stretch" src="images/commune/styling5.png" alt="">
+						<p class="pleft"> <strong>Astuce:</strong> Eliminez les lignes (les contours) entre les différentes zones de la couche <strong>landuse</strong> afin de rendre la carte visuellement moins encombrée.</p>
+					</section>					
+					<section>
+						<h2>Stylisez les autres couches</h2>
+						<ul class="simple">
+							<li><p>Changez la couleur de la couche <span class="guilabel">eau</span> en bleu clair. Essayez d’utiliser le menu  <span class="guilabel">Propriétés de la couche</span> au lieu du paneau  <span class="guilabel">Style de Couche</span>.</p></li>
+							<li><p>Changez à nouveau la symbologie de la couche <span class="guilabel">eau</span> pour qu’elle ait un contour bleu plus foncé.</p></li>
+							<li><p>Changez la symbologie de la couche <span class="guilabel">rivière</span> en une représentation adéquate avec les cours d’eau.</p></li>
+							<li><p>Changez la couleur de la couche <span class="guilabel">batiments</span> en gris clair, et la couleur des contours en un gris ligèrement plus foncé.</p></li>
+						</ul>
+					</section>
+					<section>
+						<p class="pleft"><strong>Remarque:</strong> la couche <strong>batiments</strong> encombre la carte unitlement, nous pouvons décider de cacher les bâtiments à la vue à petite échelle. Procédez comme suit:  </p>
+						<ol class="arabic">
+							<li><p>Ouvrez la fenêtre <span class="guilabel">Propriétés de la couche</span> pour la couche <code class="docutils literal notranslate"><span class="pre">batiments</span></code> (occupation du sol).</p></li>
+							<li><p>Activez l’onglet  <span class="guilabel">Rendu</span>.</p></li>
+							<li><p>Activez le rendu basé sur l’échelle en cliquant sur la case à cocher intitulée <span class="guilabel">Visibilité dépendante de l’échelle</span> :</p></li>
+							<li><p>Changez la valeur de <span class="guilabel">Minimum</span> à <span class="precode">1:10000</span>.</p></li>
+							<li><p>Cliquez sur <span class="guilabel">OK</span>.</p></li>
+							</ol>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img class="fragment" src="images/commune/styling-buildings.png" alt="">
+							<img class="fragment" src="images/commune/styling-building0.png" alt="">
+							<img class="fragment" src="images/commune/styling-building1.png" alt="">
+						</div>
+					</section>
+					<section>
+						<h2>Autoroutes</h2>
+							<p class="pleft">Stylisez la couche Autoroutes par catégorée (voir landuse)</p>
+							<ul>
+								<li>Pour la valeur <strong>Valeur</strong>Selectionnez le champs <strong>highway</strong> </li>
+								<li>Comme palette de couleur Selectionnez à votre guise </li>
+								<li>puis cliquez sur le bouton <strong>Classer</strong></li>
+								<li> Double-cliquez sur chaque entrée de légende pour la traduire.</li>
+								<li>Cliquez en suite sur <strong>Appliquer</strong></li>
+							</ul>
+						</h2>
+					</section>
+					<section>
+							<img class="fragment" src="images/commune/styling-highway-legende.png" alt="">
+					</section>
+					<section>
+						<img class="fragment" src="images/commune/styling-highway.png" alt="">
+					</section>
+					<section>
+						<h2>la couche places</h2>
+						<p class="pleft">Vous pouvez ajouter des étiquettes à la couche place (géométrie de type points)pour indiquer le nom de la place  </p>
+						<img class="r-stretch" src="images/commune/cbouira.png" alt="">
+					</section>
+					<section>
+						<h1> Création de la carte de Bouira</h1>
+						<p class="pleft">Pour créer une mise en page de la carte Suivez la vidéo:</p>
+					</section>
+					<section data-background-video="images/commune/cBouira-layout.webm"> </section>
+					<section>
+						<h1>Exporter la carte</h1>
+						<p class="pleft">La carte est enfin prête pour l’exportation ! Vous verrez les boutons d’exportation dans le coin supérieur gauche de la fenêtre de mise en page :</p>
+					</section>
+					<section data-background-video="images/commune/carte2pdf.webm"> </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <!-- <script src="node_modules/reveal.js-menu/menu.js"></script>   -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+// chalkboard plugin begin
+ //       Reveal.initialize({
+         /* customcontrols: {
+                controls: [
+                  { icon: '<i class="fa fa-pen-square"></i>',
+                    title: 'Toggle chalkboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                  },
+                  { icon: '<i class="fa fa-pen"></i>',
+                    title: 'Toggle notes canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                  }
+                ]
+              },
+              chalkboard: {
+                // add configuration here
+              },
+              // ...
+              //plugins: [ RevealChalkboard, RevealCustomControls ],
+              // ...
+// chalkboard plugin end */
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]//, RevealChalkboard, RevealCustomControls, RevealMenu
+			});
+		</script>
+	</body>
+</html>
