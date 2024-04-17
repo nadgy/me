@@ -356,14 +356,14 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="http://elearninginfo.univ-bouira.dz/login/index.php">Plateforme de l'Université </a>
-</li>
+          <li>
+            <a href="http://elearninginfo.univ-bouira.dz/login/index.php">Plateforme de l'Université </a>
+          </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="#">haut</a>
-</li>
+          <a href="#">haut</a>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -542,1619 +542,1008 @@ Guide</a> for step-by-step instructions.</p>
   </ol>
   <p><img src="images/introduction_to_qgis/earthquakes_part1_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Select the <em>Vector</em> tab. Click the <em>…</em> button next to
-<em>Vector Dataset(s)</em> and browse to the data directory.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Select the <code>ne_10m_land.shp</code> file and click
-<em>Open</em>. In the <em>Data Source Manager</em> window, click
-<em>Add</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="4" style="list-style-type: decimal">
-<li>A new layer, <code>ne_10m_land</code> will be added to the
-<em>Layers</em> panel and displayed on the Canvas. This layer contains
-polygons representing the land areas of the world. Click on the <em>Open
-Data Source Manager</em> button again.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_4.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Click the <em>…</em> button next to <em>Vector Dataset(s)</em> and
-browse to the data directory. Select the
-<code>gem_active_faults_harmonized.gpkg</code> file and click
-<em>Open</em> followed by <em>Add</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_5.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="6" style="list-style-type: decimal">
-<li>A new layer, <code>gem_active_faults_harmonized</code> will be added
-to the <em>Layers</em> panel and displayed on the Canvas. This is a
-global layer containing lines representing all the active faults. We
-will now import another layer of earthquake points. Click on the
-<em>Open Data Source Manager</em> button again.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_6.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="7" style="list-style-type: decimal">
-<li>Select the <em>Delimited Text</em> tab. Click the <em>…</em> button
-next to <em>File name</em> and browse to the data directory. Select the
-<code>significant_earthquakes_2000_2020.tsv</code> file. This is a text
-file in the <em>Tab-Separated Values (TSV) format</em>. In the <em>File
-Format</em> section, select <em>Custom delimiters</em>.</li>
-</ol>
-<blockquote>
-<p>Note: Windows users may need to change the <em>File Type</em> as
-<strong>All</strong> in <em>Choose a Delimited Text File to Open</em>
-dialog to see the TSV file.</p>
-</blockquote>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_7.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Check the <em>Tab</em> checkbox. In the <em>Geometry Definition</em>
-section, ensure <strong>Longitude</strong> is selected as the <em>X
-Field</em> and <strong>Latitude</strong> is selected as the <em>Y
-Field</em>. Choose <strong>EPSG:4326</strong> as <em>Geometry CRS</em>.
-Leave other options to their default values and click <em>Add</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_8.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="9" style="list-style-type: decimal">
-<li>A new layer, <code>significant_earthquakes_2000_2020</code> will be
-added to the <em>Layers</em> panel and displayed on the Canvas. This
-layer contains over 1000 records of significant earthquakes recorded
-between 2000 and 2020. Right-click on the
-<code>significant_earthquakes_2000_2020</code> layer and select <em>Open
-Attribute Table</em>. Examine all the attributes and their values.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_9.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="10" style="list-style-type: decimal">
-<li>We will now learn about some of the tools to query and select
-records. From the <em>Selection Toolbar</em>, click the <em>Select
-Features by Value…</em> button.</li>
-</ol>
-<blockquote>
-<p>Note: If the selection toolbar is not enabled, right-click on the
-toolbar panel and check <strong>Selection Toolbar</strong>.</p>
-</blockquote>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_10.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="11" style="list-style-type: decimal">
-<li>In the <em>Select Features</em> dialog, enter <strong>2020</strong>
-as the <em>Year</em> and click the <em>Select Features</em> button. You
-will see all earthquakes that occurred during 2020 will be highlighted
-in yellow. You may also click the <em>Flash Features</em> button to see
-the selected records blink.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_11.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="12" style="list-style-type: decimal">
-<li>Let’s refine the query a little more. Enter <strong>7</strong> as
-the <em>Mag</em> parameter and set the criteria as <em>Greater than
-(&gt;)</em>. Click <em>Select Features</em>. You will now see only those
-points where the earthquake occurred in 2020, and its magnitude was
-greater than 7. Close the window.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_12.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="13" style="list-style-type: decimal">
-<li>Right-click on the <code>significant_earthquakes_2000_2020</code>
-layer and select <em>Open Attribute Table</em>. You will see that there
-are 6 selected features in the layer. If you want to examine their
-attributes, there is a handy shortcut. Click the <em>Move selection to
-top</em> button.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_13.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="14" style="list-style-type: decimal">
-<li>All the selected rows will be displayed on the top of the attribute
-table - making it easy to examine the selected features. Click the
-<em>Deselect all features from the layer</em> button.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_14.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="15" style="list-style-type: decimal">
-<li>For our map, we need another layer of 10 largest earthquakes - so we
-can style it differently than other earthquakes. For our visualization,
-we will define the largest earthquakes like the ones that resulted in
-the highest number of deaths. Locate the <em>Total Deaths</em> attribute
-and click twice on the column header. This will sort the features in
-descending order of the values in this column.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_15.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="16" style="list-style-type: decimal">
-<li>Hold the <em>Shift</em> key and select the first 10 rows. This
-selection will be the 10 earthquakes with the high fatalities.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_16.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="17" style="list-style-type: decimal">
-<li>We will save the selected 10 features as a new layer. Right-click
-the <code>significant_earthquakes_2000_2020</code> layer and go to
-<em>Export → Save Selected Features As..</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_17.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="18" style="list-style-type: decimal">
-<li>Select <strong>GeoPackage</strong> as the <em>Format</em>. Click the
-<em>…</em> button next to <em>File name</em> and browse to the data
-directory. Name the layer as <code>large_earthquakes.gpkg</code>. Click
-<em>Save</em>. Click <em>OK</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_18.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="19" style="list-style-type: decimal">
-<li>A new layer, <code>large_earthquakes</code> will be added to the
-<em>Layers</em> panel.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_19.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="20" style="list-style-type: decimal">
-<li>Our data preparation is now complete. Let’s save our work. Go to
-<em>Project → Save</em>. Browse to the data directory and enter the name
-as <strong>Earthquakes</strong>. Click <em>Save</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_20.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="21" style="list-style-type: decimal">
-<li>The project will be saved in the <em>QGZ</em> format as a file.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part1_21.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finished the first part of this exercise. Your output
-should match the contents of the
-<code>Earthquakes_Checkpoint1.qgz</code> file in the
-<code>solutions</code> folder.</p>
-<div id="challenge" class="section level3">
-<h3>1.1.1 Challenge</h3>
-<p>Do you know about <a href="https://en.wikipedia.org/wiki/Null_Island">Null Island</a>? The
-<code>ne_10m_land</code> contains a polygon for this feature. Locate
-this polygon on the map.</p>
-<p>Hint: Open the attribute table, find and select the feature for Null
-island. Then use the <em>Zoom map to the selected rows</em> button.</p>
-</div>
-</div>
-<div id="symbology" class="section level2">
-<h2>1.2 Symbology</h2>
-<p>The symbology of a layer is its visual appearance on the map. We will
-now learn different techniques for styling each layer to convey the
-information visually.</p>
-<ol style="list-style-type: decimal">
-<li>Select the <code>ne_10m_land</code> layer and click <em>Open the
-Layer Styling Panel</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="2" style="list-style-type: decimal">
-<li>We will style this layer with a simple grey color. Click <em>Simple
-Fill</em> to reveal more options. Click the dropdown next to <em>Fill
-color</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Use the color picker to select a light shade of grey color. The
-<em>Layer Styling Panel</em> is interactive, so you can immediately
-preview your styling changes in the map canvas.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Similarly, change the <em>Stroke color</em> to white.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Next, we will style the faults layer. Select
-<code>gem_active_faults_harmonized</code> layer in the <em>Layers</em>
-panel. Click the <em>Simple Line</em> symbol to reveal more styling
-options. Change the <em>Color</em> to a shade of brown. Set the
-<em>Stroke width</em> to <strong>0.1</strong>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Now we will change the style of the earthquake points. Select the
-<code>significant_earhtquakes_2000_2020</code> layer. Click the
-<em>Simple Marker</em> symbol. Change the <em>Size</em> option to
-<strong>0.7</strong> <em>Millimeters</em>. Select red as the <em>Fill
-color</em> and white as the <em>Stroke color</em>. Change the <em>Stroke
-width</em> to <strong>0.1</strong>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="7" style="list-style-type: decimal">
-<li>We have now styled the three background layers. We will style the
-<code>large_earthquakes</code> layer, which features the main
-information we want to convey through this map. We will use a
-<em>Proportional Circle</em> style and have the size of the circle
-represent the total fatalities caused by the respective earthquake.
-Click <em>Simple Marker</em> to see more styling options. Click the
-<em>Data defined override</em> button next to <em>Size</em> and choose
-<strong>Assistant</strong>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="8" style="list-style-type: decimal">
-<li>In the <em>Input</em> section, select <strong>Total Deaths</strong>
-as the <em>Source</em>. Set the range of <em>Values from</em>
-<strong>5000</strong> <em>to</em> <strong>500000</strong>. In the
-<em>Output</em> section, set the range of <em>Size from</em>
-<strong>3</strong> <em>to</em> <strong>10</strong>. This will use the
-attribute value in the <em>Total Deaths</em> field to set the size of
-the circles. Click the <em>Go Back</em> button at the top of the panel
-to return to the previous menu.</li>
-</ol>
-<blockquote>
-<p>The default <em>Scale method</em> used by QGIS is
-<strong>Flannery</strong>. This method applies a non-linear scaling to
-compensate for human perception of areas. <a href="https://makingmaps.net/2007/08/28/perceptual-scaling-of-map-symbols/" target="_blank">Learn more. ↗</a></p>
-</blockquote>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="9" style="list-style-type: decimal">
-<li>Click the <em>Fill color</em> and adjust the transparency. This will
-help show the information under the large circles.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="10" style="list-style-type: decimal">
-<li>Set the <em>Stroke color</em> to white.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/earthquakes_part2_10.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="11" style="list-style-type: decimal">
-<li>The circles represent the number of deaths caused by each
-earthquake. But the reader of our map will not know what these sizes
-represent. It would help interpret the map better if we had a legend.
-Let’s set a legend for this layer. Click the <em>Marker</em> symbol. At
-the bottom of the panel, select <em>Advanced → Data-defined Size
-Legend</em>.</li>
-</ol>
+  <ol>
+  <li>Sélectionnez l'onglet <em>Vector</em>. Cliquez sur le bouton <em>…</em> à côté de
+  <em>Ensemble(s) de données vectorielles</em> et parcourez le répertoire de données.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="3" style="list-style-type: decimal">
+  <li>Sélectionnez le fichier <code>ne_10m_land.shp</code> et cliquez sur
+  <em>Ouvrir</em>. Dans la fenêtre <em>Gestionnaire de source de données</em>, cliquez sur
+  <em>Ajouter</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="4" style="list-style-type: decimal">
+  <li>Un nouveau calque, <code>ne_10m_land</code>, sera ajouté au
+  panneau <em>Calques</em> et affiché sur le canevas. Ce calque contient
+  des polygones représentant les zones terrestres du monde. Cliquez à nouveau sur le bouton <em>Ouvrir le gestionnaire de source de données</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_4.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="5" style="list-style-type: decimal">
+  <li>Cliquez sur le bouton <em>…</em> à côté de <em>Ensemble(s) de données vectorielles</em> et
+  parcourez le répertoire de données. Sélectionnez le fichier
+  <code>gem_active_faults_harmonized.gpkg</code> et cliquez sur
+  <em>Ouvrir</em>, puis sur <em>Ajouter</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_5.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="6" style="list-style-type: decimal">
+  <li>Un nouveau calque, <code>gem_active_faults_harmonized</code>, sera ajouté
+  au panneau <em>Calques</em> et affiché sur le canevas. Il s'agit d'un
+  calque global contenant des lignes représentant toutes les failles actives. Nous
+  allons maintenant importer un autre calque de points de séisme. Cliquez à nouveau sur le bouton <em>Ouvrir le gestionnaire de source de données</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_6.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="7" style="list-style-type: decimal">
+  <li>Sélectionnez l'onglet <em>Texte délimité</em>. Cliquez sur le bouton <em>…</em>
+  à côté de <em>Nom de fichier</em> et parcourez le répertoire de données. Sélectionnez le
+  fichier <code>significant_earthquakes_2000_2020.tsv</code>. Il s'agit d'un fichier texte
+  au format <em>Valeurs séparées par des tabulations (TSV)</em>. Dans la section <em>Format de fichier</em>,
+  sélectionnez <em>Délimiteurs personnalisés</em>.</li>
+  </ol>
+  <blockquote>
+  <p>Remarque : Les utilisateurs de Windows peuvent avoir besoin de modifier le <em>Type de fichier</em> en
+  <strong>Tous</strong> dans la boîte de dialogue <em>Choisir un fichier texte délimité à ouvrir</em>
+  pour voir le fichier TSV.</p>
+  </blockquote>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_7.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="8" style="list-style-type: decimal">
+  <li>Cochez la case <em>Tabulation</em>. Dans la section <em>Définition de la géométrie</em>,
+  assurez-vous que <strong>Longitude</strong> est sélectionnée comme <em>Champ X</em> et que <strong>Latitude</strong> est sélectionnée comme <em>Champ Y</em>. Choisissez <strong>EPSG:4326</strong> comme <em>Système de coordonnées de la géométrie</em>.
+  Laissez les autres options avec leurs valeurs par défaut et cliquez sur <em>Ajouter</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_8.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="9" style="list-style-type: decimal">
+  <li>Un nouveau calque, <code>significant_earthquakes_2000_2020</code>, sera ajouté au panneau <em>Calques</em>
+  et affiché sur le canevas. Ce calque contient plus de 1000 enregistrements de séismes significatifs enregistrés
+  entre 2000 et 2020. Cliquez avec le bouton droit sur le calque <code>significant_earthquakes_2000_2020</code> et sélectionnez <em>Ouvrir
+  la table attributaire</em>. Examinez tous les attributs et leurs valeurs.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_9.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="10" style="list-style-type: decimal">
+  <li>Nous allons maintenant apprendre à utiliser certains des outils pour interroger et sélectionner
+  des enregistrements. Dans la <em>Barre d'outils de sélection</em>, cliquez sur le bouton <em>Sélectionner
+  les entités par valeur…</em>.</li>
+  </ol>
+  <blockquote>
+  <p>Remarque : Si la barre d'outils de sélection n'est pas activée, faites un clic droit sur le
+  panneau de la barre d'outils et cochez <strong>Barre d'outils de sélection</strong>.</p>
+  </blockquote>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_10.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="11" style
+  
+  ="list-style-type: decimal">
+  <li>Dans la boîte de dialogue <em>Sélectionner les entités</em>, saisissez <strong>2020</strong>
+  comme <em>Année</em> et cliquez sur le bouton <em>Sélectionner les entités</em>. Vous
+  verrez tous les séismes survenus en 2020 s'afficher en jaune. Vous pouvez également cliquer sur le bouton <em>Faire clignoter les entités</em> pour voir
+  les enregistrements sélectionnés clignoter.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_11.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="12" style="list-style-type: decimal">
+  <li>Affinons un peu la requête. Saisissez <strong>7</strong> comme
+  paramètre <em>Mag</em> et définissez le critère comme <em>Supérieur à
+  (&gt;)</em>. Cliquez sur <em>Sélectionner les entités</em>. Vous verrez maintenant seulement
+  les points où le séisme a eu lieu en 2020 et dont la magnitude était
+  supérieure à 7. Fermez la fenêtre.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_12.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="13" style="list-style-type: decimal">
+  <li>Cliquez avec le bouton droit sur le calque <code>significant_earthquakes_2000_2020</code> et sélectionnez <em>Ouvrir la table attributaire</em>. Vous verrez qu'il y a 6 entités sélectionnées dans le calque. Si vous souhaitez examiner leurs attributs, il existe un raccourci pratique. Cliquez sur le bouton <em>Déplacer la sélection en haut</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_13.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="14" style="list-style-type: decimal">
+  <li>Toutes les lignes sélectionnées seront affichées en haut de la table attributaire, facilitant l'examen des entités sélectionnées. Cliquez sur le bouton <em>Désélectionner toutes les entités du calque</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_14.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="15" style="list-style-type: decimal">
+  <li>Pour notre carte, nous avons besoin d'un autre calque représentant les 10 plus grands séismes, afin de pouvoir le styler différemment des autres séismes. Pour notre visualisation, nous définirons les plus grands séismes comme ceux ayant entraîné le plus grand nombre de décès. Localisez l'attribut <em>Total de décès</em> et cliquez deux fois sur l'en-tête de la colonne. Cela triera les entités par ordre décroissant des valeurs de cette colonne.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_15.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="16" style="list-style-type: decimal">
+  <li>Maintenez la touche <em>Majuscule</em> enfoncée et sélectionnez les 10 premières lignes. Cette sélection correspondra aux 10 séismes ayant provoqué le plus de décès.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_16.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="17" style="list-style-type: decimal">
+  <li>Nous allons enregistrer les 10 entités sélectionnées en tant que nouveau calque. Cliquez avec le bouton droit sur le calque <code>significant_earthquakes_2000_2020</code> et allez dans <em>Exporter → Enregistrer les entités sélectionnées sous..</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_17.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="18" style="list-style-type: decimal">
+  <li>Sélectionnez <strong>GeoPackage</strong> comme <em>Format</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Nom de fichier</em> et parcourez le répertoire de données. Nommez le calque <code>large_earthquakes.gpkg</code>. Cliquez sur <em>Enregistrer</em>. Cliquez sur <em>OK</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_18.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="19" style="list-style-type: decimal">
+  <li>Un nouveau calque, <code>large_earthquakes</code>, sera ajouté au panneau <em>Calques</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_19.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="20" style="list-style-type: decimal">
+  <li>La préparation de nos données est désormais terminée. Sauvegardons notre travail. Allez dans <em>Projet → Enregistrer</em>. Parcourez le répertoire de données et entrez le nom <strong>Séismes</strong>. Cliquez sur <em>Enregistrer</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_20.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="21" style="list-style-type: decimal">
+  <li>Le projet sera enregistré au format <em>QGZ</em> en tant que fichier.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part1_21.png" width="75%" style="display: block; margin: auto;"></p>
+  <p>Nous avons maintenant terminé la première partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>Earthquakes_Checkpoint1.qgz</code> dans le dossier <code>solutions</code>.</p>
+  <div id="challenge" class="section level3">
+  <h3>1.1.1 Défi</h3>
+  <p>Connaissez-vous <a href="https://en.wikipedia.org/wiki/Null_Island">Null Island</a>? Le
+  <code>ne_10m_land</code> contient un polygone pour cette caractéristique. Localisez
+  ce polygone sur la carte.</p>
+  <p>Indice : Ouvrez la table attributaire, trouvez et sélectionnez la caractéristique de Null
+  Island. Ensuite, utilisez le bouton <em>Zoom sur les lignes sélectionnées sur la carte</em>.</p>
+  </div>
+  </div>
+  <div id="symbology" class="section level2">
+  <h2>1.2 Symbologie</h2>
+  <p>La symbologie d'un calque est son apparence visuelle sur la carte. Nous allons
+  maintenant apprendre différentes techniques pour styler chaque calque afin de transmettre
+  l'information visuellement.</p>
+  <ol style="list-style-type: decimal">
+  <li>Sélectionnez le calque <code>ne_10m_land</code> et cliquez sur <em>Ouvrir le
+  Panneau de style du calque</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="2" style="list-style-type: decimal">
+  
+  
+  <li>Nous allons styler ce calque avec une couleur grise simple. Cliquez sur <em>Remplissage
+  simple</em> pour révéler plus d'options. Cliquez sur la liste déroulante à côté de <em>Couleur de remplissage</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="3" style="list-style-type: decimal">
+  <li>Utilisez le sélecteur de couleur pour choisir une nuance de gris clair. Le
+  <em>Panneau de style du calque</em> est interactif, vous pouvez donc prévisualiser immédiatement
+  vos modifications de style sur le canevas de la carte.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="4" style="list-style-type: decimal">
+  <li>De même, changez la <em>Couleur de contour</em> en blanc.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="5" style="list-style-type: decimal">
+  <li>Ensuite, nous allons styler le calque des failles. Sélectionnez le calque
+  <code>gem_active_faults_harmonized</code> dans le panneau <em>Calques</em>. Cliquez sur le symbole
+  <em>Ligne simple</em> pour révéler plus d'options de styling. Changez la <em>Couleur</em> en une nuance de marron. Réglez la <em>Largeur du contour</em> sur <strong>0,1</strong>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="6" style="list-style-type: decimal">
+  <li>À présent, nous allons modifier le style des points de séisme. Sélectionnez le calque
+  <code>significant_earhtquakes_2000_2020</code>. Cliquez sur le symbole <em>Marqueur simple</em>. Changez l'option <em>Taille</em> en <strong>0,7</strong> <em>millimètres</em>. Sélectionnez le rouge comme <em>Couleur de remplissage</em> et le blanc comme <em>Couleur de contour</em>. Changez la <em>Largeur du contour</em> en <strong>0,1</strong>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="7" style="list-style-type: decimal">
+  <li>Nous avons maintenant stylé les trois calques d'arrière-plan. Nous allons styler le
+  calque <code>large_earthquakes</code>, qui présente les informations principales que nous voulons
+  transmettre à travers cette carte. Nous utiliserons un style de <em>Cercle proportionnel</em> et la taille du cercle représentera le nombre total de décès causés par le séisme respectif.
+  Cliquez sur <em>Marqueur simple</em> pour voir plus d'options de styling. Cliquez sur le
+  bouton <em>Substitution définie par les données</em> à côté de <em>Taille</em> et choisissez
+  <strong>Assistant</strong>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="8" style="list-style-type: decimal">
+  <li>Dans la section <em>Entrée</em>, sélectionnez <strong>Total de décès</strong> comme
+  <em>Source</em>. Définissez la plage de <em>Valeurs de</em> sur <strong>5000</strong> <em>à</em> <strong>500000</strong>. Dans la section <em>Sortie</em>, définissez la plage de <em>Taille de</em> sur <strong>3</strong> <em>à</em> <strong>10</strong>. Cela utilisera la valeur d'attribut dans le champ <em>Total de décès</em> pour définir la taille des cercles. Cliquez sur le bouton <em>Retour</em> en haut du panneau pour revenir au menu précédent.</li>
+  </ol>
+  <blockquote>
+  <p>La méthode d'échelle par défaut utilisée par QGIS est <strong>Flannery</strong>. Cette méthode applique une mise à l'échelle non linéaire pour compenser la perception humaine des aires. <a href="https://makingmaps.net/2007/08/28/perceptual-scaling-of-map-symbols/" target="_blank">En savoir plus. ↗</a></p>
+  </blockquote>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="9" style="list-style-type: decimal">
+  <li>Cliquez sur la <em>Couleur de remplissage</em> et ajustez la transparence. Cela aidera à montrer les informations sous les grands cercles.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="10" style="list-style-type: decimal">
+  <li>Définissez la <em>Couleur de contour</em> en blanc.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/earthquakes_part2_10.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="11" style="list-style-type: decimal">
+  <li>Les cercles représentent le nombre de décès causés par chaque séisme. Mais le lecteur de notre carte ne saura pas ce que représentent ces tailles. Il serait utile d'interpréter la carte mieux si nous avions une légende. Définissons une légende pour ce calque. Cliquez sur le symbole <em>Marqueur</em>. En bas du panneau, sélectionnez <em>Avancé → Légende de taille définie par les données
+  
+  </em>.</li>
+  </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part2_11.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="12" style="list-style-type: decimal">
-<li>Choose the <em>Collapsed legend</em> option. Check the <em>Manual
-size classes</em> option. Click the <em>+</em> button to add the class
-definition manually.</li>
+  <li>Choisissez l'option <em>Légende réduite</em>. Cochez l'option <em>Classes de taille manuelles</em>. Cliquez sur le bouton <em>+</em> pour ajouter la définition de la classe manuellement.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part2_12.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="13" style="list-style-type: decimal">
-<li>Set three different size classes for <strong>5000</strong>,
-<strong>50000</strong> and <strong>500000</strong>. You will see a
-legend in the <em>Layers</em> panel showing the circle sizes and
-corresponding fatality values.</li>
+<li>Définissez trois classes de taille différentes pour <strong>5000</strong>, <strong>50000</strong> et <strong>500000</strong>. Vous verrez une légende dans le panneau <em>Calques</em> montrant les tailles des cercles et les valeurs de mortalité correspondantes.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part2_13.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="14" style="list-style-type: decimal">
-<li>Click the <em>Save Project</em> button to save your work.</li>
+<li>Cliquez sur le bouton <em>Enregistrer le projet</em> pour sauvegarder votre travail.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part2_14.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finish the second part of this exercise. Your output
-should match the contents of the
-<code>Earthquakes_Checkpoint2.qgz</code> file in the
-<code>solutions</code> folder.</p>
+<p>Nous avons maintenant terminé la deuxième partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>Earthquakes_Checkpoint2.qgz</code> dans le dossier <code>solutions</code>.</p>
 <div id="challenge-1" class="section level3">
-<h3>1.2.1 Challenge</h3>
-<p>QGIS has many rich cartography features. One of my favorites is
-called <em>Live Layer Effects</em>. This allows you to add effects such
-as <em>Outer Glow</em>, <em>Drop Shadow</em>, etc., to each symbol. This
-takes your symbology to the next level and helps highlight certain
-features. Select the <code>large_earthquakes</code> layer and open the
-<em>Layer Styling Panel</em>. Expand the <em>Layer Rendering</em>
-section and enable <em>Draw effects</em>. Click the <em>Customize
-effects</em> button and add a drop shadow effect to the layer.</p>
+<h3>1.2.1 Défi</h3>
+<p>QGIS possède de nombreuses fonctionnalités de cartographie riches. Une de mes préférées s'appelle <em>Effets de calque en direct</em>. Cela vous permet d'ajouter des effets tels que <em>Lueur externe</em>, <em>Ombre portée</em>, etc., à chaque symbole. Cela élève votre symbologie à un niveau supérieur et aide à mettre en évidence certaines caractéristiques. Sélectionnez le calque <code>large_earthquakes</code> et ouvrez le <em>Panneau de style de calque</em>. Développez la section <em>Représentation du calque</em> et activez <em>Dessiner des effets</em>. Cliquez sur le bouton <em>Personnaliser les effets</em> et ajoutez un effet d'ombre portée au calque.</p>
 <p><img src="images/introduction_to_qgis/earthquakes_part2_challenge.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="labelling" class="section level2">
-<h2>1.3 Labelling</h2>
-<p>Labels are a useful way to convey additional information for any
-features. Labels are associated with each feature and can be configured
-to show information from the attributes. We will now add labels to each
-of the large earthquake points to show the name of the location as well
-as the deaths caused due to that earthquake.</p>
+<h2>1.3 Étiquetage</h2>
+<p>Les étiquettes sont un moyen utile de transmettre des informations supplémentaires pour n'importe quelle fonctionnalité. Les étiquettes sont associées à chaque fonctionnalité et peuvent être configurées pour afficher des informations à partir des attributs. Nous allons maintenant ajouter des étiquettes à chacun des grands points de séisme pour montrer le nom de l'emplacement ainsi que les décès causés par ce séisme.</p>
 <ol style="list-style-type: decimal">
-<li>Before we proceed further, let’s change the projection of our map to
-a more appropriate one. The preferred and modern choice for global maps
-is the <a href="http://equal-earth.com/">Equal Earth</a> projection. It
-is much more visually appealing and also preserves relative areas of
-continents. Go to <em>Project → Properties…</em>.</li>
+<li>Avant de continuer, changeons la projection de notre carte pour une projection plus appropriée. Le choix préféré et moderne pour les cartes mondiales est la <a href="http://equal-earth.com/">projection Equal Earth</a>. Elle est beaucoup plus esthétique et préserve également les aires relatives des continents. Allez à <em>Projet → Propriétés…</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Switch to the <em>CRS</em> tab. Search <em>8857</em> and select the
-<strong>WGS84 / Equal Earth Greenwich</strong> CRS. Click
-<em>OK</em>.</li>
+<li>Basculez sur l'onglet <em>SCR</em>. Recherchez <em>8857</em> et sélectionnez le <strong>WGS84 / Équateur Greenwich Equal Earth</strong> CRS. Cliquez sur <em>OK</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Back in the QGIS Window, you will notice that the shape of the map
-looks different now. The bottom-right corner also displayed the current
-project CRS <em>EPSG:8857</em>. Select the
-<code>large_earthquakes</code> layer and open the <em>Layer Styling
-Panel</em>. Switch to the <em>Labels</em> tab.</li>
+<li>De retour dans la fenêtre QGIS, vous remarquerez que la forme de la carte a maintenant changé. Le coin inférieur droit affiche également le CRS de projet actuel <em>EPSG:8857</em>. Sélectionnez le calque <code>large_earthquakes</code> et ouvrez le <em>Panneau de style de calque</em>. Basculez vers l'onglet <em>Étiquettes</em>.</li>
 </ol>
 <blockquote>
-<p>Note: Changing the Project CRS does not change the CRS of the layers,
-but reprojects them on-the-fly to the chosen CRS for display.</p>
+<p>Remarque : Changer le CRS du projet ne change pas le CRS des calques, mais les reprojette à la volée dans le CRS choisi pour l'affichage.</p>
 </blockquote>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Select <em>Single Labels</em>. We will combine the values from
-multiple attributes for the label using an expression. Click the
-<em>Expression</em> button next to <em>Value</em>.</li>
+<li>Sélectionnez <em>Étiquettes simples</em>. Nous allons combiner les valeurs de plusieurs attributs pour l'étiquette en utilisant une expression. Cliquez sur le bouton <em>Expression</em> à côté de <em>Valeur</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Locate the <strong>Location Name</strong> attribute under <em>Fields
-and Values</em> group. Double-click to add it to the expression. You can
-check the <em>Preview</em> at the bottom to see the result of the
-expression.</li>
+<li>Localisez l'attribut <strong>Nom de l'emplacement</strong> sous le groupe <em>Champs et valeurs</em>. Double-cliquez pour l'ajouter à l'expression. Vous pouvez vérifier l'aperçu en bas pour voir le résultat de l'expression.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>We will create a longer label text by combining multiple attributes.
-You can use the <strong>||</strong> operator in the QGIS expression to
-concatenate strings. Create the expression as shown below. Click
-<em>OK</em>.</li>
+<li>Nous allons créer un texte d'étiquette plus long en combinant plusieurs attributs. Vous pouvez utiliser l'opérateur <strong>||</strong> dans l
+
+'expression QGIS pour concaténer des chaînes. Créez l'expression comme indiqué ci-dessous. Cliquez sur <em>OK</em>.</li>
 </ol>
-<pre><code>"Location Name" ||  ';' || 'Deaths:' || "Total Deaths"</code></pre>
+<pre><code>"Nom de l'emplacement" ||  ';' || 'Décès :' || "Total Deaths"</code></pre>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>The labels will be rendered next to the points on the canvas. Select
-the <em>Formatting</em> tab. At the bottom, enter <strong>;</strong> as
-the value for <em>Wrap on character</em> and <strong>20</strong>
-characters as the value for <em>Wrap lines to</em>. This will break the
-labels into multiple lines and make them readable.</li>
+<li>Les étiquettes seront rendues à côté des points sur le canevas. Sélectionnez l'onglet <em>Formatage</em>. En bas, saisissez <strong>;</strong> comme valeur pour <em>Retour à la ligne sur le caractère</em> et <strong>20</strong> caractères comme valeur pour <em>Retour à la ligne à</em>. Cela permettra de diviser les étiquettes en plusieurs lignes et de les rendre lisibles.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>Next, we will change the appearance of the label text. Switch to the
-<em>Text</em> tab. Change the <em>Size</em> to <strong>8</strong> and
-set the <em>Color</em> to white.</li>
+<li>Ensuite, nous allons changer l'apparence du texte d'étiquette. Basculez vers l'onglet <em>Texte</em>. Modifiez la <em>Taille</em> en <strong>8</strong> et définissez la <em>Couleur</em> sur blanc.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>A useful labeling technique is to add a background to the labels to
-improve legibility. Switch to the <em>Background</em> tab and enable
-<em>Draw background</em>. Set the <em>Color</em> to black. Also, set the
-<em>Size X</em> and <em>Size Y</em> of <em>Buffer</em> to be
-<strong>1</strong> point. At the bottom, set the <em>Radius X,Y</em> to
-<strong>5</strong>.</li>
+<li>Une technique d'étiquetage utile consiste à ajouter un arrière-plan aux étiquettes pour améliorer la lisibilité. Basculez vers l'onglet <em>Arrière-plan</em> et activez <em>Dessiner un arrière-plan</em>. Définissez la <em>Couleur</em> sur noir. Définissez également la <em>Taille X</em> et la <em>Taille Y</em> de la <em>Marge</em> sur <strong>1</strong> point. En bas, définissez le <em>Rayon X,Y</em> sur <strong>5</strong>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_9.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>To attach the labels to each symbol, you can use a leader line.
-Switch to the <em>Callouts</em> tab and check <em>Draw
-callouts</em>.</li>
+<li>Pour attacher les étiquettes à chaque symbole, vous pouvez utiliser une ligne de connexion. Basculez vers l'onglet <em>Légendes</em> et cochez <em>Dessiner des légendes</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>As we have only a few labels, we can adjust their placement manually
-to fit the layout better. Close the <em>Layer Styling Panel</em>.
-Right-click anywhere on the <em>Toolbar</em> and select the <em>Label
-Toolbar</em> to activate it.</li>
+<li>Comme nous n'avons que quelques étiquettes, nous pouvons ajuster leur placement manuellement pour mieux s'adapter à la mise en page. Fermez le <em>Panneau de style de calque</em>. Cliquez avec le bouton droit n'importe où sur la <em>Barre d'outils</em> et sélectionnez la <em>Barre d'outils d'étiquettes</em> pour l'activer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_11.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="12" style="list-style-type: decimal">
-<li>Once the <em>Label Toolbar</em> is activated, you will see new
-tools. Select the <em>Move a Label, Diagram, or Callout</em> tool.</li>
+<li>Une fois la <em>Barre d'outils d'étiquettes</em> activée, vous verrez de nouveaux outils. Sélectionnez l'outil <em>Déplacer une étiquette, un diagramme ou un connecteur</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_12.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="13" style="list-style-type: decimal">
-<li>Click on any of the labels. The first time you do this, you will be
-prompted with an <em>Auxiliary Storage: Choose Primary Key</em> dialog.
-This is used to store the position of the labels for each label. You can
-choose any field containing unique values. In our case, the default
-value <strong>fid</strong> is fine. Click <em>OK</em>.</li>
+<li>Cliquez sur l'une des étiquettes. La première fois que vous le faites, une boîte de dialogue <em>Stockage auxiliaire : Choisissez la clé primaire</em> apparaîtra. Cela est utilisé pour stocker la position des étiquettes pour chaque étiquette. Vous pouvez choisir n'importe quel champ contenant des valeurs uniques. Dans notre cas, la valeur par défaut <strong>fid</strong> convient. Cliquez sur <em>OK</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_13.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="14" style="list-style-type: decimal">
-<li>Click on the label again to start moving it. Drag your mouse to the
-new label location and click again to move the label.</li>
+<li>Cliquez à nouveau sur l'étiquette pour commencer à la déplacer. Faites glisser votre souris vers la nouvelle position de l'étiquette et cliquez à nouveau pour déplacer l'étiquette.</li>
 </ol>
 <blockquote>
-<p>Tip: If a label disappears after moving it, it means that it has been
-placed at a position that cannot be displayed on the map without
-colliding with other labels. You can see the unplaced labels by clicking
-the <em>Toggle Display of Unplaced Labels</em> button on the <em>Label
-Toolbar</em>. Once the label is shown, you can move it to another spot
-where it can be displayed.</p>
+<p>Astuce : Si une étiquette disparaît après l'avoir déplacée, cela signifie qu'elle a été placée à un endroit qui ne peut pas être affiché sur la carte sans entrer en collision avec d'autres étiquettes. Vous pouvez voir les étiquettes non placées en cliquant sur le bouton <em>Basculer l'affichage des étiquettes non placées</em> sur la <em>Barre d'outils d'étiquettes</em>. Une fois que l'étiquette est affichée, vous pouvez la déplacer vers un autre endroit où elle peut être affichée.</p>
 </blockquote>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_14.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="15" style="list-style-type: decimal">
-<li>Similarly, move other labels to appropriate locations. Once you are
-satisfied, save your work.</li>
+<li>De même, déplacez les autres étiquettes vers les emplacements appropriés. Une fois satisfait, enregistrez votre travail.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part3_15.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finished the third part of this exercise. Your output
-should match the contents of the
-<code>Earthquakes_Checkpoint3.qgz</code> file in the
-<code>solutions</code> folder.</p>
+<p>Nous avons maintenant terminé la troisième partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>Earthquakes_Checkpoint3.qgz</code> dans le dossier <code>solutions</code>.</p>
 <div id="challenge-2" class="section level3">
-<h3>1.3.1 Challenge</h3>
-<p>The numbers displayed in the labels can be hard to read since they
-are not formatted. We can make them readable by adding a
-thousand-separator. So a number such as <em>227899</em> is displayed as
-<em>227,899</em> and a number like <em>5749</em> as <em>5,749</em>.
-Update the expression for the labels, so the numbers are formatted. To
-achieve this, you can use the <code>format_number()</code> function in
-the QGIS expression editor.</p>
+<h3>1.3.1 Défi</h3>
+<p>Les chiffres affichés dans les étiquettes peuvent être difficiles à lire car ils ne sont pas formatés. Nous pouvons les rendre lisibles en ajoutant un séparateur de milliers. Ainsi, un nombre tel que <em>227899</em> est affiché comme <em>227 899</em> et un nombre comme <em>5749</em> comme <em>5 749</em>. Mettez à jour l'expression pour les étiquettes, de sorte que les chiffres soient formatés. Pour ce faire, vous pouvez utiliser la fonction <code>format_number()</code> dans l'éditeur d'expressions QGIS.</p>
 </div>
 </div>
 <div id="print-layout" class="section level2">
-<h2>1.4 Print Layout</h2>
-<p>QGIS comes with a rich set of tools to create map layouts that allow
-you to add elements such as labels, images, legend, scale bar, north
-arrow, etc., to your map. It also allows you to export the map layout as
-an image or a PDF. We will now take the visualization created in the
-QGIS map canvas and create a print layout. 1. Go to <em>Project → New
-Print Layout…</em>.</p>
+<h2>1.4 Mise en page d'impression</h2>
+<p>QGIS est livré avec un ensemble complet d'outils pour créer des mises en page de carte qui vous permettent d'ajouter des éléments tels que des étiquettes, des images, une légende, une barre d'échelle, une flèche nord, etc., à votre carte. Il vous permet également d'exporter la mise en page de la carte sous forme d'image ou de PDF. Nous allons maintenant prendre la visualisation créée dans le canevas de carte QGIS et créer une mise en page d'impression. 1. Allez à <em>Projet → Nouvelle mise en page d'impression…</em>.</p>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>You will be prompted by a <em>Create Print Layout</em> dialog asking
-you to <em>Enter a unique print layout title</em>. You can leave it
-blank and click <em>OK</em>.</li>
+  <li>Vous serez invité par une boîte de dialogue <em>Créer une mise en page d'impression</em> vous demandant de <em>Entrer un titre de mise en page d'impression unique</em>. Vous pouvez le laisser vide et cliquer sur <em>OK</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>A new window will open with the title <em>Layout 1</em>. First,
-let’s set the page size. Right-click on the canvas and select <em>Page
-Properties…</em>. Select <em>Size</em> as <strong>A4</strong> and
-<em>Orientation</em> as <strong>Landscape</strong>.</li>
+<li>Une nouvelle fenêtre s'ouvrira avec le titre <em>Disposition 1</em>. Tout d'abord, définissons la taille de la page. Cliquez avec le bouton droit sur le canevas et sélectionnez <em>Propriétés de la page…</em>. Sélectionnez <em>Taille</em> comme <strong>A4</strong> et <em>Orientation</em> comme <strong>Paysage</strong>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Next, go to <em>Add Item → Add Map</em>.</li>
+<li>Ensuite, allez à <em>Ajouter un élément → Ajouter une carte</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Hold the left mouse button and select the canvas part where you want
-the map to appear. We will use the full width for the map but leave some
-space at the top for a title and at the bottom for additional
-information.</li>
+<li>Maintenez le bouton gauche de la souris enfoncé et sélectionnez la partie du canevas où vous voulez que la carte apparaisse. Nous utiliserons toute la largeur pour la carte mais laisserons de l'espace en haut pour un titre et en bas pour des informations supplémentaires.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>The map will be rendered at the chosen location. You can adjust the
-scale to make the map fit the area and enter <strong>120000000</strong>
-as the value for <em>Scale</em>. You can also select the
-<em>Interactively Edit Map Extent</em> button and click on the map to
-move it.</li>
+<li>La carte sera rendue à l'emplacement choisi. Vous pouvez ajuster l'échelle pour faire correspondre la carte à la zone et entrer <strong>120 000 000</strong> comme valeur pour <em>Échelle</em>. Vous pouvez également sélectionner le bouton <em>Modifier l'étendue de la carte de manière interactive</em> et cliquer sur la carte pour la déplacer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Once you are satisfied with the map view, go to <em>Add Item → Add
-Label</em>.</li>
+<li>Une fois satisfait de la vue de la carte, allez à <em>Ajouter un élément → Ajouter un libellé</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>Drag a rectangle at the top. On the right-hand side <em>Item
-Properties</em> panel, enter <strong>10 Largest Earthquakes
-(2000-2020)</strong> as the text. Click on the <em>Font</em> button
-under <em>Appearance</em> and set the <em>Font Size</em> to
-<strong>24</strong>. You can also center align the label by selecting
-<strong>Center</strong> as the <em>Horizontal alignment</em> and
-<strong>Middle</strong> as the <em>Vertical Alignment</em>.</li>
+<li>Tirez un rectangle en haut. Dans le panneau <em>Propriétés de l'élément</em> sur le côté droit, entrez <strong>10 Plus Grands Séismes (2000-2020)</strong> comme texte. Cliquez sur le bouton <em>Police</em> sous <em>Apparence</em> et définissez la <em>Taille de la police</em> sur <strong>24</strong>. Vous pouvez également aligner le libellé au centre en sélectionnant <strong>Centre</strong> comme <em>Alignement horizontal</em> et <strong>Milieu</strong> comme <em>Alignement vertical</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>We will now add a legend to the map. Go to <em>Add Item → Add
-Legend</em>. Draw a rectangle at an empty region on the map.</li>
+<li>Nous allons maintenant ajouter une légende à la carte. Allez à <em>Ajouter un élément → Ajouter une légende</em>. Dessinez un rectangle dans une région vide sur la carte.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_9.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>Once the legend is added, un-check the <em>Auto update</em> box.
-This will allow us to customize the items in the legend. Select the
-<code>ne_10m_land</code> layer and click the <em>Remove selected item(s)
-from legend</em>.</li>
+<li>Une fois la légende ajoutée, décochez la case <em>Mise à jour automatique</em>. Cela nous permettra de personnaliser les éléments dans la légende. Sélectionnez la couche <code>ne_10m_land</code> et cliquez sur le <em>Supprimer les éléments sélectionnés de la légende</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>You can also edit the layer name to be more suitable for the map.
-Select the <code>gem_active_faults_harmonized</code> layer and click the
-<em>Edit selected item properties</em> button. Change the name of the
-layer to <code>Faults</code>. Similarly, change the
-<code>large_earthquakes</code> layer name to <code>Deaths</code>.</li>
+<li>Vous pouvez également modifier le nom de la couche pour qu'il soit plus adapté à la carte. Sélectionnez la couche <code>gem_active_faults_harmonized</code> et cliquez sur le bouton <em>Modifier les propriétés de l'élément sélectionné</em>. Changez le nom de la couche en <code>Faults</code>. De même, changez le nom de la couche <code>large_earthquakes</code> en <code>Deaths</code>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_11.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="12" style="list-style-type: decimal">
-<li>Select the <code>Total Deaths</code> layer and click <em>Remove
-selected item(s) from legend</em>. The legend now contains only the
-items that are easy to interpret and add context to the symbols on the
-map.</li>
+<li>Sélectionnez la couche <code>Total Deaths</code> et cliquez sur <em>Supprimer les éléments sélectionnés de la légende</em>. La légende contient désormais uniquement les éléments faciles à interpréter et qui ajoutent du contexte aux symboles sur la carte.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_12.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="13" style="list-style-type: decimal">
-<li>You can also add a border to all the elements by enabling the
-<em>Frame</em> under the respective <em>Item Properties</em>. Next, we
-will add some logos to the map. Go to <em>Add Item → Add
-Picture</em>.</li>
+  <li>Vous pouvez également ajouter une bordure à tous les éléments en activant le <em>Cadre</em> dans les <em>Propriétés de l'élément</em> respectives. Ensuite, nous ajouterons quelques logos à la carte. Allez à <em>Ajouter un élément → Ajouter une image</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_13.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="14" style="list-style-type: decimal">
-<li>Add the picture to the bottom-right corner. Locate the <em>App
-Symbols → logos</em> folder in the <em>Item Properties</em> panel.
-Select the <strong>Made with QGIS</strong> logo. You can also add your
-organization’s logo by browsing an SVG/PNG file on your computer.</li>
+<li>Ajoutez l'image dans le coin inférieur droit. Localisez le dossier <em>App Symbols → logos</em> dans le panneau <em>Propriétés de l'élément</em>. Sélectionnez le logo <strong>Fait avec QGIS</strong>. Vous pouvez également ajouter le logo de votre organisation en parcourant un fichier SVG/PNG sur votre ordinateur.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_14.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="15" style="list-style-type: decimal">
-<li>A good practice is to credit the data sources used to create the
-map. This can be added using <em>Add Item → Add Label</em>. Once you are
-satisfied with the layout, you can export it. Go to <em>Layout → Export
-as Image…</em>.</li>
+<li>Une bonne pratique est de créditer les sources de données utilisées pour créer la carte. Cela peut être ajouté en utilisant <em>Ajouter un élément → Ajouter un libellé</em>. Une fois satisfait de la mise en page, vous pouvez l'exporter. Allez à <em>Disposition → Exporter en tant qu'image…</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_15.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="16" style="list-style-type: decimal">
-<li>Browse to the data folder and enter the name of the image as
-<strong>large_earthquakes.png</strong>. Click <em>Save</em>. You will be
-prompted to choose <em>Image Export Options</em>. Leave the settings to
-default and click <em>Save</em>.</li>
+<li>Accédez au dossier des données et saisissez le nom de l'image en tant que <strong>large_earthquakes.png</strong>. Cliquez sur <em>Enregistrer</em>. Vous serez invité à choisir les <em>Options d'exportation d'image</em>. Laissez les paramètres par défaut et cliquez sur <em>Enregistrer</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_16.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="17" style="list-style-type: decimal">
-<li>The layout will be saved as a static image. You can embed this image
-in a report, presentation, or share it on social media.</li>
+<li>La mise en page sera enregistrée sous forme d'image statique. Vous pouvez intégrer cette image dans un rapport, une présentation ou la partager sur les médias sociaux.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/earthquakes_part4_17.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We come to the end of this exercise. Your output should match the
-contents of the <code>Earthquakes_Checkpoint4.qgz</code> file in the
-<code>solutions</code> folder.</p>
+<p>Nous arrivons à la fin de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>Earthquakes_Checkpoint4.qgz</code> dans le dossier <code>solutions</code>.</p>
 <div id="challenge-3" class="section level3">
-<h3>1.4.1 Challenge</h3>
-<p>Export your layout as a PDF.</p>
-<p>Hint: The <em>PDF Export Options</em> dialog has an option
-<em>Simplify geometries to reduce output file size</em> at the bottom.
-While useful, this can have unexpected effect on the output. Un-check it
-while doing the export.</p>
+<h3>1.4.1 Défi</h3>
+<p>Exportez votre mise en page au format PDF.</p>
+<p>Astuce : La boîte de dialogue <em>Options d'exportation PDF</em> comporte une option <em>Simplifier les géométries pour réduire la taille du fichier de sortie</em> en bas. Bien que utile, cela peut avoir des effets inattendus sur la sortie. Décochez-le lors de l'exportation.</p>
 <div class="figure" style="text-align: center">
-<img src="images/introduction_to_qgis/earthquakes_part4_challenge.png" alt="Print Layout Exported as a PDF" width="75%">
+<img src="images/introduction_to_qgis/earthquakes_part4_challenge.png" alt="Mise en page imprimée exportée au format PDF" width="75%">
 <p class="caption">
-Print Layout Exported as a PDF
+Mise en page imprimée exportée au format PDF
 </p>
 </div>
 </div>
 </div>
 </div>
 <div id="concept-joins-and-data-normalization" class="section level1">
-<h1>Concept: Joins and Data Normalization</h1>
-<p><a href="https://docs.google.com/presentation/d/1YJfWrjSDeriYJMsA6bmVi4zZmzLmGOo5dm13Lr5JaiI/edit?usp=sharing" target="_blank"><img src="images/introduction_to_qgis/joins_presentation.png" width="400" alt="View Presentation"></a></p>
-<p><a href="https://docs.google.com/presentation/d/1YJfWrjSDeriYJMsA6bmVi4zZmzLmGOo5dm13Lr5JaiI/edit?usp=sharing" target="_blank">View the Presentation ↗</a></p>
+<h1>Concept : Jointures et normalisation des données</h1>
+<p><a href="https://docs.google.com/presentation/d/1YJfWrjSDeriYJMsA6bmVi4zZmzLmGOo5dm13Lr5JaiI/edit?usp=sharing" target="_blank"><img src="images/introduction_to_qgis/joins_presentation.png" width="400" alt="Voir la présentation"></a></p>
+<p><a href="https://docs.google.com/presentation/d/1YJfWrjSDeriYJMsA6bmVi4zZmzLmGOo5dm13Lr5JaiI/edit?usp=sharing" target="_blank">Voir la présentation ↗</a></p>
 </div>
 <div id="visualizing-spatial-data" class="section level1">
-<h1>2. Visualizing Spatial Data</h1>
-<p>In this section, we will learn basic data processing and
-visualization techniques. We will use geographic boundaries and
-population count data for the City of New York and create a population
-density map. This requires doing a table join and using a graduated
-symbology to create a choropleth map.</p>
+<h1>2. Visualisation des données spatiales</h1>
+<p>Dans cette section, nous apprendrons les techniques de traitement de base des données et de visualisation. Nous utiliserons des limites géographiques et des données de dénombrement de la population pour la ville de New York et créerons une carte de densité de population. Cela nécessite de faire une jointure de table et d'utiliser une symbologie graduée pour créer une carte choroplèthe.</p>
 <div id="table-join" class="section level2">
-<h2>2.1 Table Join</h2>
+<h2>2.1 Jointure de table</h2>
 <ol style="list-style-type: decimal">
-<li>Open QGIS. The first step is to import the source datasets. Click on
-the <em>Open Data Source Manager</em> button.</li>
+<li>Ouvrez QGIS. La première étape consiste à importer les ensembles de données sources. Cliquez sur le bouton <em>Ouvrir le gestionnaire de sources de données</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Select the <em>Vector</em> tab. Click the <em>…</em> button next to
-<em>Vector Dataset(s)</em> and browse to the data directory. Select the
-<code>nynta2010.shp</code> file and click <em>Open</em>. In the <em>Data
-Source Manager</em> window, click <em>Add</em>.</li>
+  <li>Sélectionnez l'onglet <em>Vector</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Ensemble(s) de données vecteur(s)</em> et parcourez le répertoire de données. Sélectionnez le fichier <code>nynta2010.shp</code> et cliquez sur <em>Ouvrir</em>. Dans la fenêtre <em>Gestionnaire de sources de données</em>, cliquez sur <em>Ajouter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>You may be prompted to <em>Select Transformation for nynta2010</em>.
-The source shapefile is in the
-<code>EPSG:2263 NAD83 / New York Long Island (ftUS)</code> projection
-whereas the default projection in QGIS is
-<code>EPSG:4326 - WGS84</code>. This dialog presents several
-transformations to convert between the coordinates between these
-projections. Choose the first option and click <em>OK</em>.</li>
+<li>Vous pouvez être invité à <em>Sélectionner une transformation pour nynta2010</em>. Le fichier shapefile source est dans la projection <code>EPSG:2263 NAD83 / New York Long Island (ftUS)</code> alors que la projection par défaut dans QGIS est <code>EPSG:4326 - WGS84</code>. Cette boîte de dialogue propose plusieurs transformations pour convertir les coordonnées entre ces projections. Choisissez la première option et cliquez sur <em>OK</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>A new layer <code>nyta2010</code> will be added to the
-<em>Layers</em> panel and will be displayed on the Canvas. This layer
-contains polygons representing the <em>Neighborhood Tabulation Areas
-(NTAs)</em> for New York city. Right-click on the <code>nyta2010</code>
-layer and select <em>Open Attribute Table</em>.</li>
+<li>Une nouvelle couche <code>nyta2010</code> sera ajoutée au panneau <em>Couches</em> et sera affichée sur le canevas. Cette couche contient des polygones représentant les <em>Zones de tabulation des quartiers (NTA)</em> de la ville de New York. Faites un clic droit sur la couche <code>nyta2010</code> et sélectionnez <em>Ouvrir la table attributaire</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Examine the attributes of the layer. The <code>NTACode</code> field
-contains a unique identifier for each polygon. Notice that we do not
-have any population or demographic attributes in this layer.</li>
+<li>Examinez les attributs de la couche. Le champ <code>NTACode</code> contient un identifiant unique pour chaque polygone. Remarquez que nous n'avons pas d'attributs de population ou démographiques dans cette couche.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>The population and other demographic datasets are typically
-distributed as tables. These tables would have the same unique
-identifier as the shapefile that can be used to merge the relevant
-fields to the vector layer. Let’s import a table representing <em>New
-York City Population By Neighborhood Tabulation Areas</em>. Click on the
-<em>Open Data Source Manager</em> button.</li>
+<li>Les ensembles de données sur la population et d'autres données démographiques sont généralement distribués sous forme de tableaux. Ces tableaux auraient le même identifiant unique que le shapefile qui peut être utilisé pour fusionner les champs pertinents avec la couche vectorielle. Importons une table représentant la <em>Population de la ville de New York par zones de tabulation des quartiers</em>. Cliquez sur le bouton <em>Ouvrir le gestionnaire de sources de données</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Switch to the <em>Delimited Text</em> tab. Browse to the
-<code>New_York_City_Population_By_Neighborhood_Tabulation_Areas.csv</code>
-file and select it. Since this CSV file is just tabular data, select
-<em>No geometry (attribute only table)</em> option and click
-<em>Add</em>.</li>
+<li>Basculez vers l'onglet <em>Texte délimité</em>. Parcourez le fichier <code>New_York_City_Population_By_Neighborhood_Tabulation_Areas.csv</code> et sélectionnez-le. Comme ce fichier CSV contient uniquement des données tabulaires, sélectionnez l'option <em>Pas de géométrie (tableau uniquement avec attributs)</em> et cliquez sur <em>Ajouter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>Once the new tabular layer
-<code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code>
-is added to the <em>Layers</em> panel, right-click on it and select
-<em>Open Attribute Table</em>.</li>
+<li>Une fois la nouvelle couche tabulaire <code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code> ajoutée au panneau <em>Couches</em>, faites un clic droit dessus et sélectionnez <em>Ouvrir la table attributaire</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>This table has a <strong>Population</strong> column with the
-population for each of the tabulation areas. We also have the
-<strong>NTA Code</strong> column containing the same codes as our
-<code>nynta2020</code> layer. We can use this column to join this table
-with the vector layer.</li>
+<li>Cette table contient une colonne <strong>Population</strong> avec la population pour chaque zone de tabulation. Nous avons également la colonne <strong>NTA Code</strong> contenant les mêmes codes que notre couche <code>nynta2020</code>. Nous pouvons utiliser cette colonne pour joindre cette table à la couche vectorielle.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_9.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>If you double-click the <em>NTA Code</em> column to sort the table
-by the code, you will notice that each neighborhood has 2 records of
-population. For this exercise, we want to use the population for the
-year 2010. We will apply a filter to select only the population records
-for 2010.</li>
+<li>Si vous double-cliquez sur la colonne <em>NTA Code</em> pour trier la table par le code, vous remarquerez que chaque quartier a 2 enregistrements de population. Pour cet exercice, nous voulons utiliser la population pour l'année 2010. Nous allons appliquer un filtre pour sélectionner uniquement les enregistrements de population pour 2010.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/population_part1_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>In the main QGIS window, right-click the
-<code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code>
-layer and select <em>Filter</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_11.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="12" style="list-style-type: decimal">
-<li>In the <em>Query Builder</em> dialog, enter the filter expression as
-below. You can also double-click the column name to insert them in the
-expression. Click <em>OK</em>.</li>
-</ol>
-<pre><code>"Year" = 2010</code></pre>
-<p><img src="images/introduction_to_qgis/population_part1_12.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="13" style="list-style-type: decimal">
-<li>Now we will do the table join. Open <strong>Processing →
-Toolbox</strong> from the main menu at the top.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_13.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="14" style="list-style-type: decimal">
-<li>Search and locate the algorithm <strong>Vector general → Join
-attributes by field value</strong> and double-click to launch it.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_14.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="15" style="list-style-type: decimal">
-<li>In the <em>Join Attributes by Field Value</em> dialog, select
-<code>nynta2010</code> as the <em>Input layer</em> and
-<code>NTACode</code> as the <em>Table field</em>. Select
-<code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code>
-as the <em>Input layer 2</em> and <code>NTA Code</code> as the <em>Table
-field 2</em>. Click the <em>…</em> button next to <em>Layer 2 fields to
-copy</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_15.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="16" style="list-style-type: decimal">
-<li>We want to copy only the population data, so select the
-<code>Population</code> field and click <em>OK</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_16.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="17" style="list-style-type: decimal">
-<li>Next, we need to configure the output. Click the <em>…</em> button
-next to <em>Joined layer</em> and select <em>Save to File…</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_17.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="18" style="list-style-type: decimal">
-<li>Browse to the data directory and name the output as
-<code>nynta_with_population</code>. Make sure the file type is selected
-as <em>GPKG files (*.gpkg)</em>. Click <em>Save</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_18.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="19" style="list-style-type: decimal">
-<li>Once the configuration is complete, click the <em>Run</em>
-button.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_19.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="20" style="list-style-type: decimal">
-<li>Upon completion of processing, a new layer
-<code>nynta_with_population</code> will be added to the <em>Layers</em>
-panel. Right-click the layer and select <em>Open Attribute Table</em>.
-You will see that we now have an additional column
-<strong>Population</strong> in the attribute table. The table also has a
-column <strong>Shape_Area</strong> containing the area of each polygon
-in Sq.Ft.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_20.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="21" style="list-style-type: decimal">
-<li>Our goal is to map the population density. We can use the population
-count and area columns and calculate a new column for population
-density. From the Processing Toolbox, search and locate the algorithm
-<strong>Vector table → Field Calculator</strong> and double-click to
-launch it.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_21.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="22" style="list-style-type: decimal">
-<li>In the <em>Field Calculator</em> dialog, enter <code>Density</code>
-as the <em>Field Name</em>. We will now build the expression to
-calculate population density. From the function groups next to the
-<em>Expression</em> panel, expand the <em>Fields and Values</em>
-section. Double-click the <code>Population</code> field to add it to the
-expression editor. Note that fields are referred using double-quotes (“)
-in QGIS.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_22.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="23" style="list-style-type: decimal">
-<li>Select the <strong>/</strong> button to enter the division operator
-and then click the <code>Shape_Area</code> field to enter it. You may
-also type the expression instead of picking the values from the dialog.
-The final expression should look like below.</li>
-</ol>
-<pre><code>"Population" / "Shape_area"</code></pre>
-<p><img src="images/introduction_to_qgis/population_part1_23.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="24" style="list-style-type: decimal">
-<li>This will give us the population density in persons per square feet.
-A more appropriate unit for population density is persons per square
-miles. Let’s convert the value to miles using the conversion factor or
-<em>1 mile = 5280 ft</em>. Change the expression as shown below. Once
-done, select <em>Save to File</em>.</li>
-</ol>
-<pre><code>5280 * 5280 * ("Population" / "Shape_area")</code></pre>
-<p><img src="images/introduction_to_qgis/population_part1_24.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="25" style="list-style-type: decimal">
-<li>Name the output as <code>nynta_population_density.gpkg</code> and
-click <em>Run</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_25.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="26" style="list-style-type: decimal">
-<li>Once the processing finishes as new layer
-<code>nynta_population_density</code> will be added to the
-<em>Layers</em> panel. Open the attribute table and verify that you have
-a new column named <em>Density</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_26.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="27" style="list-style-type: decimal">
-<li>We don’t need the other layers in our project. Hold the
-<em>Shift</em> key and select all layers except
-<code>nynta_population_density</code>. Right-click and select <em>Remove
-Layer…</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_27.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="28" style="list-style-type: decimal">
-<li>Let’s save our work so we can retrieve it later. Go to
-<strong>Project → Save</strong>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_28.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="29" style="list-style-type: decimal">
-<li>Save the project as <code>NYC_Population_Density</code> and click
-<em>Save</em>. QGIS will save the project file in the <em>QGZ</em>
-format.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part1_29.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finish the first part of this exercise. Your output
-should match the contents of the
-<code>NYC_Population_Density_Checkpoint1.qgz</code> file in the
-<code>solutions</code> folder.</p>
-<div id="challenge-4" class="section level3">
-<h3>2.1.1 Challenge</h3>
-<p>Round the population density values to the nearest integer and store
-them in another column named <strong>Density_Round</strong>.</p>
-<ul>
-<li>Hint1: Use the <em>Field Calculator</em> algorithm from the
-processing toolbox.</li>
-<li>Hint2: The QGIS expression engine has a function named
-<code>round()</code> that can round a fraction to the chosen number of
-decimal places.</li>
-</ul>
-</div>
-</div>
-<div id="creating-a-choropleth-map" class="section level2">
-<h2>2.2 Creating a Choropleth Map</h2>
-<ol style="list-style-type: decimal">
-<li>Continuing the exercise, we will now visualize the spatial
-distribution of population density in form of a choropleth map. From the
-<em>Layers</em> panel, click the <em>Open the Layer Styling panel</em>
-button.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Select the <code>Graduated</code> renderer.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="3" style="list-style-type: decimal">
-<li>As we want to map the population density, choose
-<code>Density</code> as the <em>Value</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Next we select a color ramp. Click the drop-down button next to
-<em>Color Ramp</em>, select <em>All Color Ramps</em> and pick the
-<code>YlOrBr</code> (Yellow-Orange-Brown) ramp.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Change the <em>Classes</em> value to <code>6</code> and click
-<em>Classify</em>. You will see each polygon colored according to the
-population density attribute.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="6" style="list-style-type: decimal">
-<li>The default mode of classification is <em>Quantile</em> - which
-divides the input data such that all 6 classes have approximately equal
-number of features. There are other modes of classification as well. You
-can learn more about Data Classification Modes in the <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_vector/vector_properties.html?#graduated-renderer">QGIS
-Documentation</a>. We can also define custom data ranges for each class.
-Click on the <em>Values</em> column for the first row in the
-classification table. Change the <em>Upper value</em> to
-<code>20000</code>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="7" style="list-style-type: decimal">
-<li>Similarly change other class ranges so they become easy to
-interpret. The last row contains the upper value to the maximum value in
-the dataset. Instead of displaying the maximum value, we can update the
-label. Click the <em>Legend</em> column for the last row.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Change the label to <code>&gt; 100000</code>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="9" style="list-style-type: decimal">
-<li>Now you have an informative visualization of population density in
-New York city with an easy to interpret legend. Click the <em>Save</em>
-button to save your work. All your visualization settings are saved
-along with the project, so next time when you load this project in QGIS,
-you will see the same visualization.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/population_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finish the second part of this exercise. Your output
-should match the contents of the
-<code>NYC_Population_Density_Checkpoint2.qgz</code> file in the
-<code>solutions</code> folder.</p>
-<div id="challenge-5" class="section level3">
-<h3>2.2.1 Challenge</h3>
-<p>Create a new layer containing all the neighborhood tabulation areas
-having a population density &gt; 100000.</p>
-<p>Hint: You can use the <em>Extract by Attribute</em> algorithm from
-the Processing Toolbox.</p>
-</div>
-</div>
-</div>
-<div id="assignment" class="section level1">
-<h1>Assignment</h1>
-<p>The following assignment is designed to help you practice the skills
-learnt so far in the course and explore the Print Layout.</p>
-<p>Your task is to design a map of <em>Population Density of New York
-City</em> in QGIS Print Layout. You can take the choropleth map created
-in the previous section <a href="#creating-a-choropleth-map">2.2 Create
-a Choropleth Map</a> and design a map in the Print Layout. In addition
-to the rendered vector layer, the map must have at least the following
-elements:</p>
-<ul>
-<li>Scale Bar</li>
-<li>Legend</li>
-<li>Data Attribution</li>
-</ul>
-<p>You may also optionally add other elements such a north arrow, logos
-etc. Feel free to use your creativity to customize the style and map
-layout. Below is an example map for inspiration.</p>
-<div class="figure" style="text-align: center">
-<img src="images/introduction_to_qgis/assignment.png" alt="Example Map Design for Assignment" width="60%">
-<p class="caption">
-Example Map Design for Assignment
-</p>
-</div>
-</div>
-<div id="georeferencing" class="section level1">
-<h1>3. Georeferencing</h1>
-<p>Georeferencing is the process of assigning real-world coordinates to
-each pixel of the raster. This is an important step in preparing your
-data for further analysis. Many projects, particularly machine learning
-projects - need continuous historic records to build a model. Many of
-the older datasets may come in form of scanned maps or aerial photos
-that needs to be georeferenced. Similarly, some organizations may only
-share a PDF or a static map image of the dataset which will need to be
-converted into a GIS-ready format using georeferencing process.</p>
-<p>Georeferencing process involves collecting GCPs (Ground Control
-Points) or Tie-Points. These GCPs are easily identifiable features in
-the image or map whose real-world coordinates are obtained from
-field-survey using a GPS device or identified from already georeferenced
-sources within a GIS.</p>
-<p>In this exercise, you’re going to georeference an old scanned map of
-Bangalore, India created in 1924. This map is possibly hand-drawn and
-has no coordinate markings, so we will use a tiled basemap layer to
-locate the features and obtain the GCPs.</p>
-<div id="using-basemaps" class="section level2">
-<h2>3.1 Using Basemaps</h2>
-<ol style="list-style-type: decimal">
-<li>Open QGIS. We will use a plugin called
-<strong>QuickMapServices</strong> to load a basemap. From the
-<em>Plugins</em> menu choose <em>Manage and Install Plugins…</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/georef_part1_1.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="2" style="list-style-type: decimal">
-<li>The <em>Plugins</em> dialog contains all the available plugins in
-QGIS. Under the <em>All</em> tab, search for
-<strong>quickmapservices</strong>. It has different basemaps that can be
-used based on your purpose. Click on the <em>Install Plugin</em>, to add
-this plugin to QGIS.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/georef_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Once installed, check the box next to the <em>QuickMapServices</em>
-label to enable it. Click <em>Close</em>.</li>
-</ol>
-<p><img src="images/introduction_to_qgis/georef_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Now you will see a new <em>Web</em> menu added to the menu-bar. Go
-to <em>Web → QuickMapServices</em> menu. You will see some map providers
-and available basemaps. We can enable a few more providers to have many
-more options. Click on the <em>Web → QuickMapServices →
-Settings</em>.</li>
-</ol>
+  <li>Dans la fenêtre principale de QGIS, faites un clic droit sur la couche <code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code> et sélectionnez <em>Filtrer</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_11.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="12" style="list-style-type: decimal">
+  <li>Dans la boîte de dialogue <em>Constructeur de requête</em>, saisissez l'expression de filtre comme ci-dessous. Vous pouvez également double-cliquer sur le nom de la colonne pour les insérer dans l'expression. Cliquez sur <em>OK</em>.</li>
+  </ol>
+  <pre><code>"Year" = 2010</code></pre>
+  <p><img src="images/introduction_to_qgis/population_part1_12.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="13" style="list-style-type: decimal">
+  <li>Maintenant, nous allons effectuer la jointure de table. Ouvrez <strong>Traitement → Boîte à outils</strong> dans le menu principal en haut.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_13.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="14" style="list-style-type: decimal">
+  <li>Recherchez et localisez l'algorithme <strong>Vector general → Jointure d'attributs par valeur de champ</strong> et double-cliquez dessus pour le lancer.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_14.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="15" style="list-style-type: decimal">
+  <li>Dans la boîte de dialogue <em>Jointure d'attributs par valeur de champ</em>, sélectionnez <code>nynta2010</code> comme <em>couche d'entrée</em> et <code>NTACode</code> comme <em>champ de la table</em>. Sélectionnez <code>New_York_City_Population_By_Neighborhood_Tabulation_Areas</code> comme <em>couche d'entrée 2</em> et <code>NTA Code</code> comme <em>champ de la table 2</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Champs de la couche 2 à copier</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_15.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="16" style="list-style-type: decimal">
+  <li>Nous voulons copier uniquement les données de population, alors sélectionnez le champ <code>Population</code> et cliquez sur <em>OK</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_16.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="17" style="list-style-type: decimal">
+  <li>Ensuite, nous devons configurer la sortie. Cliquez sur le bouton <em>…</em> à côté de <em>Couche jointe</em> et sélectionnez <em>Enregistrer dans un fichier…</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_17.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="18" style="list-style-type: decimal">
+  <li>Parcourez le répertoire de données et nommez la sortie <code>nynta_with_population</code>. Assurez-vous que le type de fichier est sélectionné comme <em>Fichiers GPKG (*.gpkg)</em>. Cliquez sur <em>Enregistrer</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_18.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="19" style="list-style-type: decimal">
+  <li>Une fois la configuration terminée, cliquez sur le bouton <em>Exécuter</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_19.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="20" style="list-style-type: decimal">
+  <li>Une fois le traitement terminé, une nouvelle couche <code>nynta_with_population</code> sera ajoutée au panneau <em>Couches</em>. Faites un clic droit sur la couche et sélectionnez <em>Ouvrir la table attributaire</em>. Vous verrez que nous avons maintenant une colonne supplémentaire <strong>Population</strong> dans la table attributaire. La table contient également une colonne <strong>Shape_Area</strong> contenant la superficie de chaque polygone en pieds carrés.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_20.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="21" style="list-style-type: decimal">
+  <li>Notre objectif est de cartographier la densité de population. Nous pouvons utiliser le décompte de population et les colonnes d'aire et calculer une nouvelle colonne pour la densité de population. Dans la Boîte à outils de traitement, recherchez et localisez l'algorithme <strong>Vector table → Calculatrice de champ</strong> et double-cliquez pour le lancer.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_21.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="22" style="list-style-type: decimal">
+  <li>Dans la boîte de dialogue <em>Calculatrice de champ</em>, saisissez <code>Densité</code> comme <em>Nom du champ</em>. Nous allons maintenant construire l'expression pour calculer la densité de population. À partir des groupes de fonctions à côté du panneau <em>Expression</em>, développez la section <em>Champs et valeurs</em>. Double-cliquez sur le champ <code>Population</code> pour l'ajouter à l'éditeur d'expressions. Notez que les champs sont référencés en utilisant des guillemets doubles (") dans QGIS.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_22.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="23" style="list-style-type: decimal">
+  <li>Sélectionnez le bouton <strong>/</strong> pour entrer l'opérateur de division, puis cliquez sur le champ <code>Shape_Area</code> pour l'entrer. Vous pouvez également saisir l'expression au lieu de choisir les valeurs dans la boîte de dialogue. L'expression finale devrait ressembler à ce qui suit.</li>
+  </ol>
+  <pre><code>"Population" / "Shape_area"</code></pre>
+  <p><img src="images/introduction_to_qgis/population_part1_23.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="24" style="list-style-type: decimal">
+  <li>Cela nous donnera la densité de population en personnes par pied carré. Une unité plus appropriée pour la densité de population est les personnes par mile carré. Convertissons donc la valeur en miles en utilisant le facteur de conversion ou <em>1 mile = 5280 ft</em>. Modifiez l'expression comme indiqué ci-dessous. Une fois terminé, sélectionnez <em>Enregistrer dans un fichier</em>.</li>
+  </ol>
+  <pre><code>5280 * 5280 * ("Population" / "Shape_area")</code></pre>
+  <p><img src="images/introduction_to_qgis/population_part1_24.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="25" style="list-style-type: decimal">
+  <li>Nommez la sortie <code>nynta_population_density.gpkg</code> et cliquez sur <em>Exécuter</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_25.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="26" style="list-style-type: decimal">
+  <li>Une fois le traitement terminé, une nouvelle couche <code>nynta_population_density</code> sera ajoutée au panneau <em>Couches</em>. Ouvrez la table attributaire et vérifiez que vous avez une nouvelle colonne nommée <em>Densité</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_26.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="27" style="list-style-type: decimal">
+  <li>Nous n'avons pas besoin des autres couches dans notre projet. Maintenez la touche <em>Shift</em> enfoncée et sélectionnez toutes les couches sauf <code>nynta_population_density</code>. Faites un clic droit et sélectionnez <em>Supprimer la couche…</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_27.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="28" style="list-style-type: decimal">
+  <li>Sauvegardons maintenant notre travail pour pouvoir le récupérer ultérieurement. Allez dans <strong>Projet → Enregistrer</strong>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_28.png" width="75%" style="display: block; margin: auto;"></p>
+  <ol start="29" style="list-style-type: decimal">
+  <li>Enregistrez le projet sous le nom <code>Densité_de_population_NYC</code> et cliquez sur <em>Enregistrer</em>. QGIS enregistrera le fichier du projet au format <em>QGZ</em>.</li>
+  </ol>
+  <p><img src="images/introduction_to_qgis/population_part1_29.png" width="75%" style="display: block; margin: auto;"></p>
+  <p>Nous avons maintenant terminé la première partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>NYC_Population_Density_Checkpoint1.qgz</code> dans le dossier <code>solutions</code>.</p>
+  <div id="challenge-4" class="section level3">
+  <h3>2.1.1 Défi</h3>
+  <p>Arrondissez les valeurs de densité de population à l'entier le plus proche et stockez-les dans une autre colonne nommée <strong>Density_Round</strong>.</p>
+  <ul>
+  <li>Indice1: Utilisez l'algorithme <em>Calculatrice de champ</em> de la boîte à outils de traitement.</li>
+  <li>Indice2: Le moteur d'expression de QGIS a une fonction nommée <code>round()</code> qui peut arrondir une fraction au nombre choisi de décimales.</li>
+  </ul>
+  </div>
+  <div id="creating-a-choropleth-map" class="section level2">
+    <h2>2.2 Creating a Choropleth Map</h2>
+    <ol style="list-style-type: decimal">
+    <li>Poursuivant l'exercice, nous allons maintenant visualiser la répartition spatiale de la densité de population sous forme de carte choroplèthe. Dans le panneau <em>Couches</em>, cliquez sur le bouton <em>Ouvrir le panneau de style de couche</em>.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="2" style="list-style-type: decimal">
+    <li>Sélectionnez le <code>Gradué</code> rendu.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="3" style="list-style-type: decimal">
+    <li>Comme nous voulons cartographier la densité de population, choisissez <code>Densité</code> comme <em>Valeur</em>.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="4" style="list-style-type: decimal">
+    <li>Ensuite, sélectionnez une rampe de couleur. Cliquez sur le bouton déroulant à côté de <em>Rampe de couleur</em>, sélectionnez <em>Toutes les rampes de couleur</em> et choisissez la rampe <code>YlOrBr</code> (Jaune-Orange-Brun).</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="5" style="list-style-type: decimal">
+    <li>Modifiez la valeur des <em>Classes</em> en <code>6</code> et cliquez sur <em>Classer</em>. Vous verrez chaque polygone coloré en fonction de l'attribut de densité de population.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="6" style="list-style-type: decimal">
+    <li>Le mode de classification par défaut est <em>Quantile</em> - qui divise les données d'entrée de telle sorte que toutes les 6 classes aient approximativement le même nombre d'entités. Il existe d'autres modes de classification également. Vous pouvez en savoir plus sur les modes de classification des données dans la <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_vector/vector_properties.html?#graduated-renderer">Documentation QGIS</a>. Nous pouvons également définir des plages de données personnalisées pour chaque classe. Cliquez sur la colonne <em>Valeurs</em> pour la première ligne dans le tableau de classification.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="7" style="list-style-type: decimal">
+    <li>Changez les autres plages de classes pour les rendre faciles à interpréter. La dernière ligne contient la valeur supérieure à la valeur maximale dans le jeu de données. Au lieu d'afficher la valeur maximale, nous pouvons mettre à jour l'étiquette. Cliquez sur la colonne <em>Légende</em> pour la dernière ligne.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="8" style="list-style-type: decimal">
+    <li>Changez l'étiquette en <code>&gt; 100000</code>.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
+    <ol start="9" style="list-style-type: decimal">
+    <li>Vous avez maintenant une visualisation informative de la densité de population à New York avec une légende facile à interpréter. Cliquez sur le bouton <em>Enregistrer</em> pour sauvegarder votre travail. Tous vos paramètres
+    
+     de visualisation sont enregistrés avec le projet, donc la prochaine fois que vous chargerez ce projet dans QGIS, vous verrez la même visualisation.</li>
+    </ol>
+    <p><img src="images/introduction_to_qgis/population_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
+    <p>Nous avons maintenant terminé la deuxième partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>NYC_Population_Density_Checkpoint2.qgz</code> dans le dossier <code>solutions</code>.</p>
+    <div id="challenge-5" class="section level3">
+    <h3>2.2.1 Défi</h3>
+    <p>Créez une nouvelle couche contenant toutes les zones de tabulation de quartier ayant une densité de population &gt; 100000.</p>
+    <p>Indice: Vous pouvez utiliser l'algorithme <em>Extraire par attribut</em> de la boîte à outils de traitement.</p>
+    </div>
+    </div>
+    </div>
+    <div id="assignment" class="section level1">
+      <h1>Devoir</h1>
+      <p>L'objectif de ce devoir est de vous permettre de mettre en pratique les compétences acquises jusqu'à présent dans le cours et d'explorer la mise en page d'impression dans QGIS.</p>
+      <p>Votre tâche consiste à concevoir une carte de la <em>Densité de population de la ville de New York</em> dans la mise en page d'impression de QGIS. Vous pouvez utiliser la carte choroplèthe créée dans la section précédente <a href="#creating-a-choropleth-map">2.2 Créer une carte choroplèthe</a> et concevoir une carte dans la mise en page d'impression. En plus de la couche vectorielle rendue, la carte doit comporter au moins les éléments suivants :</p>
+      <ul>
+      <li>Barre d'échelle</li>
+      <li>Légende</li>
+      <li>Attribution des données</li>
+      </ul>
+      <p>Vous pouvez également ajouter facultativement d'autres éléments tels qu'une flèche nord, des logos, etc. N'hésitez pas à faire preuve de créativité pour personnaliser le style et la mise en page de la carte. Ci-dessous, un exemple de carte pour inspiration.</p>
+      <div class="figure" style="text-align: center">
+      <img src="images/introduction_to_qgis/assignment.png" alt="Exemple de conception de carte pour le devoir" width="60%">
+      <p class="caption">
+      Exemple de conception de carte pour le devoir
+      </p>
+      </div>
+      </div>
+      <div id="georeferencing" class="section level1">
+      <h1>3. Géoréférencement</h1>
+      <p>Le géoréférencement est le processus d'assignation de coordonnées du monde réel à chaque pixel de la raster. Il s'agit d'une étape importante dans la préparation de vos données pour une analyse ultérieure. De nombreux projets, en particulier les projets d'apprentissage automatique, nécessitent des enregistrements historiques continus pour construire un modèle. De nombreux ensembles de données plus anciens peuvent être sous forme de cartes scannées ou de photos aériennes qui doivent être géoréférencées. De même, certaines organisations peuvent ne partager qu'un fichier PDF ou une image de carte statique de l'ensemble de données qui devra être converti en un format prêt pour un SIG à l'aide du processus de géoréférencement.</p>
+      <p>Le processus de géoréférencement consiste à collecter des PPC (Points de Contrôle au Sol) ou des points d'attache. Ces PPC sont des caractéristiques facilement identifiables dans l'image ou la carte dont les coordonnées du monde réel sont obtenues à partir d'une enquête sur le terrain à l'aide d'un appareil GPS ou identifiées à partir de sources déjà géoréférencées dans un SIG.</p>
+      <p>Dans cet exercice, vous allez géoréférencer une ancienne carte scannée de Bangalore, en Inde, créée en 1924. Cette carte est probablement dessinée à la main et n'a pas de marques de coordonnées, nous utiliserons donc une couche de fond cartographique tuilée pour localiser les éléments et obtenir les PPC.</p>
+      <div id="using-basemaps" class="section level2">
+      <h2>3.1 Utilisation des fonds de carte</h2>
+      <ol style="list-style-type: decimal">
+      <li>Ouvrez QGIS. Nous allons utiliser un plugin appelé <strong>QuickMapServices</strong> pour charger un fond de carte. Dans le menu <em>Plugins</em>, choisissez <em>Gérer et installer les plugins…</em>.</li>
+      </ol>
+      <p><img src="images/introduction_to_qgis/georef_part1_1.png" width="75%" style="display: block; margin: auto;"></p>
+      <ol start="2" style="list-style-type: decimal">
+      <li>La boîte de dialogue <em>Plugins</em> contient tous les plugins disponibles dans QGIS. Sous l'onglet <em>Tous</em>, recherchez <strong>quickmapservices</strong>. Il propose différents fonds de carte pouvant être utilisés en fonction de votre objectif. Cliquez sur <em>Installer le plugin</em> pour ajouter ce plugin à QGIS.</li>
+      </ol>
+      <p><img src="images/introduction_to_qgis/georef_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
+      <ol start="3" style="list-style-type: decimal">
+      <li>Une fois installé, cochez la case à côté du libellé <em>QuickMapServices</em> pour l'activer. Cliquez sur <em>Fermer</em>.</li>
+      </ol>
+      <p><img src="images/introduction_to_qgis/georef_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
+      <ol start="4" style="list-style-type: decimal">
+      <li>Maintenant, vous verrez un nouveau menu <em>Web</em> ajouté à la barre de menus. Allez dans le menu <em>Web → Quick
+      
+      MapServices</em>. Vous verrez certains fournisseurs de cartes et des fonds de carte disponibles. Nous pouvons activer quelques autres fournisseurs pour avoir beaucoup plus d'options. Cliquez sur <em>Web → QuickMapServices → Paramètres</em>.</li>
+      </ol>
 <p><img src="images/introduction_to_qgis/georef_part1_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>In the <em>Settings</em> dialog, switch to the <em>More
-services</em> tab. Click on the <code>Get contributed pack</code> to
-download 3rd-party basemaps.</li>
+<li>Dans la boîte de dialogue des <em>Paramètres</em>, passez à l'onglet <em>Plus de services</em>. Cliquez sur <code>Obtenir le pack contribué</code> pour télécharger des fonds de carte tiers.</li>
 </ol>
 <blockquote>
-<p>You will see a warning against using contributed services. Some of
-these services may have restrictions on their usage and/or attribution
-requirement that you need to follow. Please review them before using
-them in your project.</p>
+<p>Vous verrez un avertissement contre l'utilisation de services contribués. Certains de ces services peuvent avoir des restrictions sur leur utilisation et/ou des exigences d'attribution que vous devez suivre. Veuillez les examiner avant de les utiliser dans votre projet.</p>
 </blockquote>
 <p><img src="images/introduction_to_qgis/georef_part1_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Once the new services are added, you will see many more options in
-the <em>Web → QuickMapServices</em> menu.</li>
+<li>Une fois que les nouveaux services sont ajoutés, vous verrez beaucoup plus d'options dans le menu <em>Web → QuickMapServices</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part1_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>For our current task, we will use a basemap based on OpenStreetMap
-data. Since we need to locate the features in the scanned maps let’s add
-the <em>OSM Standard</em>. Click on the <strong>Web → QuickMapServices →
-OSM → OSM Standard</strong>.</li>
+<li>Pour notre tâche actuelle, nous utiliserons un fond de carte basé sur les données OpenStreetMap. Comme nous devons localiser les éléments dans les cartes scannées, ajoutons <em>OSM Standard</em>. Cliquez sur <strong>Web → QuickMapServices → OSM → OSM Standard</strong>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part1_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>Now in the canvas, the basemap will be loaded. This map is
-georeferenced and projected in <strong>EPSG:3857</strong> CRS. This
-information can be viewed on the bottom-right of the QGIS, where the
-project CRS will be updated.</li>
+<li>Maintenant, sur la toile, le fond de carte sera chargé. Cette carte est géoréférencée et projetée dans le CRS <strong>EPSG:3857</strong>. Cette information peut être consultée en bas à droite de QGIS, où le CRS du projet sera mis à jour.</li>
 </ol>
-<p><img src="images/introduction_to_qgis/georef_part1_8.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now finished the first part of this exercise. Your output
-should match the contents of the
-<code>Georeferencing_Checkpoint1.qgz</code> file in the solutions
-folder.</p>
+<p>Nous avons maintenant terminé la première partie de cet exercice. Votre sortie devrait correspondre au contenu du fichier <code>Georeferencing_Checkpoint1.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-6" class="section level3">
-<h3>3.1.1 Challenge</h3>
-<p>Load the <strong>Stamen Watercolor</strong> basemap by <a href="https://wiki.openstreetmap.org/wiki/Stamen">Stamen</a>. This is an
-award-winning basemap that renders OpenStreetMap data in a hand-painted
-watercolor style.</p>
+<h3>3.1.1 Défi</h3>
+<p>Chargez le fond de carte <strong>Stamen Watercolor</strong> de <a href="https://wiki.openstreetmap.org/wiki/Stamen">Stamen</a>. Il s'agit d'un fond de carte primé qui rend les données OpenStreetMap dans un style aquarelle peint à la main.</p>
 </div>
 </div>
 <div id="using-the-georeferencer" class="section level2">
-<h2>3.2 Using the Georeferencer</h2>
-<p>In this section, you will learn how to load a scanned image, collect
-GCPs (ground control points) and warp the image to create a GeoTiff
-file.</p>
+<h2>3.2 Utilisation du géoréférenceur</h2>
+<p>Dans cette section, vous apprendrez comment charger une image scannée, collecter des PPC (points de contrôle au sol) et déformer l'image pour créer un fichier GeoTiff.</p>
 <ol style="list-style-type: decimal">
-<li>Click on the <strong>Layer → Georeferencer</strong> from the
-menu-bar to open the georeferencing tool.</li>
+<li>Cliquez sur <strong>Calque → Géoréférenceur</strong> dans la barre de menus pour ouvrir l'outil de géoréférencement.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>A new <em>Georeferencer</em> window will open. This tool primarily
-contains two sections, the top is for viewing images, and the bottom is
-for tabular data.</li>
+<li>Une nouvelle fenêtre <em>Géoréférenceur</em> s'ouvrira. Cet outil contient principalement deux sections, le haut est pour visualiser les images, et le bas est pour les données tabulaires.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Click on the <strong>Open Raster..</strong> button from the ribbon
-to load the scanned map. Browse to the <code>Bangalore_1924.png</code>
-file in your data package and click <em>open</em>.</li>
+<li>Cliquez sur le bouton <strong>Ouvrir un raster..</strong> dans le ruban pour charger la carte scannée. Parcourez le fichier <code>Bangalore_1924.png</code> dans votre ensemble de données et cliquez sur <em>Ouvrir</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>The image will be loaded in the <em>Georeferencer</em> window. The
-ribbon at the top has buttons essential operations like Zoom/Pan that
-you can use to navigate around the image. There are also buttons for
-adding and editing GCPs (Ground Control Points) that we will use
-next.</li>
+<li>L'image sera chargée dans la fenêtre du <em>Géoréférenceur</em>. Le ruban en haut comporte des boutons pour les opérations essentielles comme le Zoom/Pan que vous pouvez utiliser pour naviguer dans l'image. Il y a aussi des boutons pour ajouter et modifier des PPC (points de contrôle au sol) que nous utiliserons ensuite.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Before we start collecting GCPs, you may also dock the
-<em>Georeferencer</em> window to the main QGIS window. This makes it
-easier to find the tie-points. Close the <em>GCP table</em> window.
-Click and drag the georeferencer title bar to the bottom of the
-canvas.</li>
+<li>Avant de commencer à collecter des PPC, vous pouvez également attacher la fenêtre du <em>Géoréférenceur</em> à la fenêtre principale de QGIS. Cela facilite la recherche des points de liaison. Fermez la fenêtre <em>Table des PPC</em>. Cliquez et faites glisser la barre de titre du géoréférenceur vers le bas de la toile.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Locate a feature that is visible in both the scanned map and the
-basemap. Click on the <em>Add Point</em> button.</li>
+<li>Localisez une caractéristique visible à la fois sur la carte scannée et sur le fond de carte. Cliquez sur le bouton <em>Ajouter un point</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>The <em>Enter Map Coordinates</em> dialog will appear. Click on the
-<em>From Map Canvas</em> button.</li>
+<li>La boîte de dialogue <em>Entrer les coordonnées de la carte</em> apparaîtra. Cliquez sur le bouton <em>Depuis la toile de carte</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Click on the QGIS main canvas at the visible feature on the basemap.
-This will fill the coordinates of that point in the CRS of the basemap.
-Click <em>OK</em> to close the dialog.</li>
+<ol start="8" style="
+
+list-style-type: decimal">
+<li>Cliquez sur la toile principale de QGIS à l'emplacement de la caractéristique visible sur le fond de carte. Cela remplira les coordonnées de ce point dans le CRS du fond de carte. Cliquez sur <em>OK</em> pour fermer la boîte de dialogue.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>Similarly, go ahead and find more GCPs. The best features to look
-for are rail and road intersections, building corners, city squares, or
-any other corners and edges. Depending on the method to transform type
-you would use, you need a minimum different number of points. For this
-exercise, we will be using a <em>Polynomial</em> transformation which
-requires a minimum of 6 GCPs. Learn more about <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/georeferencer.html?#available-transformation-algorithms">Transformation
-Algorithms</a> in the QGIS Documentation.</li>
+<li>De même, continuez et trouvez plus de PPC. Les meilleures caractéristiques à rechercher sont les intersections de voies ferrées et routières, les coins de bâtiments, les places de la ville, ou tout autre coin et bord. En fonction du type de transformation à utiliser, vous avez besoin d'un nombre minimum différent de points. Pour cet exercice, nous utiliserons une transformation <em>Polynomiale</em> qui nécessite un minimum de 6 PPC. En savoir plus sur les <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/georeferencer.html?#available-transformation-algorithms">Algorithmes de Transformation</a> dans la documentation de QGIS.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>Let’s view the points in a tabular format. If you had docked the
-window, click on the pop-out button in Georeferencing window to detach
-this tool from the main QGIS. Go to <strong>View → Panels → GCP
-table</strong>.</li>
+<li>Visualisons maintenant les points sous forme de tableau. Si vous avez attaché la fenêtre, cliquez sur le bouton de détachement dans la fenêtre de géoréférencement pour détacher cet outil de QGIS. Allez à <strong>Vue → Panneaux → Table des PPC</strong>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>The <em>GCP table</em> dialog will display the details of each
-point. Click on the <em>Transformation Settings…</em> button.</li>
+<li>La boîte de dialogue <em>Table des PPC</em> affichera les détails de chaque point. Cliquez sur le bouton <em>Paramètres de Transformation…</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_11.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="12" style="list-style-type: decimal">
-<li>In the <em>Transformation Settings</em> dialog, choose
-<strong>Polynomial 2</strong> as <em>Transformation type</em>. Choose
-<strong>Nearest Neighbour</strong> as <em>Resampling method</em> and
-<em>EPSG:3857</em> as <em>Target SRS</em>. Click on the <em>…</em> in
-<em>Output raster</em> and save the file as
-<code>Banglore_1924_modified.tif</code>. Choose <em>LZW</em> in
-<em>Compression</em>. Finally, check the <em>Save GCP points</em> and
-<em>Load in QGIS when done</em> boxes. Click <em>OK</em> to save this
-setting and close the settings dialog.</li>
+<li>Dans la boîte de dialogue <em>Paramètres de Transformation</em>, choisissez <strong>Polynomial 2</strong> comme <em>Type de transformation</em>. Choisissez <strong>Plus proche voisin</strong> comme <em>Méthode d'échantillonnage</em> et <em>EPSG:3857</em> comme <em>SRS cible</em>. Cliquez sur le <em>…</em> dans <em>Raster de sortie</em> et enregistrez le fichier sous <code>Banglore_1924_modifié.tif</code>. Choisissez <em>LZW</em> dans <em>Compression</em>. Enfin, cochez les cases <em>Enregistrer les points de PPC</em> et <em>Charger dans QGIS une fois terminé</em>. Cliquez sur <em>OK</em> pour enregistrer ce paramètre et fermer la boîte de dialogue des paramètres.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_12.png" width="60%" style="display: block; margin: auto;"></p>
 <ol start="13" style="list-style-type: decimal">
-<li>Note the <em>Residual (pixels)</em> columns will not display the
-error for each GCPs based on the chosen transformation algorithm. Lower
-error means the transformation would be able to accurately assign the
-chosen coordinate to the pixel.</li>
+<li>Remarquez que les colonnes <em>Résiduel (pixels)</em> ne affichent pas l'erreur pour chaque PPC en fonction de l'algorithme de transformation choisi. Une erreur plus faible signifie que la transformation serait en mesure d'attribuer avec précision les coordonnées choisies au pixel.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_13.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="14" style="list-style-type: decimal">
-<li>If you have a GCP with high residual, you can use the <em>Move
-point</em> to adjust the point’s position or <em>Delete point</em> to
-remove it. Before georeferencing, a minimum of six GCPs should be
-available.</li>
+<li>Si vous avez un PPC avec une résiduelle élevée, vous pouvez utiliser le <em>Déplacer le point</em> pour ajuster la position du point ou <em>Supprimer le point</em> pour le supprimer. Avant la géoréférencement, un minimum de six PPC devraient être disponibles.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_14.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="15" style="list-style-type: decimal">
-<li>Repeat this process till you are satisfied with the the total mean
-error and the residuals.</li>
+<li>Répétez ce processus jusqu'à ce que vous soyez satisfait de l'erreur moyenne totale et des résidus.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_15.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="16" style="list-style-type: decimal">
-<li>Click on the <em>Start Georeferencing</em> button to georeference
-the scanned map.</li>
+<li>Cliquez sur le bouton <em>Démarrer le géoréférencement</em> pour géoréférencer la carte scannée.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/georef_part2_16.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="17" style="list-style-type: decimal">
-<li>In the main QGIS canvas, the georeferenced layer
-<code>Banglore_1924_modified</code> will be added and overlayed on the
-basemap.</li>
+<li>Sur la toile principale de QGIS, le calque géoréférencé <code>Banglore_1924_modifié</code> sera ajouté et superposé sur le fond de carte.</li>
 </ol>
-<p><img src="images/introduction_to_qgis/georef_part2_17.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now completed all steps and you should have a georeferenced
-image.Your output should match the contents of the
-<code>Georeferencing_Checkpoint2.qgz</code> file in the solutions
-folder. We have also provided the saved GCPs in the solutions folder. To
-load them, you can go to <em>File → Load GCP Points..</em> and select
-the <code>bangalore_gcp.points</code> file in the
-<code>solutions/</code> folder of the data package.</p>
+<p>Nous avons maintenant terminé toutes les étapes et vous devriez avoir une image géoréférencée. Votre sortie dev
+
+rait correspondre au contenu du fichier <code>Georeferencing_Checkpoint2.qgz</code> dans le dossier des solutions. Nous avons également fourni les PPC enregistrés dans le dossier des solutions. Pour les charger, vous pouvez aller à <em>Fichier → Charger les points de PPC..</em> et sélectionner le fichier <code>bangalore_gcp.points</code> dans le dossier <code>solutions/</code> du paquet de données.</p>
 <p><img src="images/introduction_to_qgis/load_gcps.png" width="75%" style="display: block; margin: auto;"></p>
 <div id="challenge-7" class="section level3">
 <h3>3.2.1 Challenge</h3>
-<p>In this exercise we used the <strong>Polynomial 2</strong> technique.
-For datasets that require more aggressive transformation, you can use
-the <a href="https://en.wikipedia.org/wiki/Thin_plate_spline">Thin Plate
-Spline</a> algorithm. This method is also known as <em>Rubber
-Sheeting</em>. Change the transformation setting to use <strong>Thin
-Plate Split</strong> and run the georeferencer again. Compare the output
-with the previous result.</p>
+<p>Dans cet exercice, nous avons utilisé la technique <strong>Polynomial 2</strong>. Pour les jeux de données nécessitant une transformation plus agressive, vous pouvez utiliser l'algorithme <a href="https://en.wikipedia.org/wiki/Thin_plate_spline">Thin Plate Spline</a>. Cette méthode est également connue sous le nom de <em>Rubber Sheeting</em>. Modifiez le paramètre de transformation pour utiliser <strong>Thin Plate Split</strong> et exécutez à nouveau le géoréférenceur. Comparez la sortie avec le résultat précédent.</p>
 </div>
 </div>
 </div>
 <div id="data-editing" class="section level1">
-<h1>4. Data Editing</h1>
-<p>Many GIS tasks require editing existing data layers or creating new
-datasets. Often a large amount of GIS time is spent digitizing raster
-data to create vector layers that you use in your analysis. Many machine
-learning projects also require creating a labeled dataset that needs to
-be made by digitizing features from satellite imagery or historical
-maps. QGIS has powerful on-screen digitizing and editing capabilities
-that we will explore in this tutorial.</p>
-<p>In this exercise, you will create a vector layer of historic lakes in
-the city of Bangalore, India. This city has experienced urbanization at
-a rapid pace. Due to this, many water bodies have been lost. We will use
-the georeferenced scanned map from the previous exercise to digitize
-polygons for all the water bodies in 1924 and label their current
-status. Finally, we will create a vector layer and assign attributes to
-them, indicating whether they are healthy, lost, or partially lost.</p>
+<h1>4. Édition des données</h1>
+<p>De nombreuses tâches SIG nécessitent l'édition de couches de données existantes ou la création de nouveaux ensembles de données. Souvent, une grande partie du temps SIG est consacrée à la numérisation de données raster pour créer des couches vectorielles que vous utilisez dans votre analyse. De nombreux projets d'apprentissage automatique nécessitent également la création d'un ensemble de données étiqueté qui doit être créé en numérisant des éléments à partir d'images satellites ou de cartes historiques. QGIS dispose de puissantes capacités de numérisation et d'édition à l'écran que nous allons explorer dans ce tutoriel.</p>
+<p>Dans cet exercice, vous allez créer une couche vectorielle des lacs historiques dans la ville de Bangalore, en Inde. Cette ville a connu une urbanisation rapide. En raison de cela, de nombreux plans d'eau ont été perdus. Nous utiliserons la carte scannée géoréférencée de l'exercice précédent pour numériser des polygones pour tous les plans d'eau en 1924 et étiqueter leur état actuel. Enfin, nous créerons une couche vectorielle et leur attribuerons des attributs, indiquant s'ils sont en bonne santé, perdus ou partiellement perdus.</p>
 <div id="attribute-forms" class="section level2">
 <h2>4.1 Attribute Forms</h2>
-<p>We will first create a new layer and configure the attribute form to
-capture the data about the features.</p>
+<p>Nous allons d'abord créer une nouvelle couche et configurer le formulaire d'attributs pour capturer les données sur les entités.</p>
 <ol style="list-style-type: decimal">
-<li>Go to <em>Project → Open</em> and browse to the data package. Select
-the <code>Digitizing.qgz</code> project and click <em>Open</em>.</li>
+<li>Allez à <em>Projet → Ouvrir</em> et naviguez vers le paquet de données. Sélectionnez le projet <code>Digitizing.qgz</code> et cliquez sur <em>Ouvrir</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_01.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>This project contains the <code>OSM Standard</code> basemap and the
-<code>Banglore_1924_modified</code> georeferenced scanned map. To
-digitize the waterbodies, let’s create a new vector layer. Click on the
-<em>Layer → Create Layer → New GeoPackage Layer…</em> from the
-menubar.</li>
+<li>Ce projet contient le fond de carte <code>OSM Standard</code> et la carte scannée géoréférencée <code>Banglore_1924_modifié</code>. Pour numériser les plans d'eau, créons une nouvelle couche vectorielle. Cliquez sur <em>Calque → Créer un calque → Nouveau calque GeoPackage…</em> dans la barre de menus.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_02.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>In the <em>New GeoPackage Layer</em> dialog, click on the <em>…</em>
-next to <em>Database</em> and browse to the project location. Enter the
-file name as <code>banglore_lakes</code> and click <em>OK</em>. Now the
-<em>Table name</em> will be auto-populated as
-<code>banglore_lakes</code>. Choose <code>MultiPolygon</code> as
-<em>Geometry type</em>. Let the CRS be in default <code>EPSG:4326</code>
-projection.</li>
+<li>Dans la boîte de dialogue <em>Nouveau calque GeoPackage</em>, cliquez sur le <em>…</em> à côté de <em>Base de données</em> et naviguez jusqu'à l'emplacement du projet. Saisissez le nom de fichier comme <code>banglore_lakes</code> et cliquez sur <em>OK</em>. Maintenant, le <em>Nom de la table</em> sera automatiquement renseigné comme <code>banglore_lakes</code>. Choisissez <code>MultiPolygone</code> comme <em>Type de géométrie</em>. Laissez le SCR en projection par défaut <code>EPSG:4326</code>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_03.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>In the new layer, let’s add some basic fields. First, let’s add the
-name field. Under the <em>New Field</em> section, in <em>Name</em> enter
-<code>name</code>, in <em>Type</em> choose <code>Text Data</code>, and
-in <em>Maximum length</em>, enter <code>50</code>. Now click <em>Add to
-Fields List</em> button.</li>
+<li>Dans le nouveau calque, ajoutons quelques champs de base. Tout d'abord, ajoutons le champ de nom. Dans la section <em>Nouveau champ</em>, entrez <code>name</code> dans <em>Nom</em>, choisissez <code>Texte</code> dans <em>Type</em>, et entrez <code>50</code> dans <em>Longueur maximale</em>. Cliquez maintenant sur le bouton <em>Ajouter à la liste des champs</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_04.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>The <em>Fields List</em> section will get updated. Similarly, add a
-<code>status</code> filed with <em>Type</em> as <code>integer</code>.
-Click <em>OK</em> to close the dialog.</li>
+<li>La section <em>Liste des champs</em> sera mise à jour. Ajoutez de même un champ <code>status</code> avec le <em>Type</em> en <code>Entier</code>. Cliquez sur <em>OK</em> pour fermer la boîte de dialogue.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_05.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Now the <code>banglore_lakes</code> layer will be added to the
-<em>Layers</em> tab.</li>
+<li>Maintenant, le calque <code>banglore_lakes</code> sera ajouté à l'onglet <em>Calques</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_06.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>let’s inspect the attribute table of the new layer. Right-click on
-the <code>banglore_lakes</code> layer and click <em>Open Attribute
-Table</em>.</li>
+<li>Inspectons la table attributaire du nouveau calque. Cliquez avec le bouton droit sur le calque <code>banglore_lakes</code> et cliquez sur <em>Ouvrir la table attributaire</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_07.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>In the <code>bangalore_lakes</code> attribute table, there are three
-fields. <em>fid</em> is an integer field which is required by the
-GeoPackage format and is autogenerated. The <em>name</em> and
-<em>status</em> must be entered while digitizing the waterbodies. Close
-the attribute table.</li>
+<li>Dans la table attributaire de <code>bangalore_lakes</code>, il y a trois champs. <em>fid</em> est un champ entier requis par le format GeoPackage et est généré automatiquement. Les champs <em>name</em> et <em>status</em> doivent être saisis lors de la numérisation des plans d'eau. Fermez la table attributaire.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_08.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>Again right-click on <code>banglore_lakes</code> layer and click
-<em>Properties</em> to open the properties dialog.</li>
+<li>Cliquez à nouveau avec le bouton droit sur le calque <code>banglore_lakes</code> et cliquez sur <em>Propriétés</em> pour ouvrir la boîte de dialogue des propriétés.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_09.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>In the <em>Layer Properties</em> dialog, choose <em>Attribute
-Form</em>. Under <em>Fields</em>, select <em>status</em>. Choose the
-<em>Widget Type</em> as <code>Value Map</code>. Value Map allows us to
-create a drop-down menu that allows you to pick from a predefined set of
-values.</li>
+<li>Dans la boîte de dialogue <em>Propriétés du calque</em>, choisissez <em>Formulaire d'attributs</em>. Sous <em>Champs</em>, sélectionnez <em>status</em>. Choisissez le <em>Type de widget</em> comme <code>Menu de valeurs</code>. Le Menu de valeurs nous permet de créer un menu déroulant à partir d'un ensemble prédéfini de valeurs.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>The status field will be set as a drop-down with these three values.
-Enter the value and description as follows</li>
+<li>Le champ de statut sera configuré comme un menu déroulant avec ces trois valeurs. Saisissez la valeur et la description comme suit</li>
 </ol>
 <table class="table table-condensed">
 <thead>
 <tr class="header">
-<th align="center">Value</th>
+<th align="center">Valeur</th>
 <th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
+<tbody
+
+>
 <tr class="odd">
 <td align="center">1</td>
-<td align="left">Healthy</td>
+<td align="left">Sain</td>
 </tr>
 <tr class="even">
 <td align="center">2</td>
-<td align="left">Partially Lost</td>
+<td align="left">Partiellement perdu</td>
 </tr>
 <tr class="odd">
 <td align="center">3</td>
-<td align="left">Lost</td>
+<td align="left">Perdu</td>
 </tr>
 </tbody>
 </table>
 <p><img src="images/introduction_to_qgis/digitizing_part1_11.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="12" style="list-style-type: decimal">
-<li>We require this field’s input must be given for every feature, so
-let’s make this a mandatory field. Under <em>Constraints</em> check
-<em>Not null</em> and <em>Enforce not null constraint</em>. Click
-<em>OK</em> to save the changes and close the properties dialog.</li>
+<li>Nous exigeons que la saisie de ce champ soit obligatoire pour chaque entité, alors faisons-en un champ obligatoire. Sous <em>Contraintes</em>, cochez <em>Non nul</em> et <em>Appliquer la contrainte de non null</em>. Cliquez sur <em>OK</em> pour enregistrer les modifications et fermer la boîte de dialogue des propriétés.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part1_12.png" width="75%" style="display: block; margin: auto;"></p>
-<p>Save the project. Your results should match the contents of the
-<code>Digitizing_Checkpoint1.qgz</code> file in the solutions
-folder.</p>
+<p>Enregistrez le projet. Vos résultats devraient correspondre au contenu du fichier <code>Digitizing_Checkpoint1.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-8" class="section level3">
 <h3>4.1.1 Challenge</h3>
-<p>The <strong>fid</strong> column contains auto-increment unique id for
-each feature.The GeoPackage format requires this integer field to
-maintain data integrity. Manually overriding this id to a different
-value can cause data corruption. Edit the attribute form for the
-<strong>fid</strong> field so that it is not user-editable.</p>
+<p>La colonne <strong>fid</strong> contient un identifiant unique auto-incrémenté pour chaque entité. Le format GeoPackage nécessite ce champ entier pour maintenir l'intégrité des données. La substitution manuelle de cet identifiant par une valeur différente peut entraîner une corruption des données. Modifiez le formulaire d'attributs pour le champ <strong>fid</strong> afin qu'il ne soit pas modifiable par l'utilisateur.</p>
 </div>
 </div>
 <div id="digitizing-polygons" class="section level2">
-<h2>4.2 Digitizing Polygons</h2>
+<h2>4.2 Numérisation des polygones</h2>
 <ol style="list-style-type: decimal">
-<li>Before we start digitizing, let’s enable the snapping toolbar. This
-toolbar will help select the nearby vertices and avoid invalid
-geometries. Right-click on the toolbar and check the <em>Snapping
-Toolbar</em> to enable it.</li>
+<li>Avant de commencer la numérisation, activons la barre d'outils d'accrochage. Cette barre d'outils permet de sélectionner les sommets proches et d'éviter les géométries invalides. Cliquez avec le bouton droit sur la barre d'outils et cochez la case <em>Barre d'outils d'accrochage</em> pour l'activer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Now the snapping toolbar will be added to the main QGIS.</li>
+<li>Maintenant, la barre d'outils d'accrochage sera ajoutée à QGIS.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Enable snap setting by clicking <em>Enable Snapping</em> button.
-Zoom to any part of the map containing a waterbody. Toggle the
-visibility of the <code>Banglore_1924_modified</code> layer and check if
-the lake exists in the current basemap. This will be helpful in entering
-the attribute of the lake you will digitize.</li>
+<li>Activez le réglage d'accrochage en cliquant sur le bouton <em>Activer l'accrochage</em>. Zoomez sur n'importe quelle partie de la carte contenant un plan d'eau. Basculez la visibilité de la couche <code>Banglore_1924_modified</code> et vérifiez si le lac existe dans le fond de carte actuel. Cela vous aidera à saisir l'attribut du lac que vous allez numériser.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Turn the <code>Banglore_1924_modified</code> on. Select the
-<code>banglore_lakes</code> layer and start digitizing the waterbody.
-Click the <em>Toggle editing</em> followed by the <em>Add Polygon
-Feature</em> button. Starting from an edge, keep on adding vertices
-using left-click. Once the polygon is fully digitized, right-click to
-complete it.</li>
+<li>Allumez la couche <code>Banglore_1924_modified</code>. Sélectionnez la couche <code>banglore_lakes</code> et commencez à numériser le plan d'eau. Cliquez sur <em>Modifier les couches</em> suivi du bouton <em>Ajouter une entité de polygone</em>. À partir d'un bord, continuez à ajouter des sommets en cliquant gauche. Une fois le polygone entièrement numérisé, cliquez droit pour le terminer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Now you will be prompted by the <em>Feature Attributes</em> dialog
-to enter the attributes values for the feature you just created. By
-referring to the <code>OSM Standard</code> basemap, enter the
-<em>name</em> and select the <em>status</em> of the waterbody. Click
-<em>OK</em></li>
+<li>Vous serez maintenant invité par la boîte de dialogue <em>Attributs de l'entité</em> à saisir les valeurs des attributs pour l'entité que vous venez de créer. En vous référant au fond de carte <code>OSM Standard</code>, saisissez le <em>nom</em> et sélectionnez le <em>statut</em> du plan d'eau. Cliquez sur <em>OK</em></li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Now the polygon show the fully digitized feature.</li>
+<li>Maintenant, le polygone montre l'entité entièrement numérisée.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Zoom to another waterbody and digitize with the same process. If the
-waterbody name is unavailable in both basemap and scanned map, leave the
-<em>name</em> field empty and select the <em>status</em> of the
-waterbody. Click <em>OK</em>.</li>
+<li>Zoom sur un autre plan d'eau et numérisez selon le même processus. Si le nom du plan d'eau n'est pas disponible à la fois dans le fond de carte et sur la carte scannée, laissez le champ <em>nom</em> vide et sélectionnez le <em>statut</em> du plan d'eau. Cliquez sur <em>OK</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>Digitize all the available waterbodies. Once completed, click on the
-<em>Save Layer Edits</em> button and turn off the editing mode by
-pressing the <em>Toggle Editing</em> button.</li>
+<li>Numérisez tous les plans d'eau disponibles. Une fois terminé, cliquez sur le bouton <em>Enregistrer les modifications de la couche</em> et désactivez le mode édition en appuyant sur le bouton <em>Modifier les couches</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>let’s inspect the attribute table of the digitized layer. Now
-right-click on the <code>banglore_lakes</code> layer and click <em>Open
-Attribute Table</em>.</li>
+<li>Inspectons la table attributaire de la couche numérisée. Cliquez maintenant avec le bouton droit
+
+ sur la couche <code>banglore_lakes</code> et cliquez sur <em>Ouvrir la table attributaire</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_9.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="10" style="list-style-type: decimal">
-<li>The Attribute Table contains <code>24</code> digitized features. You
-can note the <em>fid</em> column is auto-populated with a unique value
-for each record. Close the attribute table.</li>
+<li>La table attributaire contient <code>24</code> entités numérisées. Vous pouvez remarquer que la colonne <em>fid</em> est autopopulée avec une valeur unique pour chaque enregistrement. Fermez la table attributaire.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_10.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="11" style="list-style-type: decimal">
-<li>Now let’s save the project, click <em>Project → Save</em>.</li>
+<li>Enregistrez maintenant le projet, cliquez sur <em>Projet → Enregistrer</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/digitizing_part2_11.png" width="75%" style="display: block; margin: auto;"></p>
-<p>Your results should now match the contents of the
-<code>Digitizing_Checkpoint2.qgz</code> file in the solutions
-folder.</p>
+<p>Vos résultats devraient maintenant correspondre au contenu du fichier <code>Digitizing_Checkpoint2.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-9" class="section level3">
-<h3>4.2.1 Challenge</h3>
-<p>Style the layer based on the <em>status</em> column. This column has
-categorical values that can be used assign a different color to each
-waterbody.</p>
-<p>Hint: Use the <strong>Categorized</strong> renderer.</p>
+<h3>4.2.1 Défi</h3>
+<p>Appliquez un style à la couche en fonction de la colonne <em>status</em>. Cette colonne comporte des valeurs catégorielles qui peuvent être utilisées pour attribuer une couleur différente à chaque plan d'eau.</p>
+<p>Astuce : Utilisez le rendu <strong>Catégorisé</strong>.</p>
 <p><img src="images/introduction_to_qgis/digitizing_part2_challenge.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 </div>
 <div id="concept-introduction-to-openstreetmap" class="section level1">
-<h1>Concept: Introduction to OpenStreetMap</h1>
-<p><a href="https://docs.google.com/presentation/d/1hiVXo82VnRHrQBroxzrByYod8CeNvsB1iVwy6q62mz8/edit?usp=sharing" target="_blank"><img src="images/introduction_to_qgis/osm_presentation.png" width="400" alt="View Presentation"></a></p>
-<p><a href="https://docs.google.com/presentation/d/1hiVXo82VnRHrQBroxzrByYod8CeNvsB1iVwy6q62mz8/edit?usp=sharing" target="_blank">View the Presentation ↗</a></p>
+<h1>Concept : Introduction à OpenStreetMap</h1>
+<p><a href="https://docs.google.com/presentation/d/1hiVXo82VnRHrQBroxzrByYod8CeNvsB1iVwy6q62mz8/edit?usp=sharing" target="_blank"><img src="images/introduction_to_qgis/osm_presentation.png" width="400" alt="Voir la présentation"></a></p>
+<p><a href="https://docs.google.com/presentation/d/1hiVXo82VnRHrQBroxzrByYod8CeNvsB1iVwy6q62mz8/edit?usp=sharing" target="_blank">Voir la présentation ↗</a></p>
 </div>
 <div id="geoprocessing" class="section level1">
-<h1>5. Geoprocessing</h1>
-<p>Geoprocessing refers to the set of operations used to transform the
-input data to create a new dataset. In this section you will learn about
-some essential vector and raster geoprocessing tools to solve a complex
-spatial analysis problem.</p>
-<p>In this analysis, we will learn how to download vector data from
-OpenStreetMap and use it to determine the number of people who live
-within 1 km of a metro station.</p>
+<h1>5. Géotraitement</h1>
+<p>Le géotraitement désigne l'ensemble des opérations utilisées pour transformer les données d'entrée afin de créer un nouvel ensemble de données. Dans cette section, vous apprendrez à utiliser certains outils essentiels de géotraitement vectoriel et raster pour résoudre un problème d'analyse spatiale complexe.</p>
+<p>Dans cette analyse, nous apprendrons comment télécharger des données vectorielles depuis OpenStreetMap et les utiliser pour déterminer le nombre de personnes vivant dans un rayon de 1 km d'une station de métro.</p>
 <div id="download-openstreetmap-data" class="section level2">
-<h2>5.1 Download OpenStreetMap Data</h2>
+<h2>5.1 Téléchargement des données OpenStreetMap</h2>
 <ol style="list-style-type: decimal">
-<li>Open QGIS. We will first load a layer with the boundary for the city
-of Bengaluru, India. This file comes in the GeoJSON format. Click on the
-Open Data Source Manager button. Select the <em>Vector</em> tab. Click
-the <em>…</em> button next to <em>Vector Dataset(s)</em> and browse the
-data directory. Locate the <code>bangalore.json</code> file and click
-<em>Open</em>. In the <em>Data Source Manager</em> window, click
-<em>Add</em>.</li>
+<li>Ouvrez QGIS. Nous chargerons d'abord une couche avec la limite de la ville de Bangalore, en Inde. Ce fichier est au format GeoJSON. Cliquez sur le bouton Gestionnaire de source de données ouverte. Sélectionnez l'onglet <em>Vectoriel</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Ensemble(s) de données vectorielles</em> et parcourez le répertoire des données. Localisez le fichier <code>bangalore.json</code> et cliquez sur <em>Ouvrir</em>. Dans la fenêtre <em>Gestionnaire de sources de données</em>, cliquez sur <em>Ajouter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Now, we will query the OpenStreetMap database to get a vector layer
-of railway stations in the city. We will use the
-<strong>QuickOSM</strong> plugin for this task. From the
-<em>Plugins</em> menu, choose <em>Manage and Install Plugins…</em>.
-Under the <em>All</em> tab, search for <strong>quickosm</strong>. Click
-on the <em>Install Plugin</em>, to add this plugin to QGIS.</li>
+<li>Nous allons maintenant interroger la base de données OpenStreetMap pour obtenir une couche vectorielle des stations de chemin de fer dans la ville. Nous utiliserons le plugin <strong>QuickOSM</strong> pour cette tâche. Dans le menu <em>Plugins</em>, choisissez <em>Gérer et installer des plugins…</em>. Sous l'onglet <em>Tous</em>, recherchez <strong>quickosm</strong>. Cliquez sur le bouton <em>Installer le plugin</em> pour ajouter ce plugin à QGIS.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Once installed, go to <strong>Vector → QuickOSM →
-QuickOSM</strong>.</li>
+<li>Une fois installé, allez dans <strong>Vector → QuickOSM → QuickOSM</strong>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>OpenStreetMap uses a tagging system to record properties of physical
-features. The tags and the key/value pairs are described in <a href="https://wiki.openstreetmap.org/wiki/Map_Features">OpenStreetMap
-wiki</a>. The railway stations are tagged with
-<code>railway=station</code>. Enter <code>railway</code> as the
-<em>Key</em>, <code>station</code> as the <em>Value</em> and
-<em>Bangalore</em> as the geographic filter <em>In</em>. Expand the
-<em>Advanced</em> section and check only the <em>Node</em> and
-<em>Points</em> boxes. Click <em>Run Query</em>.</li>
+<li>OpenStreetMap utilise un système de balisage pour enregistrer les propriétés des entités physiques. Les balises et les paires clé/valeur sont décrites dans le <a href="https://wiki.openstreetmap.org/wiki/Map_Features">wiki OpenStreetMap</a>. Les stations de chemin de fer sont balisées avec <code>railway=station</code>. Entrez <code>railway</code> comme <em>Clé</em>, <code>station</code> comme <em>Valeur</em> et <em>Bangalore</em> comme filtre géographique <em>Dans</em>. Développez la section <em>Avancé</em> et cochez uniquement les cases <em>Nœud</em> et <em>Points</em>. Cliquez sur <em>Lancer la requête</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Once the query finishes, you will see a new layer,
-<code>railway_station_Bangalore</code> loaded in the canvas. The city
-has railway stations operated by two different agencies - one that
-operates the intercity trains and other that runs the metro service. We
-can apply a filter to select only the metro stations. Right-click the
-layer and select <em>Filter</em>.</li>
+<li>Une fois la requête terminée, vous verrez une nouvelle couche, <code>railway_station_Bangalore</code>, chargée dans la vue. La ville compte des stations de chemin de fer exploitées par deux agences différentes : l'une qui exploite les trains interurbains et l'autre qui gère le service de métro. Nous pouvons appliquer un filtre pour sélectionner uniquement les stations de métro. Cliquez avec le bouton droit sur la couche et sélectionnez <em>Filtrer</em>.</li>
 </ol>
 <blockquote>
-<p>Note: As the metro network for the city is rapidly growing, there
-maybe a few more stations resulting from the query compared to shown in
-the screenshot.</p>
+<p>Remarque : Comme le réseau de métro de la ville est en pleine expansion, il peut y avoir quelques stations supplémentaires résultant de la requête par rapport à ce qui est montré dans la capture d'écran.</p>
 </blockquote>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_5.png" width="75%" style="display: block; margin: auto;"></p>
-<ol start="6" style="list-style-type: decimal">
-<li>In the <em>Query Builder</em>, enter the following expression to
-select the stations operated by the <strong>Bangalore Metro Rail
-Corporation Limited</strong> - the agency that operates the metro
-network in the city. Click <em>OK</em>.</li>
+<ol start="6" style="
+
+list-style-type: decimal">
+<li>Dans le <em>Constructeur de requêtes</em>, saisissez l'expression suivante pour sélectionner les stations exploitées par la <strong>Bangalore Metro Rail Corporation Limited</strong> - l'agence qui exploite le réseau de métro dans la ville. Cliquez sur <em>OK</em>.</li>
 </ol>
 <pre><code>"operator" = 'Bangalore Metro Rail Corporation Limited'</code></pre>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_6.png" width="60%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Now, the map will update to show all the operational metro stations
-in the city.</li>
+<li>Maintenant, la carte se mettra à jour pour montrer toutes les stations de métro opérationnelles dans la ville.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>You will notice a memory icon next to the
-<code>railway_station_Bangalore</code> layer in the <em>Layers</em>
-panel, indicating that it is a temporary scratch layer. If we do not
-save it, it will go away when we close QGIS. Right-click on it and
-select <em>Make Permanent</em>.</li>
+<li>Vous remarquerez une icône de mémoire à côté de la couche <code>railway_station_Bangalore</code> dans le panneau <em>Couches</em>, indiquant qu'il s'agit d'une couche temporaire provisoire. Si nous ne la sauvegardons pas, elle disparaîtra lorsque nous fermerons QGIS. Cliquez avec le bouton droit dessus et sélectionnez <em>Rendre permanent</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_8.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="9" style="list-style-type: decimal">
-<li>Click <em>…</em> next to <em>File name</em> and save the file as
-<code>railway_station_Bangalore.gpkg</code>. Click <em>OK</em>. We have
-now saved the layer to the disk. Save your project as
-<code>Geoprocessing.qgz</code>.</li>
+<li>Cliquez sur <em>…</em> à côté de <em>Nom de fichier</em> et enregistrez le fichier sous le nom <code>railway_station_Bangalore.gpkg</code>. Cliquez sur <em>OK</em>. Nous avons maintenant enregistré la couche sur le disque. Enregistrez votre projet sous le nom <code>Geoprocessing.qgz</code>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_9.png" width="75%" style="display: block; margin: auto;"></p>
-<p>We have now completed the data download and pre-processing steps.
-Your output should match the contents of the
-<code>Geoprocessing_Checkpoint1.qgz</code> file in the solutions
-folder.</p>
+<p>Nous avons maintenant terminé les étapes de téléchargement des données et de prétraitement. Votre sortie devrait correspondre au contenu du fichier <code>Geoprocessing_Checkpoint1.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-10" class="section level3">
-<h3>5.1.1 Challenge</h3>
-<p>You will notice that the attribute table for the
-<code>railway_station_bangalore</code> layer has many columns. Open the
-attribute table and delete all the columns except the
-<strong>fid</strong> and <strong>osm_id</strong> columns. Hint: Use the
-<em>Delete field</em> tool from the attribute table.</p>
+<h3>5.1.1 Défi</h3>
+<p>Vous remarquerez que le tableau attributaire de la couche <code>railway_station_bangalore</code> comporte de nombreuses colonnes. Ouvrez le tableau attributaire et supprimez toutes les colonnes sauf les colonnes <strong>fid</strong> et <strong>osm_id</strong>. Astuce : Utilisez l'outil <em>Supprimer le champ</em> dans le tableau attributaire.</p>
 <p><img src="images/introduction_to_qgis/geoprocessing_part1_challenge.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="reproject-and-buffer" class="section level2">
-<h2>5.2 Reproject and Buffer</h2>
+<h2>5.2 Reprojection et Tampon</h2>
 <ol style="list-style-type: decimal">
-<li>Now, the map will update to show only the operation metro stations
-in the city. Next, we need to apply a <em>Buffer</em> to these stations
-to find areas within 1km. But our data comes in the EPSG:4326 WGS84
-Geographic Projection - which has degrees as units. To do geoprocessing
-operations on this layer in projected units such as kilometers, we must
-first reproject the layer in a suitable projected coordinate reference
-system (CRS). Go to <strong>Processing → Toolbox</strong>. Search for
-and locate the <strong>Vector general → Reproject layer</strong>
-algorithm. Double-click to launch it.</li>
+<li>Maintenant, la carte sera mise à jour pour ne montrer que les stations de métro opérationnelles dans la ville. Ensuite, nous devons appliquer un <em>Tampon</em> à ces stations pour trouver les zones dans un rayon de 1 km. Mais nos données sont dans la projection géographique EPSG:4326 WGS84, qui utilise les degrés comme unités. Pour effectuer des opérations de géotraitement sur cette couche dans des unités projetées telles que les kilomètres, nous devons d'abord reprojeter la couche dans un système de référence de coordonnées projetées (CRS) adapté. Allez dans <strong>Traitement → Boîte à outils</strong>. Recherchez et localisez l'algorithme <strong>Général vectoriel → Reprojeter la couche</strong>. Double-cliquez pour le lancer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Choose <code>railway_station_Bangalore</code> as the <em>Input
-layer</em>. Select <code>EPSG:32643 - WGS 84 UTM Zone 43N</code> as the
-<em>Target CRS</em>. Name the <em>Reprojected</em> layer as
-<code>metro_stations_reprojected.gpkg</code>.</li>
+<li>Choisissez <code>railway_station_Bangalore</code> comme <em>Couche d'entrée</em>. Sélectionnez <code>EPSG:32643 - WGS 84 UTM Zone 43N</code> comme <em>CRS cible</em>. Nommez la couche <em>Reprojetée</em> comme <code>metro_stations_reprojected.gpkg</code>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Once the reprojected layer <code>metro_stations_reprojected</code>
-is created, search for the <strong>Vector geometry → Buffer</strong>
-algorithm and double-click to launch the algorithm.</li>
+<li>Une fois la couche reprojetée <code>metro_stations_reprojected</code> créée, recherchez l'algorithme <strong>Géométrie vectorielle → Tampon</strong> et double-cliquez pour lancer l'algorithme.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Select <code>metro_stations_reprojected</code> as the <em>Input
-layer</em>. Enter <strong>1 kilometers</strong> as the
-<em>Distance</em>. Check the <em>Dissolve result</em> option and name
-the <em>Buffered</em> output layer as
-<code>metro_stations_buffer.gpkg</code>. Click <em>Run</em>.</li>
+<li>Sélectionnez <code>metro_stations_reprojected</code> comme <em>Couche d'entrée</em>. Entrez <strong>1 kilomètre</strong> comme <em>Distance</em>. Cochez l'option <em>Fusionner le résultat</em> et nommez la sortie <em>Tamponnée</em> comme <code>metro_stations_buffer.gpkg</code>. Cliquez sur <em>Exécuter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>The layer now has a polygon representing areas within 1km of a metro
-station. Now that we are done with the geoprocessing operation, let’s
-convert the result back to the original projection to use it and other
-layers. Search for <strong>Vector general → Reproject layer</strong>
-algorithm and launch it.</li>
+<li>La couche a maintenant un polygone représentant les zones dans un rayon de 1 km autour d'une station de métro. Maintenant que nous avons terminé l'opération de géotraitement, convertissons le résultat de nouveau dans la projection d'origine pour l'utiliser avec d'autres couches. Recherchez l'algorithme <strong>Général vectoriel → Reprojeter la couche</strong> et lancez-le.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_5.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Select <code>metro_stations_buffer</code> as the <em>Input
-layer</em> and <code>EPSG:4326 -WGS 84</code> as the <em>Target
-CRS</em>. Name the output as
-<code>metro_station_buffer_reprojected.gpkg</code>. Click
-<em>Run</em>.</li>
+<li>Sélectionnez <code>metro_stations_buffer</code> comme <em>Couche d'entrée</em> et <code>EPSG:4326 - WGS 84</code> comme <em>CRS cible</em>. Nommez la sortie comme <code>metro_station_buffer_reprojected.gpkg</code>. Cliquez sur <em>Exécuter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_6.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="7" style="list-style-type: decimal">
-<li>A new layer <code>metro_station_buffer_reprojected</code> will be
-added to the canvas. We will now remove the intermediate layers from the
-project. Hold the <em>Shift</em> key and select the
-<code>metro_station_buffer</code>,
-<code>metro_stations_reprojected</code> and
-<code>railway_station_Bangalore</code> layers. Right-click and select
-<em>Remove Layer…</em>.</li>
+<li>Une nouvelle couche <code>metro_station_buffer_reprojected</code> sera ajoutée à la carte. Nous allons maintenant supprimer les couches intermédiaires du projet. Maintenez la touche <em>Majuscule</em> enfoncée et sélectionnez les couches <code>metro_station_buffer</code>, <code>metro_stations_reprojected</code> et <code>railway_station_Bangalore</code>. Cliquez avec le bouton droit et sélectionnez <em>Supprimer la couche…</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_7.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="8" style="list-style-type: decimal">
-<li>We now have a layer representing the area within 1 km of a metro
-station within the city of Bengaluru.</li>
+<li>Nous avons maintenant une couche représentant la zone dans un rayon de 1 km autour d'une station de métro dans la ville de Bangalore.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part2_8.png" width="75%" style="display: block; margin: auto;"></p>
-<p>Your output should match the contents of the
-<code>Geoprocessing_Checkpoint2.qgz</code> file in the solutions
-folder.</p>
+<p>Votre sortie devrait correspondre au contenu du fichier <code>Geoprocessing_Checkpoint2.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-11" class="section level3">
-<h3>5.2.1 Challenge</h3>
-<p>Your data package contains a dataset called
-<code>bangalore_pubs.gpkg</code> with the location of all pubs within
-the city. Select all the pubs from the layer within 1km of a metro
-station. Hint: Use the <strong>Select by Location</strong> tool from the
-Processing Toolbox.</p>
+<h3>5.2.1 Défi</h3>
+<p>Votre ensemble de données contient un jeu de données appelé <code>bangalore_pubs.gpkg</code> avec l'emplacement de tous les pubs dans la ville. Sélectionnez tous les pubs de la couche dans un rayon de 1 km d'une station de métro. Astuce : Utilisez l'outil <strong>Sélection par localisation</strong> de la Boîte à outils de traitement.</p>
 </div>
 </div>
 <div id="calculate-zonal-statistics" class="section level2">
-<h2>5.3 Calculate Zonal Statistics</h2>
-<p>We will now use a population grid and overlay the buffered polygon to
-calculate the number of people who live within the buffer zone.</p>
+<h2>5.3 Calculer les statistiques zonales</h2>
+<p>Nous allons maintenant utiliser une grille de population et superposer le polygone tamponné pour calculer le nombre de personnes qui vivent dans la zone tampon.</p>
 <ol style="list-style-type: decimal">
-<li>Click on the Open Data Source Manager button. Select the
-<em>Raster</em> tab. Click the <em>…</em> button next to <em>Raster
-Dataset(s)</em> and browse the data directory. Locate the
-<code>bangalore_ppp_2020_constrained.tif</code> in the data package.
-Click <em>Add</em>.</li>
+<li>Cliquez sur le bouton Gestionnaire de sources de données ouvertes. Sélectionnez l'onglet <em>Raster</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Ensemble(s) de données raster</em> et parcourez le répertoire des données. Localisez le fichier <code>bangalore_ppp_2020_constrained.tif</code> dans le package de données. Cliquez sur <em>Ajouter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part3_1.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Select the <code>bangalore_ppp_2020_constrained</code> layer and use
-the <em>Identify</em> tool to explore the pixel values. The resolution
-of the raster is 100m x 100m per pixel. The raster layer has only one
-band, and the pixel value is the estimated number of people within the
-100 sq.km area. Click the <em>Pan Map</em> button (Hand icon) to exit
-the <em>Identify</em> mode.</li>
+<li>Sélectionnez la couche <code>bangalore_ppp_2020_constrained</code> et utilisez l'outil <em>Identifier</em> pour explorer les valeurs des pixels. La résolution du raster est de 100m x 100m par pixel. La couche raster n'a qu'une seule bande, et la valeur du pixel est le nombre estimé de personnes dans la zone de 100 km². Cliquez sur le bouton <em>Déplacer la carte</em> (icône de main) pour quitter le mode <em>Identifier</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part3_2.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>We can determine the total population by summing up the values from
-the pixels that fall within a polygon. This operation is known as
-<em>Zonal Statistics</em>. Search for and locate the <strong>Raster
-analysis → Zonal statistics</strong> algorithm. This algorithm would add
-a new attribute to each layer with the total population contained within
-the polygons—double-click to launch it.</li>
+<li>Nous pouvons déterminer la population totale en additionnant les valeurs des pixels qui se trouvent à l'intérieur d'un polygone. Cette opération est appelée <em>Statistiques zonales</em>. Recherchez et localisez l'algorithme <strong>Analyse de raster → Statistiques zonales</strong>. Cet algorithme ajoutera un nouvel attribut à chaque couche avec la population totale contenue dans les polygones. Double-cliquez pour le lancer.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part3_3.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="4" style="list-style-type: decimal">
-<li>In the <em>Zonal Statistics</em> dialog, select the
-<code>metro_station_buffer_reprojected</code> as the <em>Input
-layer</em> and <code>bangalore_ppp_2020_constrained</code> as the
-<em>Raster layer</em>. Enter <strong>population_</strong> as the
-<em>Output column prefix</em>. Click the <em>…</em> button next to
-<em>Statistics to calculate</em> and choose only <strong>Sum</strong>.
-Finally, next to <em>Zonal Statistics</em> output, click the
-<code>...</code> and save the layer as
-<code>metro_station_buffer_pop.gpkg</code> Click <em>Run</em>.</li>
+<li>Dans la boîte de dialogue <em>Statistiques zonales</em>, sélectionnez <code>metro_station_buffer_reprojected</code> comme <em>Couche d'entrée</em> et <code>bangalore_ppp_2020_constrained</code> comme <em>Couche raster</em>. Entrez <strong>population_</strong> comme <em>Préfixe de colonne de sortie</em>. Cliquez sur le bouton <em>…</em> à côté de <em>Statistiques à calculer</em> et choisissez uniquement <strong>Somme</strong>. Enfin, à côté de la sortie des <em>Statistiques zonales</em>, cliquez sur <code>...</code> et enregistrez la couche sous le nom <code>metro_station_buffer_pop.gpkg</code>. Cliquez sur <em>Exécuter</em>.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part3_4.png" width="75%" style="display: block; margin: auto;"></p>
 <ol start="5" style="list-style-type: decimal">
-<li>Now, a new layer, <code>metro_station_buffer_pop</code>, will be
-added to the canvas. Right-click the layer and select <em>Open Attribute
-Table</em>. You will see a new field <strong>population_sum</strong>
-field containing the population within the buffer polygon.</li>
+<li>Maintenant, une nouvelle couche, <code>metro_station_buffer_pop</code>, sera ajoutée à la carte. Cliquez avec le bouton droit sur la couche et sélectionnez <em>Ouvrir la table attributaire</em>. Vous verrez un nouveau champ <strong>population_sum</strong> contenant la population dans le polygone tamponné.</li>
 </ol>
 <p><img src="images/introduction_to_qgis/geoprocessing_part3_5.png" width="75%" style="display: block; margin: auto;"></p>
-<p>Your output should match the contents of the
-<code>Geoprocessing_Checkpoint3.qgz</code> file in the solutions
-folder.</p>
+<p>Votre sortie devrait correspondre au contenu du fichier <code>Geoprocessing_Checkpoint3.qgz</code> dans le dossier des solutions.</p>
 <div id="challenge-12" class="section level3">
-<h3>5.3.1 Challenge</h3>
-<p>Repeat the Zonal Statistics operation on the <code>bangalore</code>
-layer to calculate the city’s total population. Determine what
-percentage of the city population lives within 1km of a metro
-station.</p>
+
+
+<h3>5.3.1 Défi</h3>
+<p>Répétez l'opération de statistiques zonales sur la couche <code>bangalore</code> pour calculer la population totale de la ville. Déterminez le pourcentage de la population de la ville qui vit dans un rayon de 1 km d'une station de métro.</p>
 </div>
 </div>
 </div>
 <div id="data-credits" class="section level1">
-<h1>Data Credits</h1>
+<h1>Crédits des données</h1>
 <ul>
-<li>Land boundaries: Made with Natural Earth. Free vector and raster map
-data @ naturalearthdata.com.</li>
-<li>Earthquake Faults: Styron, Richard, and Marco Pagani. “The GEM
-Global Active Faults Database.” Earthquake Spectra, vol.&nbsp;36, no.
-1_suppl, Oct.&nbsp;2020, pp.&nbsp;160–180, <a href="doi:10.1177/8755293020944182" class="uri">doi:10.1177/8755293020944182</a>. Downloaded from <a href="https://github.com/cossatot/gem-global-active-faults">The GEM
-Global Active Faults Database. (GEM GAF-DB)</a></li>
-<li>Significant Earthquakes: National Centers for Environmental
-Information / World Data Service (NGDC/WDS): The significant Earthquake
-Database. National Centers for Environmental Information, NOAA. <a href="doi:10.7289/V5TD9V7K" class="uri">doi:10.7289/V5TD9V7K</a></li>
-<li>2010 Neighborhood Tabulation Areas (NTAs), Department of City
-Planning (DCP), New York City. Downloaded from <a href="https://data.cityofnewyork.us/City-Government/2010-Neighborhood-Tabulation-Areas-NTAs-/cpf4-rkhq">NYC
-Open Data Portal</a>.</li>
-<li>New York City Population By Neighborhood Tabulation Areas: Compiled
-by the Population Division – New York City Department of City Planning.
-Downloaded from <a href="https://data.cityofnewyork.us/City-Government/New-York-City-Population-By-Neighborhood-Tabulatio/swpk-hqdp">NYC
-Open Data Portal</a>.</li>
-<li>Bangalore 1924 Map: Historical Map of Bangalore, India, circa 1924.
-Scan of a 1924 city map from “Murray’s 1924 Handbook”. Downloaded from
-<a href="https://commons.wikimedia.org/wiki/File:Bangalore1924_map.png">Wikimedia
-Commons</a>.</li>
-<li>OSM Tile Layer, Bangalore Metro Stations : (c) OpenStreetMap
-contributors.</li>
-<li>Bangalore Ward Maps Provided by <a href="http://projects.datameet.org/Municipal_Spatial_Data/">Spatial Data
-of Municipalities (Maps) Project</a> by Data{Meet}.</li>
-<li>Bangalore Population Grid 2020: Downloaded from <a href="https://www.worldpop.org/geodata/summary?id=6527">WorldPop</a> -
-School of Geography and Environmental Science, University of
-Southampton; Department of Geography and Geosciences, University of
-Louisville; Departement de Geographie, Universite de Namur) and Center
-for International Earth Science Information Network (CIESIN), Columbia
-University (2018). Global High Resolution Population Denominators
-Project - Funded by The Bill and Melinda Gates Foundation (OPP1134076).
-<a href="https://dx.doi.org/10.5258/SOTON/WP00645" class="uri">https://dx.doi.org/10.5258/SOTON/WP00645</a></li>
+<li>Limites territoriales : Créées avec Natural Earth. Données cartographiques vectorielles et raster gratuites sur naturalearthdata.com.</li>
+<li>Failles sismiques : Styron, Richard, et Marco Pagani. “La base de données mondiale des failles actives GEM.” Spectre du séisme, vol.&nbsp;36, no.&nbsp;1_suppl, Oct.&nbsp;2020, pp.&nbsp;160–180, <a href="doi:10.1177/8755293020944182" class="uri">doi:10.1177/8755293020944182</a>. Téléchargé depuis <a href="https://github.com/cossatot/gem-global-active-faults">La base de données mondiale des failles actives GEM. (GEM GAF-DB)</a></li>
+<li>Séismes significatifs : National Centers for Environmental Information / World Data Service (NGDC/WDS) : La base de données des séismes significatifs. National Centers for Environmental Information, NOAA. <a href="doi:10.7289/V5TD9V7K" class="uri">doi:10.7289/V5TD9V7K</a></li>
+<li>Zones de tabulation des quartiers (NTA) de 2010, Département de la planification urbaine (DCP), New York City. Téléchargé depuis <a href="https://data.cityofnewyork.us/City-Government/2010-Neighborhood-Tabulation-Areas-NTAs-/cpf4-rkhq">Portail de données ouvertes de la ville de New York</a>.</li>
+<li>Population de New York City par zones de tabulation des quartiers : compilée par la Division de la population - Département de la planification urbaine de la ville de New York. Téléchargé depuis <a href="https://data.cityofnewyork.us/City-Government/New-York-City-Population-By-Neighborhood-Tabulatio/swpk-hqdp">Portail de données ouvertes de la ville de New York</a>.</li>
+<li>Carte de Bangalore 1924 : Carte historique de Bangalore, Inde, vers 1924. Numérisation d'une carte de ville de 1924 provenant du "Guide de 1924 de Murray". Téléchargé depuis <a href="https://commons.wikimedia.org/wiki/File:Bangalore1924_map.png">Wikimedia Commons</a>.</li>
+<li>Calque de tuiles OSM, Stations de métro de Bangalore : (c) contributeurs OpenStreetMap.</li>
+<li>Cartes de quartiers de Bangalore fournies par le <a href="http://projects.datameet.org/Municipal_Spatial_Data/">Projet de données spatiales des municipalités (Cartes) par Data{Meet}</a>.</li>
+<li>Grille de population de Bangalore 2020 : Téléchargé depuis <a href="https://www.worldpop.org/geodata/summary?id=6527">WorldPop</a> - École de géographie et de science de l'environnement, Université de Southampton ; Département de géographie et de sciences géologiques, Université de Louisville ; Département de géographie, Université de Namur) et Centre d'information sur la science de la Terre internationale (CIESIN), Université Columbia (2018). Projet de densités de population mondiales à haute résolution - financé par la Fondation Bill et Melinda Gates (OPP1134076). <a href="https://dx.doi.org/10.5258/SOTON/WP00645" class="uri">https://dx.doi.org/10.5258/SOTON/WP00645</a></li>
 </ul>
+<div class="fixed">
+  <p>Merci d'avoir suivi ce cours ! Si vous avez remarqué des erreurs ou des inexactitudes dans le contenu, n'hésitez pas à me les signaler. Votre retour est précieux pour améliorer la qualité du cours et garantir sa fiabilité pour les futurs lecteurs. Vous pouvez me contacter par e-mail à [nadia.gal2022@gmail.com] Merci pour votre aide !</p>
+</div>
     <h1>License</h1>
       <p>J'ai traduit ce cours à partir d'un cours qui est sous une licence Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
       <p>Donc vous êtes libre de le réutiliser et l'adapter, mais vous devez donner le crédit approprié à l'auteur original comme suit :</p>
