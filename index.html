@@ -29,10 +29,41 @@
 					<h1>Web mapping </h1>
 					<p class="pleft">Le webmapping (ou cartographie en ligne) est un processus qui permet l’utilisation et l’analyse de cartes sur le réseau Internet. par exemple on peut publier la carte de répartition des infrastrictures de la Direction de la Poste et des Télécommunications.
 						Le web mapping nous permet l'utilisation de l'outil zoom, de déplacement et d'afficher ou masquer les différentes couches fournées ce que rend l'analyse (visuelle) plus facile. on peut trouver facilement les  zones qui sont  dépourvue de  couverture téléphoniques ou d'Internet </p>
-					<p class="pleft">voir l'exemple dans le slide suivant:</p>
 				</section>
-				<section data-background-video="images/commune/dpt_webmap.webm"> </section>
-              
+				<section>
+					<section>
+						<h1>Geopandas</h1>
+						<p class="pleft">GeoPandas est un projet open source visant à faciliter l'utilisation des données géospatiales en Python. GeoPandas étend les types de données utilisés par <a class="reference external" href="http://pandas.pydata.org">pandas</a> pour permettre des opérations spatiales sur les types géométriques. Les opérations géométriques sont effectuées par <a class="reference external" href="https://shapely.readthedocs.io">shapely</a>. Geopandas dépend en outre de <a class="reference external" href="https://fiona.readthedocs.io">fiona</a> pour l'accès aux fichiers et de <a class="reference external" href="http:// matplotlib.org">matplotlib</a> pour le traçage.</p>
+					</section>
+					<section>
+						<h3>Installation</h3>
+						<h3>Creating a new environment<a class="headerlink" href="#creating-a-new-environment" title="Link to this heading">#</a></h3>
+<p class="pleft">Creating a new environment is not strictly necessary, but given that installing
+other geospatial packages from different channels may cause dependency conflicts
+(as mentioned in the note above), it can be good practice to install the geospatial
+stack in a clean environment starting fresh.</p>
+<p class="pleft">The following commands create a new environment with the name <code class="docutils literal notranslate"><span class="pre">geo_env</span></code>,
+configures it to install packages always from conda-forge, and installs
+GeoPandas in it:</p>
+<div class="highlight-default notranslate"><div class="highlight" style="position: relative;"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">geo_env</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">geo_env</span>
+<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">env</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">env</span> <span class="o">--</span><span class="nb">set</span> <span class="n">channel_priority</span> <span class="n">strict</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">python</span><span class="o">=</span><span class="mi">3</span> <span class="n">geopandas</span>
+</pre></div>
+</div>
+
+					</section>
+					<section>
+						<h2>Didacticiel</h2>
+						<p class="pleft"><a href="geopandas_intro.html"> Introduction à geopandas</a></p>
+					</section>
+					<section>
+						<h2>Exemple</h2>
+						<p class="pleft">voir l'exemple dans le slide suivant:</p>
+					</section>
+					<section data-background-video="images/commune/dpt_webmap.webm"> </section>
+				</section>
 				<section>
 					<h2>Système d'exploitation (L2) </h2>
 					<p>Programme:</p>
