@@ -328,9 +328,7 @@
                             <ul>
                                 <li>Si le <em>A</em> est un lien symbolique vers <em>B</em>, <code>stat("A",...)</code> retourne les informations sur l'inode de <em>B</em>.</li>
                                 <li>On peut éviter ce comportement et obtenir les informations sur le lien symbolique lui-même grâce à <code>lstat()</code>:</li>
-                            </ul>
-                            <pre><code class="c">int lstat(const char *path, struct stat *buf);</code></pre>
-                            <ul>
+                                <pre><code class="c">int lstat(const char *path, struct stat *buf);</code></pre>
                                 <li>Le reste du comportement est identique à <code>stat()</code>.</li>
                             </ul>
                         </div>
@@ -384,10 +382,11 @@
                         <h2>Appel système <code>chmod</code></h2>
                         <div class="text-block">
                             <p>On peut changer les permissions d'un fichier grâce à l'appel système <code>chmod</code>, similaire à la commande shell du même nom:</p>
-    <pre><code class="c">int chmod(const char *path, mode_t mode);
-    
+<pre><code class="c">
+    int chmod(const char *path, mode_t mode);   
     //Utilise un descripteur de fichier ouvert
-    int fchmod(int fd, mode_t mode);</code></pre>
+    int fchmod(int fd, mode_t mode);
+</code></pre>
                             <p>Le paramètre <code>mode</code> est un champs de bits formés des mêmes flags que le champs <code>st_mode</code> de la structure <code>stat</code>.</p>
                         </div>
                     </section>
