@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   height="268.12485"
+   width="644.74841">
+  <defs
+     id="defs4">
+    <marker
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker5430"
+       style="overflow:visible;">
+      <path
+         id="path5428"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#4d4d4d;stroke-width:1pt;stroke-opacity:1;fill:#4d4d4d;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker5378"
+       style="overflow:visible;">
+      <path
+         id="path5376"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#4d4d4d;stroke-width:1pt;stroke-opacity:1;fill:#4d4d4d;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="marker5326"
+       refX="0.0"
+       refY="0.0"
+       orient="auto">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#4d4d4d;stroke-width:1pt;stroke-opacity:1;fill:#4d4d4d;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1030" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path3923" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path3929" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lenda"
+       style="overflow:visible">
+      <path
+         id="path878"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="stroke-opacity:1;fill-opacity:1;fill-rule:evenodd;stroke:#ececec;stroke-width:1pt;fill:#ececec"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1LendR"
+       style="overflow:visible">
+      <path
+         id="path881"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="stroke-opacity:1;fill-opacity:1;fill-rule:evenodd;stroke:#ececec;stroke-width:1pt;fill:#ececec"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lendr"
+       style="overflow:visible">
+      <path
+         id="path884"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="stroke-opacity:1;fill-opacity:1;fill-rule:evenodd;stroke:#ececec;stroke-width:1pt;fill:#ececec"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-136.35714,91.904586)"
+     id="layer1">
+    <g
+       transform="translate(112.0885,-133.34014)"
+       id="g3797">
+      <rect
+         style="color:#000000;fill:#f9c7a8;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect2985"
+         width="142.14285"
+         height="146.42857"
+         x="305"
+         y="97.362183"
+         ry="22.142857" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="333.14285"
+         y="115.36218"
+         id="text3755"><tspan
+           id="tspan3908"
+           x="333.14285"
+           y="115.36218"
+           style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'">inode</tspan><tspan
+           x="333.14285"
+           y="135.36218"
+           style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+           id="tspan3777"> </tspan><tspan
+           style="font-size:16px;line-height:1.25;font-family:sans-serif"
+           x="333.14285"
+           y="155.36218"
+           id="tspan3767">- type</tspan><tspan
+           style="font-size:16px;line-height:1.25;font-family:sans-serif"
+           x="333.14285"
+           y="175.36218"
+           id="tspan3773">- perms</tspan><tspan
+           style="font-size:16px;line-height:1.25;font-family:sans-serif"
+           x="333.14285"
+           y="195.36218"
+           id="tspan3769">- times</tspan><tspan
+           style="font-size:16px;line-height:1.25;font-family:sans-serif"
+           x="333.14285"
+           y="215.36218"
+           id="tspan3771">- size</tspan><tspan
+           style="font-size:16px;line-height:1.25;font-family:sans-serif"
+           x="333.14285"
+           y="235.36218"
+           id="tspan3775">- ...</tspan></text>
+    </g>
+    <g
+       transform="translate(-182.14286,-105)"
+       id="g3808">
+      <g
+         transform="translate(14,-32)"
+         id="g3016">
+        <rect
+           style="color:#000000;fill:#aaf7b7;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           id="rect3810"
+           width="217.14285"
+           height="87.14286"
+           x="305"
+           y="97.362183"
+           ry="22.142857" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="327.14285"
+           y="117.36218"
+           id="text3812"><tspan
+             x="327.14285"
+             y="117.36218"
+             id="tspan3814"
+             style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'">Link 1</tspan><tspan
+             x="327.14285"
+             y="137.36218"
+             style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             id="tspan3816"> </tspan><tspan
+             style="font-size:16px;line-height:1.25;font-family:sans-serif"
+             x="327.14285"
+             y="157.36218"
+             id="tspan3826">/home/chanel/foo.txt</tspan></text>
+      </g>
+      <g
+         transform="translate(22,74)"
+         id="g3023">
+        <rect
+           ry="22.142857"
+           y="97.362183"
+           x="305"
+           height="87.14286"
+           width="217.14285"
+           id="rect3025"
+           style="color:#000000;fill:#aaf7b7;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+        <text
+           id="text3027"
+           y="117.36218"
+           x="327.14285"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             id="tspan3029"
+             y="117.36218"
+             x="327.14285">Link 2</tspan><tspan
+             id="tspan3031"
+             style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             y="137.36218"
+             x="327.14285"> </tspan><tspan
+             style="font-size:16px;line-height:1.25;font-family:sans-serif"
+             id="tspan3033"
+             y="157.36218"
+             x="327.14285">/tmp/bar.txt</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="translate(131.31982,-135.36044)"
+       id="g3895">
+      <g
+         id="g3854"
+         transform="translate(200,5)">
+        <rect
+           style="color:#000000;fill:#cfcbd6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           id="rect3856"
+           width="144.28574"
+           height="154.28571"
+           x="305"
+           y="97.362183"
+           ry="19.642859" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:bold;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="340"
+           y="127.36218"
+           id="text3858"><tspan
+             x="340"
+             y="127.36218"
+             id="tspan3872"
+             style="font-weight:bold;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'">Data</tspan><tspan
+             x="340"
+             y="157.36218"
+             style="font-weight:bold;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             id="tspan3889">........</tspan><tspan
+             x="340"
+             y="187.36218"
+             style="font-weight:bold;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             id="tspan3891">........</tspan><tspan
+             x="340"
+             y="217.36218"
+             style="font-weight:bold;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'Sans Bold'"
+             id="tspan3893">........</tspan></text>
+      </g>
+    </g>
+    <path
+       style="stroke-linejoin:miter;marker-end:url(#marker5378);stroke-opacity:1;stroke:#4d4d4d;stroke-linecap:butt;stroke-width:1px;fill:none"
+       d="M 237.38585,-50.724397 C 278.6415,-108.7234 394.69079,-101.43862 435.2637,-49.537639"
+       id="path3912" />
+    <path
+       id="path3914"
+       d="m 494.97475,119.58945 c 54.38763,84.26297 155.28464,61.82591 195.85755,9.92492"
+       style="stroke-linejoin:miter;marker-end:url(#marker5430);stroke-opacity:1;stroke:#4d4d4d;stroke-linecap:butt;stroke-width:1px;fill:none" />
+    <path
+       style="stroke-linejoin:miter;marker-end:url(#marker5326);stroke-opacity:1;stroke:#4d4d4d;stroke-linecap:butt;stroke-width:1px;fill:none"
+       d="m 360.62446,138.78235 c 43.27595,7.49137 71.44198,4.24721 96.8626,-19.36951"
+       id="path3035" />
+  </g>
+</svg>

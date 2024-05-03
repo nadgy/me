@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Fichiers et répertoires:</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
+    <link rel="stylesheet" href="dist/mytheme.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- Chalkboard plugin begin -->
+    <!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+<!-- Chalkboard plugin end -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section id="title-slide">
+                    <h1 class="title">Fichiers et Répertoires</h1>
+                    <p style="font-size: x-small;margin-top: 0;" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/0.objectifs/#/">Cours système d'exploitation</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://unige.ch/dinfo/en/contacts1/a-propos/">Guillaume Chanel, Jean-Luc Falcone and University of Geneva</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+                </section>
+    
+                <!-- ################ INDOES ################ -->
+    
+                <section>
+                    <section id="inodes" class="title-slide slide level1">
+                        <h1>Inodes</h1>
+                    </section>
+                    <section id="schéma-global" class="slide level2">
+                        <h2>Schéma global</h2>
+                        <p><img src="images/inodes.svg" alt="Schema des inodes" width="100%" style="padding:10px"></p>
+                    </section>
+                    <section id="inode-1" class="slide level2">
+                        <h2>Inode</h2>
+                        <ul>
+                            <li>Un inode est une structure de donnée contenant des information sur un "fichier" (fichier, directory, socket, device, pipe, etc.).</li>
+                            <li>Ils <strong>ne contiennent pas le nom du fichier</strong>.</li>
+                            <li>Ils contiennent généralement (POSIX) des informations sur:
+                                <ul>
+                                    <li>Numéro d'inode</li>
+                                    <li>Périphérique contenant le fichier (<code>device ID</code>)</li>
+                                    <li>Propriétaire et groupe</li>
+                                    <li>Permissions</li>
+                                    <li>Taille du fichier</li>
+                                    <li>Temps d'accès et de modification</li>
+                                    <li>Nombre de liens pointant vers l'inode</li>
+                                    <li><strong>Pointeurs vers les données</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            <p>Un dossier est aussi représenté par un inode sauf que les données sont une liste de liens</p>
+                        </aside>
+                    </section>
+                    <section id="temps-de-linode" class="slide level2">
+                        <h2>Temps de l'inode</h2>
+                        <div class="text-block">
+                            <p>Un inode contient trois temps différents:</p>
+                            <table>
+                                <tbody><tr><th>atime</th><td>date du dernier accès à l'inode (ou aux données)</td></tr>
+                                <tr><th>mtime</th><td>date de la dernière modification des données</td></tr>
+                                <tr><th>ctime</th><td>date de la dernière modifications des méta-données</td></tr>
+                                <tr><th><span style="opacity: 0.7;">crtime</span></th><td><span style="opacity: 0.7;">date de création du fichier (non POSIX)</span></td></tr>
+                            </tbody></table>
+                        </div>
+                        <fieldset style="margin-top:30px">
+                            <legend>Information</legend>
+                                <p>Pour gagner en performance, il est possible de désactiver la mise à jour de <code>atime</code> lorsque la partition est montée.</p>
+                        </fieldset>
+                    </section>
+    
+                    <section id="inspecter-un-inode-en-shell-stat" class="slide level2">
+                        <h2>Inspecter un inode en shell (<code>stat</code>)</h2>
+                        <p>La commande <code>stat</code> permet d'afficher des données sur un inode.</p>
+    <pre><code class="shell" style="width:100%">$ touch /tmp/myfile  # met à jour les dates (crée un fichier si inexistant)
+    $ stat /tmp/myfile
+      File: /tmp/myfile
+      Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+    Device: 2fh/47d Inode: 422766      Links: 1
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/  chanel)   Gid: ( 1000/  chanel)
+    Access: 2019-07-19 16:56:35.540113838 +0200
+    Modify: 2019-07-19 16:56:35.540113838 +0200
+    Change: 2019-07-19 16:56:35.540113838 +0200
+     Birth: -</code></pre>
+                    <aside class="notes">
+                        <p>Modify: contenu du fichier modifié</p>
+                        <p>Change: inode modifié</p>
+                        <p>Birth: date the creation, pas encore stable car ajouté récement sur ext4</p>
+                    </aside>
+                    </section>
+    
+                    <section id="lien-dur-hard-link" class="slide level2">
+                        <h2>Lien dur (<em>hard link</em>)</h2>
+                        <p><img src="hardlinks.svg" alt="schema des liens dures" width="100%/" style="padding:10px"></p>
+                    </section>
+    
+                    <section id="lien-dur-2" class="slide level2">
+                        <h2>Lien dur (2)</h2>
+                        <div class="text-block">
+                            <ul>
+                                <li>Les entrées des répertoires sont des liens pointant vers des <code>inodes</code>.</li>
+                                <li>On peut créer plusieurs liens vers un fichier</li>
+                                <li>Un fichier est "effacé" lorsqu'il n'y a plus de liens pointant sur son inode (sauf si un processus maintient le fichier ouvert, cf <code>unlink</code>).</li>
+                            </ul>
+                            <p style="margin:0">On peut créer un lien dur avec la commande <code>ln</code>:</p>
+                        </div>
+    <pre style="margin:0"><code data-noescape="" class="shell" style="width:100%">$ ln /tmp/myfile /tmp/newlink
+    $ stat /tmp/myfile
+    <span style="opacity:0.5">  File: /tmp/myfile
+      Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+    Device: 2fh/47d Inode: 422766      Links: </span><span style="opacity:1.">2</span><span style="opacity:0.5">
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/  chanel)   Gid: ( 1000/  chanel)
+    Access: 2019-07-19 16:56:35.540113838 +0200
+    Modify: 2019-07-19 16:56:35.540113838 +0200
+    Change: 2019-07-19 16:56:35.540113838 +0200
+     Birth: -</span></code></pre>
+                    </section>
+    
+                    <section>
+                        <h2>Lien dur (question)</h2>
+                        <p>Quelle sera la date de modification de <code>/tmp/myfile</code> si je modifie le contenu du lien dur <code>/tmp/newlink</code> ?</p>
+                    </section>
+    
+                    <section id="lien-dur-3" class="slide level2">
+                        <h2>Lien dur (3)</h2>
+                        <fieldset class="warning">
+                            <legend>Limitations</legend>
+                            <p>Un répertoire ne peux posséder qu'un seul lien dur, afin d'éviter les cycles (i.e. la structure du système de fichier doit rester acyclique).</p>
+                            <p>Tous les liens durs pointant sur un inode doivent se trouver sur le même système de fichier que cet inode.</p>
+                        </fieldset>
+                        <fieldset style="margin-top:50px">
+                            <legend>Utilité</legend>
+                            <p>En général, il est peu utile d'avoir plusieurs liens durs vers un fichier (préférer les liens symboliques, voir slides suivantes).</p>
+                            <p>Permet de faire un <em>snapshot</em>, par exemple pour archiver un répertoire: <a href="http://www.mikerubel.org/computers/rsync_snapshots/">http://www.mikerubel.org/computers/rsync_snapshots/</a> .</p>
+                        </fieldset>
+    
+                        <aside class="notes">
+                            <p>Le lien dure ne modifie que la structure du système de fichier, pas les données contenues</p>
+                            <p>Un seul lien dure car sinon on créer les boucles dans le système de fichier et il devients difficille de le parcourir</p>
+                        </aside>
+                    </section>
+    
+                    <section id="lien-symbolique-symlink" class="slide level2">
+                        <h2>Lien symbolique (<em>symlink</em>)</h2>
+                        <p><img src="images/symlinks.svg" alt="Schéma des lien symbolique" width="100%/" style="padding:10px"></p>
+                    </section>
+    
+                    <section id="lien-symbolique-2" class="slide level2">
+                        <h2>Lien symbolique (2)</h2>
+                        <ul class="text-block">
+                            <li>Un lien symbolique possède son propre inode qui pointe vers un <strong>nom</strong></li>
+                            <li>Contrairement aux liens durs, on peut créer des symlinks:
+                                <ul>
+                                    <li>Vers un répertoire</li>
+                                    <li>Vers un fichier/répertoire sur un autre système de fichier.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p style="margin:0;margin-bottom:20px;text-align:left">On peut créer un lien dur avec la commande <code>ln</code> en utilisant l'option <code>-s</code>:</p>
+    <pre style="margin:0"><code data-noescape="" class="shell" style="width:100%">$ ln -s /tmp/myfile /tmp/newlink  # (le lien dure précédent à été supprimé)
+    $ stat /tmp/myfile  # comme indiqué ci-dessous on a bien à faire à un autre inode
+    <span>  File: /tmp/newlink -&gt; /tmp/myfile
+        Size: 11              Blocks: 0          IO Block: 4096   symbolic link
+      Device: 2fh/47d Inode: 563876      Links: 1
+      Access: (0777/lrwxrwxrwx)  Uid: ( 1000/  chanel)   Gid: ( 1000/  chanel)
+      Access: 2019-07-19 18:16:26.343945684 +0200
+      Modify: 2019-07-19 18:16:13.240259297 +0200
+      Change: 2019-07-19 18:16:13.240259297 +0200
+       Birth: -
+    </span></code></pre>
+                    <aside class="notes">
+                        <p>Les droits d'un lien symbolique sont différents comme on peut le voir. Il sont en fait non modifiables, car chmod va modifier les droits du fichier pointé</p>
+                    </aside>
+                    </section>
+    
+                    <section id="créer-des-liens-link-symlink" class="slide level2">
+                        <h2>Créer des liens: appels systèmes (<code>link</code>, <code>symlink</code>)</h2>
+                        <fieldset>
+                            <legend>Créer un lien dur</legend>
+                            <pre><code class="c">int link(const char *oldpath, const char *newpath);</code></pre>
+                            <ul style="margin-left:50px">
+                                <li><code>oldpath</code> est le nom existant et <code>newpath</code> le nouveau nom.</li>
+                                <li>Retourne 0 si succès et -1 si erreur (cf. <code>errno</code>).</li>
+                                <li>Si <code>newpath</code> existe, code d'erreur <code>EEXIST</code>.</li>
+                            </ul>
+                        </fieldset>
+                        <fieldset style="margin-top:30px">
+                            <legend>Créer un lien symbolique</legend>
+                            <pre><code class="c">int symlink(const char *oldpath, const char *newpath);</code></pre>
+                            <ul style="margin-left:50px">
+                                <li>Utilisation identique à <code>link()</code>.</li>
+                            </ul>
+                        </fieldset>
+                    </section>
+    
+                    <section id="effacer-un-nom-dun-fichier-unlink" class="slide level2">
+                        <h2>Effacer un lien / un nom de fichier: appel système (<code>unlink</code>)</h2>
+                        <div style="text-align:left">
+                            <ul class="text-block" style="width:100%">
+                                <li>On efface le nom (lien) d'un fichier avec:</li>
+                                <pre><code class="c">int unlink(const char *pathname);</code></pre>
+                                <li>où <code>pathname</code> est le nom à supprimer</li>
+                                <li>Retourne 0 en cas de succès et -1 en cas d'erreur</li>
+                                <li>voir <code>man 2 unlink</code> pour les codes d'erreurs</li>
+                            </ul>
+                            <fieldset style="margin-top:20px">
+                                <legend>Remarques</legend>
+                                <ul style="margin-left:50px">
+                                    <li>Fonctionne avec les liens durs ou symboliques</li>
+                                    <li>Si le lien est le dernier à pointer sur un inode:
+                                        <ul>
+                                            <li>Si aucun processus n'a ouvert le fichier: inode supprimé immédiatement</li>
+                                            <li>Sinon: inode supprimé lorsque le dernier processus le ferme.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                        </div>
+                    </section>
+    
+                    <section id="objets-trouvés-lostfound" class="slide level2">
+                        <h2>Objets trouvés (<em>Lost+Found</em>)</h2>
+                        <ul class="text-block">
+                            <li>A la suite d'une erreur du système de fichier (p.e. suite à une mise hors-tension brutale), un inode peut se retrouver sans lien.</li>
+                            <li>Lors d'un contrôle de fichier (<code>fsck</code>), il sera copié dans le répertoire <code>lost+found</code> à la racine du système de fichier.</li>
+                        </ul>
+                    </section>
+    
+                    <section id="structure-stat-sysstat.h" class="slide level2">
+                        <h2>Structure stat (<code>sys/stat.h</code>)</h2>
+    
+    <pre><code class="c">struct stat{
+      dev_t     st_dev;     //device ID
+      ino_t     st_ino;     //i-node number
+      mode_t    st_mode;    //protection and type
+      nlink_t   st_nlink;   //number of hard links
+      uid_t     st_uid;     //user ID of owner
+      gid_t     st_gid;     //group ID of owner
+      dev_t     st_rdev;    //device type (if special file)
+      off_t     st_size;    //total size, in bytes
+      blksize_t st_blksize; //blocksize for filesystem I/O
+      blkcnt_t  st_blocks;  //number of 512B blocks
+      time_t    st_atime;   //time of last access
+      time_t    st_mtime;   //time of last modification
+      time_t    st_ctime;   //time of last change
+    };</code></pre>
+                    </section>
+    
+                    <section id="appel-système-stat" class="slide level2">
+                        <h2>Appel système <code>stat</code></h2>
+                        <div class="text-block">
+                            <p>L'appel système <code>stat()</code> permet de garnir une structure stat:</p>
+                            <pre><code class="c">int stat(const char *path, struct stat *buf);</code></pre>
+                            <p>La fonction retourne 0 si tout s'est bien passé ou -1 en cas d'erreur (cf. <code>errno</code>)</p>
+    <pre><code class="c">struct stat infos;
+    char *filename = "/tmp/foo.txt";
+    if( stat( filename, &amp;infos ) &lt; 0 )
+        fprintf( stderr, "Cannot stat %s: %s\n", filename, strerror(errno) );
+    else
+        printf( "Filesize: %d\n", infos.st_size );
+    </code></pre>
+                        </div>
+                    </section>
+    
+                    <section id="déterminer-le-type-dun-inode" class="slide level2">
+                        <h2>Déterminer le type d'un inode</h2>
+                        <ul>
+                            <li>Le champ <code>st_mode</code> est un champ de bits contenant les permissions et le type d'un inode.</li>
+                            <li>Il existe plusieurs macro POSIX permettant de tester les types:</li>
+                        </ul>
+                        <font size="5.5"><table>
+                            <tbody><tr><td><code>S_ISREG(m)</code></td><td>fichier de données ?</td></tr>
+                            <tr><td><code>S_ISDIR(m)</code></td><td>répertoire ?</td></tr>
+                            <tr><td><code>S_ISCHR(m)</code></td><td>character device ?</td></tr>
+                            <tr><td><code>S_ISBLK(m)</code></td><td>block device ?</td></tr>
+                            <tr><td><code>S_ISFIFO(m)</code><tdt></tdt></td><td>FIFO (named pipe) ?</td></tr>
+                            <tr><td><code>S_ISLNK(m)</code></td><td>lien symbolique ?</td></tr>
+                            <tr><td><code>S_ISSOCK(m)</code><tdt></tdt></td><td>socket?</td></tr>
+                        </tbody></table></font>
+    <pre><code class="c">if( S_ISDIR( info.st_mode ) ) {
+        printf( "L'inode est un repertoire.\n" );
+    }</code></pre>
+                    <aside class="notes">
+                        <p>Faire le lien avec <strong>d</strong>rwxrwxrwx</p>
+                    </aside>
+                    </section>
+    
+                    <section id="déterminer-les-permissions-dun-inode" class="slide level2">
+                        <h2>Déterminer les permissions d'un inode</h2>
+                        <div class="text-block">
+                            <p>On peut utiliser plusieurs flags pour accéder aux valeurs du champs de bits:</p>
+                            <table>
+                                <tbody><tr><td><code>S_IRUSR</code></td><td>00400</td><td>owner has read permission</td></tr>
+                                <tr><td><code>S_IWUSR</code></td><td>00200</td><td>owner has write permission</td></tr>
+                                <tr><td><code>S_IXUSR</code></td><td>00100</td><td>owner has execute permission</td></tr>
+                                <tr><td><code>S_IRGRP</code></td><td>00040</td><td>group has read permission</td></tr>
+                                <tr><td><code>S_IWGRP</code></td><td>00020</td><td>group has write permission</td></tr>
+                                <tr><td><code>S_IXGRP</code></td><td>00010</td><td>group has execute permission</td></tr>
+                                <tr><td><code>S_IROTH</code></td><td>00004</td><td>others have read permission</td></tr>
+                                <tr><td><code>S_IWOTH</code></td><td>00002</td><td>others have write permission</td></tr>
+                                <tr><td><code>S_IXOTH</code></td><td>00001</td><td>others have execute permission</td></tr>
+                            </tbody></table>
+                        </div>
+                        <aside class="notes">
+                            <p>En profiter pour réviser les flags</p>
+                        </aside>
+                    </section>
+    
+                    <section id="appel-système-lstat" class="slide level2">
+                        <h2>Appel système <code>lstat</code></h2>
+                        <div class="text-block">
+                            <ul>
+                                <li>Si le <em>A</em> est un lien symbolique vers <em>B</em>, <code>stat("A",...)</code> retourne les informations sur l'inode de <em>B</em>.</li>
+                                <li>On peut éviter ce comportement et obtenir les informations sur le lien symbolique lui-même grâce à <code>lstat()</code>:</li>
+                            </ul>
+                            <pre><code class="c">int lstat(const char *path, struct stat *buf);</code></pre>
+                            <ul>
+                                <li>Le reste du comportement est identique à <code>stat()</code>.</li>
+                            </ul>
+                        </div>
+                    </section>
+    
+                    <section id="appel-système-fstat" class="slide level2">
+                        <h2>Appel système <code>fstat</code></h2>
+                        <ul class="text-block">
+                            <li>Parfois on veut connaitre les informations sur un fichier déjà ouvert (cf suite du cours).</li>
+                            <li>L'appel <code>fstat()</code> fonctionne comme <code>stat()</code> mais permet d'utiliser un descripteur de fichier à la place d'un nom:</li>
+                        </ul>
+                        <pre><code class="c">int fstat(int fd, struct stat *buf);</code></pre>
+    
+                    </section>
+                    <section id="appel-système-access" class="slide level2">
+                        <h2>Appel système <code>access</code></h2>
+                        <ul>
+                            <li>On peut tester si le processus en cours à le droit de lire/écrire/exécuter un fichier grâce à l'appel système <code>access()</code>:</li>
+                        </ul>
+                        <pre><code classe="c">int access(const char *pathname, int mode);</code></pre>
+                        <ul>
+                            <li>Le paramètre <code>mode</code> est un champs de bits formés des flags:
+                                <table>
+                                    <tbody><tr><td><code>R_OK</code></td><td>lecture possible</td></tr>
+                                    <tr><td><code>W_OK</code></td><td>écriture possible</td></tr>
+                                    <tr><td><code>X_OK</code></td><td>éxécution possible</td></tr>
+                                </tbody></table>
+                            </li>
+                            <li>On peut aussi tester le flag <code>F_OK</code> (seulement) qui indique si le fichier existe.</li>
+                            <li>Le test se fait en fonction de l'utilisateur/groupe courrant.</li>
+                            <li><code>access()</code> retourne 0 si le test réussit, -1 sinon (cf <code>errno</code>)</li>
+                        </ul>
+                        <aside class="notes">
+                            access est différent de stat car il permet de connaitre les droits relativement à l'utilisateur courant
+                        </aside>
+                    </section>
+    
+                    <section id="appel-système-access-2" class="slide level2">
+                        <h2>Appel système <code>access</code> (2)</h2>
+    <pre><code class="c">char *fn = "/tmp/foo.txt";
+    if ( access( fn, R_OK|W_OK ) == 0 )
+        printf( "On peut lire et ecrire sur %s\n", fn );
+    else if ( errno == EACCES )
+        printf("Pas le droit de lire et/ou d'ecrire sur %s\n", fn);
+    else
+        perror( fn );
+    </code></pre>
+                    </section>
+    
+                    <section id="appel-système-chmod" class="slide level2">
+                        <h2>Appel système <code>chmod</code></h2>
+                        <div class="text-block">
+                            <p>On peut changer les permissions d'un fichier grâce à l'appel système <code>chmod</code>, similaire à la commande shell du même nom:</p>
+    <pre><code class="c">int chmod(const char *path, mode_t mode);
+    
+    //Utilise un descripteur de fichier ouvert
+    int fchmod(int fd, mode_t mode);</code></pre>
+                            <p>Le paramètre <code>mode</code> est un champs de bits formés des mêmes flags que le champs <code>st_mode</code> de la structure <code>stat</code>.</p>
+                        </div>
+                    </section>
+                </section>
+    
+                <!-- ################ DIRECTORIES / REPERTOIRES ################ -->
+    
+                <section>
+                    <section id="directories" class="title-slide slide level1">
+                        <h1>Répertoires / Directories</h1>
+                    </section>
+    
+                    <section id="répertoires-directories" class="slide level2">
+                        <h2>Les répertoires (<em>directories</em>)</h2>
+                        <ul class="text-block">
+                            <li>représentent l'organisation des fichiers sous forme d'<strong>arborescence</strong></li>
+                            <li>sont des inodes dont le contenu est une liste d'entrées <code>dirent</code> associants un lien à un inode</li>
+                            <li>chaque liste d'entrée contient au moins <code>.</code> et <code>..</code></li>
+                        </ul>
+                    </section>
+    
+                    <section id="schéma-global-dirs" class="slide level2">
+                        <h2>Inodes de répertoires</h2>
+                        <p><img src="images/inodes-dirs.svg" alt="Schema des inodes de repertoire" width="100%" style="padding:10px"></p>
+                        <aside class="notes">
+                            Question: en voyant ce shema trouver une autre raison que l'acyclisme pour éviter les liens dures.
+                            Réponse: les entrées . et .. pointerais vers les mauvais inodes.
+                        </aside>
+                    </section>
+    
+                    <section>
+                        <h2>Répertoire courant</h2>
+                        <div class="text-block">
+                            <p>Un processus possède un répertoire courant qui permet d'interpréter les chemins relatifs (e.g. <code>src/monfichier.c</code>).</p>
+                            <p>Au démarrage du programme ce répertoire est celui depuis lequel le programme est lancé. <strong>Ce n'est donc pas forcément le répertoire de l'exécutable</strong>.</p>
+                        </div>
+                    </section>
+    
+                    <section>
+                        <h2>Connaitre le répertoire courant</h2>
+                        <div class="text-block">
+                            <p>Pour connaitre le répertoire courant:</p>
+                            <pre><code class="c" data-trim="">
+                                #include &lt;unistd.h&gt;
+                                char *getcwd(char *buf, size_t size);
+                            </code></pre>
+                            <ul>
+                                <li><code>buf</code>: chaine de caractère (déclarée par l'utilisateur) qui contiendra le répertoire courant;</li>
+                                <li><code>size</code>: taille du buffer;</li>
+                                <li>retourne NULL en case d'erreur, l'adresse de <code>buf</code> sinon.</li>
+                            </ul>
+                        </div>
+                    </section>
+    
+                    <section>
+                        <h2>Changer le répertoire courant</h2>
+                        <div class="text-block">
+                            <p>Pour changer le répertoire courant:</p>
+                            <pre><code class="c" data-trim="">
+                                #include &lt;unistd.h&gt;
+                                int chdir(const char *path);
+                            </code></pre>
+                            <ul>
+                                <li><code>path</code>: chaine de caractère indiquant le nouveau répertoire (relatif ou absolu)</li>
+                                <li>retourne -1 en case d'erreur, 0 sinon.</li>
+                            </ul>
+                        </div>
+                    </section>
+    
+                    <section id="structure-dirent" class="slide level2">
+                        <h2>Structure <code>dirent</code></h2>
+                        <p>Les entrées d'un répertoire sont représentées par la structure:</p>
+                        <pre style="width:100%"><code data-trim="" data-noescape="" class="c">
+    struct dirent {                  /* dirent.h */
+        ino_t   d_ino;               /* inode number */
+        <span style="opacity:0.3">off_t   d_off;               /* opaque value used to get next dirent (do not use) */
+        unsigned short  d_reclen;    /* length of this record */</span>
+        <span style="opacity:0.7">unsinged char   d_type;      /* type of file; not supported by all file systems */</span>
+        char            d_name[256]; /* filename (NULL terminated), sometimes d_name[0] */
+    };
+                        </code></pre>
+                        <p>Seulement deux champs sont décrit par POSIX: <code>d_ino</code> et <code>d_name</code>.
+                        </p><p>Ne jamais compter sur la taille du tableau <code>d_name</code>, uniquement sur la constante <code>MAX_NAME</code>, qui indique la longueur maximale des noms d'entrées, ou sur <code>strlen</code></p>
+                    </section>
+    
+                    <section id="structure-dirent-3" class="slide level2">
+                        <h2>Structure <code>dirent</code> (3)</h2>
+                        <p>Le champs <code>d_type</code> est un champs de bits contenant des informations sur le type de l'inode associé:</p>
+                        <font size="5.5"><table>
+                            <tbody><tr><td><code>DT_DIR</code></td><td>Répertoire</td></tr>
+                            <tr><td><code>DT_LNK</code></td><td>Lien symbolique</td></tr>
+                            <tr><td><code>DT_REG</code></td><td>Fichier de données</td></tr>
+                            <tr><td><code>DT_UNKNOWN</code></td><td>Type inconnu</td></tr>
+                            <tr><td><code>DT_...</code></td><td>Voir <code>man readdir</code> pour tous les types.</td></tr>
+                        </tbody></table></font>
+    
+                        <fieldset class="warning" style="margin-top:20px">
+                            <legend>Attention</legend>
+                            <ul style="margin-left:50px">
+                                <li>Même sous GNU/Linux, tous les systèmes de fichiers ne
+    donnent pas un accès au type par la structure <code>dir_ent</code></li>
+                                <li>Dans ce cas, le <code>d_type</code> est toujours égal à <code>DT_UNKNOWN</code>.</li>
+                        </ul></fieldset>
+                    </section>
+    
+                    <section id="entrées" class="slide level2">
+                        <h2>Entrées</h2>
+                        <div class="cols">
+                            <img src="images/dirs.svg" alt="Entrées usuelles" style="padding:10px" width="40%/"><p></p>
+                            <pre><code data-trim="">
+    foo/
+    foo/goo/
+    foo/goo/bar.txt
+    foo/goo/baz.txt
+                            </code></pre>
+                        </div>
+                    </section>
+    
+                    <section id="flot-de-répertoirs-directory-streams" class="slide level2">
+                        <h2>Flot de répertoires</h2>
+                        <p style="margin-top:50px">Pour accéder aux entrées d'un répertoire, il faut:</p>
+                        <ol>
+                            <li>"Ouvrir" le répertoire avec <code>opendir()</code></li>
+                            <li>"Lire" l'entrée suivante avec <code>readdir()</code></li>
+                            <li>Répéter 2, jusqu'à épuisement des entrées ou tout autre critère</li>
+                            <li>"Fermer" le répertoire avec <code>closedir()</code></li>
+                        </ol>
+                        <p style="font-size: 0.6em; text-align: left;">Note: les fonctions ci-dessus ne sont pas des appels système. Pour manipuler des dossiers avec des appels système il faut utiliser les appels <code>open</code> et <code>getdents</code>. Toutefois en pratique on utilise les fonctions ci-dessus.</p>
+                    </section>
+    
+                    <section id="ouvrir-un-répertoire-opendir" class="slide level2">
+                        <h2>Ouvrir un répertoire (<code>opendir</code>)</h2>
+                        <ul>
+                            <li>On peut ouvrir un répertoire grâce aux fonctions:</li>
+                            <pre><code data-trim="">
+    DIR *opendir(const char *name);
+    DIR *fdopendir(int fd);
+                            </code></pre>
+                            <li><code>DIR</code> est un type opaque</li>
+                            <li>En cas d'erreur <code>DIR</code> sera <code>NULL</code></li>
+                            <li>Exemples de codes d'erreurs (voir <code>man</code>):</li>
+                            <table>
+                                <tbody><tr><td><code>EACCESS</code></td><td>opération interdite (permissions)</td></tr>
+                                <tr><td><code>ENOENT</code></td><td>Le répertoire n'existe pas ou le nom est une chaîne vide.</td></tr>
+                                <tr><td><code>ENOTDIR</code></td><td>Le nom existe mais n'est pas un répertoire.</td></tr>
+                            </tbody></table>
+                        </ul>
+                    </section>
+    
+                    <section id="lire-lentrée-suivante-readdir" class="slide level2">
+                        <h2>Lire l'entrée suivante (<code>readdir</code>)</h2>
+                        <ul class="text-block">
+                            <li>On peut lire l'entrée suivante d'un répertoire ouvert avec:</li>
+                            <pre><code class="c">struct dirent *readdir(DIR *dirp);</code></pre>
+                            <li>Retourne soit:
+                                <ul>
+                                    <li>un pointeur sur une instance de la structure <code>dirent</code></li>
+                                    <li><code>NULL</code> s'il n'y a plus d'entrée <strong>ou</strong> en cas d'erreur.</li>
+                                </ul>
+                            </li>
+                            <li>A chaque appel, une nouvelle entrée est retournée (s'il y en a encore).</li>
+                            <li>Un seul code d'erreur:
+                            <table>
+                                <tbody><tr><td><code>EBADF</code></td><td>Le descripteur <code>dirp</code> n'est pas valide.</td></tr>
+                            </tbody></table>
+                            </li>
+                        </ul>
+                        <p class="fragment">Question: Devez-vous libérer la mémoire de la structure retournée ?</p>
+                        <aside class="notes">
+                            Stratégie recommendée pour la gestion d'erreure: mettre errno à 0 avant l'appel puis regarder sa valeur
+                        </aside>
+                    </section>
+    
+                    <section id="lire-lentrée-suivante-readdir-(2)" class="slide level2">
+                        <h2>Lire l'entrée suivante (<code>readdir</code>)</h2>
+                        <fieldset class="warning">
+                            <legend>Attention</legend>
+                            <ul style="margin-left:50px">
+                                <li>La structure retournée est susceptible d'être modifiée par chaque appel.</li>
+                                <li>Ne jamais appeler <code>free</code> sur le pointeur retourné.</li>
+                                <li><code>readdir</code> n'est pas <em>thread-safe</em>.</li>
+                            </ul>
+                        </fieldset>
+                    </section>
+    
+                    <section id="fermer-un-répertoire-closedir" class="slide level2">
+                        <h2>Fermer un répertoire (<code>closedir</code>)</h2>
+                        <ul class="text-block">
+                            <li>On peut fermer répertoire ouvert avec:</li>
+                            <pre><code class="c">int closedir(DIR *dirp);</code></pre>
+                            <li>Retourne 0 en cas de succès et -1 en cas d'erreur.</li>
+                            <li>Un seul code d'erreur:
+                            <table>
+                                <tbody><tr><td><code>EBADF</code></td><td>Le descripteur <code>dirp</code> n'est pas valide.</td></tr>
+                            </tbody></table>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <section id="exemple-2" class="slide level2 present" style="top: 74.5px; display: block;">
+                        <h2>Exemple (<a href="examples/listDir.c"><code>examples/listDir.c</code></a>)</h2>
+                        <!--  -->
+                        <pre><code id="example" class="c hljs" style="height:65vh;max-height:100vh">#include &lt;stdlib.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;sys/types.h&gt;
+    #include &lt;string.h&gt;  //snprintf
+    #include &lt;errno.h&gt; 
+    #include &lt;dirent.h&gt;
+    #include &lt;limits.h&gt;  //PATH_MAX
+    
+    static void list_dir (const char * dir_name){
+    
+      DIR *d = opendir(dir_name);
+      struct dirent *entry;
+      const char *d_name;   //nom d'une entrée
+       
+      //En cas d'erreur d'ouverture
+      if (! d) {
+        fprintf(stderr, "Cannot open directory '%s': %s\n",
+             dir_name, strerror(errno));
+        exit(EXIT_FAILURE);
+      }
+      
+      //Boucle sur chaque entrée
+      while( (entry = readdir(d)) != NULL ) {
+    
+        // Obtient le nom de l'entrée et affiche
+        d_name = entry-&gt;d_name;
+        printf("%s/%s\n", dir_name, d_name);
+    
+        //Est-ce que 'entry' est un sous-répertoire
+        if (entry-&gt;d_type &amp; DT_DIR) {
+          //Est-ce que 'entry' n'est pas '..' ou '.'
+          if (strcmp(d_name, "..") != 0 &amp;&amp; strcmp(d_name, ".") != 0) {
+        char path[PATH_MAX];
+    
+        //forme le nom du sous-répertoire et affiche
+        int path_length = snprintf (path, PATH_MAX,
+                        "%s/%s", dir_name, d_name);
+        printf("%s\n", path);
+    
+        //Vérifie que le nom du sous-répertoire n'est pas trop long
+        if (path_length &gt;= PATH_MAX) {
+          fprintf(stderr, "Path length has got too long.\n");
+          exit(EXIT_FAILURE);
+        }
+    
+        //Appel récursif
+        list_dir(path);
+          }
+        }
+      } //while(1)
+    
+      //On ferme le répertoite
+      if( closedir(d) ) {
+        fprintf(stderr, "Could not close '%s': %s\n",
+            dir_name, strerror (errno));
+        exit (EXIT_FAILURE);
+      }
+    }
+    
+    int main () {
+      list_dir("/var/log/");
+      return EXIT_SUCCESS;
+    }
+    </code></pre>
+                    </section>
+    
+                    <section id="créer-un-répertoire-mkdir" class="slide level2">
+                        <h2>Créer un répertoire (<code>mkdir</code>)</h2>
+                        <ul class="text-block">
+                            <li>On peut créer un répertoire avec:</li>
+                            <pre><code class="c">int mkdir(const char *pathname, mode_t mode);</code></pre>
+                            <li><code>pathname</code> est le nom du répertoire</li>
+                            <li><code>mode</code> spécifie les permissions à utiliser, il est modifié par le <code>umask</code> du processus:</li>
+                            <pre><code class="c">mode &amp; ~umask &amp; 0777</code></pre>
+                            <li>Retourne 0 en cas de succès et -1 en cas d'erreur</li>
+                            <li>voir <code>man 2 mkdir</code> pour les codes d'erreurs</li>
+                        </ul>
+                    </section>
+    
+                    <section id="effacer-un-répertoire-rmdir" class="slide level2">
+                        <h2>Effacer un répertoire (<code>rmdir</code>)</h2>
+                        <ul class="text-block">
+                            <li>On efface un répertoire <strong>vide</strong> avec:</li>
+                            <pre><code class="c">int rmdir(const char *pathname);</code></pre>
+                            <li>Retourne 0 en cas de succès et -1 en cas d'erreur</li>
+                            <li>voir <code>man 2 rmdir</code> pour les codes d'erreurs</li>
+                        </ul>
+                    </section>
+                    
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <!-- <script src="node_modules/reveal.js-menu/menu.js"></script>   -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+// chalkboard plugin begin
+ //       Reveal.initialize({
+         /* customcontrols: {
+                controls: [
+                  { icon: '<i class="fa fa-pen-square"></i>',
+                    title: 'Toggle chalkboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                  },
+                  { icon: '<i class="fa fa-pen"></i>',
+                    title: 'Toggle notes canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                  }
+                ]
+              },
+              chalkboard: {
+                // add configuration here
+              },
+              // ...
+              //plugins: [ RevealChalkboard, RevealCustomControls ],
+              // ...
+// chalkboard plugin end */
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]//, RevealChalkboard, RevealCustomControls, RevealMenu
+			});
+		</script>
+	</body>
+</html>
