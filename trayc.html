@@ -205,7 +205,7 @@ int input, i;
 	}
 </code>
 </pre>
-					</section></section><section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 261px; display: block;"><h1 id="manipulations-de-variables">Manipulations de variables</h1>
+					</section></section><section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section><h1 id="manipulations-de-variables">Manipulations de variables</h1>
 					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 64px; display: block;"><h2 id="les-directives-de-pré-compilation-version-courte">Les directives de pré-compilation (version courte)</h2>
 					<p>Les directives de pré-compilation:</p>
 					<ul>
@@ -214,9 +214,10 @@ int input, i;
 					<li>ne se terminent jamais par un '<code>;</code>'</li>
 					</ul>
 					<p>La directive include inclue les entêtes des fonctions d’une librairie:</p>
-					<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;math.h&gt;</span></span></code></pre><p>La directive define permets de créer une sorte de <strong>"constante"</strong>:</p>
-					<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PI 3.14159265359</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="typage-et-éclaration-de-variables">Typage et éclaration de variables</h2>
+					<pre><code class="c hljs">#include&lt;stdio.h&gt;
+					#include&lt;math.h&gt;</code>
+				</pre><p>La directive define permets de créer une sorte de <strong>"constante"</strong>:</p>
+					<pre><code class="hljs cpp">#define</span> PI 3.14159265359</span></code></pre></section><section><h2 id="typage-et-éclaration-de-variables">Typage et éclaration de variables</h2>
 					<table>
 					<thead>
 					<tr>
@@ -241,7 +242,7 @@ int input, i;
 					<td><code>void</code>, absence de valeur, utile pour les fonctions sans retour et sans paramètres ainsi que pour les pointeurs sur des types inconnus</td>
 					</tr>
 					</tbody></table>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="typage-et-éclaration-de-variables">Typage et éclaration de variables</h2>
+					</section><section><h2 id="typage-et-éclaration-de-variables">Typage et éclaration de variables</h2>
 					<p>Il est possible de combiner ces types avec des mots clef:</p>
 					<table>
 					<thead>
@@ -269,23 +270,23 @@ int input, i;
 					</tbody></table>
 					<div class="cols">
 					
-					<pre><code class="c hljs"><span class="hljs-keyword">float</span> maVariable;
-					<span class="hljs-keyword">int</span> ceciEstUnEntier;
-					<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> ceciEstUnEntierSuperieurAZero;
-					<span class="hljs-keyword">char</span> ceciEstUnCaractère;
-					<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> ceciEstUnEntierLong;</code></pre><pre><code class="c hljs"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> ceciEstUnEntierTresLong; <span class="hljs-comment">//C99</span>
-					<span class="hljs-keyword">long</span> ceciEstUnEntierLong;
-					<span class="hljs-keyword">double</span> ceciEstUnDouble;
-					<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> ceciEstUnDoubleLong = <span class="hljs-number">1.3421</span>; <span class="hljs-comment">// Declare + init.</span></code></pre></div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="booléen">Booléen</h2>
+					<pre><code class="c hljs">float</span> maVariable;
+					int ceciEstUnEntier;
+					unsigned</span> int ceciEstUnEntierSuperieurAZero;
+					char</span> ceciEstUnCaractère;
+					long</span> int ceciEstUnEntierLong;</code></pre><pre><code class="c hljs">long</span> long</span> int ceciEstUnEntierTresLong; //C99</span>
+					long</span> ceciEstUnEntierLong;
+					double</span> ceciEstUnDouble;
+					long</span> double</span> ceciEstUnDoubleLong = 1.3421;// Declare + init.</span></code></pre></div>
+					</section><section><h2 id="booléen">Booléen</h2>
 					<p>Attention ! Il n’y a pas de type booléen en C89/90. Depuis C99 on peut utiliser:</p>
-					<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span>
-					<span class="hljs-keyword">bool</span> unBoolean = <span class="hljs-literal">true</span> <span class="hljs-comment">// (en fait true==1 et false==0)</span></code></pre><p><strong>D'une manière généralle:</strong></p>
+					<pre><code class="c hljs">#include&lt;stdbool.h&gt;
+					bool</span> unBoolean =  // (en fait true==1 et false==0)</span></code></pre><p><strong>D'une manière généralle:</strong></p>
 					<ul>
 					<li><strong>toute valeur différente de 0 est considérée comme vraie</strong></li>
 					<li><strong>0 ou NULL sont considérés comme faux</strong></li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="taille-des-variables">Taille des variables</h2>
+					</section><section><h2 id="taille-des-variables">Taille des variables</h2>
 					<p>La taille des variables dépend des platformes et compilateurs. Pour connaitre la taille d'une variable:</p>
 					<ul>
 					<li>Utiliser l'opérateur <strong><code>sizeof(obj)</code></strong>, <code>obj</code> peut être un type ou un nom de variable</li>
@@ -300,7 +301,7 @@ int input, i;
 					</ul>
 					</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="règles-sur-les-variables">Règles sur les variables</h2>
+					</section><section><h2 id="règles-sur-les-variables">Règles sur les variables</h2>
 					<p>Les noms de variables doivent suivre les règles suivantes:</p>
 					<ul>
 					<li>doit commencer par une lettre ou un <code>_</code> ;</li>
@@ -314,7 +315,7 @@ int input, i;
 					<li>Si elle est déclarée entre deux accolades {}, la variable ne sera accessible que entre ces accolades</li>
 					<li>Si une variable est déclarée hors de toute accolade (hors de toute fonction) elle est alors globale et accessible de partout. <strong>A éviter</strong>.</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="opérateur-usuels">Opérateur usuels</h2>
+					</section><section><h2 id="opérateur-usuels">Opérateur usuels</h2>
 					<table style="font-size:0.9em">
 					<thead>
 					<tr>
@@ -356,78 +357,122 @@ int input, i;
 					</tr>
 					</tbody></table>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+					</section><section><h2 id="question">Question</h2>
 					<p>Etant donnée la definition de fonction suivante:</p>
-					<pre><code class="c hljs"><span class="hljs-function">function <span class="hljs-title">test_if_2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>{
-					  <span class="hljs-keyword">if</span>(a = <span class="hljs-number">2</span>)
-						<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">//or true</span>
-					  <span class="hljs-keyword">else</span>
-						<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <span class="hljs-comment">//or false</span>
+					<pre><code class="c hljs">function test_if_2(int a)</span> </span>{
+					  if</span>(a = 2)
+						return</span> 1;//or true</span>
+					  else</span>
+						return</span> 0;//or false</span>
 					}</code></pre><p>Que retourne l'appel suivant ?</p>
-					<pre><code class="c hljs">test_if_2(<span class="hljs-number">3</span>)</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="opérateurs-usuels">Opérateurs usuels</h2>
+					<pre><code class="c hljs">test_if_2(3)</code></pre></section><section><h2 id="opérateurs-usuels">Opérateurs usuels</h2>
 					<p>Il est possible de combiner les opérateurs arithmétiques et logiques avec l’affectation:</p>
-					<pre><code class="c hljs"><span class="hljs-keyword">int</span> y;
-					y = <span class="hljs-number">3</span>;
-					y += <span class="hljs-number">4</span>; <span class="hljs-comment">//Equivalent à y = y + 4;</span>
-					x &lt;&lt;= <span class="hljs-number">2</span>; <span class="hljs-comment">//Equivalent à x = x &lt;&lt; 2;</span></code></pre><p>Il existe un opérateur d’incrément / décrément (++ et --):</p>
-					<pre><code class="c hljs"><span class="hljs-keyword">int</span> x, i = <span class="hljs-number">0</span>;
-					i++; <span class="hljs-comment">//equivalent à i = i + 1</span>
-					i--; <span class="hljs-comment">//equivalent à i = i - 1</span>
-					x = ++i; <span class="hljs-comment">//x vaut 1 car l'incrément est fait avant l'affectation</span>
-					x = i++; <span class="hljs-comment">//x vaut toujours 1 car l'incrément est fait après l'affectation</span>
+					<pre><code class="c hljs">int y;
+					y = 3;
+					y += 4;//Equivalent à y = y + 4;</span>
+					x &lt;&lt;= 2;//Equivalent à x = x &lt;&lt; 2;</span></code></pre><p>Il existe un opérateur d’incrément / décrément (++ et --):</p>
+					<pre><code class="c hljs">int x, i = 0;
+					i++; //equivalent à i = i + 1</span>
+					i--; //equivalent à i = i - 1</span>
+					x = ++i; //x vaut 1 car l'incrément est fait avant l'affectation</span>
+					x = i++; //x vaut toujours 1 car l'incrément est fait après l'affectation</span>
 					</code></pre><p>L’ordre de priorité des opérateur est:</p>
 					<ul>
 					<li>l’ordre habituel pour les opérateur arithmétiques;</li>
 					<li>modifiable grâce au parenthèses ().</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="conversion-de-types">Conversion de types</h2>
+					</section>
+					<section>
+						<h2>Conversion de types</h2>
 					<p>Dans un calcul le type des variables détermine le type du résultat:</p>
 					<ul>
 					<li>si un calcul implique des variables de même type le résultat sera de ce type;</li>
 					<li>si un calcul implique des variables de types différents le type « le plus général »
 					est choisi.</li>
 					</ul>
-					<pre><code data-line-numbers="1-3" class="c hljs has-highlights"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> xInt = <span class="hljs-number">3</span>, resInt;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">float</span> xFloat = <span class="hljs-number">3</span>, resFloat;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">char</span> xChar = <span class="hljs-number">3</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.00 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4.</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car 4. est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car xFloat est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 (cas resInt est un entier)</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xChar + <span class="hljs-number">2</span>; <span class="hljs-comment">//Convertion automatique et possible (resInt vaudra 5)</span></div></td></tr></tbody></table></code><code data-line-numbers="4-5" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> xInt = <span class="hljs-number">3</span>, resInt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">float</span> xFloat = <span class="hljs-number">3</span>, resFloat;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">char</span> xChar = <span class="hljs-number">3</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 car le calcul est entier</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.00 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4.</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car 4. est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car xFloat est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 (cas resInt est un entier)</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xChar + <span class="hljs-number">2</span>; <span class="hljs-comment">//Convertion automatique et possible (resInt vaudra 5)</span></div></td></tr></tbody></table></code><code data-line-numbers="6-7" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> xInt = <span class="hljs-number">3</span>, resInt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">float</span> xFloat = <span class="hljs-number">3</span>, resFloat;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">char</span> xChar = <span class="hljs-number">3</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.00 car le calcul est entier</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4.</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car 4. est un float</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car xFloat est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 (cas resInt est un entier)</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xChar + <span class="hljs-number">2</span>; <span class="hljs-comment">//Convertion automatique et possible (resInt vaudra 5)</span></div></td></tr></tbody></table></code><code data-line-numbers="8" class="c hljs fragment has-highlights" data-fragment-index="2"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> xInt = <span class="hljs-number">3</span>, resInt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">float</span> xFloat = <span class="hljs-number">3</span>, resFloat;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">char</span> xChar = <span class="hljs-number">3</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.00 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4.</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car 4. est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car xFloat est un float</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 (cas resInt est un entier)</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xChar + <span class="hljs-number">2</span>; <span class="hljs-comment">//Convertion automatique et possible (resInt vaudra 5)</span></div></td></tr></tbody></table></code><code data-line-numbers="9" class="c hljs fragment has-highlights" data-fragment-index="3"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> xInt = <span class="hljs-number">3</span>, resInt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">float</span> xFloat = <span class="hljs-number">3</span>, resFloat;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">char</span> xChar = <span class="hljs-number">3</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.00 car le calcul est entier</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xInt / <span class="hljs-number">4.</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car 4. est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resFloat = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resFloat vaudra 0.75 car xFloat est un float</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xFloat / <span class="hljs-number">4</span>; <span class="hljs-comment">//resInt vaudra 0 (cas resInt est un entier)</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">resInt = xChar + <span class="hljs-number">2</span>; <span class="hljs-comment">//Convertion automatique et possible (resInt vaudra 5)</span></div></td></tr></tbody></table></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="casting-moulage">Casting (moulage)</h2>
-					<p><strong style="text-align: center">Le casting permet de forcer la conversion de type</strong>  <!-- --></p>
-					<pre><code class="c hljs">resFloat = (<span class="hljs-keyword">float</span>) xInt / <span class="hljs-number">4</span>; <span class="hljs-comment">// resFloat vaudra 0.75 car x est convertit en float</span>
-					resFloat = (<span class="hljs-keyword">float</span>) (xInt / <span class="hljs-number">4</span>); <span class="hljs-comment">/* resFloat vaudra 0.00 car le calcul entier est fait
-													  avant conversion */</span>
-					resInt = (<span class="hljs-keyword">float</span>) xInt/ <span class="hljs-number">4</span>; <span class="hljs-comment">// resInt vaudra 0 car resInt est un entier</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+					<pre>
+						<code class="c hljs">
+int xInt = 3, resInt;
+float xFloat = 3, resFloat;
+char xChar = 3;
+resInt = xInt / 4; //resInt vaudra 0 car le calcul est entier
+resFloat = xInt / 4; //resFloat vaudra 0.00 car le calcul est entier
+resFloat = xInt / 4.; //resFloat vaudra 0.75 car 4. est un float
+resFloat = xFloat / 4; //resFloat vaudra 0.75 car xFloat est un float
+resInt = xFloat / 4; //resInt vaudra 0 (cas resInt est un entier)	
+resInt = xChar + 2; //Convertion automatique et possible (resInt vaudra 5)
+						</code>
+					</pre>
+				</section>
+					<section>
+						<h2 >Casting (moulage)</h2>
+					<p><strong>Le casting permet de forcer la conversion de type</strong>  <!-- --></p>
+					<pre><code class="c hljs">
+esFloat = (float) xInt / 4; // resFloat vaudra 0.75 car x est convertit en float
+resFloat = (float) (xInt / 4); /* resFloat vaudra 0.00 car le calcul entier est fait
+                                  avant conversion */
+resInt = (float) xInt/ 4; // resInt vaudra 0 car resInt est un entier
+					</code></pre>
+				</section>
+				<section>
+						<h2 >Question</h2>
 					<p>Quel est le problème avec les calculs suivants ?</p>
-					<pre><code data-line-numbers="1" class="c hljs has-highlights"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> i; <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> l; <span class="hljs-keyword">float</span> f; <span class="hljs-keyword">char</span> c; <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> uc;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-number">-100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-string">'ï'</span>; <span class="hljs-comment">//code ascii = 239</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">l = <span class="hljs-number">320254468</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">f = <span class="hljs-number">45879651324476.5</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">i = l * f;</div></td></tr></tbody></table></code><code data-line-numbers="1,3-4" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> i; <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> l; <span class="hljs-keyword">float</span> f; <span class="hljs-keyword">char</span> c; <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> uc;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-number">-100</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-string">'ï'</span>; <span class="hljs-comment">//code ascii = 239</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">l = <span class="hljs-number">320254468</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">f = <span class="hljs-number">45879651324476.5</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">i = l * f;</div></td></tr></tbody></table></code><code data-line-numbers="1,6-7" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> i; <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> l; <span class="hljs-keyword">float</span> f; <span class="hljs-keyword">char</span> c; <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> uc;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-number">-100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-string">'ï'</span>; <span class="hljs-comment">//code ascii = 239</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">l = <span class="hljs-number">320254468</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">f = <span class="hljs-number">45879651324476.5</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">i = l * f;</div></td></tr></tbody></table></code><code data-line-numbers="1,9-11" class="c hljs fragment has-highlights" data-fragment-index="2"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> i; <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> l; <span class="hljs-keyword">float</span> f; <span class="hljs-keyword">char</span> c; <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> uc;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-number">-100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-string">'ï'</span>; <span class="hljs-comment">//code ascii = 239</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">l = <span class="hljs-number">320254468</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">f = <span class="hljs-number">45879651324476.5</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">i = l * f;</div></td></tr></tbody></table></code><code data-line-numbers="" class="c hljs fragment" data-fragment-index="3"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">int</span> i; <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> l; <span class="hljs-keyword">float</span> f; <span class="hljs-keyword">char</span> c; <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> uc;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-number">-100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">c = <span class="hljs-string">'ï'</span>; <span class="hljs-comment">//code ascii = 239</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">uc = c;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">l = <span class="hljs-number">320254468</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">f = <span class="hljs-number">45879651324476.5</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">i = l * f;</div></td></tr></tbody></table></code></pre></section></section><section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 261px; display: block;"><h1 id="contrôle-du-flot-dexécution">Contrôle du flot d'exécution</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="structure-conditionelles">Structure conditionelles</h2>
+					<pre><code data-line-numbers="1" class="c hljs has-highlights">int i; long int l; float f; char c; unsigned char uc;
+
+c = -100;
+uc = c;
+
+c = 'ï'; //code ascii = 239
+uc = c;
+
+l = 320254468;
+f = 45879651324476.5;
+i = l * f;
+					</code></pre>						
+						</section>
+					</section>
+					<section>
+					<section><h1 >Contrôle du flot d'exécution</h1></section>
+					<section><h2 >Structure conditionelles</h2>
 					<p>Les branchements <code>if</code></p>
-					<pre><code class="c hljs"><span class="hljs-keyword">int</span> a, b, c;
-					...
-					<span class="hljs-keyword">if</span>((a &lt; <span class="hljs-number">0</span>) || !((b == <span class="hljs-number">2</span>) &amp;&amp; (c != <span class="hljs-number">4</span>))) {
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"La condition est validée\n"</span>);
-					}
-					<span class="hljs-keyword">else</span> {
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"La condition n'est PAS validée\n"</span>);
-					}</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="les-boucles-for">Les boucles for</h2>
+					<pre><code class="c hljs">int a, b, c;
+...
+if</span>((a &lt; 0) || !((b == 2) &amp;&amp; (c != 4))) {
+	printf("La condition est validée\n");
+}
+else</span> {
+	printf("La condition n'est PAS validée\n");
+}</code></pre></section>
+				<section><h2>Les boucles for</h2>
 					<p>Les boucles <code>for</code></p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Calcul la somme des N premiers entiers</span>
-					<span class="hljs-keyword">int</span> value = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i &lt; N; i++) {
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Nouvelle itération de la boucle\n"</span>);
-					  value += i;
-					}</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="les-boucles-while">Les boucles while</h2>
+					<pre><code class="c hljs">//Calcul la somme des N premiers entiers</span>
+int value = 0;
+for</span>(int i=0; i &lt; N; i++) {
+	printf("Nouvelle itération de la boucle\n");
+	value += i;
+}</code></pre>
+				</section>
+				<section><h2 id="les-boucles-while">Les boucles while</h2>
 					<p>La boucle <code>while</code></p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Calcul la somme des N premiers entiers</span>
-					<span class="hljs-keyword">int</span> value = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">while</span>(i &lt; N) {
-					  value += i;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Nouvelle itération de la boucle: %d\n"</span>, i++);
-					}</code></pre><p>La boucle <code>do...while</code>: le contenu est toujours exécuté au moins une fois</p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Calcul la somme des N premiers entiers</span>
-					<span class="hljs-keyword">int</span> value = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">do</span> {
-					  value += i;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Nouvelle itération de la boucle: %d\n"</span>, ++i);
-					}
-					<span class="hljs-keyword">while</span>(i &lt; N);</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="intéruption-de-boucles">Intéruption de boucles</h2>
+					<pre><code class="c hljs">//Calcul la somme des N premiers entiers</span>
+int value = 0;
+int i = 0;
+while</span>(i &lt; N) {
+	value += i;
+	printf("Nouvelle itération de la boucle: %d\n"</span>, i++);
+}</code></pre>
+					<p>La boucle <code>do...while</code>: le contenu est toujours exécuté au moins une fois</p>
+					<pre><code class="c hljs">//Calcul la somme des N premiers entiers</span>
+int value = 0;
+int i = 0;
+do</span> {
+	value += i;
+	printf("Nouvelle itération de la boucle: %d\n"</span>, ++i);
+}
+while</span>(i &lt; N);</code></pre>
+				</section>
+				<section>
+					<h2 id=>Intéruption de boucles</h2>
 					<div style="font-size:0.85em">
 					
 					<p>Il est possible d’interrompre le déroulement d’une boucle (for, while, do/while) en utilisant les mots clefs:</p>
@@ -435,37 +480,39 @@ int input, i;
 					<li><code>continue</code>: passe à l’itération suivante;</li>
 					<li><code>break</code>: sort de la boucle.</li>
 					</ul>
-					<pre><code class="c hljs"><span class="hljs-comment">//Calcul la somme des nombre impairs allant de 0 à N</span>
-					value = <span class="hljs-number">0</span>;
-					i = <span class="hljs-number">0</span>;
-					<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>) {
-					  <span class="hljs-keyword">if</span>(i &gt; N)
-						<span class="hljs-keyword">break</span>;
-					  <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) {
-						i++
-						<span class="hljs-keyword">continue</span>;
-					  }
-					  value += i;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Nouvelle itération de la boucle: %d\n"</span>, ++i);
-					}</code></pre><p><strong>Attention</strong> dans certains cas (cf. ci-dessus), l’utilisation de <code>break</code> et <code>continue</code> est à évitée car elle rend le code moins lisible.</p>
+					<pre><code class="c hljs">//Calcul la somme des nombre impairs allant de 0 à N</span>
+value = 0;
+i = 0;
+while</span>(1) {
+	if</span>(i &gt; N)
+	break;
+	if</span>(i % 2</span> == 0) {
+	i++
+	continue;
+	}
+	value += i;
+	printf("Nouvelle itération de la boucle: %d\n"</span>, ++i);
+}</code></pre>
+					<p><strong>Attention</strong> dans certains cas (cf. ci-dessus), l’utilisation de <code>break</code> et <code>continue</code> est à évitée car elle rend le code moins lisible.</p>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="les-fonctions">Les fonctions</h2>
+					</section>
+					<section><h2 >Les fonctions</h2>
 					<p>Une fonction est toujours déclarée avant son utilisation:</p>
-					<pre><code class="c hljs"><span class="hljs-function">typeValeurRetour <span class="hljs-title">nomDeLaFonction</span><span class="hljs-params">(type1 param1, ..., typeN paramN)</span></span></code></pre><p style="text-align:left;">Le mot clef <code>return</code> indique un point d’arrêt de la fonction ainsi que la valeur que la fonction doit retourner.</p>
+					<pre><code class="c hljs">typeValeurRetour nomDeLaFonction(type1 param1, ..., typeN paramN)</span></span></code></pre><p style="text-align:left;">Le mot clef <code>return</code> indique un point d’arrêt de la fonction ainsi que la valeur que la fonction doit retourner.</p>
 					<!-- -->
 					
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> valeur, <span class="hljs-keyword">int</span> centPourcent)</span> </span>{
-					  <span class="hljs-keyword">return</span> ((<span class="hljs-keyword">float</span>) valeur/centPourcent)*<span class="hljs-number">100</span>;
+					<pre><code class="c hljs">float</span> pourcentage(int valeur, int centPourcent)</span> </span>{
+					  return</span> ((float) valeur/centPourcent)*100;
 					}</code></pre><p>Une fonction peu ne rien retourner:</p>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> valeur, <span class="hljs-keyword">int</span> centPourcent)</span> </span>{
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%f"</span>, ((<span class="hljs-keyword">float</span>) valeur/centPourcent)*<span class="hljs-number">100</span>);
-					}</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="les-fonctions">Les fonctions</h2>
+					<pre><code class="c hljs">void</span> pourcentage(int valeur, int centPourcent)</span> </span>{
+					  printf("%f"</span>, ((float) valeur/centPourcent)*100);
+					}</code></pre></section><section><h2 id="les-fonctions">Les fonctions</h2>
 					<p>Il est possible de déclarer une fonction juste avec son entête:</p>
 					<ul>
 					<li>évite d’organiser les fonctions suivant la position de leurs appels;</li>
 					<li>Sépare l’interface utilisateur de l’implémentation, un premier pas vers la création de librairies.</li>
 					</ul>
-					<pre><code data-line-numbers="1" class="c hljs has-highlights"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> , <span class="hljs-keyword">int</span>)</span></span>; <span class="hljs-comment">//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">int</span> a,b;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-comment">//Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> valeur, <span class="hljs-keyword">int</span> centPourcent)</span></span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> ((<span class="hljs-keyword">float</span>) valeur/centPourcent)*<span class="hljs-number">100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="3-9" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> , <span class="hljs-keyword">int</span>)</span></span>; <span class="hljs-comment">//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">int</span> a,b;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-comment">//Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> valeur, <span class="hljs-keyword">int</span> centPourcent)</span></span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> ((<span class="hljs-keyword">float</span>) valeur/centPourcent)*<span class="hljs-number">100</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="11-13" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> , <span class="hljs-keyword">int</span>)</span></span>; <span class="hljs-comment">//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">int</span> a,b;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-comment">//Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">pourcentage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> valeur, <span class="hljs-keyword">int</span> centPourcent)</span></span>{</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">return</span> ((<span class="hljs-keyword">float</span>) valeur/centPourcent)*<span class="hljs-number">100</span>;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="passage-par-adresse">Passage par adresse</h2>
+					<pre><code data-line-numbers="1" class="c hljs has-highlights"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int , int);//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">int main(void)</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  int a,b;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  //Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> 0;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int valeur, int centPourcent)</span></span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> ((float) valeur/centPourcent)*100;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="3-9" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int , int);//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">int main(void)</span> </span>{</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  int a,b;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  //Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> 0;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int valeur, int centPourcent)</span></span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> ((float) valeur/centPourcent)*100;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="11-13" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int , int);//Déclaration de l’entête</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">int main(void)</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  int a,b;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  //Utilisation de la fonction sans implémentation connue</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  pourcentage(a,b)</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> 0;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">float</span> pourcentage(int valeur, int centPourcent)</span></span>{</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  return</span> ((float) valeur/centPourcent)*100;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre></section><section><h2 id="passage-par-adresse">Passage par adresse</h2>
 					<div style="font-size:0.9em">
 					
 					<p>En C les paramètres sont passés par valeur (pas de modification des variables entrées).</p>
@@ -478,7 +525,7 @@ int input, i;
 					
 					<div class="cols">
 					
-					<pre style="font-size:0.4em"><code class="c hljs"><span class="hljs-comment">/*********************************************************************************
+					<pre style="font-size:0.4em"><code class="c hljs">/*********************************************************************************
 					Calcul le pourcentage du nombre "valeur" par rapport à "centPoucent"
 					IN:
 					  valeur: contient la valeur a mettre en rapport pour le calcul
@@ -488,26 +535,26 @@ int input, i;
 					OUT:
 					  retourne -1 si une valeur d'entrée n'est pas valide, 0 sinon
 					**********************************************************************************/</span>
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">versPourcentage</span><span class="hljs-params">(<span class="hljs-keyword">float</span> *valeur, <span class="hljs-keyword">float</span> centPourcent)</span> </span>{
-					<span class="hljs-keyword">if</span>( (centPourcent &gt; <span class="hljs-number">0</span>) &amp;&amp; (*valeur &gt;= <span class="hljs-number">0</span>) ) {
-						*valeur = (*valeur / centPourcent)*<span class="hljs-number">100</span>;
-						<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+					int versPourcentage(float</span> *valeur, float</span> centPourcent)</span> </span>{
+					if</span>( (centPourcent &gt; 0) &amp;&amp; (*valeur &gt;= 0) ) {
+						*valeur = (*valeur / centPourcent)*100;
+						return</span> 0;
 					}
-					<span class="hljs-keyword">else</span>
-						<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+					else</span>
+						return</span> -1;
 					}</code></pre><!-- -->
 					
-					<pre style="font-size:0.4em" class="fragment" data-fragment-index="0"><code class="c hljs"><span class="hljs-comment">/* Utilisation de la fonction */</span>
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
-					  <span class="hljs-keyword">int</span> val = <span class="hljs-number">30</span>; ret;
-					  <span class="hljs-keyword">if</span> ( (ret = versPourcentage(&amp;val, <span class="hljs-number">100</span>)) &lt; <span class="hljs-number">0</span> )
-						<span class="hljs-keyword">return</span> ret;
-					  <span class="hljs-keyword">else</span>
-						<span class="hljs-keyword">return</span> val;
+					<pre style="font-size:0.4em" class="fragment" data-fragment-index="0"><code class="c hljs">/* Utilisation de la fonction */</span>
+					int main(void)</span> </span>{
+					  int val = 30; ret;
+					  if</span> ( (ret = versPourcentage(&amp;val, 100)) &lt; 0</span> )
+						return</span> ret;
+					  else</span>
+						return</span> val;
 					}</code></pre><!-- -->
 					</div>
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="les-tableaux-et-chaines-de-caractères">Les tableaux et chaines de caractères</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="déclaration-des-tableaux">Déclaration des tableaux</h2>
+					</section><section><h2 id="déclaration-des-tableaux">Déclaration des tableaux</h2>
 					<p>Les tableau sont:</p>
 					<ul>
 					<li>de type unique;</li>
@@ -516,20 +563,20 @@ int input, i;
 					<li>statiques ou dynamiques (cf. pointeurs et C99).</li>
 					</ul>
 					<p>Décalaration d'un tableau:</p>
-					<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAILLE_MAX 10</span>
-					<span class="hljs-keyword">int</span> tableauDEntiers[TAILLE_MAX];
-					<span class="hljs-keyword">double</span> tableauDeDoubles[TAILLE_MAX];</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-des-tableaux">Utilisation des tableaux</h2>
+					<pre><code class="c hljs">#define</span> TAILLE_MAX 10</span>
+					int tableauDEntiers[TAILLE_MAX];
+					double</span> tableauDeDoubles[TAILLE_MAX];</code></pre></section><section><h2 id="utilisation-des-tableaux">Utilisation des tableaux</h2>
 					<p>Affecter et lire les valeurs des tableaux:</p>
-					<pre><code class="c hljs"><span class="hljs-comment">// Initialization du tableau</span>
-					<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;TAILLE_MAX; i++)
-					  tableauDEntiers[i] = i+<span class="hljs-number">1</span>;
+					<pre><code class="c hljs">// Initialization du tableau</span>
+					for</span>(int i=0; i&lt;TAILLE_MAX; i++)
+					  tableauDEntiers[i] = i+1;
 					
-					<span class="hljs-comment">// Alternative mais uniquement lors de la declaration</span>
-					<span class="hljs-keyword">int</span> tableauDEntiers[TAILLE_MAX] = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>};
+					// Alternative mais uniquement lors de la declaration</span>
+					int tableauDEntiers[TAILLE_MAX] = {1</span>,2</span>,3</span>,4</span>,5</span>,6</span>,7</span>,8</span>,9</span>,10</span>};
 					
-					<span class="hljs-comment">// Affichage du tableau</span>
-					<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">0</span>; i++)
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Le tableau contient à l'indice %d la valeur %d"</span>, i, tableauDEntiers[i]);</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="attention-">Attention !</h2>
+					// Affichage du tableau</span>
+					for</span>(int i=0; i&lt;0; i++)
+					  printf("Le tableau contient à l'indice %d la valeur %d"</span>, i, tableauDEntiers[i]);</code></pre></section><section><h2 id="attention-">Attention !</h2>
 					<p><strong>Attention aux indices des tableaux !</strong></p>
 					<p><strong>Hors des limites on attends un comportement indéfini:</strong></p>
 					<ul>
@@ -537,21 +584,21 @@ int input, i;
 					<li>Eventuellement une erreur de segment.</li>
 					<li>Au pire la valeur d’une autre variable est modifiée et on peut obtenir des erreurs importantes.</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="tableau-à-n-dimensions">Tableau à N dimensions</h2>
-					<pre><code class="c hljs"><span class="hljs-comment">//Lignes et colonnes sont arbitraires</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NB_LIGNES 3</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NB_COLONNES 5</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NB_MORE 7</span>
+					</section><section><h2 id="tableau-à-n-dimensions">Tableau à N dimensions</h2>
+					<pre><code class="c hljs">//Lignes et colonnes sont arbitraires</span>
+					#define</span> NB_LIGNES 3</span>
+					#define</span> NB_COLONNES 5</span>
+					#define</span> NB_MORE 7</span>
 					
-					<span class="hljs-keyword">double</span> tab2D[NB_LIGNES][NB_COLONNES];
-					<span class="hljs-keyword">float</span> tab3D[NB_LIGNES][NB_COLONNES][NB_MORE];
-					<span class="hljs-keyword">float</span> tab4D[NB_LIGNES][NB_COLONNES][NB_MORE][NB_MORE];
+					double</span> tab2D[NB_LIGNES][NB_COLONNES];
+					float</span> tab3D[NB_LIGNES][NB_COLONNES][NB_MORE];
+					float</span> tab4D[NB_LIGNES][NB_COLONNES][NB_MORE][NB_MORE];
 					
-					<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;NB_LIGNES;i++)
-					  <span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;NB_COLONNES;j++)
-						tab2D[i][j] = <span class="hljs-number">0.0</span>;</code></pre><p>L'organisation en mémoire reste linéaire !</p>
+					for</span>(i=0;i&lt;NB_LIGNES;i++)
+					  for</span>(j=0;j&lt;NB_COLONNES;j++)
+						tab2D[i][j] = 0.0;</code></pre><p>L'organisation en mémoire reste linéaire !</p>
 					<p><img src="tableauN.svg" alt="" style="margin-top: 0px"> <!-- --></p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="chaine-de-caractères">Chaine de caractères</h2>
+					</section><section><h2 id="chaine-de-caractères">Chaine de caractères</h2>
 					<p>Il n’y a pas de type chaine de caractère (string) en C, <strong>pour cette raison on utilise des tableaux de caractères</strong>.</p>
 					<p><strong>Une chaine de caractères se termine toujours par le caractère “\0”</strong>:</p>
 					<ul>
@@ -559,13 +606,13 @@ int input, i;
 					<li>tout ce qui suit le “\0” est ignoré;</li>
 					<li>si il n’y a pas de “\0” la chaine de caractères est sans fin (donc plus que la taille du tableau).</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="manipulations-des-chaines">Manipulations des chaines</h2>
-					<pre><code class="c hljs"><span class="hljs-keyword">char</span> maChaine[<span class="hljs-number">8</span>] = <span class="hljs-string">"C cool!"</span>; <span class="hljs-comment">/* \0 est ajouter après la chaine (pensez a
+					</section><section><h2 id="manipulations-des-chaines">Manipulations des chaines</h2>
+					<pre><code class="c hljs">char</span> maChaine[8</span>] = <span class="hljs-string">"C cool!";/* \0 est ajouter après la chaine (pensez a
 													 reserver de la place) */</span>
-					<span class="hljs-keyword">char</span> maChaine2[] = <span class="hljs-string">"C cool!"</span>; <span class="hljs-comment">// Alloue automatiquement la bonne taille</span>
-					<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, maChaine2); <span class="hljs-comment">//Affiche la chaine</span>
-					maChaine[<span class="hljs-number">1</span>] = <span class="hljs-string">'\0'</span>; <span class="hljs-comment">// '' pour un caractère et "" pour une chaine</span>
-					<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, maChaine); <span class="hljs-comment">//Affiche "C"</span></code></pre><p>Il existe des fonctions de manipulation de chaines dans la librairie string
+					char</span> maChaine2[] = <span class="hljs-string">"C cool!";// Alloue automatiquement la bonne taille</span>
+					printf("%s\n"</span>, maChaine2); //Affiche la chaine</span>
+					maChaine[1</span>] = <span class="hljs-string">'\0';// '' pour un caractère et "" pour une chaine</span>
+					printf("%s\n"</span>, maChaine); //Affiche "C"</span></code></pre><p>Il existe des fonctions de manipulation de chaines dans la librairie string
 					(inclure string.h), par exemple:</p>
 					<ul>
 					<li>strncpy(dest, src, n), copie n caractère de la chaine src vers dest;</li>
@@ -573,7 +620,7 @@ int input, i;
 					<li>strcmp(str1, str2), retourne 0 si les deux chaines sont identiques;</li>
 					<li>strncat(dest, src, n), ajoute src à la fin de dest (enlève le ‘\0’), copie au maximum n bytes de src.</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="entrée--sortie-console">Entrée / sortie console</h2>
+					</section><section><h2 id="entrée--sortie-console">Entrée / sortie console</h2>
 					<div style="font-size: 0.77em">
 					
 					<p>Pour afficher du texte sur stdout (console) on utilise la fonction printf:</p>
@@ -590,7 +637,7 @@ int input, i;
 					<hr>
 					<p>Les entête de fonction font partie du fichier <code>stdio.h</code></p>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
+					</section><section><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
 					<p>liste des principaux spécificateur (<code>man printf</code> pour une liste complète):</p>
 					<table>
 					<thead>
@@ -628,7 +675,7 @@ int input, i;
 					<td>P indique la taille minimum du champ à afficher<br>S indique le nombre de chiffres significatifs après la virgule</td>
 					</tr>
 					</tbody></table>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
+					</section><section><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
 					<p>On utilise les combinaisons de symboles suivantes pour les caractères spéciaux:</p>
 					<table>
 					<thead>
@@ -662,95 +709,95 @@ int input, i;
 					<td>NUL character, utilisé pour indiquer la find d'une chaine de caractère</td>
 					</tr>
 					</tbody></table>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
+					</section><section><h2 id="entrées--sortie-console">Entrées / sortie console</h2>
 					<div class="text-block" style="font-size: 0.7em">
 					Autres fonctions intéressantes pour les entrées sorties:
 					
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getchar</span><span class="hljs-params">( <span class="hljs-keyword">void</span> )</span></span></code></pre><ul>
+					<pre><code class="c hljs">int getchar( void</span> )</span></span></code></pre><ul>
 					<li>attends une entrée clavier STDIN</li>
 					<li>retourne le code du caractère tapé (sans écrire sur STDIN);</li>
 					</ul>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">putchar</span><span class="hljs-params">( <span class="hljs-keyword">int</span> car )</span></span></code></pre><ul>
+					<pre><code class="c hljs">int putchar( int car )</span></span></code></pre><ul>
 					<li>écrit le caractère en paramètre sur STDOUT;</li>
 					<li>retourne le caractère si pas d’erreur, EOF sinon.</li>
 					</ul>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">fgets</span> <span class="hljs-params">( <span class="hljs-keyword">char</span>* <span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span> size, <span class="hljs-built_in">stdin</span> )</span> <span class="hljs-comment">//!!!</span></span></code></pre><ul>
+					<pre><code class="c hljs">char</span>* fgets</span> <span class="hljs-params">( char</span>* <span class="hljs-built_in">string</span>, int size, <span class="hljs-built_in">stdin</span> )</span> //!!!</span></span></code></pre><ul>
 					<li>Ne pas utiliser « gets »</li>
 					<li>lit une chaine de caractère sur STDIN de taille maximum size et la place dans “string”;</li>
 					<li>stdin est en fait un pointeur sur FILE;</li>
 					<li>retourne NULL en cas d’erreur.</li>
 					</ul>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">puts</span> <span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* <span class="hljs-built_in">string</span>)</span></span></code></pre><ul>
+					<pre><code class="c hljs">int puts</span> <span class="hljs-params">(const</span> char</span>* <span class="hljs-built_in">string)</span></span></code></pre><ul>
 					<li>écrit la chaine de caractère “string” sur STDOUT;</li>
 					<li>retourne EOF en cas d’erreur.</li>
 					</ul>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="exemple-dentrées--sorties">Exemple d'entrées / sorties</h2>
-					<pre style="font-size:0.38em; height:600px"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-comment">/* La fonction main est toujours la première fonction du programme à être
+					</section><section><h2 id="exemple-dentrées--sorties">Exemple d'entrées / sorties</h2>
+					<pre style="font-size:0.38em; height:600px"><code class="c hljs">#include&lt;stdio.h&gt;
+					/* La fonction main est toujours la première fonction du programme à être
 					appellée lors que l'execution*/</span>
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+					int main(void)</span>
 					</span>{
-					  <span class="hljs-keyword">float</span> inputFloat;
-					  <span class="hljs-keyword">char</span> inputChar;
-					  <span class="hljs-keyword">int</span> nbCorrespondance;
+					  float</span> inputFloat;
+					  char</span> inputChar;
+					  int nbCorrespondance;
 					
-					  <span class="hljs-comment">//Entrée de l'utilisateur pour un float et affichage du</span>
-					  <span class="hljs-comment">//float de différente manières</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Veuiller entrer un float:\t"</span>);
+					  //Entrée de l'utilisateur pour un float et affichage du</span>
+					  //float de différente manières</span>
+					  printf("Veuiller entrer un float:\t");
 					  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%f"</span>, &amp;inputFloat);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Affichage de l'entree sous forme de float: %f\n"</span>, inputFloat);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Idem avec 2 digits apres la virgule: %.2f\n"</span>, inputFloat);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Idem avec au moins 6 caractères: %6.2f\n"</span>, inputFloat);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Notation scientifique: %e\n"</span>, inputFloat);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Affichage de l'entree sous forme d'entier %d\n"</span>, inputFloat);
+					  printf("Affichage de l'entree sous forme de float: %f\n"</span>, inputFloat);
+					  printf("Idem avec 2 digits apres la virgule: %.2f\n"</span>, inputFloat);
+					  printf("Idem avec au moins 6 caractères: %6.2f\n"</span>, inputFloat);
+					  printf("Notation scientifique: %e\n"</span>, inputFloat);
+					  printf("Affichage de l'entree sous forme d'entier %d\n"</span>, inputFloat);
 					
-					  <span class="hljs-comment">//Boucle tant que l'utilisateur n'appuye pas sur 'enter' uniquement</span>
-					  <span class="hljs-keyword">do</span>
+					  //Boucle tant que l'utilisateur n'appuye pas sur 'enter' uniquement</span>
+					  do</span>
 					  {
-						<span class="hljs-comment">//Entrée de l'utilisateur pour un caractère</span>
-						<span class="hljs-comment">//avec effacement du buffer d'entrée clavier</span>
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Veuiller entrer un caractere: "</span>);
+						//Entrée de l'utilisateur pour un caractère</span>
+						//avec effacement du buffer d'entrée clavier</span>
+						printf("Veuiller entrer un caractere: ");
 					
-						<span class="hljs-keyword">while</span>((inputChar = getchar()) != <span class="hljs-string">'\n'</span> &amp;&amp; inputChar != EOF);
-						inputChar = getchar(); <span class="hljs-comment">//could also use scanf("%c", &amp;inputChar);</span>
+						while</span>((inputChar = getchar()) != <span class="hljs-string">'\n'</span> &amp;&amp; inputChar != EOF);
+						inputChar = getchar(); //could also use scanf("%c", &amp;inputChar);</span>
 					
-						<span class="hljs-comment">//Si le caractère est valide l'afficher sous forme d'entier non signé</span>
-						<span class="hljs-keyword">if</span>(inputChar != <span class="hljs-string">'\n'</span>)
-						  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Le code ASCII de %c est %u\n"</span>, inputChar, inputChar);
-					  } <span class="hljs-keyword">while</span>(inputChar != <span class="hljs-string">'\n'</span>);
-					  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-					} <span class="hljs-comment">//end main</span></code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+						//Si le caractère est valide l'afficher sous forme d'entier non signé</span>
+						if</span>(inputChar != <span class="hljs-string">'\n')
+						  printf("Le code ASCII de %c est %u\n"</span>, inputChar, inputChar);
+					  } while</span>(inputChar != <span class="hljs-string">'\n');
+					  return</span> 0;
+					} //end main</span></code></pre><!-- -->
+					</section><section><h2 id="question">Question</h2>
 					<p>Dans quel cas ce code provoque des erreurs?</p>
-					<pre style="font-size:0.45em; height:500px"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAILLE_MAX 3</span>
+					<pre style="font-size:0.45em; height:500px"><code class="c hljs">#include&lt;stdio.h&gt;
+					#define</span> TAILLE_MAX 3</span>
 					
-					<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">affiche_chaine</span><span class="hljs-params">(<span class="hljs-keyword">char</span>*, <span class="hljs-keyword">int</span>)</span></span>;
+					void</span> affiche_chaine(char</span>*, int)</span>;
 					
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+					int main(void)</span>
 					</span>{
-					  <span class="hljs-keyword">int</span> valeur1 = <span class="hljs-number">1</span>;
-					  <span class="hljs-keyword">char</span> chaine[TAILLE_MAX] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'\0'</span>};
-					  <span class="hljs-keyword">int</span> valeur2 = <span class="hljs-number">2</span>;
+					  int valeur1 = 1;
+					  char</span> chaine[TAILLE_MAX] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'\0'</span>};
+					  int valeur2 = 2;
 					
-					  <span class="hljs-comment">// Affiche l'état de la mémoire pour les variable ci-dessus</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur1:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur1, valeur1);
+					  // Affiche l'état de la mémoire pour les variable ci-dessus</span>
+					  printf("Valeur1:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur1, valeur1);
 					  affiche_chaine(chaine, TAILLE_MAX);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur2:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur2, valeur2);
+					  printf("Valeur2:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur2, valeur2);
 					
-					  <span class="hljs-comment">// NE JAMAIS UTILISER GETS</span>
+					  // NE JAMAIS UTILISER GETS</span>
 					  gets(chaine);
 					
-					  <span class="hljs-comment">// Affiche l'état de la mémoire pour les variable ci-dessus</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur1:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur1, valeur1);
+					  // Affiche l'état de la mémoire pour les variable ci-dessus</span>
+					  printf("Valeur1:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur1, valeur1);
 					  affiche_chaine(chaine, TAILLE_MAX);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur2:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur2, valeur2);
+					  printf("Valeur2:\tAdresse: %x\tValeur:%d\n"</span>, &amp;valeur2, valeur2);
 					}</code></pre><!-- -->
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="exécution-de-programme">Exécution de programme</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="la-fonction-main">La fonction main</h2>
+					</section><section><h2 id="la-fonction-main">La fonction main</h2>
 					<p>La fonction main est le point d'entré du programme et a l’entête suivante:</p>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span></code></pre><div class="text-block">
+					<pre><code class="c hljs">int main</span> <span class="hljs-params">(int argc, char</span> *argv[])</span></span></code></pre><div class="text-block">
 					
 					<p>Arguments:</p>
 					<ul>
@@ -765,42 +812,42 @@ int input, i;
 					<p>La fonction <code>exit(int)</code> permet également de terminer un programme à tout moment en renvoyant le code en paramètre (stdlib.h).</p>
 					<p>Dans le shell on peut taper “echo $?” pour avoir ce code de retour.</p>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="exemple-de-fonction-main">Exemple de fonction main</h2>
-					<pre style="height:500px"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+					</section><section><h2 id="exemple-de-fonction-main">Exemple de fonction main</h2>
+					<pre style="height:500px"><code class="c hljs">#include</span><span class="hljs-meta-string">&lt;stdio.h&gt;
+					#include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;
+					int main(int argc, char</span> *argv[])</span>
 					</span>{
-					  <span class="hljs-keyword">int</span> i, sum = <span class="hljs-number">0</span>;
-					  <span class="hljs-keyword">if</span>(argc != <span class="hljs-number">0</span>)
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Le nom du programme est: %s\n"</span>, argv[<span class="hljs-number">0</span>]);
-					  <span class="hljs-keyword">if</span>(argc &gt; <span class="hljs-number">1</span>)   {
-						<span class="hljs-comment">//Sum the inputs</span>
-						<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i &lt; argc; i++) {
-						  <span class="hljs-comment">//Affiche le paramètre traité</span>
-						  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Param %d: %s\n"</span>, i, argv[i]);
-						  <span class="hljs-comment">//Convert the parameter to a number and sum it</span>
+					  int i, sum = 0;
+					  if</span>(argc != 0)
+						printf("Le nom du programme est: %s\n"</span>, argv[0</span>]);
+					  if</span>(argc &gt; 1)   {
+						//Sum the inputs</span>
+						for</span>(i=1;i &lt; argc; i++) {
+						  //Affiche le paramètre traité</span>
+						  printf("Param %d: %s\n"</span>, i, argv[i]);
+						  //Convert the parameter to a number and sum it</span>
 						  sum += atoi(argv[i]);
 						}
 					  }
-					  <span class="hljs-keyword">return</span> sum;
+					  return</span> sum;
 					}</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="variables-denvironements">Variables d'environements</h2>
+					</section><section><h2 id="variables-denvironements">Variables d'environements</h2>
 					<div style="font-size: 0.8em">
 					
 					<p>La variable globale <code>environ</code> est un tableau de chaine de caracère permettant d'accéder aux variables d'environement. Cette variable n'es pas utilisée directement, on préférera utiliser:</p>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">getenv</span> <span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name)</span></span></code></pre><ul>
+					<pre><code class="c hljs">char</span>* getenv</span> <span class="hljs-params">(const</span> char</span> *name)</span></span></code></pre><ul>
 					<li>retourne la valeur de la variable d'environement <code>name</code> sous forme de chaine de caractère (NULL si pas définit);</li>
 					<li>attention, la chaine retournée ne doit pas être modifiée et peut être changer par des appels succéssifs a <code>getenv</code>.</li>
 					</ul>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">putenv</span> <span class="hljs-params">(<span class="hljs-keyword">char</span> *<span class="hljs-built_in">string</span>)</span></span></code></pre><ul>
+					<pre><code class="c hljs">int putenv</span> <span class="hljs-params">(char</span> *<span class="hljs-built_in">string)</span></span></code></pre><ul>
 					<li>retourne 0 en case de succès (une autre valeur sinon);</li>
 					<li>si <code>string</code> est de la forme <code>variable=value</code> cette définition est ajouté à l'environement. Si la forme de <code>string</code> est <code>variable</code> la variable est supprimée de l'environement;</li>
 					<li>attention, si <code>string</code> est modifiée ultérieurement, l'environement le sera également.</li>
 					</ul>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compiler-et-lier-un-programme">Compiler et lier un programme</h2>
+					</section><section><h2 id="compiler-et-lier-un-programme">Compiler et lier un programme</h2>
 					<p><img src="compile.svg" alt=""></p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compiler-un-programme">Compiler un programme</h2>
+					</section><section><h2 id="compiler-un-programme">Compiler un programme</h2>
 					<p>gcc appelle automatiquement ld, <strong>pour compiler et lier un programme il suffit donc d’utiliser gcc</strong>:</p>
 					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> gcc prog.c -o prog</span></code></pre><p>Les options principales de gcc:</p>
 					<table>
@@ -823,7 +870,7 @@ int input, i;
 					<td>Génère les informations symboliques pour debugage</td>
 					</tr>
 					</tbody></table>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compiler-un-programme">Compiler un programme</h2>
+					</section><section><h2 id="compiler-un-programme">Compiler un programme</h2>
 					<p>Lorsque gcc trouve une option qu’il ne connait pas il passe cette option et les suivantes a ld.</p>
 					<p><strong>Il faut toujours mettre les options ld à la fin:</strong></p>
 					<table>
@@ -845,7 +892,7 @@ int input, i;
 					<p>Les libraires portent le nom <code>libnom</code> et ce trouvent généralement dans:</p>
 					<pre><code class="c hljs">/usr/lib
 					/usr/lib64</code></pre><p>Par exemple la librairie svn s’appelle “libsvn” et pour la lier on utilise:</p>
-					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> gcc monClientSVN.c -o clientsvn -l svn</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="debugger-un-programme">Debugger un programme</h2>
+					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> gcc monClientSVN.c -o clientsvn -l svn</span></code></pre></section><section><h2 id="debugger-un-programme">Debugger un programme</h2>
 					<div style="font-size: 0.9em">
 					
 					<p>Si une erreur intervient lors de l’exécution d’un programme le système génère souvent un <strong>coredump</strong>.</p>
@@ -858,7 +905,7 @@ int input, i;
 					</ul>
 					<p><em>Il est bien sûre préférable que l'exécutable contienne des informations symboliques de débuggage (option <code>-g</code>).</em></p>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="debugger-un-programme">Debugger un programme</h2>
+					</section><section><h2 id="debugger-un-programme">Debugger un programme</h2>
 					<div style="font-size: 0.9em">
 					
 					<p>Il est possible d’utiliser gdb pour debugger un programme directement:</p>
@@ -876,56 +923,56 @@ int input, i;
 					</ul>
 					</div>
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="les-pointeurs">Les pointeurs</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="concept">Concept</h2>
+					</section><section><h2 id="concept">Concept</h2>
 					<p><img src="pointeurs.svg" alt=""></p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="equivalence-pointeurs--tableaux">Equivalence pointeurs ↔ tableaux</h2>
+					</section><section><h2 id="equivalence-pointeurs--tableaux">Equivalence pointeurs ↔ tableaux</h2>
 					<p>Un tableau (e.g. chaine de caractère) est représentable par un pointeur et une taille.</p>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
-					  <span class="hljs-keyword">char</span> *chainePtr;
-					  <span class="hljs-keyword">char</span> chaineTab[] = <span class="hljs-string">"Je suis bien content !"</span>;
-					  <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> *intPtr, i;
-					  <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> intTab[TAILLE_TAB];
+					<pre><code class="c hljs">int main(int argc, char</span>* argv[])</span> </span>{
+					  char</span> *chainePtr;
+					  char</span> chaineTab[] = <span class="hljs-string">"Je suis bien content !";
+					  long</span> long</span> int *intPtr, i;
+					  long</span> long</span> int intTab[TAILLE_TAB];
 					
-					  <span class="hljs-comment">//Initialisation du tableau d'entiers</span>
-					  <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;TAILLE_TAB;i++)
-						intTab[i] = i+<span class="hljs-number">1</span>;
+					  //Initialisation du tableau d'entiers</span>
+					  for</span>(i=0;i&lt;TAILLE_TAB;i++)
+						intTab[i] = i+1;
 					
-					  <span class="hljs-comment">//Mettre les pointeurs sur les tableaux</span>
-					  intPtr = intTab; <span class="hljs-comment">//equivalent à intPtr = &amp;intTab[0];</span>
+					  //Mettre les pointeurs sur les tableaux</span>
+					  intPtr = intTab; //equivalent à intPtr = &amp;intTab[0];</span>
 					  chainePtr = chaineTab;
 					
-					  <span class="hljs-comment">//Affichage des equivalences</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Adresse chainPtr: %s, contenu chaineTab: %s\n"</span>, chainePtr, chaineTab);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Adresse chainePtr: %x, adresse chaineTab: %x\n"</span>, chainePtr, chaineTab);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Contenu chainPtr: %s, contenu chaineTab: %s\n"</span>, chainePtr, chaineTab);
+					  //Affichage des equivalences</span>
+					  printf("Adresse chainPtr: %s, contenu chaineTab: %s\n"</span>, chainePtr, chaineTab);
+					  printf("Adresse chainePtr: %x, adresse chaineTab: %x\n"</span>, chainePtr, chaineTab);
+					  printf("Contenu chainPtr: %s, contenu chaineTab: %s\n"</span>, chainePtr, chaineTab);
 					
-					  <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;TAILLE_TAB;i++)
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%ld = %ld\n"</span>, *(intPtr+i), intTab[i]);
-					}</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+					  for</span>(i=0;i&lt;TAILLE_TAB;i++)
+						printf("%ld = %ld\n"</span>, *(intPtr+i), intTab[i]);
+					}</code></pre></section><section><h2 id="question">Question</h2>
 					<p style="text-align: center">Quelle est l'équivalence tab[i][j] sous forme de pointeurs ?</p>
 					<!-- -->
 					
 					<p style="text-align: center"><br><br>
 					Quelle est la différence de taille entre</p>
 					<!-- -->
-					<pre><code class="c hljs"><span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>*)</code></pre><p style="text-align: center">et <!-- --></p>
-					<pre><code class="c hljs"><span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span>*)</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="les-pointeurs-pour-les-chaines-de-caractères">Les pointeurs pour les chaines de caractères</h2>
+					<pre><code class="c hljs">sizeof</span>(char</span>*)</code></pre><p style="text-align: center">et <!-- --></p>
+					<pre><code class="c hljs">sizeof</span>(long</span> int*)</code></pre></section><section><h2 id="les-pointeurs-pour-les-chaines-de-caractères">Les pointeurs pour les chaines de caractères</h2>
 					<p>En fait toutes les entêtes de fonctions utilisant des chaines de caractère
 					utilisent char*.</p>
 					<p>Mais attention il reste des différences:</p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Exemple de difference:</span>
-					<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Taille pointeur: %d, Taille tableau : %d\n"</span>, <span class="hljs-keyword">sizeof</span>(intPtr), <span class="hljs-keyword">sizeof</span>(intTab));
-					<span class="hljs-comment">//Output: Taille Pointeur: 4, Taille tableau: 160 (20*8, 8 taille d’un long long int)</span></code></pre><div class="fragment" data-fragment-index="0">
+					<pre><code class="c hljs">//Exemple de difference:</span>
+					printf("Taille pointeur: %d, Taille tableau : %d\n"</span>, sizeof</span>(intPtr), sizeof</span>(intTab));
+					//Output: Taille Pointeur: 4, Taille tableau: 160 (20*8, 8 taille d’un long long int)</span></code></pre><div class="fragment" data-fragment-index="0">
 					
 					<p><code>const</code> permet de s’assurer qu’une chaine de caractères (ou toute valeur pointée) ne soit pas modifiée par la fonction:</p>
-					<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">afficheChaine</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *tab)</span>
+					<pre><code class="c hljs">int afficheChaine(const</span> char</span> *tab)</span>
 					</span>{
-					  <span class="hljs-keyword">while</span>(*tab) <span class="hljs-comment">//Equivalent à while(*tab != '\0')</span>
+					  while</span>(*tab) //Equivalent à while(*tab != '\0')</span>
 						<span class="hljs-built_in">putchar</span>(*(tab++));
-					  <span class="hljs-built_in">puts</span>(<span class="hljs-string">"\n"</span>);
-					  <span class="hljs-comment">//*tab = 'a'; //Erreur à la compilation !</span>
+					  <span class="hljs-built_in">puts</span>(<span class="hljs-string">"\n");
+					  //*tab = 'a'; //Erreur à la compilation !</span>
 					}</code></pre></div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="allocation-dynamique">Allocation dynamique</h2>
+					</section><section><h2 id="allocation-dynamique">Allocation dynamique</h2>
 					<div style="font-size:0.85em">
 					
 					<p>L'allocation dynamique ce fait <strong>sur le tas</strong>:</p>
@@ -942,37 +989,37 @@ int input, i;
 					<li><code>free(ptr)</code>: libère l’espace mémoire pointé par ptr. <strong>Ne remet pas ptr à NULL !</strong></li>
 					</ul>
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="exemple-dallocation-dynamique">Exemple d'allocation dynamique</h2>
-					<pre style="font-size:0.65em; height:600px"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
-					  <span class="hljs-keyword">float</span> *dynFloat = <span class="hljs-literal">NULL</span>;
-					  <span class="hljs-keyword">char</span> *buffer = <span class="hljs-literal">NULL</span>;
-					  <span class="hljs-keyword">int</span> taille;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Entrer la taille desiree: "</span>); <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;taille);
+					</section><section><h2 id="exemple-dallocation-dynamique">Exemple d'allocation dynamique</h2>
+					<pre style="font-size:0.65em; height:600px"><code class="c hljs">#include&lt;stdlib.h&gt;
+					#include&lt;stdio.h&gt;
+					int main(void)</span> </span>{
+					  float</span> *dynFloat = <span class="hljs-literal">NULL;
+					  char</span> *buffer = <span class="hljs-literal">NULL;
+					  int taille;
+					  printf("Entrer la taille desiree: "); <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;taille);
 					
-					  <span class="hljs-comment">//malloc et calloc retournent void*, il est donc nécéssaire de</span>
-					  <span class="hljs-comment">//faire un cast dans le bon type du pointeur</span>
-					  dynFloat = <span class="hljs-built_in">malloc</span>(taille*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">float</span>));
-					  buffer = <span class="hljs-built_in">calloc</span>(taille, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>));
+					  //malloc et calloc retournent void*, il est donc nécéssaire de</span>
+					  //faire un cast dans le bon type du pointeur</span>
+					  dynFloat = <span class="hljs-built_in">malloc</span>(taille*sizeof</span>(float));
+					  buffer = <span class="hljs-built_in">calloc</span>(taille, sizeof</span>(char));
 					
-					  <span class="hljs-comment">//Erreur lors de l'allocation</span>
-					  <span class="hljs-keyword">if</span>((dynFloat == <span class="hljs-literal">NULL</span>) || (buffer == <span class="hljs-literal">NULL</span>)) {
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Erreur: impossible d'allouer la memoire necessaire.\n"</span>);
-						<span class="hljs-built_in">free</span>(buffer); <span class="hljs-built_in">free</span>(dynFloat);<span class="hljs-comment">//Ne fait rien si == NULL</span>
-						<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">//ou exit(1)</span>
+					  //Erreur lors de l'allocation</span>
+					  if</span>((dynFloat == <span class="hljs-literal">NULL) || (buffer == <span class="hljs-literal">NULL)) {
+						printf("Erreur: impossible d'allouer la memoire necessaire.\n");
+						<span class="hljs-built_in">free</span>(buffer); <span class="hljs-built_in">free</span>(dynFloat);//Ne fait rien si == NULL</span>
+						return</span> 1;//ou exit(1)</span>
 					  }
 					
-					  *buffer = <span class="hljs-string">'H'</span>; *(buffer+<span class="hljs-number">1</span>) = <span class="hljs-string">'A'</span>, *(buffer+<span class="hljs-number">2</span>) = <span class="hljs-string">'L'</span>;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Contenu buffer: %s\n"</span>, buffer); <span class="hljs-comment">//Ok car mise à zero (calloc)</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Contenu float: %f\n"</span>, *(dynFloat+<span class="hljs-number">3</span>)); <span class="hljs-comment">//valeur indéfinie</span>
+					  *buffer = <span class="hljs-string">'H'; *(buffer+1) = <span class="hljs-string">'A'</span>, *(buffer+2) = <span class="hljs-string">'L';
+					  printf("Contenu buffer: %s\n"</span>, buffer); //Ok car mise à zero (calloc)</span>
+					  printf("Contenu float: %f\n"</span>, *(dynFloat+3)); //valeur indéfinie</span>
 					
-					  <span class="hljs-comment">//Libération de la mémoire</span>
+					  //Libération de la mémoire</span>
 					  <span class="hljs-built_in">free</span>(buffer); <span class="hljs-built_in">free</span>(dynFloat);
-					  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+					  return</span> 0;
 					}</code></pre><!-- -->
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="structures-de-données">Structures de données</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="définition-de-nouveaux-types">Définition de nouveaux types</h2>
+					</section><section><h2 id="définition-de-nouveaux-types">Définition de nouveaux types</h2>
 					<p>Il est possible de définir de nouveaux type de variable grâce au mot clé <code>typedef</code>.</p>
 					<p>Cela permet de:</p>
 					<ul>
@@ -980,19 +1027,19 @@ int input, i;
 					<li>garantir une opacité du point de vu de l’utilisateur (il n’a pas besoin de savoir ce qui ce cache derrière le type définit);</li>
 					<li>changer le type d’une variable sans avoir à changer toutes les entêtes de fonctions.</li>
 					</ul>
-					<pre><code class="C hljs"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> <span class="hljs-keyword">bool</span>; <span class="hljs-comment">//definition d'un type booleen</span>
+					<pre><code class="C hljs">typedef</span> unsigned</span> char</span> bool;//definition d'un type booleen</span>
 					
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> number; <span class="hljs-comment">//peut etre facilement remplacé par un float</span>
-					<span class="hljs-function">number <span class="hljs-title">traiteLesDonnees</span><span class="hljs-params">(number x)</span></span>; <span class="hljs-comment">//Fonction qui ne changera pas (à priori)</span>
+					typedef</span> int number; //peut etre facilement remplacé par un float</span>
+					number traiteLesDonnees(number x);//Fonction qui ne changera pas (à priori)</span>
 					
-					<span class="hljs-comment">// TYPES OPAQUES</span>
-					<span class="hljs-keyword">typedef</span> <span class="hljs-comment">/*something*/</span> <span class="hljs-keyword">time_t</span>; <span class="hljs-comment">//Definition officielle de time_t (time.h)</span>
-					<span class="hljs-comment">//It is almost universally expected to be an integral value representing</span>
-					<span class="hljs-comment">// the number of seconds elapsed since 00:00 hours, Jan 1, 1970 UTC.</span>
+					// TYPES OPAQUES</span>
+					typedef</span> /*something*/</span> time_t;//Definition officielle de time_t (time.h)</span>
+					//It is almost universally expected to be an integral value representing</span>
+					// the number of seconds elapsed since 00:00 hours, Jan 1, 1970 UTC.</span>
 					
-					<span class="hljs-comment">// Definition du type FILE utilisé (mais pas déclaré) dans stdio.h</span>
-					<span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">IO_FILE</span>;</span>
-					<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">IO_FILE</span> <span class="hljs-title">FILE</span>;</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="définition-de-structures">Définition de structures</h2>
+					// Definition du type FILE utilisé (mais pas déclaré) dans stdio.h</span>
+					<span class="hljs-class">struct</span> _IO_FILE;</span>
+					typedef</span> <span class="hljs-class">struct</span> _IO_FILE</span> FILE;</span></code></pre></section><section><h2 id="définition-de-structures">Définition de structures</h2>
 					<p>Une structure de donnée est une collection de données hétérogènes:</p>
 					<ul>
 					<li>chaque champ peut avoir un type différent;</li>
@@ -1005,138 +1052,138 @@ int input, i;
 					</div>
 					
 					<p>Déclaration d'une variable</p>
-					<pre><code class="c hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
-					  <span class="hljs-keyword">int</span> valueInt;
-					  <span class="hljs-keyword">float</span> valueFloat;
-					  <span class="hljs-keyword">char</span> valueChar;
+					<pre><code class="c hljs"><span class="hljs-class">struct</span> {</span>
+					  int valueInt;
+					  float</span> valueFloat;
+					  char</span> valueChar;
 					} maVariable;</code></pre><p>Attention: le mot clef struct ne définit pas un type !</p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+					</section><section><h2 id="question">Question</h2>
 					<p>Quel type de structures de données complexe les <code>struct</code> permettent de construire ?</p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-de-structures-définitions">Utilisation de structures (définitions)</h2>
+					</section><section><h2 id="utilisation-de-structures-définitions">Utilisation de structures (définitions)</h2>
 					<p>Une structure est définie et appelée de la manière suivante:</p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Déclaration de la structure</span>
-					<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">personne</span> {</span>
-					  <span class="hljs-keyword">char</span>* nom;
-					  <span class="hljs-keyword">char</span>* prenom;
-					  <span class="hljs-keyword">int</span> age;
+					<pre><code class="c hljs">//Déclaration de la structure</span>
+					<span class="hljs-class">struct</span> personne</span> {</span>
+					  char</span>* nom;
+					  char</span>* prenom;
+					  int age;
 					};
 					
-					<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">personne</span> <span class="hljs-title">unePersonne</span>;</span> <span class="hljs-comment">// une instance de la structure;</span></code></pre><p>Pour plus de facilité on a souvent recours aux définitions de types:</p>
-					<pre><code class="c hljs"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">el</span> {</span> <span class="hljs-comment">//el est necessaire pour faire les declaration de pointeurs</span>
-					  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">el</span> *<span class="hljs-title">suivant</span>;</span>
-					  <span class="hljs-keyword">void</span>* contenu;
-					} <span class="hljs-keyword">element_t</span>; <span class="hljs-comment">//A partir de cette définition on peu déclarer 'element_t unElement'</span>
+					<span class="hljs-class">struct</span> personne</span> unePersonne;</span> // une instance de la structure;</span></code></pre><p>Pour plus de facilité on a souvent recours aux définitions de types:</p>
+					<pre><code class="c hljs">typedef</span> <span class="hljs-class">struct</span> el</span> {</span> //el est necessaire pour faire les declaration de pointeurs</span>
+					  <span class="hljs-class">struct</span> el</span> *suivant;</span>
+					  void</span>* contenu;
+					} element_t;//A partir de cette définition on peu déclarer 'element_t unElement'</span>
 					
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">element_t</span>* listeChainee;</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-de-structures-api-personne">Utilisation de structures (API personne)</h2>
-					<pre style="font-size:0.7em; height:470px"><code class="c hljs"><span class="hljs-function">struct personne <span class="hljs-title">createPersonne</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* nom, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* prenom, <span class="hljs-keyword">int</span> age)</span> </span>{
-					  <span class="hljs-keyword">int</span> length;
-					  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">personne</span> <span class="hljs-title">pers</span>;</span>
+					typedef</span> element_t</span>* listeChainee;</code></pre></section><section><h2 id="utilisation-de-structures-api-personne">Utilisation de structures (API personne)</h2>
+					<pre style="font-size:0.7em; height:470px"><code class="c hljs">struct personne createPersonne(const</span> char</span>* nom, const</span> char</span>* prenom, int age)</span> </span>{
+					  int length;
+					  <span class="hljs-class">struct</span> personne</span> pers;</span>
 					
-					  length = <span class="hljs-built_in">strlen</span>(nom) + <span class="hljs-number">1</span>; <span class="hljs-comment">//+1 pour '\0'</span>
-					  pers.nom = <span class="hljs-built_in">calloc</span>(length, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>));
-					  pers.prenom = <span class="hljs-built_in">calloc</span>(<span class="hljs-built_in">strlen</span>(prenom) + <span class="hljs-number">1</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>));
-					  <span class="hljs-keyword">if</span>((pers.nom == <span class="hljs-literal">NULL</span>) || (pers.prenom == <span class="hljs-literal">NULL</span>)) {
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Erreur allocation mémoire\n"</span>);
-						<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+					  length = <span class="hljs-built_in">strlen</span>(nom) + 1;//+1 pour '\0'</span>
+					  pers.nom = <span class="hljs-built_in">calloc</span>(length, sizeof</span>(char));
+					  pers.prenom = <span class="hljs-built_in">calloc</span>(<span class="hljs-built_in">strlen</span>(prenom) + 1</span>, sizeof</span>(char));
+					  if</span>((pers.nom == <span class="hljs-literal">NULL) || (pers.prenom == <span class="hljs-literal">NULL)) {
+						printf("Erreur allocation mémoire\n");
+						<span class="hljs-built_in">exit</span>(1);
 					  }
 					  <span class="hljs-built_in">strcpy</span>(pers.nom, nom);
 					  <span class="hljs-built_in">strcpy</span>(pers.prenom, prenom);
 					  pers.age = age;
-					  <span class="hljs-keyword">return</span> pers;
+					  return</span> pers;
 					}
 					
-					<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">affichePersonne</span><span class="hljs-params">(struct personne pers)</span> </span>{
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Nom: %s, Prenom: %s, Age: %d\n"</span>, pers.nom, pers.prenom, pers.age);
+					void</span> affichePersonne(struct personne pers)</span> </span>{
+					  printf("Nom: %s, Prenom: %s, Age: %d\n"</span>, pers.nom, pers.prenom, pers.age);
 					}</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-de-structures-api-listes">Utilisation de structures (API listes)</h2>
-					<pre style="font-size:0.7em; height:520px"><code class="c hljs"><span class="hljs-function">listeChainee <span class="hljs-title">initListeChaineeVide</span><span class="hljs-params">()</span> </span>{
-					  <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+					</section><section><h2 id="utilisation-de-structures-api-listes">Utilisation de structures (API listes)</h2>
+					<pre style="font-size:0.7em; height:520px"><code class="c hljs">listeChainee initListeChaineeVide()</span> </span>{
+					  return</span> <span class="hljs-literal">NULL;
 					}
 					
-					<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addListe</span><span class="hljs-params">(listeChainee* liste, <span class="hljs-keyword">void</span>* contenu)</span> </span>{
-					  <span class="hljs-comment">//Creation d'un element et ajout dans la liste</span>
-					  <span class="hljs-keyword">element_t</span> *unEl = (<span class="hljs-keyword">element_t</span>*) <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">element_t</span>));
-					  unEl-&gt;contenu = contenu; <span class="hljs-comment">//(*unEl).contenu se transforme en unEl-&gt;contenu</span>
+					void</span> addListe(listeChainee* liste, void</span>* contenu)</span> </span>{
+					  //Creation d'un element et ajout dans la liste</span>
+					  element_t</span> *unEl = (element_t</span>*) <span class="hljs-built_in">malloc</span>(sizeof</span>(element_t));
+					  unEl-&gt;contenu = contenu; //(*unEl).contenu se transforme en unEl-&gt;contenu</span>
 					  unEl-&gt;suivant = *liste;
 					  *liste = unEl;
 					}
 					
-					<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">removeListe</span><span class="hljs-params">(listeChainee *liste)</span> </span>{
+					void</span>* removeListe(listeChainee *liste)</span> </span>{
 					  listeChainee tmp;
-					  <span class="hljs-keyword">void</span>* ret;
+					  void</span>* ret;
 					
 					  ret = (*liste)-&gt;contenu;
 					  tmp = *liste;
 					  *liste = tmp-&gt;suivant;
-					  <span class="hljs-built_in">free</span>(tmp); <span class="hljs-comment">//Libération de la mémoire</span>
-					  <span class="hljs-keyword">return</span> ret;
+					  <span class="hljs-built_in">free</span>(tmp); //Libération de la mémoire</span>
+					  return</span> ret;
 					}</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-de-structures-programme">Utilisation de structures (programme)</h2>
-					<pre style="font-size:0.6em;height:550px"><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+					</section><section><h2 id="utilisation-de-structures-programme">Utilisation de structures (programme)</h2>
+					<pre style="font-size:0.6em;height:550px"><code class="c hljs">int main(void)</span>
 					</span>{
-						<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">personne</span> *<span class="hljs-title">ptPersonne</span>;</span>
+						<span class="hljs-class">struct</span> personne</span> *ptPersonne;</span>
 						listeChainee maListe = initListeChaineeVide();
 					
-						<span class="hljs-comment">//Une première personne ajoutée</span>
-						unePersonne = createPersonne(<span class="hljs-string">"Rodepeter"</span>, <span class="hljs-string">"Jessica"</span>, <span class="hljs-number">36</span>);
+						//Une première personne ajoutée</span>
+						unePersonne = createPersonne(<span class="hljs-string">"Rodepeter"</span>, <span class="hljs-string">"Jessica"</span>, 36);
 						affichePersonne(unePersonne);
 						addListe(&amp;maListe, &amp;unePersonne);
 					
-						<span class="hljs-comment">//Une seconde personne ajoutée</span>
-						<span class="hljs-keyword">if</span>((ptPersonne = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(struct personne))) == <span class="hljs-literal">NULL</span>)
+						//Une seconde personne ajoutée</span>
+						if</span>((ptPersonne = <span class="hljs-built_in">malloc</span>(sizeof</span>(struct personne))) == <span class="hljs-literal">NULL)
 						{
-							<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Erreur mémoire\n"</span>);
-							<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+							printf("Erreur mémoire\n");
+							return</span> 1;
 						}
-						*ptPersonne = createPersonne(<span class="hljs-string">"Page"</span>, <span class="hljs-string">"Marc"</span>, <span class="hljs-number">8</span>);
+						*ptPersonne = createPersonne(<span class="hljs-string">"Page"</span>, <span class="hljs-string">"Marc"</span>, 8);
 						affichePersonne(*ptPersonne);
 						addListe(&amp;maListe, ptPersonne);
 					
-						<span class="hljs-comment">//Recupère le contenu de la liste</span>
+						//Recupère le contenu de la liste</span>
 						affichePersonne(*( (struct personne*) removeListe(&amp;maListe)));
 						affichePersonne(*( (struct personne*) removeListe(&amp;maListe)));
 						<span class="hljs-built_in">free</span>(ptPersonne);
 					
-						<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+						return</span> 0;
 					}</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="enumérations">Enumérations</h2>
+					</section><section><h2 id="enumérations">Enumérations</h2>
 					<p>Les énumérations permettent de créer des types:</p>
 					<ul>
 					<li>dont les valeurs sont discrètes, qualitative et éventuellement ordonnées;</li>
 					<li>en fait ces valeurs sont représentées par des entiers.</li>
 					</ul>
 					<p>Exemples de déclarations:</p>
-					<pre><code class="c hljs"><span class="hljs-keyword">enum</span> typeMedaille { bronze, argent, <span class="hljs-keyword">or</span> };
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">enum</span> { <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span> } booleen;
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">enum</span> { lundi = <span class="hljs-number">1</span>, mardi, mercredi, jeudi, vendredi, samedi, dimanche } jours;
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">enum</span> { micro = <span class="hljs-number">2</span>, mineur = <span class="hljs-number">4</span>, leger = <span class="hljs-number">5</span>, modere = <span class="hljs-number">6</span>, major = <span class="hljs-number">7</span>, important = <span class="hljs-number">9</span>,
-								   devastateur = <span class="hljs-number">10</span>} richter;</code></pre><p>Exemples d'utilisations:</p>
+					<pre><code class="c hljs">enum</span> typeMedaille { bronze, argent, or</span> };
+					typedef</span> enum</span> { <span class="hljs-literal">false</span>,  } booleen;
+					typedef</span> enum</span> { lundi = 1</span>, mardi, mercredi, jeudi, vendredi, samedi, dimanche } jours;
+					typedef</span> enum</span> { micro = 2</span>, mineur = 4</span>, leger = 5</span>, modere = 6</span>, major = 7</span>, important = 9</span>,
+								   devastateur = 10</span>} richter;</code></pre><p>Exemples d'utilisations:</p>
 					<pre><code class="c hljs">jours aujourdhui;
 					aujourdhui = mardi;
-					<span class="hljs-keyword">if</span>(aujourdhui != mardi)
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Que faites-vous la ?\n"</span>);
-					<span class="hljs-keyword">else</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Merci d'etre la.\n"</span>);</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="enumérations">Enumérations</h2>
-					<pre><code class="c hljs"><span class="hljs-keyword">enum</span> typeMedaille maMedaille = <span class="hljs-keyword">or</span>;
-					<span class="hljs-keyword">switch</span>(maMedaille) <span class="hljs-comment">//Séparer les different cas que peut prendre une variable</span>
+					if</span>(aujourdhui != mardi)
+					  printf("Que faites-vous la ?\n");
+					else</span>
+					  printf("Merci d'etre la.\n");</code></pre></section><section><h2 id="enumérations">Enumérations</h2>
+					<pre><code class="c hljs">enum</span> typeMedaille maMedaille = or;
+					switch</span>(maMedaille) //Séparer les different cas que peut prendre une variable</span>
 					{
-					  <span class="hljs-keyword">case</span> bronze:
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Peux mieux faire !\n"</span>);
-						<span class="hljs-keyword">break</span>; <span class="hljs-comment">//A ne pas oublier</span>
-					  <span class="hljs-keyword">case</span> argent:
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Pas mal !\n"</span>);
-						<span class="hljs-keyword">break</span>;
-					  <span class="hljs-keyword">case</span> <span class="hljs-keyword">or</span>:
-						<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Le controle est par la...\n"</span>);
-						<span class="hljs-keyword">break</span>;
-					  <span class="hljs-keyword">default</span>:
+					  case</span> bronze:
+						printf("Peux mieux faire !\n");
+						break;//A ne pas oublier</span>
+					  case</span> argent:
+						printf("Pas mal !\n");
+						break;
+					  case</span> or</span>:
+						printf("Le controle est par la...\n");
+						break;
+					  default</span>:
 						<span class="hljs-built_in">printf</span>(“Erreur: type de medaille non connu\n<span class="hljs-string">");
 					}</span></code></pre><p>Attention les énumération ne sont PAS fortement typées:</p>
-					<pre><code class="c hljs"><span class="hljs-comment">//Toutes ces affectations sont autorisées !!!</span>
-					<span class="hljs-comment">//Mais à éviter !</span>
-					<span class="hljs-keyword">int</span> tremblementFukushima = <span class="hljs-number">9</span>; <span class="hljs-comment">//Déclaré comme entier au lieux de richter</span>
-					richter tremblement = <span class="hljs-number">3</span>; <span class="hljs-comment">//La valeur 3 n’est pas dans la liste</span>
-					booleen estValideMaisFaux = mardi; <span class="hljs-comment">//mardi = 2 -&gt; n’est pas dans la liste</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="unions">Unions</h2>
+					<pre><code class="c hljs">//Toutes ces affectations sont autorisées !!!</span>
+					//Mais à éviter !</span>
+					int tremblementFukushima = 9;//Déclaré comme entier au lieux de richter</span>
+					richter tremblement = 3;//La valeur 3 n’est pas dans la liste</span>
+					booleen estValideMaisFaux = mardi; //mardi = 2 -&gt; n’est pas dans la liste</span></code></pre></section><section><h2 id="unions">Unions</h2>
 					<p>Comme les structures, une union a plusieurs champs mais dans le même espace mémoire:</p>
 					<ul>
 					<li>l’adresse de chaque champs est la même;</li>
@@ -1149,10 +1196,10 @@ int input, i;
 					
 					<img src="struct.svg">
 					
-					<pre><code class="c hljs"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
-					  <span class="hljs-keyword">int</span> valueInt;
-					  <span class="hljs-keyword">float</span> valueFloat;
-					  <span class="hljs-keyword">char</span> valueChar;
+					<pre><code class="c hljs">typedef</span> <span class="hljs-class">struct</span> {</span>
+					  int valueInt;
+					  float</span> valueFloat;
+					  char</span> valueChar;
 					} u;</code></pre></div>
 					
 					<div>
@@ -1160,14 +1207,14 @@ int input, i;
 					
 					<img src="unions.svg">
 					
-					<pre><code class="c hljs"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">union</span> {
-					  <span class="hljs-keyword">int</span> valueInt;
-					  <span class="hljs-keyword">float</span> valueFloat;
-					  <span class="hljs-keyword">char</span> valueChar;
+					<pre><code class="c hljs">typedef</span> union</span> {
+					  int valueInt;
+					  float</span> valueFloat;
+					  char</span> valueChar;
 					} s;</code></pre></div>
 					
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="unions">Unions</h2>
+					</section><section><h2 id="unions">Unions</h2>
 					<div style="font-size:0.85em">
 					
 					<p>Utilisé pour:</p>
@@ -1178,26 +1225,26 @@ int input, i;
 					</ul>
 					</div>
 					
-					<pre style="font-size:0.6em"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span>
-					<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">union</span> {
-					  <span class="hljs-keyword">int16_t</span> valueInt;
-					  <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
-						<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> msb; <span class="hljs-comment">//most significant byte</span>
-						<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> lsb; <span class="hljs-comment">//least significant byte</span>
+					<pre style="font-size:0.6em"><code class="c hljs">#include&lt;stdio.h&gt;
+					#include&lt;stdint.h&gt;
+					typedef</span> union</span> {
+					  int16_t</span> valueInt;
+					  <span class="hljs-class">struct</span> {</span>
+						unsigned</span> char</span> msb; //most significant byte</span>
+						unsigned</span> char</span> lsb; //least significant byte</span>
 					  } bytes;
 					} convert;
 					
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+					int main(void)</span> </span>{
 					  convert value;
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Entrer un entier: "</span>);
+					  printf("Entrer un entier: ");
 					  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;value);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur entree: %d\n"</span>, value.valueInt);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Valeur entree (hexadecimal): %x\n"</span>, value);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"MSB: h%02x, LSB h%02x\n"</span>, value.bytes.lsb, value.bytes.msb);
+					  printf("Valeur entree: %d\n"</span>, value.valueInt);
+					  printf("Valeur entree (hexadecimal): %x\n"</span>, value);
+					  printf("MSB: h%02x, LSB h%02x\n"</span>, value.bytes.lsb, value.bytes.msb);
 					}</code></pre><!-- -->
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="organisation-dun-programme">Organisation d'un programme</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="modules">Modules</h2>
+					</section><section><h2 id="modules">Modules</h2>
 					<p>Un programme complexe est divisé en modules (.c + .h)</p>
 					<p style="text-align:center"><img src="C_H.svg" alt=""></p>
 					<!-- -->
@@ -1209,19 +1256,19 @@ int input, i;
 					<li>répartir le travail entre programmeurs;</li>
 					<li>favoriser le partage de code (bibliothèques).</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compilation-de-modules">Compilation de modules</h2>
+					</section><section><h2 id="compilation-de-modules">Compilation de modules</h2>
 					<p>On peu utiliser un module en le compilant avec son programme principal:</p>
 					<p style="text-align:center"><img src="compilation_module.svg" alt=""></p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compilation-de-librairie">Compilation de librairie</h2>
+					</section><section><h2 id="compilation-de-librairie">Compilation de librairie</h2>
 					<p>On peu utiliser un module en créant une librairie (statique dans cet exemple):</p>
 					<p style="text-align:center"><img src="compilation_lib.svg" alt=""></p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="lier-une-librairie">Lier une librairie</h2>
+					</section><section><h2 id="lier-une-librairie">Lier une librairie</h2>
 					<p>Pour utiliser la librairie il faut la lier:</p>
 					<p style="text-align:center"><img src="compilation_lib_exec.svg" alt=""></p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="types-opaques">Types opaques</h2>
+					</section><section><h2 id="types-opaques">Types opaques</h2>
 					<div style="font-size: 0.9em">
 					
 					<p>Les types opaques sont des structures de données (i.e. typedef) qui ne sont <strong>pas définies dans l’interface</strong> (i.e. fichier header).</p>
@@ -1237,17 +1284,17 @@ int input, i;
 					<div>
 					
 					<p style="margin-bottom: 0px">ListeChainee.c <!-- --></p>
-					<pre style="width: 100%"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"listeChainee.h"</span></span>
+					<pre style="width: 100%"><code class="c hljs">#include"listeChainee.h"</span></span>
 					
-					<span class="hljs-comment">/*Déclaration dans le .c pour une
+					/*Déclaration dans le .c pour une
 					utilisation privée */</span>
-					<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">el</span> {</span>
-					  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">el</span> *<span class="hljs-title">suivant</span>;</span>
-					  <span class="hljs-keyword">void</span> *contenu;
-					} <span class="hljs-keyword">element_t</span>;
+					typedef</span> <span class="hljs-class">struct</span> el</span> {</span>
+					  <span class="hljs-class">struct</span> el</span> *suivant;</span>
+					  void</span> *contenu;
+					} element_t;
 					
-					<span class="hljs-function">listeChainee <span class="hljs-title">initListeChaineeVide</span><span class="hljs-params">()</span> </span>{
-					  <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+					listeChainee initListeChaineeVide()</span> </span>{
+					  return</span> <span class="hljs-literal">NULL;
 					}</code></pre><!-- -->
 					
 					</div>
@@ -1255,17 +1302,17 @@ int input, i;
 					<div>
 					
 					<p style="margin-bottom: 0px">Listechainee.h <!-- --></p>
-					<pre style="width: 100%"><code class="c hljs"><span class="hljs-comment">// Anciennement typedef element_t* listeChainee;</span>
-					<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">el</span>* <span class="hljs-title">listeChainee</span>;</span>
+					<pre style="width: 100%"><code class="c hljs">// Anciennement typedef element_t* listeChainee;</span>
+					typedef</span> <span class="hljs-class">struct</span> el</span>* listeChainee;</span>
 					
-					<span class="hljs-function">listeChainee <span class="hljs-title">initListeChaineeVide</span><span class="hljs-params">()</span></span>;
-					<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addListe</span><span class="hljs-params">(listeChainee* liste, <span class="hljs-keyword">void</span>* contenu)</span></span>;
-					<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">removeListe</span><span class="hljs-params">(listeChainee *liste)</span></span>;</code></pre><!-- -->
-					
-					</div>
+					listeChainee initListeChaineeVide()</span>;
+					void</span> addListe(listeChainee* liste, void</span>* contenu)</span>;
+					void</span>* removeListe(listeChainee *liste)</span>;</code></pre><!-- -->
 					
 					</div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="fonctions-static">Fonctions <code>static</code></h2>
+					
+					</div>
+					</section><section><h2 id="fonctions-static">Fonctions <code>static</code></h2>
 					<p>Le mot clef static permet de:</p>
 					<ul>
 					<li>s’assurer que une fonction sera locale à un module (i.e. elle ne pourra pas être utilisée dans un autre module);</li>
@@ -1276,14 +1323,14 @@ int input, i;
 					<div>
 					
 					<p style="margin-bottom: 0px">main.c <!-- --></p>
-					<pre style="width: 400px"><code data-line-numbers="" class="c hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// PAS DE CONFLIT !</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Main show\n"</span>);</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  interface();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="2-5" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// PAS DE CONFLIT !</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Main show\n"</span>);</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  interface();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre><!-- -->
+					<pre style="width: 400px"><code data-line-numbers="" class="c hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">#include&lt;stdio.h&gt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> show()</span> </span>{ // PAS DE CONFLIT !</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  printf("Main show\n");</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> main()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  interface();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="2-5" class="c hljs fragment has-highlights" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">#include&lt;stdio.h&gt;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> show()</span> </span>{ // PAS DE CONFLIT !</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  printf("Main show\n");</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> main()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  interface();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre><!-- -->
 					
 					</div>
 					
 					<div>
 					
 					<p style="margin-bottom: 0px">interface.c <!-- --></p>
-					<pre style="width: 400px"><code data-line-numbers="" class="c hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>{  <span class="hljs-comment">//PAS DE CONFLIT !</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Interface show\n"</span>);</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">interface</span><span class="hljs-params">()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="2-5" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>{  <span class="hljs-comment">//PAS DE CONFLIT !</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Interface show\n"</span>);</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">interface</span><span class="hljs-params">()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre><!-- -->
+					<pre style="width: 400px"><code data-line-numbers="" class="c hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">#include&lt;stdio.h&gt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">static</span> void</span> show()</span> </span>{  //PAS DE CONFLIT !</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  printf("Interface show\n");</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> interface()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code><code data-line-numbers="2-5" class="c hljs fragment has-highlights" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">#include&lt;stdio.h&gt;</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">static</span> void</span> show()</span> </span>{  //PAS DE CONFLIT !</span></div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  printf("Interface show\n");</div></td></tr><tr class="highlight-line"><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">void</span> interface()</span> </span>{</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  show();</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre><!-- -->
 					
 					</div>
 					
@@ -1292,15 +1339,15 @@ int input, i;
 					
 					<p style="margin-top:0px">Attention le mot clef <code>static</code> est est aussi utilisé pour des variables mais il peu avoir un sens différent dans ce cas.</p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="exemple-dorgnanisation-dun-programme">Exemple d'orgnanisation d'un programme</h2>
+					</section><section><h2 id="exemple-dorgnanisation-dun-programme">Exemple d'orgnanisation d'un programme</h2>
 					<img src="orga_ex.svg" width="700px" style="text-align:center">
 					<!-- -->
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="makefiles">Makefiles</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="complexité-de-compilation-modulaire">Complexité de compilation modulaire</h2>
+					</section><section><h2 id="complexité-de-compilation-modulaire">Complexité de compilation modulaire</h2>
 					<p>Lorsque l’on a plusieurs modules qui dépendent les uns des autres il deviens difficile de savoir quel module il faut recompiler après une modification.</p>
 					<p style="text-align:center"><img src="makefiles.svg" alt=""></p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="création-dun-makefile">Création d'un makefile</h2>
+					</section><section><h2 id="création-dun-makefile">Création d'un makefile</h2>
 					<p>Un makefile est un fichier texte qui contient des objectifs de compilation:</p>
 					<ul>
 					<li>chaque objectif représente (en général) un fichier .o ou le programme;</li>
@@ -1312,7 +1359,7 @@ int input, i;
 					</ul>
 					<p style="text-align:center"><img src="makefiles_obj.svg" alt=""></p>
 					<!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="exemple-de-makefile">Exemple de Makefile</h2>
+					</section><section><h2 id="exemple-de-makefile">Exemple de Makefile</h2>
 					<pre style="font-size:0.6em"><code class="makefile hljs"><span class="hljs-section">paint: main.o images.o gui.o graphics.o</span>
 						gcc main.o images.o gui.o graphics.o -o paint
 					
@@ -1327,10 +1374,10 @@ int input, i;
 					
 					<span class="hljs-section">graphics.o: graphics.c graphics.h</span>
 						gcc -c graphics.c -o graphics.o</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="utilisation-dun-makefile">Utilisation d'un makefile</h2>
+					</section><section><h2 id="utilisation-dun-makefile">Utilisation d'un makefile</h2>
 					<p>Pour compiler il suffit de taper:</p>
 					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> make objectif</span></code></pre><p>Pour compiler le premier objectif:</p>
-					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> make</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="variables">Variables</h2>
+					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> make</span></code></pre></section><section><h2 id="variables">Variables</h2>
 					<div style="border: 10px solid gray; padding:10px">
 					
 					<p>On peut également ajouter des noms de variable pour effectuer des changements facilement ou générer le makefile automatiquement:</p>
@@ -1342,7 +1389,7 @@ int input, i;
 					<p>On peut aussi définir des variables lors de l'exécution de la commande make:</p>
 					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> make VARIABLE=value objectif</span></code></pre><p>Dans ce cas on utilise ?= si l'on souhaite remplacer la valeur de la variable dans le makefile par celle donnée en paramètre par l'utilisateur:</p>
 					<pre><code class="makefile hljs">VARIABLE ?= value</code></pre></div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="amélioration-dun-makefile-1">Amélioration d'un makefile (1)</h2>
+					</section><section><h2 id="amélioration-dun-makefile-1">Amélioration d'un makefile (1)</h2>
 					<pre style="font-size:0.6em"><code class="makefile hljs">CC = gcc
 					OBJS = main.o images.o gui.o graphics.o
 					CFLAGS = -g -Wall -c
@@ -1362,86 +1409,86 @@ int input, i;
 					
 					<span class="hljs-section">graphics.o: graphics.c graphics.h</span>
 						<span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(CFLAGS)</span> graphics.c -o graphics.o</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="branchements-conditionels">Branchements conditionels</h2>
+					</section><section><h2 id="branchements-conditionels">Branchements conditionels</h2>
 					<p>Les branchements permettent de définir des variables ou des commandes différentes suivant une condition.</p>
 					<p>Par exemple:</p>
 					<pre><code class="makefile hljs">libs_for_gcc = -lgnu
 					normal_libs =
 					
 					<span class="hljs-section">foo: <span class="hljs-variable">$(objects)</span></span>
-					<span class="hljs-keyword">ifeq</span> (<span class="hljs-variable">$(CC)</span>,gcc)
+					ifeq</span> (<span class="hljs-variable">$(CC)</span>,gcc)
 					   <span class="hljs-variable">$(CC)</span> -o foo <span class="hljs-variable">$(objects)</span> <span class="hljs-variable">$(libs_for_gcc)</span>
-					<span class="hljs-keyword">else</span>
+					else</span>
 					   <span class="hljs-variable">$(CC)</span> -o foo <span class="hljs-variable">$(objects)</span> <span class="hljs-variable">$(normal_libs)</span>
-					<span class="hljs-keyword">endif</span></code></pre><div style="font-size:0.8em">
+					endif</span></code></pre><div style="font-size:0.8em">
 					
 					<p>source: <a href="https://www.tutorialspoint.com/makefile/makefile_quick_guide.htm">tutorialpoint</a></p>
 					</div> <!-- -->
 					
 					<p>On peut aussi utiliser <code>ifneq</code>.</p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="amélioration-dun-makefile-2">Amélioration d'un makefile (2)</h2>
+					</section><section><h2 id="amélioration-dun-makefile-2">Amélioration d'un makefile (2)</h2>
 					<pre style="font-size:0.6em"><code class="makefile hljs">CC = gcc
 					OBJS = main.o images.o gui.o graphics.o
 					CFLAGS = -g -Wall -c
 					BLASLIB ?= openblas
 					
-					<span class="hljs-keyword">ifeq</span> (<span class="hljs-variable">$(BLASLIB)</span>, openblas)
+					ifeq</span> (<span class="hljs-variable">$(BLASLIB)</span>, openblas)
 						LFLAGS = -L /home/me/blas/openblas/lib -l openblas
-					<span class="hljs-keyword">else</span> <span class="hljs-keyword">ifeq</span> (<span class="hljs-variable">$(BLASLIB)</span>, cblas)
+					else</span> ifeq</span> (<span class="hljs-variable">$(BLASLIB)</span>, cblas)
 						LFLAGS = -L /home/me/blas/cblas/lib -l cblas
-					<span class="hljs-keyword">else</span>
-						<span class="hljs-variable">$(<span class="hljs-built_in">error</span> unknown library <span class="hljs-variable">$(BLASLIB)</span>)</span>
-					<span class="hljs-keyword">endif</span>
+					else</span>
+						<span class="hljs-variable">$(<span class="hljs-built_in">error</span> unknown library <span class="hljs-variable">$(BLASLIB))</span>
+					endif</span>
 					
 					<span class="hljs-section">paint: <span class="hljs-variable">$(OBJS)</span></span>
 						<span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(OBJS)</span> -o paint <span class="hljs-variable">$(LFLAGS)</span>
 					
 					...</code></pre><!-- -->
 					
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="objectifs-phony-bidon">Objectifs <code>PHONY</code> (bidon)</h2>
+					</section><section><h2 id="objectifs-phony-bidon">Objectifs <code>PHONY</code> (bidon)</h2>
 					<p>Certain objectifs ne sont pas associés à des fichiers</p>
-					<pre style="font-size:0.6em"><code class="makefile hljs">.PHONY = clean install   <span class="hljs-comment"># pas obligatoire mais evite le test d'existence de fichiers</span>
+					<pre style="font-size:0.6em"><code class="makefile hljs">.PHONY = clean install   # pas obligatoire mais evite le test d'existence de fichiers</span>
 					
 					<span class="hljs-section">clean:</span>
 						rm ./*.o ./paint
 					
 					<span class="hljs-section">install:</span>
 						cp ./paint /usr/local/bin</code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="questions">Questions</h2>
+					</section><section><h2 id="questions">Questions</h2>
 					<p>Quelles sont les actions usuelles pour compiler les sources d’un programme téléchargé sous Unix ?</p>
 					<p>Pourquoi la commande «clean» précédente peut être dangereuse si mal utilisée ?</p>
 					<p>Refaire un graph de compilation et le makefile à partir de l’exemple listechainee et personnes.</p>
 					</section></section><section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="stack future"><section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;"><h1 id="directives-de-precompilation">Directives de Precompilation</h1>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="include">Include</h2>
+					</section><section><h2 id="include">Include</h2>
 					<p>Inclure les entêtes (.h) de fonctions des librairies ou des fichier C :</p>
 					<ul>
-					<li>pour les entêtes de librairies standard (emplacements prédéfinis):<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span></code></pre></li>
-					<li>pour les entêtes utilisateur (même emplacement que le fichier courant puis emplacements prédéfinis):<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"listeChainee.h"</span></span></code></pre></li>
+					<li>pour les entêtes de librairies standard (emplacements prédéfinis):<pre><code class="c hljs">#include&lt;stdlib.h&gt;</code></pre></li>
+					<li>pour les entêtes utilisateur (même emplacement que le fichier courant puis emplacements prédéfinis):<pre><code class="c hljs">#include"listeChainee.h"</span></span></code></pre></li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="macros">Macros</h2>
+					</section><section><h2 id="macros">Macros</h2>
 					<p>On peu définir des macros et constantes de la manière suivante:</p>
-					<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"precomp.h"</span></span>
+					<pre><code class="c hljs">#include&lt;stdio.h&gt;
+					#include"precomp.h"</span></span>
 					
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> USUAL 10; <span class="hljs-comment">//Déjà vu</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WHY <span class="hljs-comment">//on peut aussi declarer des define sans valeur</span></span>
+					#define</span> USUAL 10; //Déjà vu</span></span>
+					#define</span> WHY //on peut aussi declarer des define sans valeur</span></span>
 					
-					<span class="hljs-comment">//Défintion de macro:</span>
-					<span class="hljs-comment">//Notez que ? et : sont utilisable dans le code</span>
-					<span class="hljs-comment">//pour remplacer les if</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> COMPUTE (INPUT / USUAL) <span class="hljs-comment">//INPUT has to be defined</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MIN(a,b) (((a) &lt; (b)) ? (a) : (b))</span>
+					//Défintion de macro:</span>
+					//Notez que ? et : sont utilisable dans le code</span>
+					//pour remplacer les if</span>
+					#define</span> COMPUTE (INPUT / USUAL) //INPUT has to be defined</span></span>
+					#define</span> MIN(a,b) (((a) &lt; (b)) ? (a) : (b))</span>
 					
-					<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+					int main()</span>
 					</span>{
-					  <span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = STRING; <span class="hljs-comment">//STRING doit etre defini lors de la compilation</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"defined STRING: %s\n"</span>, <span class="hljs-built_in">string</span>);
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"defined VALUE: %d\n"</span>, INPUT); <span class="hljs-comment">//INPUT doit être défini lors de la compilation</span>
-					  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Le plus petit nombre est: %d\n"</span>, MIN(INPUT, <span class="hljs-number">5</span>));
+					  char</span> <span class="hljs-built_in">string</span>[] = STRING; //STRING doit etre defini lors de la compilation</span>
+					  printf("defined STRING: %s\n"</span>, <span class="hljs-built_in">string);
+					  printf("defined VALUE: %d\n"</span>, INPUT); //INPUT doit être défini lors de la compilation</span>
+					  printf("Le plus petit nombre est: %d\n"</span>, MIN(INPUT, 5));
 					}</code></pre><p>Lors de la compilation:</p>
-					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> gcc precomp.c -o precomp -D STRING=<span class="hljs-string">"\"Je suis bien content\""</span> -D INPUT=5</span></code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="question">Question</h2>
+					<pre><code class="shell hljs"><span class="hljs-meta">$</span><span class="bash"> gcc precomp.c -o precomp -D STRING=<span class="hljs-string">"\"Je suis bien content\""</span> -D INPUT=5</span></code></pre></section><section><h2 id="question">Question</h2>
 					<p>Y a-t-il des cas ou une macro ne sera pas dans un .h ?</p>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="directives-pré-définies">Directives pré-définies</h2>
+					</section><section><h2 id="directives-pré-définies">Directives pré-définies</h2>
 					<p>Des constantes sont prédéfinies par la plupart des compilateurs pour chaque fichier source:</p>
 					<ul>
 					<li>__DATE__ string indiquant le jour du dernier passage du pré-compilateur;</li>
@@ -1456,7 +1503,7 @@ int input, i;
 					<ul>
 					<li>_WIN32, _WIN64 , __unix__, __APPLE__, __MACH__ définissent le type de système d’exploitation</li>
 					</ul>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
+					</section><section><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
 					<p style="margin-bottom: 0px">La compilation conditionelle: <!-- --></p>
 					<ul>
 					<li>Effectue une pré-compilation différente suivant les paramètres de pré-compilation;</li>
@@ -1470,41 +1517,41 @@ int input, i;
 					</ul>
 					<div class="cols" style="margin-top: 40px">
 					
-					<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> TAILLES==0</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAILLE_TAMPON 512</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> TAILLES==1</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAILLE_TAMPON 1024</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAILLE_TAMPON 2048</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _win64</span>
-					<span class="hljs-comment">//Quelque chose pour les platformes 64 bit windows</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> defined _win32</span>
-					<span class="hljs-comment">//Quelque chose pour les platformes windows</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
-					<span class="hljs-comment">//Quelque chose pour les autres</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre></div>
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
+					<pre><code class="c hljs">#if</span> TAILLES==0</span>
+					#define</span> TAILLE_TAMPON 512</span>
+					#elif</span> TAILLES==1</span>
+					#define</span> TAILLE_TAMPON 1024</span>
+					#else</span></span>
+					#define</span> TAILLE_TAMPON 2048</span>
+					#endif</span></span></code></pre><pre><code class="c hljs">#ifndef</span> _win64</span>
+					//Quelque chose pour les platformes 64 bit windows</span>
+					#elif</span> defined _win32</span>
+					//Quelque chose pour les platformes windows</span>
+					#else</span></span>
+					//Quelque chose pour les autres</span>
+					#endif</span></span></code></pre></div>
+					</section><section><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
 					<p style="margin-bottom: 0px">precomp.<strong>h</strong></p>
 					<!-- -->
 					
 					
-					<pre style="font-size:0.6em; height: 530px"><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _PRECOMP_H <span class="hljs-comment">//Evite l’inclusion infinie</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _PRECOMP_H</span>
+					<pre style="font-size:0.6em; height: 530px"><code class="c hljs">#ifndef</span> _PRECOMP_H //Evite l’inclusion infinie</span></span>
+					#define</span> _PRECOMP_H</span>
 					
-					<span class="hljs-comment">//Define a constant with the system name</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __unix__</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYS <span class="hljs-meta-string">"Unix"</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> defined _WIN32</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYS <span class="hljs-meta-string">"Windows"</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> defined __APPLE__</span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYS <span class="hljs-meta-string">"Mac"</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYS <span class="hljs-meta-string">"Unknown"</span></span>
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+					//Define a constant with the system name</span>
+					#ifdef</span> __unix__</span>
+					#define</span> SYS <span class="hljs-meta-string">"Unix"</span></span>
+					#elif</span> defined _WIN32</span>
+					#define</span> SYS <span class="hljs-meta-string">"Windows"</span></span>
+					#elif</span> defined __APPLE__</span>
+					#define</span> SYS <span class="hljs-meta-string">"Mac"</span></span>
+					#else</span></span>
+					#define</span> SYS <span class="hljs-meta-string">"Unknown"</span></span>
+					#endif</span></span>
 					
-					<span class="hljs-comment">/********************* User interface************************/</span>
+					/********************* User interface************************/</span>
 					
-					<span class="hljs-comment">/*************************************************************
+					/*************************************************************
 					Détermine quel est le caractère de séparation des répertoires
 					qui correspond au système d'exploitation sur lequel le programme
 					as été compilé.
@@ -1512,12 +1559,12 @@ int input, i;
 					OUT: retourne un caractère représentant le séparateur de dossiers.
 					retourne -1 si il n'as pas pu être identifié (système non identifié)
 					**************************************************************/</span>
-					<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">getCharSep</span><span class="hljs-params">()</span></span>;
+					char</span> getCharSep()</span>;
 					
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> <span class="hljs-comment">//#def _PRECOMP_H</span></span></code></pre><!-- -->
-					</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
+					#endif</span> //#def _PRECOMP_H</span></span></code></pre><!-- -->
+					</section><section><h2 id="compilation-conditionelle">Compilation conditionelle</h2>
 					<p>precomp.<strong>c</strong></p>
-					<pre style="font-size:0.6em"><code class="c hljs"><span class="hljs-comment">/*************************************************************
+					<pre style="font-size:0.6em"><code class="c hljs">/*************************************************************
 					Détermine quel est le caractère de séparation des répertoires
 					qui correspond au système d'exploitation sur lequel le programme
 					as été compilé.
@@ -1525,17 +1572,17 @@ int input, i;
 					OUT: retourne un caractère représentant le séparateur de dossiers.
 					retourne -1 si il n'as pas pu être identifié (système non identifié)
 					**************************************************************/</span>
-					<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">getCharSep</span><span class="hljs-params">()</span>
+					char</span> getCharSep()</span>
 					</span>{
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __unix__</span>
-					  <span class="hljs-keyword">return</span> <span class="hljs-string">'/'</span>;
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> defined _WIN32</span>
-					  <span class="hljs-keyword">return</span> <span class="hljs-string">'\\'</span>;
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> defined __APPLE__</span>
-					  <span class="hljs-keyword">return</span> <span class="hljs-string">'/'</span>;
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
-					  <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-					<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+					#ifdef</span> __unix__</span>
+					  return</span> <span class="hljs-string">'/';
+					#elif</span> defined _WIN32</span>
+					  return</span> <span class="hljs-string">'\\';
+					#elif</span> defined __APPLE__</span>
+					  return</span> <span class="hljs-string">'/';
+					#else</span></span>
+					  return</span> -1;
+					#endif</span></span>
 					}</code></pre><!-- -->
 					</section></section>
 				</div>

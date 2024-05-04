@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/gaza.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -21,12 +22,383 @@
 					<h2>Système d'Information Géographique </h2>
 					<ul>
 						<li><a href="gis.html">Présentation de QGIS</a><br></li>
-						<li><a href="QGIS_Introduction.html">QGIS Prise en main</a><br></li>
-						<li><a href="get_Data.html"> Préparation des données d’exercice:</a> </li>
-						<li><a href="bouira_map.html"> Pratiques: Création d'une carte au choix :</a> </li>
+						<li><a href="QGIS_Introduction.html">Formation QGIS</a><br></li>
+						<li><a href="get_Data.html"> Liens pour téléchargements de données:</a> </li>
+						<li><strong> Pratiques:</strong> Cartograpfier les données télécharées:<a href="bouira_map.html">  Création d'une carte:</a> </li>
 						<li><a href="StudentsMap.html">Cartes </a>réalisée par mes étudients : </li>
 					</ul>
 				</section>
+				<section>
+					<section>
+						<h1> Présentation de QGIS</h1>   
+					</section>  
+					<section>
+						<img src="images/qgis-logo.svg" width="200" style="text-align: left;">
+						<ul>
+							<li>Logiciel en système d’information géographique (SIG) Open Source et gratuit : http://qgis.org/</li>
+							<li>Multi-plateforme : Linux, FreeBSD, Mac OS X, Windows et Android</li>
+							<li>Multi-lingue & Multi-utilisateur</li>
+							<li>QGIS est un logiciel SIG libre qui a débuté en mai 2002(22 ans)</li>
+						</ul>
+					</section>
+					<section>
+						<div class="row">
+							  <div class="column" >
+							  <h2>Sources </h2>
+								  <p class="fragment " style="text-align: left;">Fichiers > 226 formats </p>
+								  <p class="fragment " style="text-align: left;" >Base de données:PostGIS (PostgreSQL), SpatiaLite, Oracle Spatial, MSSQL</p>
+								  <p class="fragment" style="text-align: left;" >Services web: WFS, WMS,MCS---GoogleEarth, OSM, Bing, ... </p>
+							  </div>
+							  <div class="column" >
+							  <h2>utilisations</h2>
+							  <p class="fragment" style="text-align:right;" >Visualisation</p>
+							  <p class="fragment" style="text-align:right;" >Cartographie</p>
+							  <p class="fragment" style="text-align:right " >Traitement,Logiciels tierces,+ «Appstores»</p>
+							  <p class="fragment" style="text-align:right" >WebGIS
+		
+							  </div>
+						  </div>
+					</section>
+				  	<section>
+						<h2>Installer QGIS</h2>
+						<ol>  
+						<li>Essayer QGIS et autres utilitaires GIS <a href="http://live.osgeo.org/fr/index.html">"OsGeoLive"</a> </li>
+						<li>installer <a href="https://www.qgis.org/fr/site/forusers/alldownloads.html#debian-ubuntu"> QGIS</a> </li>
+						</ol>
+					</section>                  
+					<section>
+						<h2> Démarrer QGIS</h2>
+						<img src="images/QGIS.png">
+					</section>
+					<section>
+						<h2>Naviguer sur le canevas de carte</h2>
+						<table class="moyen" style="width: 50%;">
+							<tbody>
+								<th><td></td><td></td>  </th>
+								<tr><td ><img class="r-stretch" src=" https://docs.qgis.org/3.28/fr/_images/mActionPan.png"></td><td>Se déplacer dans la carte</td>  </tr>
+								<tr><td><img src="https://docs.qgis.org/3.28/fr/_images/mActionZoomIn.png"></td>  <td > Zoom +</td></tr>
+								<tr><td><img src="https://docs.qgis.org/3.28/fr/_images/mActionZoomOut.png"></td><td>Zoom - </td>  </tr>
+								<tr><td><img src="https://docs.qgis.org/3.28/fr/_images/mActionZoomLast.png"></td><td>Zoom précédant</td>  </tr>
+								<tr><td><img src="https://docs.qgis.org/3.28/fr/_images/mActionZoomNext.png"></td><td>Zoom Suivant</td>  </tr>
+								<tr><td><img src="https://docs.qgis.org/3.28/fr/_images/mActionZoomFullExtent.png"></td><td>Zoom su l'emprise totale</td>  </tr>
+							</tbody>
+						</table>
+					</section>     
+					<section>
+						<h2>Premier pas: </h2>
+						<div class="row" style="font-size: 70%;">
+								<div class="column" >
+									<ul >
+									<li>Ouvrir un projet </li>
+									<li>Découvrir l'interface </li>
+									<li>Afficher /masquez les couches de données</li>
+									<li>Panoramique et zoom</li>
+									<li>Modifier la symbologie des données</li>
+									</ul>
+								</div>
+								<div class="column" >
+									<ul>
+										<li>Sélectionner les données</li>
+										<li>Mesurer les distances</li>
+										<li>Créer des mises en page de carte</li>
+										<li>Ajouter des légendes, des titres, des flèches Nord, et d'autres éléments</li>
+										<li>Imprimer une carte au format PDF</li>
+									</ul>
+								</div>
+						</div>
+					</section> 
+					<section> 
+						<h2> Enoncé: </h2>
+						<ul>
+							<li>créer un nouveau projet QGIS</li>
+							<li>Insérer des couches issue de données de différents types: ShapeFile,  GeoPackage, SQLite...</li>
+							<li>Modifier la Symbologie des couches</li>
+							<li>créer une couche vecteur</li>
+							<li>....</li>
+						</ul>
+					</section>
+					<section data-background-video="images/shp_Rivers.webm"><h2> Ajout d'une couche ShapeFile </h2> </section>
+					<section></section>
+	  
+					<section data-background-video="images/GeoPackage_Buildings-Roads.webm"><h2> Ajout d'une couche GeoPackage </h2> </section>
+					<section></section>
+					<section data-background-video="images/SpaciaLite.webm"><h2> Ajout d'une couche SpatiaLite </h2> </section>
+					<section></section>                                        
+					<section>
+					  <h2>Réorganisation des calques</h2>
+					  <p class="moyen"  style="text-align: left;">Les calques (les couches)dans votre liste de calques sont dessinés sur la carte dans un certain ordre. Le calque en bas de la liste est dessiné en premier, et le calque en haut est dessiné en dernier. En changeant leur ordre dans la liste, vous pouvez changer l’ordre suivant lesquel ils sont dessinés.<br>L’ordre dans lequel les couches ont été chargées dans la carte n’est probablement pas logique à ce stade. Il est possible que la couche des routes soit complètement cachée parce que les autres couches sont au-dessus d’elle.</p>
+					</section>
+					<section>
+						<div class="qgis">
+						<h2>Exercice 1: Création de cartes</h2>
+						<p >Cette section est conçue pour vous aider à vous familiariser avec le flux de travail de base consistant à importer des couches de données, à appliquer la symbologie, à ajouter des étiquettes et à concevoir des mises en page pour les cartes. Nous  travaillerons sur un fichier texte contenant des enregistrements historiques de tremblements de terre et le transformerons en une visualisation informative comme celle ci-dessous.</p>
+						<img src="images/" alt="">
+						</div>
+					</section>
+					<section>
+						<h2>Suivez les étapes: </h2>
+						<div class="qgis">
+						<ol>
+							<li>Ouvrez QGIS. </li>
+							<li>Cliquez sur le bouton Ouvrir le gestionnaire de sources de données.</li>
+							<li>Sélectionnez l'onglet Vecteur. Cliquez sur le bouton … à côté de Ensemble(s) de données vectorielles et accédez au répertoire de données.</li>
+							<li>
+							Sélectionnez le fichier <span style="background-color: rgb(239, 66, 153);color: white;"> ne_10m_land.shp</span>  et cliquez sur Ouvrir. Dans la fenêtre Gestionnaire de sources de données, cliquez sur Ajouter.
+							</li>
+						</ol>
+						<hr>
+						<p>Vous obtienderez une couche contient des polygones représentant les continents de la terre.</p>
+						</div>
+					</section>
+					<section>
+						<h2>Et ces étapes: </h2>
+						<div class="qgis">
+						<ol>
+							<li>Cliquez à nouveau sur le bouton Ouvrir le gestionnaire de sources de données. </li>
+							<li>Cliquez sur le bouton Ouvrir le gestionnaire de sources de données.</li>
+							<li>Sélectionnez l'onglet Vecteur. Cliquez sur le bouton … à côté de Ensemble(s) de données vectorielles et accédez au répertoire de données.</li>
+							<li>
+							Sélectionnez le fichier <span style="background-color: rgb(239, 66, 153);color: white;"> gem_active_faults_harmonized.gpkg</span>  et cliquez sur Ouvrir. Dans la fenêtre Gestionnaire de sources de données, cliquez sur Ajouter.
+							</li>
+						</ol>
+						<hr>
+						<p>Vous obtienderez une couche de type multilignes représentant les plaques tectoniques .</p>
+						</div>
+					</section>
+					<section>
+						<h2> juste une dernière couche</h2>
+						<div class="qgis">
+						<ol>
+							<li>Nous allons maintenant importer une autre couche de points sismiques. Cliquez à nouveau sur le bouton Ouvrir le gestionnaire de sources de données.</li>
+							<li>Sélectionnez l'onglet Texte délimité. </li>
+							<li>Cliquez sur le bouton … à côté de Nom du fichier </li>
+							<li>Sélectionnez le fichier  <span style="background-color: rgb(239, 66, 153);color: white;">significative_earthquakes_2000_2020.tsv</span>. Il s'agit d'un fichier texte au format TSV (Tab-Separated Values).</li>
+							<li>Accédez au répertoire de données.</li>
+							<li>Dans la section Format de fichier, sélectionnez Délimiteurs personnalisés.</li>
+							<li>Cochez la case Tab. Choisissez EPSG:4326 comme géométrie CRS.</li>
+							<li> Dans la section Définition de la géométrie, assurez-vous que Longitude est sélectionnée comme champ X et que Latitude est sélectionnée comme champ Y.</li>
+							<li> Laissez les autres options à leurs valeurs par défaut et cliquez sur Ajouter.</li>
+						</ol>
+						</div>
+					</section>
+			
+					<section>
+						<h2>Suite</h2>
+						<div class="qgis">
+						<p>
+							Un nouveau calque,<span style="background-color: rgb(239, 66, 153);color: white;"> significative_earthquakes_2000_2020</span>, sera ajouté au panneau Calques et affiché sur le canevas. Cette couche contient plus de 1 000 enregistrements de tremblements de terre importants enregistrés entre 2000 et 2020. Cliquez avec le bouton droit sur la couche significative_earthquakes_2000_2020 et sélectionnez Ouvrir la table attributaire. Examinez tous les attributs et leurs valeurs.
+						</p>
+						<p>
+							Cliquez avec le bouton droit sur la couche <span style="background-color: rgb(239, 66, 153);color: white;">significative_earthquakes_2000_2020</span> et sélectionnez Ouvrir la table attributaire. Examinez tous les attributs et leurs valeurs.
+						</p>
+						</div>
+					</section>
+					<section>
+						<div class="qgis">
+						<h2> Information:</h2>
+						<p>
+							Connaissez-vous <a href="https://en.wikipedia.org/wiki/Null_Island">Null Island?</a> La couche ne_10m_land contient un polygone pour cette entité. Localisez ce polygone sur la carte.<br>
+							<span style="background-color: rgb(239, 66, 153);color: white;">Astuce:</span> ouvrez la table attributaire, recherchez et sélectionnez Null Island. Utilisez ensuite le bouton Zoomer la carte sur les lignes sélectionnées.
+						</p>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h1>Téléchargement de données </h1>
+				</section>
+				<section>
+					<p class="pleft">Téléchargement de données</p>
+					<ul>
+						<li>données statistiques:<a href="#/1"> Office Nationnal des Statisitques</a> </li>
+						<li>Limite administrative:<a href="#2/"> DIVA-GIS</a></li>
+						<li>Télécharger les données cartographiques <a href="https://wiki.openstreetmap.org/wiki/Downloading_data" target="_blank">OpenStreetMap</a></li>
+						<li>données OpenStreetMap En utilisant: <a href="#/3">les extentions QGIS</a></li>
+						<li>Données raster: <a href="target=_blank"></a>Digital Elevation Model </li>
+						<li>Données raster:<a href="https://data.humdata.org/dataset/algeria-elevation-model">The Humanitarian Data Exchange</a></li>
+						<li>Acheter des cartes:<a href="http://www.inct.mdn.dz/site_anglais/source/prd-pville"target="_blank">Institut National de Cartographie et de Télédétection</a> </li>
+
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Office Nationnal des Statisitques</h2>
+						<p style="text-align: left;">Vous pouvez utiliser les données statistiques fournits par l'<a href="https://www.ons.dz/collections/">ONS</a> puis les représenter graphiquement pour faciliter la lecture visuelle </p>
+						<p style="text-align: left;">Par exemple vous pouvez créer une carte de distrubution de population par communes en utilisant les données <a href="https://www.ons.dz/collections/w10_p1.pdf">ONS</a></p>
+					</section>
+					<section>
+							<h2> MONOGRAPHIE WILAYA BOUIRA</h2>
+							<p class="pleft"> Le fichier en ligne <a href="https://www.aniref.dz/DocumentsPDF/monographies/MONOGRAPHIE%20WILAYA%20BOUIRA.pdf"> MONOGRAPHIE WILAYA BOUIRA.pdf</a> contient des données statistiques que vous pouvez utiliser afin de s'exercer</p>
+					</section>
+				</section>
+                <section>
+					<section>
+						<h1 style="font-size: 60pt;">Extraction depuis DIVA-GIS</h1>
+						<p style="text-align: left;"><a href="https://www.diva-gis.org/">DIVA-GIS</a>  est un programme informatique gratuit pour la cartographie et l'analyse de données géographiques (SIG). il fourner également des <u> données spatiales gratuites.</u></p>
+					</section>					
+					<section>
+						<p>Ouvrez le <a href="https://www.diva-gis.org/"> liens</a> et cliquez sur <strong>Free Spatial Data</strong>: </p>
+						<img src="images/diva/DIVA-GIS.png" alt="">
+					</section>
+					<section>
+						<p>Cliquez sur <strong>country level data</strong></p>
+						<img src="images/diva/DIVA-GIS-dwn1.png" alt="">
+					</section>
+					<section>
+						<p> Dans la liste déroulante selectionnz <strong>Algeria</strong>  </p>
+						<img src="images/diva/DIVA-GIS-dwn2.png" alt="">
+					</section>
+					<section>
+						<p>Puis cliquez sur <strong>Download </strong> </p>
+						<img src="images/diva/DIVA-GIS-dwn3.png" alt="">
+					</section>
+					<section>
+						<div class="row">
+							<div class="column" >
+								<p style="text-align: left;">Vous aurez un dossier compressé qui contient trois shapefiles limite administrative de l'Algérie pour les niveaux suivants:</p>
+								<ul>
+									<li>DZA_adm0: frontière nationnal</li>
+									<li>DZA_adm1: frontières wilaya</li>
+									<li>DZA_adm2: frontières communale </li>
+								</ul>
+							</div>
+							<div class="column" >
+								<img src="images/diva/DIVA-GIS-dwn-files.png" alt="">
+							</div>
+						</div>
+					</section>
+					<section>
+						<img src="images/diva/DIVA-GIS-dwn-files.png" alt="">
+					</section>
+					
+					<section>
+						<h2>Choix de la zone d'étude</h2>
+						<p style="text-align: left;">Vous pouvez <strong>extraire</strong> les frontière d'une wilaya ou une commune selon l'étude! il y a plusieurs méthodes pour le faire par exemple en utilisant QGIS: </a></p>
+					</section>
+					<section data-background-video="images/diva/filtrer_bouira.webm">Filtrer </section>
+					<section></section>
+					<section>
+						<h2>Sauvegarder la selection:</h2>
+					</section>
+					<section data-background-video="images/diva/save_bouira_shp.webm">Filtrer </section>
+					<section></section>
+					<section>
+						<h2>selectionner une commune </h2>
+					</section>
+					<section data-background-video="images/diva/filtre-com.webm">Filtrer </section>
+					<section></section>
+                </section>
+				<section>
+					<section>
+						<h1 style="font-size: 60pt;">Extraction des données OSM.</h1>
+						<h2>A partir du QGIS</h2>
+						<hr>
+						<br>
+						<p style="text-align: left;"><a href="/"> QuickOSM </a> est un plugin QGIS,son role est de télécharger des données depuis le serveur<a href="https://wiki.openstreetmap.org/wiki/Overpass_API"> Overpass.</a></p>
+						<p style="text-align: left;">Nous allons extraire quelques données spatiales liées à une des commune de Bouira </p>
+					</section>
+					<section>
+						<h2>OSM: Limite administrative </h2>
+						<p class="pleft">Au chapitre précédent nous avons télécharger les limite offertes par DIVA-GIS, QuickOSM offre aussi la possibilité de les télécharger</p>
+						<p class="pleft"> Ouvrez le gestionnaire de source de données et selectinnez l'onglet explorateur puis cliquez sur XYZ Tiles, double cliquez ensuite sur openstreetmap</p>
+						<img class="r-stretch" src="images/commune/gest_src_data.png" alt="gestionnaire de source de données">
+					</section>
+
+					<section>
+						<p class="pleft">La couche Raster <strong>OpenStreetMap</strong> est insérée </p>
+						<img class="r-stretch" src="images/commune/Insert_osm.png" alt="Insert osm">
+					</section>
+					<section>
+						<p class="pleft">Focaliser Bouira</p>
+						<img class="r-stretch" src="images/commune/Zoomer10.png" alt="Zoomer 10">
+					</section>
+					<section>
+						<h1>QuickOSM</h1>
+						<img class="r-stretch" src="images/commune/QuickOSM_open.png" alt="icon Quickosm">
+					</section>
+					<section>
+						<p class="pleft"> QuickOSM	</p>
+						
+								<ol>
+									<li><p>Exécutez le plugin à partir du menu <span class="menuselection">Vecteur ► QuickOSM ► QuickOSM…</span>.</p></li>
+									<li><p>Dans la zone préreglage, tapez <span class="text" >boundary</span> dans le menu déroulant <span class="menuselection">clé</span>.</p></li>
+									<li><p>Laissez le champ <span class="menuselection" >Valeur</span> vide.</p></li>
+									<li><p>Sélectionnez <span class="menuselection">dans</span> dans le menu déroulant suivant, et ecrire <span>bouira bouira Algeria</span></p></li>
+									<li><p>Développez le groupe <span class="menuselection">avancé</span> ci-dessous et décochez tous les types de géométrie sur la droite sauf <span class="guilabel">Multipolygones</span>.</p></li>
+									<li><p>Pressez <span class="menuselection">executer requête</span></p>
+								</ol>
+					</section>
+					<section>
+						<img class="r-stretch" src="images/commune/QuickOSM_windows.png" alt="QuickOSM window">
+					</section>
+					<section>
+						<p class="pleft">Une nouvelle couche <span class="menuselection">bouira bouira Algeria</span> est ajoutée au panneau <span class="menuselection">couches</span>, montrant les limites administrative de <strong>bouira</strong> dans l’étendue sélectionnée.</p>
+						<img src="images/commune/bouiraX3.png" alt="">
+					</section>
+					<section>
+						<h2>Sauvegarder</h2>
+						<div class="cols" style="align-items:flex-end">
+								<div>
+									<img class="r-stretch" src="images/commune/bouira_tmp.png" alt="">
+									<figcaption>bouira</figcaption>
+								</div>
+								<div>
+									<p class="pleft"> l'icon mentionnée sur la figure à gauche signifier que la couche est temporaire <q>une fois le projet fermé elle sera perdue!</q><br> cliquez sur ladite icone pour sauvegarder la couche</p>
+								</div>
+						</div>
+					</section>
+					<section>
+						<img class="r-stretch" src="images/commune/bouira_save.png" alt="">
+						<figcaption>couche sauvegardée</figcaption>
+					</section>
+					<section>
+						<div class="r-stack">
+							<p class="pleft fragment">Pour n'avoir que la commune de <span class="menuselection">bouira</span>clique droit sur le nom de la couche puis sur <span class="menuselection">Filtrer</span></p>
+							<img class="fragment" src="images/commune/bouira_filtre.png">
+							<img class="fragment" src="images/commune/bouira_filtre_result.png" >
+						</div>
+					</section>
+					<section>
+						<h1> Symbologie</h1>
+						<img src="images/commune/bouira_ok.png" alt="">
+					</section>
+					<section>
+						<ol >
+							<p>pour les 6 étapes suivantes sélectionnez <span class="menuselection">Emprise d'une couche</span> dans le menu déroulant suivant, et ecrire le nom de la couche masque <span class="menuselection">bouira</span> pour toutes les autres couches </p>
+							<li><p>Procédez comme ci-dessus pour extraire d’autres données :</p>
+							<ol class="arabic simple">
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">landuse</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">natural</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">water</span> et type de géométrie <span class="menuselection">Multipolygons</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">highway</span> et vérifiez les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">building</span>,  et type de géométrie <span class="menuselection">Multipolygons.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">waterway</span>, <span class="menuselection">Value</span> <span class="menuselection">=</span> <span class="menuselection">river</span> et vérifier les types de géométrie <span class="menuselection">Lines</span> et <span class="menuselection">Multilines</span>.</p></li>
+							<li><p><span class="menuselection">Key</span> <span class="menuselection">=</span> <span class="menuselection">place</span> et type de géométrie <span class="menuselection">Points</span>.</p></li>
+							</li>
+							</ol>
+						</ol>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img class="fragment" src="images/commune/insert_landuse1.png">
+							<img class="fragment" src="images/commune/insert_landuse2.png" >
+							<img class="fragment" src="images/commune/insert_natural1.png">
+							<img class="fragment" src="images/commune/insert_natural2.png">
+							<img class="fragment" src="images/commune/insert_highway1.png" >
+							<img class="fragment" src="images/commune/insert_highway2.png" >
+							<img class="fragment" src="images/commune/insert_waterway1.png" >
+							<img class="fragment" style="background-color: white;"  src="images/commune/insert_waterway2.png" >
+							<img class="fragment" src="images/commune/insert_place1.png">
+							<img class="fragment" src="images/commune/insert_place2.png">							
+						  </div>
+					</section>
+
+					<section>
+						<h2>Réorganisation des calques</h2>
+						<p class="pleft">Les calques dans votre liste de calques sont dessinés sur la carte dans un certain ordre. Le calque en bas de la liste est dessiné en premier, et le calque en haut est dessiné en dernier. En changeant leur ordre dans la liste, vous pouvez changer l’ordre suivant lesquel ils sont dessinés.</p>
+					</section>
+				</section>
+				
+				
 				<section>
 					<h1>Web mapping </h1>
 					<p class="pleft">Le webmapping (ou cartographie en ligne) est un processus qui permet l’utilisation et l’analyse de cartes sur le réseau Internet. par exemple on peut publier la carte de répartition des infrastrictures de la Direction de la Poste et des Télécommunications.
@@ -65,8 +437,6 @@ GeoPandas in it:</p>
 						<p class="pleft">voir la Carte interactive dans le slide suivant:</p>
 					</section>
 					<section data-background-video="images/commune/dpt_webmap.webm"> </section>
-				</section>
-				
 
 			</div>
 		</div>
