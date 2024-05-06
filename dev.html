@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>DPT Bouira SIG</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/gaza.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
+    <link rel="stylesheet" href="dist/mytheme.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- Chalkboard plugin begin -->
+    <!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+<!-- Chalkboard plugin end -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section>
+                        <h1>Déscription du stage</h1>
+                    </section>
+                    <section>
+                        <h2>Titre du Mémoire :</h2>
+                        <p class="pleft">Conception et Implémentation d'un Système d'Information Géographique (SIG) pour la direction de Postes et des Télécommunications</p>
+                    </section>
+                    <section>
+                        <h3>Résumé :</h3>
+                        <p class="pleft">Ce projet est initié en collaboration avec la direction des Postes et Télécommunications et vise à développer un Système d'Information Géographique (SIG) basé sur une base de données spécialement conçue. La base de données inclura des informations sur la wilaya(les wilayas), les daïras, les communes{la population, la vocation de ces régions, ainsi que la localisation des bureaux administratifs, des écoles, des infrastructures de télécommunication, des antennes, et bien d'autres.} Le SIG sera conçu pour permettre aux administrateurs de planifier efficacement de nouveaux projets en utilisant des données OpenStreetMap (OSM) telles que les sommets, les routes, les bâtiments, etc.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Objectifs attendus :</h3>
+                        <p class="pleft">
+                            L'objectif principal de ce projet est de concevoir et mettre en œuvre un SIG complet pour la direction des Postes et Télécommunications. Les objectifs spécifiques sont les suivants :
+                        </p>
+                        <ol>
+                            <li>Concevoir et créer une base de données géospatiale détaillée, contenant des informations sur les wilayas, daïras, communes, population, vocation, bureaux administratifs, écoles, infrastructures de télécommunication, antennes, etc.</li>
+                            <li>Intégrer des données OSM pertinentes pour enrichir la base de données, notamment les sommets, les routes, les bâtiments, etc.</li>
+                            <li>Développer une interface conviviale pour visualiser ces données et effectuer des requêtes géospatiales.</li>
+                            <li>Mettre en place des outils d'analyse géospatiale pour aider les administrateurs à prendre des décisions éclairées sur de nouveaux projets.</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h3>Plan de travail :</h3>
+                        <ol>
+                            <li> Conception de la base de données géospatiale, en incluant la modélisation des entités et des relations.</li>
+                            <li>Collecte et intégration des données de base (wilayas, daïras, communes, population, vocation) à partir de sources fiables.</li>
+                            <li>Intégration des données OpenStreetMap (OSM) pertinentes (limites administrative de {w,d,c} sommets, routes, bâtiments, etc.) dans la base de données.</li>
+                            <li>Développement de l'interface interactive utilisateur du SIG pour la visualisation des données.</li>
+                            <li>Création de requêtes géospatiales pour extraire des informations pertinentes à partir de la base de données.</li>
+                            <li>Mise en place d'outils d'analyse géospatiale pour aider à la planification des projets.</li>
+                            <li>Tests et validation du SIG en utilisant des scénarios de planification de projets réels.</li>
+                        </ol>
+                        <p class="pleft">Ce stage permet aux étudiants d’acquérir des compétences pratiques en géodonnées, en modélisation de bases de données, en développement de SIG, ainsi qu'en analyse géospatiale, tout en contribuant à l'amélioration de la planification de projets au sein de la direction des Postes et Télécommunications.</p>
+                    </section>
+                </section>
+				<section>
+                    <section>
+                        <h1>L'Existant </h1> 
+                    </section>
+					<section data-background-video="images/commune/dpt_webmap.webm"> </section>
+                    <section>
+                        <h1>Résultat</h1>
+                        <p class="pleft">Bientôt</p>
+                    </section>
+
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <!-- <script src="node_modules/reveal.js-menu/menu.js"></script>   -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+// chalkboard plugin begin
+ //       Reveal.initialize({
+         /* customcontrols: {
+                controls: [
+                  { icon: '<i class="fa fa-pen-square"></i>',
+                    title: 'Toggle chalkboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                  },
+                  { icon: '<i class="fa fa-pen"></i>',
+                    title: 'Toggle notes canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                  }
+                ]
+              },
+              chalkboard: {
+                // add configuration here
+              },
+              // ...
+              //plugins: [ RevealChalkboard, RevealCustomControls ],
+              // ...
+// chalkboard plugin end */
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]//, RevealChalkboard, RevealCustomControls, RevealMenu
+			});
+		</script>
+	</body>
+</html>

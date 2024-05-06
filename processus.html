@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Processus et Virtualisation</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white-contrast.css">
+		<link rel="stylesheet" href="dist/nadgy.css">
+    <link rel="stylesheet" href="dist/mytheme.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- Chalkboard plugin begin -->
+    <!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+<!-- Chalkboard plugin end -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section style="top: 0px; display: none;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true">
+					<section style="top: 179.5px; display: none;" class="" aria-hidden="true">
+						<h1 class="title">Processus et virtualisation</h1>
+						<p class="author">Guillaume Chanel</p>
+						<p style="font-size: x-small;margin-top: 0;" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/0.objectifs/#/">Cours système d'exploitation</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://unige.ch/dinfo/en/contacts1/a-propos/">Guillaume Chanel, Jean-Luc Falcone and University of Geneva</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="images/cc.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="images/by.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="images/nc.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="images/sa.svg"></a></p>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 192px; display: none;" hidden="">
+						<h2>Brain-storming</h2>
+						<p>Pour vous qu’est-ce qu’un processus?</p>
+						<p>Quelles informations contient-il?</p>
+						<p>Où réside ces informations en mémoire?</p>
+						<p>Que permet les systèmes multi-processus ?</p>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 25.5px; display: none;" hidden="">
+						<h2>Le processus en bref</h2>
+						<p>Un processus représente l’exécution courante d’un programme. Il contient donc toutes les
+							informations nécessaire à l’exécution du programme.</p>
+						<img src="images/exe_to_proc.svg" alt="De l'executable au processus" height="400px" style="padding: 10px">
+					</section>
+				</section>
+	
+				<section style="top: 0px; display: none;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true">
+					<section style="top: 302px; display: none;" class="" aria-hidden="true">
+						<h1>Mémoire virtuelle</h1>
+					</section>
+	
+					 <section class="future" aria-hidden="true" style="top: 19.5px; display: none;" hidden="">
+						<h2>Espace d’adressage du processus (mémoire virtuelle)</h2>
+						<img src="images/virtual_mem.svg" alt="Espace d'adressage" height="450px" style="padding: 10px;">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 137.5px; display: none;" hidden="">
+						<h2>Exercice</h2>
+						<p>Créer un programme en C qui:</p>
+						<ul>
+							<li>déclare des variables globales</li>
+							<li>déclare des variables locales (e.g. dans une fonction)</li>
+							<li>utilise la fonction malloc pour allouer de la mémoire</li>
+							<li>appelle une fonction autre que la fonction main</li>
+							<li>affiche TOUTES les adresses des objects déclarés ci-dessus (y compris les fonctions et les adresses des pointeurs)</li>
+							<li>attend une entrée utilisateur ou se met en pause</li>
+						</ul>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Correction</h2>
+						<pre><code id="ex-espaceAddr" class="hljs">#include &lt;stdio.h&gt;
+	#include &lt;stdint.h&gt;
+	#include &lt;unistd.h&gt;
+	#include &lt;stdlib.h&gt;
+	#include &lt;string.h&gt;
+	#include &lt;errno.h&gt;
+	
+	#define MALLOC_SIZE 0x10 //en octets
+	#define STACK_ALLOC_SIZE 256*1024 //en octets
+	
+	uint32_t nonInitData; //Variable globale non initialisée
+	uint32_t initData = 0x12; //Variable globale initialisée
+	char* ptChar = "Where is this pointed string?"; // ???
+	char tabChar[] = "Where is this char array?"; // ???
+	
+	void useStack()
+	{
+	  //Augmentation de la pile
+	  char tab[STACK_ALLOC_SIZE];
+	
+	  //Pause pour examiner le processus
+	  printf("Stack size has been increase and the program paused...\n");
+	  fgetc(stdin);
+	}
+	
+	int main()
+	{
+	  //Décalaration de variables locales
+	  uint32_t localVar1, i;
+	  char *pt_malloc; //pointeur sur la zone allouée
+	
+	  // Just print my pid
+	  printf("My PID = %d\n\n", getpid());
+	
+	  //Récuperer l'adresse du brk avant et après allocation de mémoire
+	  pt_malloc = malloc(MALLOC_SIZE);
+	
+	  //Affichage de l'adresse de la fonction main dans le segment de code
+	  printf("\n--- code segment ---\n");
+	  printf("main function address: %p\n", main);
+	  printf("use stack function address: %p\n", useStack);
+	  printf("Fixed string adress(ptChar): %p\n", ptChar); //La chaine est constante donc dans .bss
+	
+	
+	  //Affichage des differente variable presentes dans le segment de donnée (dabord initialisées puis non initialisées)
+	  printf("\n--- data segment ---\n");
+	  printf("initData address: %p\n", &amp;initData);
+	  printf("Pointer to fixed string address (ptChar adress): %p\n", &amp;ptChar); //Ce pointeur est alloué en donnée globale initialisée
+	  printf("Character array address (tabChar): %p\n", tabChar); //Le tableau est une variables (avec equivalence de pointeur) -&gt; données initialisées
+	  printf("--\n");
+	  printf("nonInitData address: %p\n", &amp;nonInitData);
+	
+	  //Affichage des donnée du tas (brk avant et apres allocation de mémoire et pointeur sur donnée allouées)
+	  printf("\n--- Heap ---\n");
+	  printf("Address allocated variable: %p\n", pt_malloc);
+	
+	  printf("\n--- Mémoire partagée ---\n");
+	  printf("printf function adress: %p\n", printf);
+	  printf("errno address: %p\n", &amp;errno);
+	 
+	  //Affichage des données locales affichées dans la piles
+	  printf("\n--- Stack ---\n");
+	  printf("First Local variable address: %p\n", &amp;localVar1);
+	  printf("Second Local variable address: %p\n", &amp;i);
+	  printf("pt_malloc variable address: %p\n", &amp;pt_malloc);
+	  printf("-------------\n");
+	
+	  //Pause pour examiner le processus
+	  fgetc(stdin);
+	
+	  //utilisation de la pile et pause
+	  useStack();
+	
+	  //try to modify the pointed string
+	  ptChar[0] = 'e';
+	
+	  return EXIT_SUCCESS;
+	}
+	</code></pre>
+						<a href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/9.processes/examples/espaceAddr.c"> Click here to download</a>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Exercice</h2>
+						<p>En utilisant la commande <code>pmap</code>:</p>
+						<ul>
+							<li>observer les différents segments du processus</li>
+							<li>comparer les adresses des segments avec les adresses des variables de votre programme</li>
+							<li>confirmer la bonne répartition des données dans les segments</li>
+						</ul>
+						<p style="text-align:center;"><a href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/9.processes/examples/pmap">Correction</a></p>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Objectif de la mémoire virtuelle</h2>
+						<p>Grâce la mémoire virtuelle on va pouvoir:</p>
+						<ul>
+							<li>définir un espace d’adressage indépendant pour chaque processus;</li>
+							<li>adresser plus de mémoire que la mémoire physique disponible;</li>
+							<li>partager facilement des zones de mémoire entre processus;</li>
+							<li>adresser le contenu de fichiers comme s’il étaient en mémoire.</li>
+						</ul>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Virtualisation de la mémoire</h2>
+						<p style="font-size: 0.8em">L’espace d’adressage est divisé en 
+	pages (en général de 4Ko). Une page virtuelle peut être associée à une 
+	page de mémoire vive (page valide) ou morte (page invalide).</p>
+						<img src="images/virtualization.svg" alt="Virtualisation" height="450px" style="padding: 10px;">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h3>Conversion adr. virtuelle -&gt; adr. physique</h3>
+						<p>Elle est réalisée par le matériel (Memory Management Unit - MMU):</p>
+						<img src="images/convert.svg" alt="Convertion">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Table des pages</h2>
+						<div class="text-block">
+							<p>Une table des pages existe pour chaque processus.</p>
+							<p>Chaque table est maintenue par le système (i.e. Linux, MacOSX, Windows, etc…) et utilisée par le MMU.</p>
+							<p>Quelques informations généralement contenues dans une entrée de la table:</p>
+							<ul>
+								<li>numéro de page physique;</li>
+								<li>taille d’une page;</li>
+								<li>permissions d’accès;</li>
+								<li>bit «page valide» ou «page présente en RAM»;</li>
+								<li>bit «page sale» (i.e. modifiée depuis sa dernière présence sur disque);</li>
+								<li>…</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<p>Si la page est invalide le processeur le communique à l’OS -&gt; page fault</p>
+						</aside>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Défaut de page</h2>
+						<div class="text-block">
+							<p>Un défaut de page arrive lorsque le MMU ne peut pas satisfaire une demande de page car elle n’est pas
+								référencée dans la table du processus (bit «page valide» = false).</p>
+							<p>Il y a alors 3 cas possibles:</p>
+							<ul>
+								<li>l’<strong>accès mémoire est illégal</strong> -&gt; le noyaux termine le processus en
+									«segmentation fault» (SIGSEG);</li>
+								<li>La page est présente en mémoire physique , c’est un <strong>défaut de page mineur</strong>
+									-&gt; il suffit de mettre à jour la table du processus pour la faire pointée sur la page en mémoire
+									physique;</li>
+								<li>La page n’est pas présente en mémoire physique, c’est un <strong>défaut de page majeur
+								</strong>.</li>
+							</ul>
+						</div>
+	
+						<aside class="notes">
+							<p>Demander pour le point 2 quand est-ce que ca arrive ? -&gt; 
+	cela arrive dans le cas ou une page est partagée avec un autre processus
+	 mais n’était pas encore utilisée par le processus courant.</p>
+							<p>Faire un graphe sur le coté pour expliquer cette page.</p>
+						</aside>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Défaut de page majeur</h2>
+						<div class="text-block" style="font-size: 0.9em;">
+							<p>Pour un <strong>défaut de page majeur </strong>il faut charger la page manquante:</p>
+							<ul>
+								<li>on sauvegarde l’état du processus et on le mets «en attente»;</li>
+								<li>si il n’y a pas de place en mémoire physique on libère une page peu utilisée;</li>
+								<li>on charge la page manquante en mémoire depuis le disque;</li>
+								<li>on mets à jour la table des pages du processus;</li>
+								<li>on charge l’état du processus et on repart de l’instruction ayant provoquée la faute de page (cette fois
+									satisfaite).</li>
+							</ul>
+							<p>A noter que lorsqu’une page est libérée en mémoire physique soit:</p>
+							<ul>
+								<li>elle existe déjà sur le disque car elle n’a pas été modifié (i.e. bit «page sale» = 0), dans ce cas il
+									suffit de remplacer cette page physique par la nouvelle</li>
+								<li>elle à été modifiée et est mise en swap pour conserver les modifications.</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<p>Faire un graphe sur le côté pour expliquer ce slide</p>
+						</aside>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Verrouillage de la mémoire</h2>
+						<div class="text-block">
+							<p>Il est possible de demander au noyaux de verrouiller des pages virtuelles en mémoire physique. Cela:</p>
+							<ul>
+								<li>évite les défauts de page majeur pour ce processus -&gt; rapidité d’accès;</li>
+								<li>pas de swap, donc moins de persistance de l’information -&gt; sécurité.</li>
+							</ul>
+						</div>
+						<pre style="width:100%;"><code data-trim="" class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/mman.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mlock</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> len)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">munlock</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> len)</span></span>;
+	<span class="hljs-comment">/* Verrouille / déverrouille les pages incluant les adresses allant de addr à (addr + len) */</span>
+	
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mlockall</span><span class="hljs-params">(<span class="hljs-keyword">int</span> flags)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">munlockall</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+	<span class="hljs-comment">/* Verrouille / déverrouille TOUTES les pages virtuelles du processus
+	flags = MCL_CURRENT -&gt; seulement les pages actuellement en mémoire virtuelle
+	flags = MCL_FUTURE -&gt; aussi les pages futures */</span></code></pre>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Exercice</h2>
+						<p>En utilisant la commande <code>pmap -X</code> sur le processus précédent, observer et expliquer les champs Size, RSS, PSS et Swap</p>
+						<br>
+						<p>Comment ces champs evoluent-t-ils lorsque plusieurs processus identiques sont lancés ?</p>
+						<br>
+						<p>Que faudrait-il faire pour que la champ Swap commence à augmenter ?</p>
+						<br>
+						<p>Pourquoi dans certain cas Size est différent de RSS mais Swap vaut 0 ?</p>
+						<aside class="notes">
+							<p>Les champs de pmap -X</p>
+							<ul>
+								<li>Size=Taille du segment</li>
+								<li>RSS=Taille du segment en mémoire (i.e. pas toutes ne sont forcément chargées)</li>
+								<li>PSS=Taille des pages privées + (taille des pages partagées / N), N étant le nombre de processus partagant ces pages</li>
+							</ul>
+							<p>RSS reste identique, PSS va diminuer (c.f. formule ci-dessus)</p>
+							<p>Allouer enormément de mémoire. Dans ce cas RSS va diminuer</p>
+							<p>C'est dans le cas ou toutes les pages du segment ne sont pas encore chargée en mémoire</p>
+						</aside>
+					</section>
+				</section>
+	
+				<section style="top: 0px; display: none;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true">
+					<section style="top: 302px; display: none;" class="" aria-hidden="true">
+						<h1>Processus</h1>
+					</section>
+					<section class="future" aria-hidden="true" style="top: 15px; display: none;" hidden="">
+						<h2>Structure d'un processus</h2>
+						<div class="text-block">
+							<p>Un processus est identifié grâce à son PID (Process ID). Il est
+	 unique pour chaque processus mais un PID libéré peut être réutilisé.</p>
+							<p style="margin-bottom: 2px;">Chaque processus est décrit par son contexte:</p>
+							<ul>
+							<li>l’état du processeur qui l’exécute:</li>
+								<ul>
+									<li>les registres accessibles au programme;</li>
+									<li>l’instruction courante (compteur ordinal);</li>
+									<li>les informations de pagination (tables des pages...);</li>
+								</ul>
+									<li>son espace mémoire virtuel -&gt; les données et le programme;</li>
+									<li>les ressources dont il dispose;</li>
+									<li>des informations administratives:</li>
+								<ul>
+									<li>PID, utilisateur(s), Session ID, Groupe ID;</li>
+									<li>priorités (statique et dynamique);</li>
+									<li>consommation de ressources.</li>
+								</ul>
+							</ul>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 25.5px; display: none;" hidden="">
+						<h2>Structure d'un processus</h2>
+						<div class="text-block">
+							<p>Dans le noyaux Linux (3.7.10) un processus est définit par la structure <strong>task_struct</strong> (/usr/src/linux/include/linux/sched.h).</p>
+							<pre><code data-trim="" style="font-size: 0.8em;" class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">task_struct</span> {</span>
+		<span class="hljs-comment">/* ... */</span>
+		<span class="hljs-comment">/* PID du processus */</span>
+		<span class="hljs-keyword">pid_t</span> pid;
+	
+		<span class="hljs-comment">/* Description de la mémoire virtuelle + table de page */</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mm_struct</span> *<span class="hljs-title">mm</span>;</span>
+	
+		<span class="hljs-comment">/* Etat du CPU / registres (specifique à la platforme) */</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">thread_struct</span> <span class="hljs-title">thread</span>;</span>
+	
+		<span class="hljs-comment">/* Information sur l'ordonnancement du processus */</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_info</span> <span class="hljs-title">sched_info</span>;</span>
+	
+		<span class="hljs-comment">/* Contient notament la table des descripteur de fichier ainsi
+		qu'une liste des descripteur "close on-exec" */</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">files_struct</span> *<span class="hljs-title">files</span>;</span>
+	
+		<span class="hljs-comment">/* ... (+ de 350 lignes au total) */</span>
+	};
+	
+	<span class="hljs-comment">/* Dans /usr/src/linux/include/linux/mm_types.h */</span>
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mm_struct</span> {</span>
+		<span class="hljs-comment">/* ... */</span>
+		<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> start_code, end_code, start_data, end_data; <span class="hljs-comment">/* segments de code / données */</span>
+		<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> start_brk, brk, start_stack; <span class="hljs-comment">/* segment du tas et de la pile */</span>
+		<span class="hljs-comment">/* ... */</span>
+	}</code></pre>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Création de processus</h2>
+						<div class="text-block" style="font-size: 0.8em;">
+							<p><strong>Lors du démarrage du système, le processus init est créé par le
+							noyau. Il est donc le premier processus et porte le PID 1.</strong></p>
+							<p><strong>Tous les autres processus sont créés par un appel à la fonction fork.</strong> Chaque
+							processus a donc un parent (excepté init, c.f. commande <code>pstree</code>).</p>
+							<pre><code class="c hljs" data-trim="" data-noescape=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/types.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">pid_t</span> <span class="hljs-title">fork</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>; <span class="hljs-comment">// Crée un nouveau processus enfant</span>
+	<span class="hljs-function"><span class="hljs-keyword">pid_t</span> <span class="hljs-title">getpid</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>; <span class="hljs-comment">// retourne le PID du processus</span>
+	<span class="hljs-function"><span class="hljs-keyword">pid_t</span> <span class="hljs-title">getppid</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>; <span class="hljs-comment">// retourne le PID du parent</span></code></pre>
+							<p>Cette fonction crée un nouveau processus qui est une <strong>réplique du processus
+							parent</strong> (e.g. copie de la table des pages, état du processeur, descripteurs de fichier, etc...), et va
+							continuer son exécution à partir du fork.</p>
+							<p><strong>La fonction fork retourne 0 pour le processus enfant, le PID de l’enfant dans
+							le processus parent, -1 en cas d’erreur.</strong></p>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Création de processus</h2>
+						<div class="text-block" style="font-size: 0.8em;">
+							<p>L’implémentation d’un fork peut donc ce faire de la manière suivante:</p>
+							<pre><code class="c hljs" data-trim="" data-noescape=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+	<span class="hljs-keyword">pid_t</span> pid = fork()
+	<span class="hljs-keyword">if</span>(pid &gt; <span class="hljs-number">0</span>) {
+		<span class="hljs-comment">// Code du parent</span>
+	}
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid == <span class="hljs-number">0</span>){
+		<span class="hljs-comment">// Code de l’enfant</span>
+	}
+	<span class="hljs-keyword">else</span> <span class="hljs-comment">// Error</span></code></pre>
+							<p>Le processus enfant n’est <strong>pas une réplique exacte</strong> du parent (see man fork),
+							notamment:</p>
+							<ul>
+								<li>l’enfant a son propre PID et son PPID est égale au PID du parent;</li>
+								<li>pas d’héritage des verrous mémoire et fichiers (mlock, flock).</li>
+							</ul>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Création de processus</h2>
+						<p style="text-align: left; margin-bottom: 0px;">Le nouveau processus va donc partager des pages avec son processus parent.</p>
+						<img src="images/fork.svg" alt="Création de processus et mémoire virtuelle" height="480px">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Copy on write</h2>
+						<p style="text-align: left; margin-bottom: 0px;">Ces pages seront copiées uniquement lors de modifications de la mémoire.
+							C’est ce que l’on appelle le <strong>«copy on write»</strong>.</p>
+						<img src="images/copy-on-write.svg" alt="Mécanisme de copy on write" height="480px">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Terminaison de processus</h2>
+						<div class="text-block" style="font-size: 0.85em;">
+							<p style="margin-bottom: 5px;">La fonction exit permet de terminer un processus à tout moment:</p>
+							<pre><code class="hljs awk"><span class="hljs-keyword">exit</span>(int status);</code></pre>
+	
+							<p style="margin-bottom: 0px;">Il existe deux constantes souvent utilisées EXIT_SUCCESS et EXIT_FAILURE.</p>
+							<p>Avant de terminer le processus la fonction exit:</p>
+							<ul>
+								<li>ferme les descripteurs de fichiers ouverts (inclus STDIN, STDOUT, STDERR);</li>
+								<li>envoi le signal SIGCHLD au parent pour l’informer de la mort de l’enfant;</li>
+								<li>tous les enfants du processus deviennent <a href="#/proc-orphelins">orphelins</a>;</li>
+								<li>appelle les fonctions enregistrées par atexit (c.f. man).</li>
+							</ul>
+							<p style="margin-bottom: 0px;">Il existe d’autres fonction pour terminer un programme:</p>
+							<pre style="margin-bottom: 0px;"><code data-noescape="" data-trim="" class="hljs aspectj"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">_exit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> status)</span></span>; <span class="hljs-comment">// appel système direct,  sans appel aux fonction enregistrées avec atexit</span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">abort</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>; <span class="hljs-comment">// génération d’un core dump</span></code></pre>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Processus zombies</h2>
+						<div class="text-block">
+							<p>
+								Lorsqu’un processus se termine, le noyau garde certaines informations de la
+								<code>task_struct</code> (pid, statut de terminaison, etc...). <strong>On dit alors que le
+								processus est un zombie</strong>.
+							</p>
+							<p>
+								Ces information sont conservées en mémoire tant que le parent du processus
+								n’y a pas accédé.
+							</p>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Eviter les zombies</h2>
+						<div class="text-block" style="font-size: 0.9em;">
+							<p>Lorsqu’un processus effectue un fork il doit donc prendre soins d’éviter les
+								zombies en appelant une des fonctions suivantes:</p>
+							<pre><code class="c hljs" data-noescape="" data-trim=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/types.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/wait.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">pid_t</span> <span class="hljs-title">wait</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *status)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">pid_t</span> <span class="hljs-title">waitpid</span><span class="hljs-params">(<span class="hljs-keyword">pid_t</span> pid, <span class="hljs-keyword">int</span> *status, <span class="hljs-keyword">int</span> options)</span></span>;</code></pre>
+							<p>Ces fonctions permettent d’attendre la terminaison d’un enfant pour
+								récupérer son statut. Si un enfant est déjà terminé (i.e. est un zombie), ces
+								fonctions retournent immédiatement.</p>
+							<p>Plusieurs macros permettent de tester le statut de retour (c.f. man wait)
+								dont:</p>
+							<ul>
+								<li><code>WIFEXITED(status)</code> : indique si l’enfant c’est terminé normalement;</li>
+								<li><code>WCOREDUMP(status)</code> : indique si un core dump de l’enfant a été créé.</li>
+							</ul>
+						</div>
+	
+					</section>
+	
+					<section id="proc-orphelins" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Processus orphelins</h2>
+	
+						<p>Si un le parent d'un processus Po meurt avant que Po sois terminé, alors Po de viens un processus orphelin.</p>
+	
+						<p>Comme les processus linux doivent avoir un parent, Po est reparenté à un processus spécial qui:</p>
+	
+						<ul>
+							<li>a été préalablement définit comme processus <em>subreaper</em> (c.f. <code>prctl</code>);</li>
+							<li>est le plus proche ancêtre <em>subreaper</em> de Po;</li>
+							<li>doit géré le décès de ses enfants (c.f. <code>wait</code>).</li>
+						</ul>
+	
+						<p>Le processus 1 (e.g. <code>init</code>, <code>systemd</code>) est un processus <em>subreaper</em>.</p>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Exemple processus orphelins</h2>
+						<pre style="font-size:0.4em; height:500px;"><code class="c hljs" data-trim="" data-noescape=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/types.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+	</span>{
+		<span class="hljs-keyword">pid_t</span> pid;  <span class="hljs-comment">//Pour sauver le retour de la fonction fork</span>
+	
+		<span class="hljs-comment">//Creation d'un nouveau processus</span>
+		pid = fork();
+	
+		<span class="hljs-comment">//Depedant du retour soit on est dans le père, dans le fils ou retour erreur</span>
+		<span class="hljs-keyword">if</span>(pid == <span class="hljs-number">0</span>) { <span class="hljs-comment">// fils</span>
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Je suis %d fils de %d ET j'attends 20 secondes\n"</span>, getpid(), getppid());
+			sleep(<span class="hljs-number">20</span>);
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Je suis %d fils de %d ET je meurt\n"</span>, getpid(), getppid());
+		}
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid &gt; <span class="hljs-number">0</span>) { <span class="hljs-comment">//père</span>
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Je suis %d père de %d ET j'attend 10 seconds\n"</span>, getpid(), pid);
+			sleep(<span class="hljs-number">10</span>);
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Je suis %d père de %d ET je meurt\n"</span>, getpid(), pid);
+		}
+		<span class="hljs-keyword">else</span> <span class="hljs-comment">//erreur</span>
+			OnError(<span class="hljs-string">"Could not fork\n"</span>);
+	
+			<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	}</code></pre>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Questions</h2>
+						<p>Un processus orphelin peut-il rester un zombie longtemps</p>
+						<p>Dans quels cas un processus peut rester un zombie longtemps ?</p>
+					</section>
+				</section>
+	
+	
+				<section style="top: 0px; display: none;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true">
+					<section style="top: 302px; display: none;" class="" aria-hidden="true">
+						<h1>Execution de processus</h1>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 8px; display: none;" hidden="">
+						<h2>Exec*</h2>
+						<div class="text-block" style="font-size: 0.9em;">
+							<p style="text-align: left;margin-bottom: 5px;">L’<strong>execution d’un nouveau programme</strong> ce fait par les fonctions <code>exec*</code>, dont:</p>
+							<pre><code class="c hljs" data-trim="" data-noescape=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">execve</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *filename, <span class="hljs-keyword">char</span> *<span class="hljs-keyword">const</span> argv[], <span class="hljs-keyword">char</span> *<span class="hljs-keyword">const</span> envp[])</span></span>;</code></pre>
+							<p>Cette fonction ne retourne pas de valeur en cas de succès mais elle:</p>
+							<ul>
+								<li>retourne -1 en cas d'erreur (+ errno mis à jour)</li>
+								<li><strong>remplace les segments du processus courant par les segments de l’éxécutable filename (c.f. Fichiers ELF);</strong></li>
+								<li>les paramètres argv et envp sont disponibles dans le main du programme appelé.
+							</li></ul>
+							<p>Si filename est un script, le shell correspondant est chargé et le fichier executé par le shell.</p>
+							<p><strong>C'est donc cette fonction qui se charge de construire l'espace de mémoire virtuel d'un processus à partir du fichier executable.</strong></p>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 95px; display: none;" hidden="">
+						<h2>Execve: exemple</h2>
+						<pre><code id="ex-execAll" class="c hljs" data-trim="" data-noescape="" style="font-size: 0.85em;">#include &lt;sys/types.h&gt;
+	#include &lt;unistd.h&gt;
+	#include &lt;stdlib.h&gt;
+	#include &lt;stdio.h&gt;
+	
+	int main(int argc, char *argv[], char*env[]) {
+		int i;
+		for(i=0; i &lt; argc; i++) {
+			pid_t pid;
+			if((pid = fork()) == 0) {
+				char *new_argv[] = {argv[i], NULL};
+				if(execve(argv[i], new_argv, env) == -1) {
+					perror(argv[i]);
+					exit(EXIT_FAILURE);
+				}
+				printf("This process was succesfully spawned");
+				//WILL THE LINE ABOVE BE EXECUTED ?
+			}
+		}
+		return 0;
+	}</code></pre>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Les types de fichiers compilés</h2>
+						<table style="font-size: 0.88em;">
+							<thead>
+								<tr>
+									<th>Système</th>
+									<th>Nom</th>
+									<th>Commentaires</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border: none;">
+									<td style="border-bottom: 0;">MSDOS / Windows</td>
+									<td>COM</td>
+									<td>Exécutable très limité, n’est quasi plus utilisé</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PE (Portable Executable)</td>
+									<td>
+										Fichiers exécutables: .EXE<br>
+										Librairies partagées : .DLL<br>
+										ActiveX: .OCX
+									</td>
+								</tr>
+								<tr>
+									<td>OS X</td>
+									<td>Mach-O</td>
+									<td>Apps., frameworks,  bib., etc.</td>
+								</tr>
+								<tr>
+									<td style="border-bottom: 0;">Unix/Linux</td>
+									<td>a.out</td>
+									<td>Format original des objets et exécutable Unix, non adapté au librairies partagées</td>
+								</tr>
+								<tr>
+									<td style="border-bottom: 0;"></td>
+									<td>COFF (Common Object File Format)</td>
+									<td>Ancien format des objets et exécutable Unix, non adapté au librairies partagées</td>
+								</tr>
+								<tr style="color: green;">
+									<td></td>
+									<td>ELF (Executable and Linkable Format)</td>
+									<td>
+										Fichiers Exécutables: .o<br>
+										Librairies partagées: .so<br>
+										Fichiers core (coredump)<br>
+										Utilisable sur plusieurs plateformes
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<aside class="notes">
+							<p>ELF: Utilisable sur plusieurs platformes car il permet de gérer
+	 par exemple les littleendia et big endian. Aussi utiliser sur les 
+	consoles de jeux (Wii, PS, …), ce qui ne veux pas dire qu’un fichier ELF
+	 compiler pour 8086 va fonctionner sur une console.</p>
+							<p>Mach-O is close to ELF</p>
+						</aside>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Organization d'un fichier ELF</h2>
+						<ul style="font-size: 0.9em;">
+							<li>des segments qui:</li>
+							<ul>
+								<li>permettent de <strong>préparer le programme pour son exécution</strong> (c.f. <code><a href="#/3/1">exec*</a></code>);</li>
+								<li>contiennent une ou plusieurs sections;</li>
+							</ul>
+							<br>
+							<li>des sections qui:</li>
+							<ul>
+								<li>contiennent <strong>TOUTES les informations</strong> du programme (pas forcément nécessaire à l’exécution – e.g. débogage);</li>
+								<li>sont nécessaires pour effectuer les liens lors de l’execution;</li>
+							</ul>
+							<br>
+							<li>Des entêtes et tables qui:</li>
+							<ul>
+								<li>indiquent la position de chaque section;</li>
+								<li>indiquent la position de chaque segment;</li>
+								<li>indiquent la position de la table des sections et de la table des segments.</li>
+							</ul>
+						</ul>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Fichier ELF - Entête</h2>
+						<p style="text-align: left; font-size: 0.8em;">On peut observer le contenu d’un fichier ELF avec les commandes <code>objdump</code> et <code>readelf</code>.</p>
+						<svg height="700px" width="800px">
+							<style type="text/css">
+								svg {
+									font-size: 20px;
+									text-anchor: middle;
+								}
+	
+								text {
+									fill: white;
+								}
+	
+								rect {
+									stroke: white;
+									stroke-width: 2;
+									fill-opacity: 0;
+								}
+	
+								path {
+									stroke: white;
+									stroke-width: 2;
+									fill-opacity: 0;
+								}
+	
+								marker {
+									stroke: white;
+									fill: white;
+								}
+	
+								.sec-name {
+									fill: green;
+								}
+	
+								.bracket {
+									fill-opacity: 0;
+								}
+							</style>
+							<defs>
+								<marker id="arrow" markerHeight="5" markerWidth="5" markerUnits="strokeWidth" orient="auto-start-reverse" refX="50" refY="50" viewBox="0 0 100 100">
+									<path d="m100,50l-100,40l30,-40l-30,-40z" stroke-width="10" style="fill-opacity: 1;"></path>
+								</marker>
+								<path id="bracket" class="bracket" d="m10 52s-4-0-6-1c-6-6 4-16 0-23-1-1-4-2-4-2s3-1 4-2c4-7-6-17-0-22 1-1 5-1 5-1" vector-effect="non-scaling-stroke"></path>
+								<g id="elf">
+									<g transform="translate(2,2)">
+										<rect width="70" height="100"></rect>
+										<text x="35" y="50" alignment-baseline="middle">Entête</text>
+									</g>
+									<g transform="translate(72,2)">
+										<rect width="100" height="100"></rect>
+										<text x="50" y="35" alignment-baseline="middle">Table des</text>
+										<text x="50" y="65" alignment-baseline="middle">segments</text>
+									</g>
+									<g transform="translate(172,2)">
+										<rect width="84" height="100"></rect>
+										<text x="42" y="35" alignment-baseline="middle">Section</text>
+										<text x="42" y="65" alignment-baseline="middle" class="sec-name">.text</text>
+									</g>
+									<g transform="translate(256,2)">
+										<rect width="84" height="100"></rect>
+										<text x="42" y="35" alignment-baseline="middle">Section</text>
+										<text x="42" y="65" alignment-baseline="middle" class="sec-name">.rodata</text>
+									</g>
+									<g transform="translate(339,2)">
+										<rect width="24" height="100"></rect>
+										<text x="12" y="50" alignment-baseline="middle">...</text>
+									</g>
+									<g transform="translate(363,2)">
+										<rect width="84" height="100"></rect>
+										<text x="42" y="35" alignment-baseline="middle">Section</text>
+										<text x="42" y="65" alignment-baseline="middle" class="sec-name">.data</text>
+									</g>
+									<g transform="translate(447,2)">
+										<rect width="84" height="100"></rect>
+										<text x="42" y="35" alignment-baseline="middle">Section</text>
+										<text x="42" y="65" alignment-baseline="middle" class="sec-name">.bss</text>
+									</g>
+									<g transform="translate(531,2)">
+										<rect width="84" height="100"></rect>
+										<text x="42" y="35" alignment-baseline="middle">Section</text>
+										<text x="42" y="65" alignment-baseline="middle" class="sec-name">.debug</text>
+									</g>
+									<g transform="translate(614,2)">
+										<rect width="24" height="100"></rect>
+										<text x="12" y="50" alignment-baseline="middle">...</text>
+									</g>
+									<g transform="translate(638,2)">
+										<rect width="100" height="100"></rect>
+										<text x="50" y="35" alignment-baseline="middle">Table des</text>
+										<text x="50" y="65" alignment-baseline="middle">sections</text>
+									</g>
+								</g>
+							</defs>
+	
+							<use xlink:href="#elf" x="30" y="0"></use>
+							<foreignObject x="30" y="200" width="100%" height="100%">
+								
+									<pre style="font-size: 12pts"><code class="c hljs" data-noescape="" data-trim=""><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;elf.h&gt;</span></span>
+	<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+	<span class="hljs-comment">//les variables ci-dessous ne sont pas listée dans l’ordre de l’entête</span>
+	...
+	<span class="hljs-keyword">uint16_t</span> e_type; <span class="hljs-comment">/* Executable, bibliothèque, objet, ... */</span>
+	uint_16 e_machine; <span class="hljs-comment">/* Intel, HP,...*/</span>
+	ElfN_Addr e_entry; <span class="hljs-comment">/* Première instruction à exécuter par le processus */</span>
+	
+	ElfN_Off e_phoff; <span class="hljs-comment">/* Offset de départ de la table des segments */</span>
+	<span class="hljs-keyword">uint16_t</span> e_phentsize; <span class="hljs-comment">/* Taille d’une entrée dans la table des segments*/</span>
+	<span class="hljs-keyword">uint16_t</span> e_phnum; <span class="hljs-comment">/* nombre d’entrées dans la table des segments */</span>
+	
+	ElfN_Off e_shoff; <span class="hljs-comment">/* Offset de départ de la table des sections */</span>
+	<span class="hljs-keyword">uint16_t</span> e_shentsize; <span class="hljs-comment">/* Taille d’une entrée dans la table des sections*/</span>
+	<span class="hljs-keyword">uint16_t</span> e_shnum; <span class="hljs-comment">/* nombre d’entrées dans la table des sections*/</span>
+	...
+	} ElfN_Ehdr;</code></pre>
+								
+							</foreignObject>
+							<!-- bracket + arrow to header -->
+							<g transform="translate(40,205) scale(2 6)">
+								<use xlink:href="#bracket" x="0" y="0"></use>
+							</g>
+							<path d="M50 110 L5 360 L30 360" marker-end="url(#arrow)"></path>
+							<!-- bracket + arrow to segments -->
+							<g transform="translate(580,407) rotate(180 0 0)">
+								<use xlink:href="#bracket" x="0" y="0"></use>
+							</g>
+							<path d="M590 382 L650 382 L650 150 L160 150 L160 110" marker-end="url(#arrow)"></path>
+							<!-- bracket + arrow to sections -->
+							<g transform="translate(580,475) rotate(180 0 0)">
+								<use xlink:href="#bracket" x="0" y="0"></use>
+							</g>
+							<path d="M590 450 L720 450 L720 110" marker-end="url(#arrow)"></path>
+							<!-- arrow to  code entry -->
+							<path d="M570 328 L600 328 L600 180 L230 180 L230 110" marker-end="url(#arrow)" style="stroke: gray"></path>
+						</svg>
+					</section>
+	
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Fichier ELF - sections</h2>
+						<p style="text-align: left; font-size: 0.8em;">La table des sections permet de définir les sections dans le fichier. Une
+							section peut contenir des informations de liage, du code, des données.</p>
+						<svg height="120px" width="800px">
+							<use xlink:href="#elf" x="30" y="0"></use>
+						</svg>
+						<pre style="font-size: small;"><code class="c hljs" data-noescape="" data-trim=""><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+		...
+		<span class="hljs-keyword">uint32_t</span> sh_name; <span class="hljs-comment">/* Index spécifiant le nom de la section (.text, .data, etc.) */</span>
+		ElfN_Addr sh_addr; <span class="hljs-comment">/* Adresse de la section en mémoire virtuelle */</span>
+		ElfN_Off sh_offset; <span class="hljs-comment">/* Offset de la section dans le fichier ELF*/</span>
+		uintN_t	sh_size; <span class="hljs-comment">/* Taille de la section */</span>
+		...
+	} ElfN_Shdr;</code></pre>
+						<p style="font-size: 0.8em;">Exercice: ajouter les flêches</p>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Fichier ELF - segment</h2>
+						<p style="text-align: left; font-size: 0.8em;">La table des segments (program header) permet de regrouper les sections en
+							plusieurs segments. <strong>Ces segments peuvent être chargés en mémoire virtuelle lors de l'exécution</strong>.</p>
+						<svg height="240px" width="800px">
+							<use xlink:href="#elf" x="30" y="0"></use>
+							<path d="M30 170 L768 170"></path>
+							<text x="400" y="190">Espace virt. proc.</text>
+							<path d="M30 238 L768 238"></path>
+						</svg>
+						<pre style="font-size: small;"><code class="c hljs" data-noescape="" data-trim=""><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+		<span class="hljs-keyword">uint32_t</span> p_type; <span class="hljs-comment">/* if == PT_LOAD -&gt; le segment doit être placé en mémoire */</span>
+		ElfN_Off p_offset; <span class="hljs-comment">/* Offset du segment dans le fichier */</span>
+		uintN_t p_filesz; <span class="hljs-comment">/* Taille du segment dans le fichier*/</span>
+	
+		ElfN_Addr p_vaddr; <span class="hljs-comment">/* Adresse où charger le segment en mémoire virtuelle */</span>
+		<span class="hljs-keyword">uint32_t</span> p_memsz; <span class="hljs-comment">/* Taille du segment en mémoire, si &gt;= p_filesz, complété par des 0 */</span>
+		uintN_t	p_flags; <span class="hljs-comment">/* Exec, write, read */</span>
+		...
+		} ElfN_Phdr;</code></pre>
+						<p style="text-align: left; font-size: 0.8em;">Exercice (ensemble): représenter comment ces informations permettent de définir l'espace de mémoire virtuelle du processus</p>
+					</section>
+				</section>
+	
+				<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true">
+					<section style="top: 212px; display: block;" class="" aria-hidden="true">
+						<h1>Memory-mapped file (Fichier en mémoire partagée)</h1>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 70px; display: none;" hidden="">
+						<h2>Rappel</h2>
+						<div class="text-block">
+							<p>Nous avons vu que certaines pages de la mémoire virtuelle:</p>
+							<ul>
+								<li>ne sont pas présentes en mémoire physique mais réside sur des systèmes de fichiers (swap / fichiers executables)</li>
+								<li>deviennent disponibles au fur et à mesure des fautes de pages</li>
+								<li>sont partagées entre plusieurs processus (e.g. librairies partagées)</li>
+								<li>peuvent être partagées uniquement jusqu'à leur modification ("copy-on-write")</li>
+							</ul>
+							<p>Nous allons voir un appel système qui permet d'<strong>associer un segment de mémoire virtuelle à un segment de fichier</strong>. Cet appel système est par exemple  <strong>utilisé pour charger les librairies partagées</strong>.</p>
+						</div>
+					</section>
+					<section class="future" aria-hidden="true" style="top: 131px; display: none;" hidden="">
+						<h2>Principe du "file mapping"</h2>
+						<div class="text-block">
+							<p>Associer le segment (une partie) d'un fichier à un nouveau segments de mémoire partagé (file mapping). Cela permet de:</p>
+							<ul>
+								<li>partager des pages (données, instructions) entre plusieurs processus;</li>
+								<li>accéder aux données directement en mémoire (i.e. par pointeurs) plutôt que dans un fichier (i.e. par curseur)</li>
+							</ul>
+	
+							<p><strong>Un tel fichier ne sera pas chargé intégralement en mémoire mais page par
+								page au fur et a mesure des fautes de page du processus.</strong></p>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Principe du "file mapping"</h2>
+						<p style="text-align:left; font-size: 0.8em;margin-bottom: 0px;">Deux processus peuvent partager un segment en y associant des espaces
+							d’adressage virtuel différents:</p>
+						<img src="images/shared_mem.svg" alt="Shared memory" height="500px">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Le "file mapping" en pratique</h2>
+						<div class="text-block" style="font-size: 0.8em">
+							<p>Pour associer un fichier à un espace de la mémoire virtuelle du processus on:</p>
+							<ul>
+								<li>ouvre le fichier en lecture et/ou écriture pour obtenir un descripteur de fichier <code>fd</code>:</li>
+								<pre><code data-noescape="" class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">open</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *pathname, <span class="hljs-keyword">int</span> flags)</span></span>;</code></pre>
+								<li>associe le descripteur de fichier à une zone de la mémoire virtuelle par un appel à:</li>
+								<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">mmap</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> length, <span class="hljs-keyword">int</span> prot, <span class="hljs-keyword">int</span> flags, <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">off_t</span> offset)</span></span>;</code></pre>
+								<li>pense ensuite à fermer / désassocier la mémoire partagée:</li>
+								<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">munmap</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> length)</span></span>;</code></pre>
+								<li>ferme le fichier:</li>
+								<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">close</span><span class="hljs-params">(<span class="hljs-keyword">int</span> fd)</span></span>;</code></pre>
+							</ul>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>open / close</h2>
+						<div style="font-size: 0.9em;">
+							<p>On peut ouvrir un fichier avec l'appel système suivant:</p>
+	
+							<pre><code data-noescape="" data-trim="" class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">open</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *pathname, <span class="hljs-keyword">int</span> flags)</span></span>;</code></pre>
+							<ul>
+								<li><code>pathname</code> est le nom du fichier;</li>
+								<li><code>flags</code> est un champ de bit indiquant le mode d'accès au fichier (<code>O_RDONLY, O_WRONLY, O_RDWR</code>);</li>
+								<li>retourne un entier représentant le fichier (descripteur de fichier), soit -1 en cas d'erreur (vérifier <code>errno</code>).</li>
+							</ul>
+							<hr>
+							<p>On doit fermer un fichier avec l'appel système suivant:</p>
+							<pre><code class="c hljs" data-noescape="" data-trim=""><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">close</span><span class="hljs-params">(<span class="hljs-keyword">int</span> fd)</span></span>;</code></pre>
+							<ul>
+								<li><code>fd</code> est l'entier représentant le fichier (descripteur de fichier);</li>
+								<li>0 en cas de succès, -1 en cas d'erreur (vérifier <code>errno</code>).</li>
+							</ul>
+						</div>
+						<br>
+						<!-- <small>Note: la description de la fonction open est incomplète. Une <a href="http://cui.unige.ch/~chanel/prez/presentations/sys-exploitation/7.io/7.io.html#/ouvrir-un-canal-open">description complète</a> sera présentée plus tard.</small> -->
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>mmap</h2>
+						<pre><code data-noescape="" data-trim="" class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/mman.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">mmap</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> length, </span></span><span style="opacity: 0.2;"><span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">int</span> prot, <span class="hljs-keyword">int</span> flags,</span></span></span><span class="hljs-function"><span class="hljs-params"> <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">off_t</span> offset)</span></span>;</code></pre>
+						<ul style="font-size: 0.8em;">
+							<li><code>fd</code>: entier représentant le fichier (file descriptor);</li>
+							<li><code>addr</code>: adresse d‘un début de page (ajustée automatiquement), <strong>si NULL l'adresse est choisie automatiquement</strong>;</li>
+							<li><code>offset</code>: début du mapping dans le fichier, doit être multiple de la taille d'une page</li>
+							<li><code>length</code>: taille du mapping dans le fichier, complété par des zéros pour remplir une page en mémoire</li>
+							<li><strong>retourne l'adresse virtuelle correspondant au début du segment</strong></li>
+						</ul>
+						<img src="images/mmap.svg" alt="File mapping" style="border: none; box-shadow: none">
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>mmap</h2>
+						<pre><code data-noescape="" data-trim="" class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/mman.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">mmap</span><span class="hljs-params">(</span></span><span style="opacity: 0.2;"><span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">void</span> *addr, <span class="hljs-keyword">size_t</span> length,</span></span></span><span class="hljs-function"><span class="hljs-params"> <span class="hljs-keyword">int</span> prot, <span class="hljs-keyword">int</span> flags</span></span><span style="opacity: 0.2;"><span class="hljs-function"><span class="hljs-params">, <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">off_t</span> offset</span></span></span><span class="hljs-function"><span class="hljs-params">)</span></span>;</code></pre>
+						<div class="text-block" style="font-size: 0.8em;">
+							<p><code>prot</code>, bit field définissant la protection des pages partagées:</p>
+							<ul>
+								<li><code>PROT_READ / PROT_WRITE / PROT_EXEC</code> autorise respectivement la lecture, l’écriture et l’exécution;</li>
+								<li><code>PROT_NONE</code> aucun droit, utilisé pour réserver des pages;</li>
+								<li>les droits doivent correspondre au mode d’ouverture du fichier.</li>
+							</ul>
+							<p><code>flags</code>, bit field utilisé pour les options suivantes:</p>
+							<ul>
+								<li><strong><code>MAP_SHARED</code>: la zone est partagée entre les processus / fichiers toute modification sera reportée aux autres processus et dans le fichier;</strong></li>
+								<li><strong><code>MAP_PRIVATE</code>: copy-on-write, si un processus modifie le contenu il crée sa propre copie des pages et le fichier ne sera pas modifié;</strong></li>
+								<li><code>MAP_ANONYMOUS</code>: pas d’association avec un 
+	fichier, la mémoire est initialisée à 0 (fd et offset sont ignorés) et 
+	partageable uniquement avec ses enfants.</li>
+							</ul>
+						</div>
+					</section>
+	
+					<section class="future" aria-hidden="true" style="top: 350px; display: none;" hidden="">
+						<h2>Questions + Exemple</h2>
+						<ul>
+							<li>En utilisant la commande <code>strace</code> sur n'importe quel programme, expiquez les premiers appels systèmes</li>
+							<li>Est-ce que les librairies seront chargée immédiatement en mémoire physique ?</li>
+						</ul>
+						<p style="text-align:center;"><a href="https://cui.unige.ch/~chanel/prez/presentations/sys-info/9.processes/examples/shmFichier.c">Exemple mmap en bonus</a></p>
+					</section>
+	
+					<!-- <section>
+						<h2>Exercice</h2>
+						<p>L'objectif de cet exercice est de charger le segment contenant le code d'un executable dans la mémoire virtuelle d'un processus (i.e. le programme à développer), puis d'executer ce code. On simule ainsi l'exécution d'un code externe comme cela est fait pour une librairie partagée</p>
+					</section>
+	
+					<section>
+						<h2>Exercice</h2>
+						<p style="font-size: 0.8em;">Le programme à charger est fournit en assembleur. Il faut le compiler avec <code>nasm</code> (voir Makefile).</p>
+						<pre><code class="x86asm" id="ex-code-asm"></code></pre>
+						<pre><code class="makefile" id="ex-code-asm-makefile" data-line-numbers="1-7|8-9"></code></pre>
+					</section>
+	
+					<section>
+						<h2>Exercice</h2>
+						<p style="text-align: left;">Il faut donc:</p>
+						<ul>
+							<li>Compiler le programme <code>simple</code>,</li>
+							<li>Executer ce programme et confirmer son status de retour (42),</li>
+							<li>utiliser la commande <code>readelf</code> pour identifier le segment à charger et le point d'entrée du programme,</li>
+							<li>implementer un programme en C qui va:
+								<ul>
+									<li>charger ce segment avec <code>mmap</code> (les valeur obtenues par readelf peuvent être codées en dure dans le programme),</li>
+									<li>définir une fonction pointant sur le point d'entrée dans le mémoire virtuelle,</li>
+									<li>exécuter cette fonction</li>
+								</ul>
+							<li>tester que votre programme C retourne bien 42</li>
+						</ul>
+						<p style="text-align: left;">Pour aller plus loin: votre programme C devra rechercher les informations du segment et du point d'entrée directement dans le fichier executable.</p>
+					</section>
+	
+					<section>
+						<h2>Exerice - correction</h2>
+						<pre><code class="c" id="ex-code-asm-c"></code></pre>
+					</section> -->
+	
+				</section>
+	
+				<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="0" hidden="" aria-hidden="true"><section data-markdown="" data-markdown-parsed="true" style="top: 302px; display: block;" class="" aria-hidden="true"><!-- TODO: move in mytheme -->
+	<style>
+		.reveal p {
+			text-align: left;
+		}
+	</style>
+	
+	
+	<h1 id="ordonnancement">Ordonnancement</h1>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 77.5px; display: block;" hidden=""><h2 id="ordonancement-préemptif">Ordonancement préemptif</h2>
+	<p>Le noyaux se charge de distribuer les processus sur les différents CPU:</p>
+	<ul>
+	<li>l’ordonnanceur attribue un CPU à un processus, généralement <strong>pour une tranche de temps précise appelée quantum</strong>;</li>
+	<li>l’ordonnanceur choisi quel est le nouveau processus qui va être alloué à ce CPU une fois le quantum ou le processus terminé;</li>
+	</ul>
+	<div class="text-block">
+	
+	<p>Toutefois un processus peut libérer un CPU volontairement avant la fin du quantum si:</p>
+	<ul>
+	<li>il se met en attente d’une ressource;</li>
+	<li>il reçoit un signal de suspension (c.f. SIGSTOP, SIGSTP);</li>
+	<li>il appel la fonction <code>sched_yield</code> (c.f. man).</li>
+	</ul>
+	</div>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 20.5px; display: none;" hidden=""><h2 id="odonancement-sous-linux">Odonancement sous Linux</h2>
+	<p>Implémentation:</p>
+	<ul>
+	<li>il existe une liste de processus pour différentes priorités statiques [0-99];</li>
+	<li>les processus de hautes priorités sont toujours exécutés d’abord.</li>
+	</ul>
+	<p><img src="images/sched-priority.svg" alt="" width="180%"> <!-- --></p>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="priorité-statique-0">Priorité statique 0</h2>
+	<p>Trois modes d’ordonnancement sont disponibles en priorité statique 0:</p>
+	<ul>
+	<li><strong>standard (i.e. par défaut – SCHED_OTHER)</strong>;</li>
+	<li>pour processus à lourde charge de calcul (SCHED_BATCH);</li>
+	<li>pour processus à très très faible priorité (SCHED_IDLE).</li>
+	</ul>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="priorité-statique-0---sched_other">Priorité statique 0 - SCHED_OTHER</h2>
+	<p>Cette stratégie permet de s’assurer que chaque processus sera traité 
+	après avoir eu un certain nombre de déni de CPU qui dépends de sa 
+	priorité et de celle des autres processus.</p>
+	<ul>
+	<li>le processus de la liste est choisi par rapport à une <strong>priorité dynamique</strong>;</li>
+	<li>priorité dynamique = <em>valeur nice</em> + nombre de quantum en état prêt sans avoir de processeur à disposition;</li>
+	<li>La <em>valeur nice</em> d’un processus est attribuée par la commande <code>nice</code> ou par la fonction C <code>setpriority</code>.</li>
+	</ul>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="ordonnancement-tr---fifo">Ordonnancement "TR" - FIFO</h2>
+	<p>Implémentation:</p>
+	<ul>
+	<li>les processus sont rangés dans une liste lors de leur soumission;</li>
+	<li>un nouveau processus est placé en queue de liste;</li>
+	<li>chaque processus est exécuté sans interruption (i.e. non préemptif, sauf cas de mise en attente).</li>
+	</ul>
+	<p><img src="images/sched-fifo.svg" alt="" width="120%"> <!-- --></p>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="odonnancement-tr---round-robin">Odonnancement "TR" - Round Robin</h2>
+	<p>Implémentation:</p>
+	<ul>
+	<li>les processus sont placés en queue de liste lors de leur soumission (idem FIFO);</li>
+	<li>chaque processus est exécuté uniquement pour un quantum de temps (préemptif) puis est replacé en fin de liste.</li>
+	</ul>
+	<p><img src="images/sched-RR.svg" alt="" width="120%"> <!-- --></p>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="contrôle-dordonnancement">Contrôle d'ordonnancement</h2>
+	<p>L’ordonnancement d’un processus peut être contrôlé par les fonctions et structures suivantes pour la priorité statique:</p>
+	<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sched.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sched_setscheduler</span><span class="hljs-params">(<span class="hljs-keyword">pid_t</span> pid, <span class="hljs-keyword">int</span> policy, <span class="hljs-keyword">const</span> struct sched_param *param)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sched_getscheduler</span><span class="hljs-params">(<span class="hljs-keyword">pid_t</span> pid)</span></span>;
+	
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sched_param</span> {</span>
+		...
+		<span class="hljs-keyword">int</span> sched_priority; <span class="hljs-comment">/* prioritée statique */</span>
+		...
+	};</code></pre><p>Policy peut prendre les valeurs: SCHED_OTHER,SCHED_BATCH, SCHED_IDLE,SCHED_FIFO, SCHED_RR.</p>
+	<p>La priorité dynamique peut être contrôlé en utilisant:</p>
+	<pre><code class="c hljs"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">setpriority</span><span class="hljs-params">(<span class="hljs-keyword">int</span> which, <span class="hljs-keyword">int</span> who, <span class="hljs-keyword">int</span> prio)</span></span>; <span class="hljs-comment">/* priorité dynamique, nice */</span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getpriority</span><span class="hljs-params">(<span class="hljs-keyword">int</span> which, <span class="hljs-keyword">int</span> who)</span></span>;</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="commutation-de-contexte">Commutation de contexte</h2>
+	<p>Lorsque qu’un processus doit en remplacer un autre sur un CPU une commutation de contexte a lieu:</p>
+	<ul>
+	<li>suspension de l’exécution du processus et sauvegarde de son contexte;</li>
+	<li>rétablissement de l’état du CPU à l’état sauvegardé lors de la suspension du processus qui reprend son exécution;</li>
+	<li>mise en exécution du nouveau processus.</li>
+	</ul>
+	<p>Au passage il faut:</p>
+	<ul>
+	<li>Écrire sur le disque les pages modifiées (pages sales);</li>
+	<li>Mettre à jour les informations du noyau pour tenir compte du 
+	changement de processus actif (par exemple re-calcul de la priorité des 
+	processus).</li>
+	</ul>
+	<p>N.B.: Un changement de contexte est couteuse d’où l’avantage des threads.</p>
+	</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;" hidden=""><h2 id="le-processus-dans-tous-ses-états">Le processus dans tous ses états</h2>
+	<p style="text-align:center;"><img src="images/proc-states.svg" width="55%" alt="Process states"></p>
+	
+	<table style="font-size: 0.7em;">
+	<thead>
+	<tr>
+	<th>ps</th>
+	<th>Constante noyau</th>
+	<th>Description de l’état</th>
+	</tr>
+	</thead>
+	<tbody><tr>
+	<td>R</td>
+	<td>TASK_RUNNING</td>
+	<td>En exécution ou prêt à être exécuté (i.e. dans une file d’attente)</td>
+	</tr>
+	<tr>
+	<td>S</td>
+	<td>TASK_INTERRUPTIBLE</td>
+	<td>En attente d’une ressource (Sleep) et interruptible par un signal</td>
+	</tr>
+	<tr>
+	<td>D</td>
+	<td>TASK_UNINTERRUPTIBLE</td>
+	<td>En attente d’une ressource mais ne peut pas être interrompu</td>
+	</tr>
+	<tr>
+	<td>T</td>
+	<td>TASK_STOPPED</td>
+	<td>Suspendu (sToppé)</td>
+	</tr>
+	<tr>
+	<td>Z</td>
+	<td>EXIT_ZOMBIE</td>
+	<td>Zombie en attente d’un wait de la part du parent.</td>
+	</tr>
+	<tr>
+	<td>X</td>
+	<td>EXIT_DEAD</td>
+	<td>Terminé, mort, ne devrais jamais être observé.</td>
+	</tr>
+	</tbody></table>
+	<!-- --></section></section>
+				<section style="top: 0px; display: block;" class="stack present" data-previous-indexv="4"><section data-markdown="" data-markdown-parsed="true" style="top: 257px; display: none;" class="past" hidden="" aria-hidden="true"><!-- TODO: move in mytheme -->
+	<style>
+		.reveal p {
+			text-align: left;
+		}
+	</style>
+	
+	
+	<h1 id="ressources-dun-processus">Ressources d'un processus</h1>
+	</section><section data-markdown="" data-markdown-parsed="true" class="past" style="top: 8.5px; display: none;" hidden="" aria-hidden="true"><h2 id="limites-des-ressources">Limites des ressources</h2>
+	<p>Le noyaux alloue et limite les ressources disponibles pour les processus. Ces limites sont manipulable grâce à:</p>
+	<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/time.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/resource.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getrlimit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> resource, struct rlimit *rlim)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">setrlimit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> resource, <span class="hljs-keyword">const</span> struct rlimit *rlim)</span></span>;</code></pre><p><code>ressource</code> indique le type de ressource demandée / à modifier (c.f tableau suivant). </p>
+	<p>La structure <code>rlimit</code> donne accès à la limite courante et 
+	la limite maximum de chaque ressource. La limite maximum est modifiable 
+	uniquement par un processus privilégié (i.e. root).</p>
+	<pre><code class="c hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rlimit</span> {</span>
+		<span class="hljs-keyword">rlim_t</span> rlim_cur;  <span class="hljs-comment">/* limite courante, actuelle */</span>
+		<span class="hljs-keyword">rlim_t</span> rlim_max;  <span class="hljs-comment">/* limite maximum, limite plafond pour rlim_cur */</span>
+	};</code></pre></section><section data-markdown="" data-markdown-parsed="true" class="past" style="top: 0px; display: none;" hidden="" aria-hidden="true"><h2 id="limites-de-lespace-virtuel">Limites de l'espace virtuel</h2>
+	<table>
+	<thead>
+	<tr>
+	<th>Ressource</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody><tr>
+	<td><code>RLIMIT_AS</code></td>
+	<td>Taille maximum de l’espace de mémoire virtuel du processus</td>
+	</tr>
+	<tr>
+	<td><code>RLIMIT_DATA</code></td>
+	<td>Taille maximum du segment de donnée</td>
+	</tr>
+	<tr>
+	<td><code>RLIMIT_STACK</code></td>
+	<td>Taille maximum de la pile</td>
+	</tr>
+	</tbody></table>
+	<img src="images/ressources-virtmem.svg" width="150%">
+	</section><section data-markdown="" data-markdown-parsed="true" class="past" style="top: 0px; display: block;" hidden="" aria-hidden="true"><h2 id="autres-ressources">Autres ressources</h2>
+	<table>
+	<thead>
+	<tr>
+	<th>Ressource</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody><tr>
+	<td>RLIMIT_CORE</td>
+	<td>Taille max. des fichier de coredump (souvent à 0)</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_CPU</td>
+	<td>Limite de temps CPU. Envoi un signal SIGXCPU pour terminer le processus. <br>Attention:
+	 différence entre temps CPU (i.e. le temps CPU attribué ) et temps 
+	d’exécution (i.e. le temps qui s’écoule depuis le début du programme).</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_FSIZE</td>
+	<td>Taille max. des fichiers que le processus peu créer</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_LOCKS</td>
+	<td>Nombre max. de verrous (c.f. cours sur les fichiers)</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_MEMLOCK</td>
+	<td>Taille max. de la mémoire vérrouillable par <code>mlock</code></td>
+	</tr>
+	<tr>
+	<td>RLIMIT_NPROC</td>
+	<td>Nombre max. de processus pour cet utilisateur</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_RTPRIO</td>
+	<td>Priorité statique maximale</td>
+	</tr>
+	<tr>
+	<td>RLIMIT_NICE</td>
+	<td>Valeur nice maximale</td>
+	</tr>
+	</tbody></table>
+	</section><section data-markdown="" data-markdown-parsed="true" class="past" style="top: 0px; display: block;" hidden="" aria-hidden="true"><h2 id="comptabiliser-les-ressources">Comptabiliser les ressources</h2>
+	<p>Pour connaitre la consommation actuelle des ressource on utilise:</p>
+	<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/time.h&gt;</span></span>
+	<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/resource.h&gt;</span></span>
+	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getrusage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> who, struct rusage *usage)</span></span>;</code></pre><p><code>who</code> définit si les ressources du processus courant ou de son/ses enfants doivent être comptabilisées (<code>RUSAGE_SELF</code>, <code>RUSAGE_CHILDREN</code>).</p>
+	<p>Les champs de la structure rusage donnent la consommation de chaque ressources dont:</p>
+	<pre style="width:100%"><code class="c hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rusage</span> {</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timeval</span> <span class="hljs-title">ru_utime</span>;</span> <span class="hljs-comment">/* temps CPU passé en mode utilisateur */</span>
+		<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timeval</span> <span class="hljs-title">ru_stime</span>;</span> <span class="hljs-comment">/* temps CPU passé en mode noyaux */</span>
+		<span class="hljs-keyword">long</span>   ru_minflt;        <span class="hljs-comment">/* nombre de défauts de page mineurs */</span>
+		<span class="hljs-keyword">long</span>   ru_majflt;        <span class="hljs-comment">/* nombre de défauts de page majeurs */</span>
+		<span class="hljs-keyword">long</span>   ru_nvcsw;         <span class="hljs-comment">/* nombre de commutations de contexte volontaires; */</span>
+		<span class="hljs-keyword">long</span>   ru_nivcsw;        <span class="hljs-comment">/* nombre de commutations de contexte involontaires */</span>
+		...
+	};</code></pre><!-- -->
+	</section><section data-markdown="" data-markdown-parsed="true" class="present" style="top: 10px; display: block;"><h2 id="autres-informations-sur-les-proc">Autres informations sur les proc.</h2>
+	<p>Le pseudo system de fichier /proc permet d’avoir énormément d’informations sur les processus:</p>
+	<ul>
+	<li>/proc/pid/status : statut du processus</li>
+	<li>/proc/pid/fd/ : liste des descripteurs de fichiers utilisés par le processus</li>
+	<li>/proc/pid/fdinfo/ : informations pour chaque fichier ouvert (position, flags, ...)</li>
+	<li>/proc/pid/maps : table décrivant l’espace virtuel du processus</li>
+	<li>/proc/pid/mem :  pages de la mémoire virtuelle du processus</li>
+	<li>/proc/pid/root : lien vers la racine du processus (i.e. chroot value)</li>
+	</ul>
+	<p>Note 1: “pid” peut être remplacé par “self” pour avoir des informations sur le processus courant</p>
+	<p><strong>Note 2: on ne peut pas interroger le noyaux sur les processus
+	 qu’il gère par des fonctions -&gt; soit utilisation de /proc soit de la
+	 commande ps</strong></p>
+	</section></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <!-- <script src="node_modules/reveal.js-menu/menu.js"></script>   -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+// chalkboard plugin begin
+ //       Reveal.initialize({
+         /* customcontrols: {
+                controls: [
+                  { icon: '<i class="fa fa-pen-square"></i>',
+                    title: 'Toggle chalkboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                  },
+                  { icon: '<i class="fa fa-pen"></i>',
+                    title: 'Toggle notes canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                  }
+                ]
+              },
+              chalkboard: {
+                // add configuration here
+              },
+              // ...
+              //plugins: [ RevealChalkboard, RevealCustomControls ],
+              // ...
+// chalkboard plugin end */
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]//, RevealChalkboard, RevealCustomControls, RevealMenu
+			});
+		</script>
+	</body>
+</html>
