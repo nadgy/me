@@ -7509,7 +7509,52 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7de6ab76">
+<main>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85005961">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Cr%C3%A9ez-une-carte-choropl%C3%A8the">Créez une carte choroplèthe<a class="anchor-link" href="#Cr%C3%A9ez-une-carte-choropl%C3%A8the">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a65e6a8d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Carte-de-population-de-Bouira">Carte de population de Bouira<a class="anchor-link" href="#Carte-de-population-de-Bouira">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=671168c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Une carte choroplèthe (du grec χῶρος  : « zone/région » et πλῆθος  : « grand nombre, multitude ») est une carte <strong>thématique</strong> où les régions sont <em>colorées</em> ou remplies d'un motif qui montre <strong>une mesure statistique</strong>, tels la <strong>densité de population</strong> ou <strong>le revenu par habitant</strong>. Ce type de carte facilite la comparaison d'une mesure statistique d'une région à l'autre ou montre la variabilité de celle-ci pour une région donnée.<a href="https://fr.wikipedia.org/wiki/Carte_choropl%C3%A8the">wikipedia</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e4a38b0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Pr%C3%A9paration-de-donn%C3%A9es">Préparation de données<a class="anchor-link" href="#Pr%C3%A9paration-de-donn%C3%A9es">¶</a></h3><p>Nous allos créer une carte <strong>choplèthe</strong> pour visualiser géographiquement la population de Bouira, et pour cela il faut avoir la frontière Administrative de <a href="https://nadgy.github.io/4univ/get_Data.html#/3">Bouira</a> et aussi télécharger le fichier <strong>CSV</strong> de la <a href="http://localhost:8000/MyStudentsWork/Population10.csv">Populations</a> de Bouira</p>
+<p><em>Source  du fichier popultion:</em> <a href="https://www.ons.dz/collections/">ONS</a></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7de6ab76">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8818,6 +8863,21 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d173fc8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Normalisation-des-donn%C3%A9es">Normalisation des données<a class="anchor-link" href="#Normalisation-des-donn%C3%A9es">¶</a></h1><ul>
+<li>Mettre les noms de communes en majuscule</li>
+<li>Remplacer le caractère blanc par un tiret '-'</li>
+<li>Renommer la colomnne Communes par NAME_2</li>
+</ul>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5dbb57a2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8860,6 +8920,19 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=663cb7d5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Sauvegarder le dataframe normalisé</li>
+</ul>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=83850b52">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8874,17 +8947,15 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f5ee3a54">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=91f1b327">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#gdf = gdf.set_index("NAME_2")</span>
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Fusion">Fusion<a class="anchor-link" href="#Fusion">¶</a></h1><p>Maintenant, après avoir normaliser on peut Fusionner la geodataframe (frontière) avec la dataframe (Population)</p>
+<p><em>Question</em> on dit <strong>un</strong> dataframe où <strong>une</strong> dataframe?</p>
 </div>
 </div>
 </div>
@@ -8893,7 +8964,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">gdf</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"NAME_2"</span><span class="p">)</span>
@@ -8908,7 +8979,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8928,13 +8999,13 @@ a.anchor-link {
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>NAME_2</th>
 <th>ID_0</th>
 <th>ISO</th>
 <th>NAME_0</th>
 <th>ID_1</th>
 <th>NAME_1</th>
 <th>ID_2</th>
+<th>NAME_2</th>
 <th>TYPE_2</th>
 <th>ENGTYPE_2</th>
 <th>X</th>
@@ -8952,13 +9023,13 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>AGHBALOU</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>353</td>
+<td>AGHBALOU</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -8974,13 +9045,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>1</th>
-<td>AHL-EL-KSAR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>354</td>
+<td>AHL-EL-KSAR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -8996,13 +9067,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>2</th>
-<td>AHNIF</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>355</td>
+<td>AHNIF</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9018,13 +9089,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>3</th>
-<td>AIN-BESSEM</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>356</td>
+<td>AIN-BESSEM</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9040,13 +9111,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>4</th>
-<td>AIN-EL-HADJAR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>357</td>
+<td>AIN-EL-HADJAR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9062,13 +9133,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>5</th>
-<td>AIN-LALOUI</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>358</td>
+<td>AIN-LALOUI</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9084,13 +9155,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>6</th>
-<td>AIN-TURK</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>359</td>
+<td>AIN-TURK</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9106,13 +9177,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>7</th>
-<td>AIT-LAAZIZ</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>360</td>
+<td>AIT-LAAZIZ</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9128,13 +9199,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>8</th>
-<td>AOMAR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>361</td>
+<td>AOMAR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9150,13 +9221,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>9</th>
-<td>ATH-MANSOUR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>362</td>
+<td>ATH-MANSOUR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9172,13 +9243,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>10</th>
-<td>BECHLOUL</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>363</td>
+<td>BECHLOUL</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9194,13 +9265,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>11</th>
-<td>BIR-GHBALOU</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>364</td>
+<td>BIR-GHBALOU</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9216,13 +9287,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>12</th>
-<td>BORDJ-OKHRISS</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>365</td>
+<td>BORDJ-OKHRISS</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9238,13 +9309,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>13</th>
-<td>BOUDERBALA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>366</td>
+<td>BOUDERBALA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9260,13 +9331,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>14</th>
-<td>BOUIRA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>367</td>
+<td>BOUIRA</td>
 <td>Chef-Lieu-Wilaya</td>
 <td>Chef-Lieu-Wilaya</td>
 <td>None</td>
@@ -9282,13 +9353,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>15</th>
-<td>BOUKRAM</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>368</td>
+<td>BOUKRAM</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9304,13 +9375,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>16</th>
-<td>CHORFA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>369</td>
+<td>CHORFA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9326,13 +9397,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>17</th>
-<td>DECHMIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>370</td>
+<td>DECHMIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9348,13 +9419,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>18</th>
-<td>DIRRAH</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>371</td>
+<td>DIRRAH</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9370,13 +9441,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>19</th>
-<td>DJEBAHIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>372</td>
+<td>DJEBAHIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9392,13 +9463,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>20</th>
-<td>EL-ADJIBA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>373</td>
+<td>EL-ADJIBA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9414,13 +9485,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>21</th>
-<td>EL-ASNAM</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>374</td>
+<td>EL-ASNAM</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9436,13 +9507,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>22</th>
-<td>EL-HACHIMIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>375</td>
+<td>EL-HACHIMIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9458,13 +9529,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>23</th>
-<td>EL-HAKIMIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>376</td>
+<td>EL-HAKIMIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9480,13 +9551,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>24</th>
-<td>EL-KHABOUZIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>377</td>
+<td>EL-KHABOUZIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9502,13 +9573,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>25</th>
-<td>EL-MOKRANI</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>378</td>
+<td>EL-MOKRANI</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9524,13 +9595,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>26</th>
-<td>GUERROUMA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>379</td>
+<td>GUERROUMA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9546,13 +9617,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>27</th>
-<td>HADJERA-ZERGA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>380</td>
+<td>HADJERA-ZERGA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9568,13 +9639,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>28</th>
-<td>HAIZER</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>381</td>
+<td>HAIZER</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9590,13 +9661,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>29</th>
-<td>KADIRIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>382</td>
+<td>KADIRIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9612,13 +9683,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>30</th>
-<td>LAKHDARIA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>383</td>
+<td>LAKHDARIA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9634,13 +9705,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>31</th>
-<td>M'CHEDALLAH</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>384</td>
+<td>M'CHEDALLAH</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9656,13 +9727,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>32</th>
-<td>MAALA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>385</td>
+<td>MAALA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9678,13 +9749,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>33</th>
-<td>MAAMOURA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>386</td>
+<td>MAAMOURA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9700,13 +9771,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>34</th>
-<td>MEZDOUR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>387</td>
+<td>MEZDOUR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9722,13 +9793,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>35</th>
-<td>OUED-EL-BERDI</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>388</td>
+<td>OUED-EL-BERDI</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9744,13 +9815,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>36</th>
-<td>OULED-RACHED</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>389</td>
+<td>OULED-RACHED</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9766,13 +9837,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>37</th>
-<td>RAOURAOUA</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>390</td>
+<td>RAOURAOUA</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9788,13 +9859,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>38</th>
-<td>RIDANE</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>391</td>
+<td>RIDANE</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9810,13 +9881,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>39</th>
-<td>SAHARIDJ</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>392</td>
+<td>SAHARIDJ</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9832,13 +9903,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>40</th>
-<td>SOUK-EL-KHEMIS</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>393</td>
+<td>SOUK-EL-KHEMIS</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9854,13 +9925,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>41</th>
-<td>SOUR-EL-GHOZLANE</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>394</td>
+<td>SOUR-EL-GHOZLANE</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9876,13 +9947,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>42</th>
-<td>TAGHZOUT</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>395</td>
+<td>TAGHZOUT</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9898,13 +9969,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>43</th>
-<td>TAGUEDITE</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>396</td>
+<td>TAGUEDITE</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9920,13 +9991,13 @@ a.anchor-link {
 </tr>
 <tr>
 <th>44</th>
-<td>Z'BARBAR</td>
 <td>5</td>
 <td>DZA</td>
 <td>Algeria</td>
 <td>12</td>
 <td>Bouira</td>
 <td>397</td>
+<td>Z'BARBAR</td>
 <td>Commune</td>
 <td>Commune</td>
 <td>None</td>
@@ -9974,7 +10045,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> <span class="c1"># Plot by population</span>
@@ -10013,7 +10084,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">merged</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -10054,7 +10125,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -10118,7 +10189,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">merged</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">'Total'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'OrRd'</span><span class="p">);</span>
